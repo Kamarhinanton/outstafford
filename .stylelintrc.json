@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-standard-scss",
+    "stylelint-config-rational-order"
+  ],
+  "plugins": ["stylelint-order", "stylelint-scss"],
+  "rules": {
+    "selector-class-pattern": null,
+    "no-descending-specificity": null,
+    "indentation": 2,
+    "declaration-block-no-redundant-longhand-properties": [
+      true, {
+        "ignoreShorthands": ["grid-template"]
+      }
+    ]
+  }
+}
