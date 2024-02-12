@@ -24,8 +24,10 @@ export default function Document() {
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </Head>
       <body>
-        <Main />
-        <NextScript />
+        <div className="wrapper">
+          <Main />
+          <NextScript />
+        </div>
       </body>
     </Html>
   )

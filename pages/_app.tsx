@@ -1,6 +1,8 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import AppLayout from '@/app/layouts/AppLayout'
 import localFont from 'next/font/local'
+
 import '@/app/styles/index.scss'
 
 const grtskTera = localFont({
@@ -44,7 +46,9 @@ export default function App({ Component, pageProps }: AppProps) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
         />
       </Head>
-      <Component {...pageProps} />
+      <AppLayout>
+        <Component {...pageProps} />
+      </AppLayout>
     </>
   )
 }
