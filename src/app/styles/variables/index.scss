@@ -1,6 +1,4 @@
 :root {
-  /* ====================================== TEXT STYLES =========================================== */
-
   // HEADINGS
   --font-h1: 700 120rem / 108% var(--font-family-primary);
   --font-h2: 700 64rem / 100% var(--font-family-primary);
@@ -17,15 +15,23 @@
   // OTHER
   --min-layout-width: 320rem;
 
-  /* ====================================== COLORS =========================================== */
-
+  // COLORS
   --primary-color: #75FB61;
   --white: #fff;
   --black: #0F0F0F;
 
-  /* ====================================== BASE ANIMATION =========================================== */
-
+  // BASE ANIMATIONS
   --ease: ease;
   --duration: .5s;
+}
 
+@media (width <= $breakpoint-mob) {
+  :root {
+    // HEADINGS
+    --font-h1: 700 36rem / 104% var(--font-family-primary);
+    --font-h2: 700 24rem / 100% var(--font-family-primary);
+    --font-h3: 700 16rem / 100% var(--font-family-primary);
+    --font-h4: 700 16rem / 100% var(--font-family-primary);
+    --font-h5: 700 16rem / 100% var(--font-family-primary);
+  }
 }

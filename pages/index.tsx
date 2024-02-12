@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Container from '@/app/layouts/Container'
 
 export default function Home() {
   return (
@@ -7,7 +8,9 @@ export default function Home() {
         <title>Outstafford</title>
       </Head>
       <main>
-        <h1>Coming soon</h1>
+        <Container>
+          <h1>Coming soon</h1>
+        </Container>
       </main>
     </>
   )

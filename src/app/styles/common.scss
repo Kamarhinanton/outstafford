@@ -5,6 +5,10 @@ html {
     font-size: calc(100vw / 360);
   }
 
+  @media (width >= $breakpoint-desktop-large) {
+    font-size: 1px;
+  }
+
   // hide scroll
 
   //&::-webkit-scrollbar {
