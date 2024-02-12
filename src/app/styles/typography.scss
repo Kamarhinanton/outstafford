@@ -1,0 +1,29 @@
+h1, .h1 {
+  font: var(--font-h1);
+}
+
+h2, .h2 {
+  font: var(--font-h2);
+}
+
+h3, .h3 {
+  font: var(--font-h3);
+}
+
+h4, .h4 {
+  font: var(--font-h4);
+}
+
+h5, .h5 {
+  font: var(--font-h5);
+}
+
+p {
+  font: var(--font-l);
+}
+
+a {
+  font: var(--link-s);
+  color: var(--white);
+  text-decoration: none;
+}

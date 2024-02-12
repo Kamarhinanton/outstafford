@@ -1,0 +1,20 @@
+// custom container
+.base-container {
+  position: relative;
+  width: 100%;
+  max-width: 1920rem;
+  margin: 0 auto;
+  padding: 0 90rem;
+
+  &.small {
+    padding: 0 204rem;
+  }
+
+  //@media (width <= $breakpoint-mob) {
+  //  padding: 0 24rem;
+  //
+  //  &.xl {
+  //    padding: 0 8rem;
+  //  }
+  //}
+}

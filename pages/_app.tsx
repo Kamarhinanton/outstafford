@@ -1,7 +1,7 @@
-// import '@/styles/globals.scss'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import localFont from 'next/font/local'
+import '@/app/styles/index.scss'
 
 const grtskTera = localFont({
   src: [

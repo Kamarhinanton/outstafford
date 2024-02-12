@@ -1,0 +1,31 @@
+:root {
+  /* ====================================== TEXT STYLES =========================================== */
+
+  // HEADINGS
+  --font-h1: 700 120rem / 108% var(--font-family-primary);
+  --font-h2: 700 64rem / 100% var(--font-family-primary);
+  --font-h3: 700 36rem / 100% var(--font-family-primary);
+  --font-h4: 700 28rem / 100% var(--font-family-primary);
+  --font-h5: 700 18rem / 100% var(--font-family-primary);
+
+  // BODY
+  --font-l: 400 28rem / 150% var(--font-family-secondary);
+  --font-m: 400 20rem / 150% var(--font-family-secondary);
+  --font-s: 400 16rem / 150% var(--font-family-secondary);
+  --link-s: 400 24rem / 150% var(--font-family-secondary);
+
+  // OTHER
+  --min-layout-width: 320rem;
+
+  /* ====================================== COLORS =========================================== */
+
+  --primary-color: #75FB61;
+  --white: #fff;
+  --black: #0F0F0F;
+
+  /* ====================================== BASE ANIMATION =========================================== */
+
+  --ease: ease;
+  --duration: .5s;
+
+}

@@ -7,8 +7,7 @@ export default function Home() {
         <title>Outstafford</title>
       </Head>
       <main>
-        <p>Hello</p>
-        <p></p>
+        <h1>Coming soon</h1>
       </main>
     </>
   )
