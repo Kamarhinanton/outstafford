@@ -10,12 +10,16 @@ const grtskTera = localFont({
     {
       path: '../public/fonts/grtsk-tera-8.woff',
       weight: '700',
+      style: 'normal',
     },
     {
       path: '../public/fonts/grtsk-tera-8.woff2',
       weight: '700',
+      style: 'normal',
     },
   ],
+  preload: true,
+  display: 'swap',
 })
 
 const matter = localFont({
@@ -23,12 +27,16 @@ const matter = localFont({
     {
       path: '../public/fonts/Matter-Regular.woff',
       weight: '400',
+      style: 'normal',
     },
     {
       path: '../public/fonts/Matter-Regular.woff2',
       weight: '400',
+      style: 'normal',
     },
   ],
+  preload: true,
+  display: 'swap',
 })
 
 export default function App({ Component, pageProps }: AppProps) {

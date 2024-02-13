@@ -1,0 +1,15 @@
+.header{
+  &__container{
+    display: flex;
+    justify-content: center;
+
+    &_content{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem;
+      background-color: rgb(175 159 159 / 12%);
+      border-radius: 500rem;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.buttonPrimary{
+  padding: 16rem 32rem;
+  font-size: 18rem;
+  font-family: var(--font-family-primary);
+  line-height: 22rem;
+  border-radius: 500rem;
+
+  &.grey{
+    background: var(--grey-btn);
+  }
+}

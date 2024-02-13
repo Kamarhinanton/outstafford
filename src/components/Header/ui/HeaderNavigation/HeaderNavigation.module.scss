@@ -1,0 +1,13 @@
+.header-navigation{
+  margin: 0 28rem;
+
+  &__link{
+    margin: 0 30rem 0 0;
+    font-size: 18rem;
+    font-family: var(--font-family-primary);
+
+    &:last-child{
+      margin: 0;
+    }
+  }
+}
