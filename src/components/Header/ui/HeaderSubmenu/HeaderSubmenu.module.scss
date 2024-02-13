@@ -1,0 +1,46 @@
+.header-submenu{
+  position: fixed;
+  bottom: 148rem;
+  left: 50%;
+  display: flex;
+  padding: 36rem 36rem 40rem;
+  background-color: var(--grey-dark);
+  border-radius: 24rem;
+  transform: translateX(-50%);
+
+  &__column{
+    width: 260rem;
+    padding: 0 30rem 0 0 ;
+
+    .title{
+      color: var(--white);
+      font: var(--font-s);
+      opacity: 0.4;
+    }
+
+    .list{
+      margin: 20rem 0 0;
+
+      &__item{
+        display: flex;
+        margin: 0 0 24rem;
+        font: var(--link-s);
+
+        &:last-child{
+          margin: 0;
+        }
+
+        &_icon{
+          position: relative;
+          width: 40rem;
+          height: 35rem;
+          margin: 0 18rem 0 0;
+
+          .img{
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+}

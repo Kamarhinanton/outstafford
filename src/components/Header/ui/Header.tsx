@@ -4,18 +4,22 @@ import HeaderNavigation from '@/components/Header/ui/HeaderNavigation/HeaderNavi
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 
 import styles from './Header.module.scss'
+import HeaderSubmenu from '@/components/Header/ui/HeaderSubmenu/HeaderSubmenu'
 
 const Header = () => {
   return (
-    <header className={styles['header']}>
-      <div className={styles['header__container']}>
-        <div className={styles['header__container_content']}>
-          <CallMenuButton />
-          <HeaderNavigation />
-          <ButtonPrimary>Contact us</ButtonPrimary>
+    <>
+      <header className={styles['header']}>
+        <div className={styles['header__container']}>
+          <div className={styles['header__container_content']}>
+            <CallMenuButton />
+            <HeaderNavigation />
+            <ButtonPrimary>Contact us</ButtonPrimary>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+      <HeaderSubmenu />
+    </>
   )
 }
 
