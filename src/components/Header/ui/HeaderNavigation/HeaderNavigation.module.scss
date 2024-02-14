@@ -5,6 +5,11 @@
     margin: 0 30rem 0 0;
     font-size: 18rem;
     font-family: var(--font-family-primary);
+    transition: var(--duration-hover) var(--ease);
+
+    &:hover{
+      color: var(--primary-color);
+    }
 
     &:last-child{
       margin: 0;

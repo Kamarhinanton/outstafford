@@ -13,7 +13,6 @@ const headerVariant = {
   transition: {
     ease: 'easeInOut',
     duration: 0.5,
-    // delay: 0.5,
   },
 }
 const HeaderSubmenu = () => {
@@ -28,14 +27,16 @@ const HeaderSubmenu = () => {
           <ul className={styles['list']}>
             {column.links.map((row) => (
               <li className={styles['list__item']} key={row.link}>
-                {row.src && (
-                  <BackgroundImage
-                    className={styles['list__item_icon']}
-                    src={row.src}
-                    alt={row.link}
-                  />
-                )}
-                <Link href={row.href}>{row.link}</Link>
+                <Link className={styles['list__item_link']} href={row.href}>
+                  {row.src && (
+                    <BackgroundImage
+                      className={styles['icon']}
+                      src={row.src}
+                      alt={row.link}
+                    />
+                  )}
+                  <span className={styles['text']}>{row.link}</span>
+                </Link>
               </li>
             ))}
           </ul>

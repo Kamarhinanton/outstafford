@@ -25,7 +25,7 @@ export const headerSubmenuData: HeaderSubmenuData = [
     links: [
       { link: 'Our team', href: '/' },
       { link: 'How we work', href: '/' },
-      { link: 'reviews', href: '/' },
+      { link: 'Reviews', href: '/' },
       { link: 'Our blog', href: '/' },
       { link: 'Careers', href: '/' },
     ],

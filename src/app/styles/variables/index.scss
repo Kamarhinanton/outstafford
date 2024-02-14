@@ -24,6 +24,7 @@
   // BASE ANIMATIONS
   --ease: ease;
   --duration: 1s;
+  --duration-hover: 0.5s;
 }
 
 @media (width <= $breakpoint-mob) {
