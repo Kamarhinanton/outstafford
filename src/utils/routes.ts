@@ -5,5 +5,6 @@ export default {
     blog: '/blog',
     projects: '/projects',
     work: '/work',
+    contact: '/contact',
   },
 }

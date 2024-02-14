@@ -6,6 +6,7 @@ import HeaderSubmenu from '@/components/Header/ui/HeaderSubmenu/HeaderSubmenu'
 import { AnimatePresence } from 'framer-motion'
 
 import styles from './Header.module.scss'
+import routes from '@/utils/routes'
 
 const Header = () => {
   const [callMenu, setCallMenu] = useState(false)
@@ -17,7 +18,9 @@ const Header = () => {
           <div className={styles['header__container_content']}>
             <CallMenuButton setCallMenu={setCallMenu} callMenu={callMenu} />
             <HeaderNavigation />
-            <ButtonPrimary>Contact us</ButtonPrimary>
+            <ButtonPrimary href={routes.public.contact}>
+              Contact us
+            </ButtonPrimary>
           </div>
         </div>
         <AnimatePresence>{callMenu && <HeaderSubmenu />}</AnimatePresence>

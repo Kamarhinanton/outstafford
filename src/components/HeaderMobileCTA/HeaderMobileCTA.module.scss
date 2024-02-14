@@ -1,0 +1,19 @@
+.header-mobile-cta{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  padding: 13rem 0;
+
+  &__content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &_logo{
+      width: 48rem;
+      height: 48rem;
+    }
+  }
+}

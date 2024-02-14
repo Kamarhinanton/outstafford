@@ -1,3 +1,5 @@
+@import '@/app/styles/variables/breakpoints';
+
 .buttonPrimary{
   padding: 16rem 32rem;
   font-size: 18rem;
@@ -7,5 +9,14 @@
 
   &.grey{
     background: var(--grey-btn);
+  }
+
+  &.green{
+    color: var(--black);
+    background: var(--primary-color);
+  }
+
+  @media (width<=$breakpoint-mob) {
+    padding: 9rem 23rem;
   }
 }

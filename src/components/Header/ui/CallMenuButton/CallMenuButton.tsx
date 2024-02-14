@@ -3,13 +3,13 @@ import styles from './CallMenuButton.module.scss'
 import classNames from 'classnames'
 
 type CallMenuButtonProps = {
-  setCallMenu: React.Dispatch<React.SetStateAction<boolean>>
-  callMenu: boolean
+  setCallMenu?: React.Dispatch<React.SetStateAction<boolean>>
+  callMenu?: boolean
 }
 
 const CallMenuButton: FC<CallMenuButtonProps> = ({ setCallMenu, callMenu }) => {
   const handleCallMenu = () => {
-    setCallMenu((prev) => !prev)
+    setCallMenu && setCallMenu((prev) => !prev)
   }
 
   const mods = {
