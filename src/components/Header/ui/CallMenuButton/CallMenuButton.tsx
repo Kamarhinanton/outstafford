@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { FC } from 'react'
 import styles from './CallMenuButton.module.scss'
 import classNames from 'classnames'
 
-const CallMenuButton = () => {
-  const [callMenu, setCallMenu] = useState(false)
+type CallMenuButtonProps = {
+  setCallMenu: React.Dispatch<React.SetStateAction<boolean>>
+  callMenu: boolean
+}
+
+const CallMenuButton: FC<CallMenuButtonProps> = ({ setCallMenu, callMenu }) => {
   const handleCallMenu = () => {
     setCallMenu((prev) => !prev)
   }

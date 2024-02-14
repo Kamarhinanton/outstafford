@@ -1,6 +1,7 @@
 .header-submenu{
   position: fixed;
-  bottom: 148rem;
+
+  //bottom: 148rem;
   left: 50%;
   display: flex;
   padding: 36rem 36rem 40rem;
@@ -35,10 +36,6 @@
           width: 40rem;
           height: 35rem;
           margin: 0 18rem 0 0;
-
-          .img{
-            object-fit: contain;
-          }
         }
       }
     }

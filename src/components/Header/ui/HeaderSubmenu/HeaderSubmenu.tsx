@@ -1,61 +1,24 @@
 import React from 'react'
-import styles from './HeaderSubmenu.module.scss'
 import Link from 'next/link'
-import Image from 'next/image'
+import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
+import { headerSubmenuData } from '@/components/Header/ui/HeaderSubmenu/data'
+import { motion } from 'framer-motion'
 
-type CustomLink = {
-  href: string
-  src?: string
-  link: string
+import styles from './HeaderSubmenu.module.scss'
+
+const headerVariant = {
+  animate: { opacity: 1, bottom: '148rem' },
+  initial: { opacity: 0, bottom: '136rem' },
+  exit: { opacity: 0, bottom: '136rem' },
+  transition: {
+    ease: 'easeInOut',
+    duration: 0.5,
+    // delay: 0.5,
+  },
 }
-
-type Submenu = {
-  description: string
-  links: CustomLink[]
-}
-
-type HeaderSubmenuData = Submenu[]
-
-const headerSubmenuData: HeaderSubmenuData = [
-  {
-    description: 'Our work',
-    links: [
-      { link: 'Main', href: '/' },
-      { link: 'About', href: '/' },
-      { link: 'Projects', href: '/' },
-    ],
-  },
-  {
-    description: 'Get to know us',
-    links: [
-      { link: 'Our team', href: '/' },
-      { link: 'How we work', href: '/' },
-      { link: 'reviews', href: '/' },
-      { link: 'Our blog', href: '/' },
-      { link: 'Careers', href: '/' },
-    ],
-  },
-  {
-    description: 'Links',
-    links: [
-      { href: '/', src: '/icons/icon.png', link: 'Upwork' },
-      { href: '/', src: '/icons/icon.png', link: 'Clutch' },
-      { href: '/', src: '/icons/icon.png', link: 'G2' },
-    ],
-  },
-  {
-    description: 'Find us on social media',
-    links: [
-      { href: '/', src: '/icons/icon.png', link: 'Dribbble' },
-      { href: '/', src: '/icons/icon.png', link: 'Behance' },
-      { href: '/', src: '/icons/icon.png', link: 'Instagram' },
-    ],
-  },
-]
-
 const HeaderSubmenu = () => {
   return (
-    <ul className={styles['header-submenu']}>
+    <motion.ul {...headerVariant} className={styles['header-submenu']}>
       {headerSubmenuData.map((column) => (
         <li
           className={styles['header-submenu__column']}
@@ -66,14 +29,11 @@ const HeaderSubmenu = () => {
             {column.links.map((row) => (
               <li className={styles['list__item']} key={row.link}>
                 {row.src && (
-                  <div className={styles['list__item_icon']}>
-                    <Image
-                      className={styles['img']}
-                      fill={true}
-                      src={row.src}
-                      alt={row.link}
-                    />
-                  </div>
+                  <BackgroundImage
+                    className={styles['list__item_icon']}
+                    src={row.src}
+                    alt={row.link}
+                  />
                 )}
                 <Link href={row.href}>{row.link}</Link>
               </li>
@@ -81,7 +41,7 @@ const HeaderSubmenu = () => {
           </ul>
         </li>
       ))}
-    </ul>
+    </motion.ul>
   )
 }
 
