@@ -1,0 +1,12 @@
+.header-mobile{
+  position: fixed;
+  bottom: 8rem;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+
+  &__container{
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -14,6 +14,13 @@ const DesktopHeader = dynamic(() => import('@/components/Header/ui/Header'), {
   ssr: false,
 })
 
+const MobileHeader = dynamic(
+  () => import('@/components/HeaderMobile/ui/HeaderMobile'),
+  {
+    ssr: false,
+  },
+)
+
 type AppLayoutProps = {
   children: ReactNode
 }
@@ -25,6 +32,7 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
     <>
       {width > breakpointMob && <DesktopHeader />}
       {width <= breakpointMob && <MobileCTA />}
+      {width <= breakpointMob && <MobileHeader />}
       {children}
     </>
   )
