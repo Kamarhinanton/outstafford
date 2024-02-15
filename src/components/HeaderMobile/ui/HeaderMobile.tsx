@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import CallMenuButton from '@/components/Header/ui/CallMenuButton/CallMenuButton'
 import Container from '@/app/layouts/Container'
 import HeaderMobileNavigation from '@/components/HeaderMobile/ui/HeaderMobileNavigation/HeaderMobileNavigation'
+import { AnimatePresence } from 'framer-motion'
 
 import styles from './HeaderMobile.module.scss'
 const HeaderMobile = () => {
@@ -16,7 +17,9 @@ const HeaderMobile = () => {
           </CallMenuButton>
         </Container>
       </header>
-      {callMenu && <HeaderMobileNavigation setCallMenu={setCallMenu} />}
+      <AnimatePresence>
+        {callMenu && <HeaderMobileNavigation setCallMenu={setCallMenu} />}
+      </AnimatePresence>
     </>
   )
 }

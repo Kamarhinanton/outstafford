@@ -1,12 +1,14 @@
 import React, { FC, ReactNode } from 'react'
-import styles from './CallMenuButton.module.scss'
 import classNames from 'classnames'
+
+import styles from './CallMenuButton.module.scss'
 
 type CallMenuButtonProps = {
   setCallMenu?: React.Dispatch<React.SetStateAction<boolean>>
   callMenu?: boolean
   children?: ReactNode
   className?: string
+  cross?: boolean
 }
 
 const CallMenuButton: FC<CallMenuButtonProps> = ({
@@ -14,6 +16,7 @@ const CallMenuButton: FC<CallMenuButtonProps> = ({
   callMenu,
   children,
   className,
+  cross = false,
 }) => {
   const handleCallMenu = () => {
     setCallMenu && setCallMenu((prev) => !prev)
@@ -21,6 +24,7 @@ const CallMenuButton: FC<CallMenuButtonProps> = ({
 
   const mods = {
     [styles.open]: callMenu,
+    [styles.cross]: cross,
   }
 
   return (

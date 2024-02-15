@@ -6,5 +6,6 @@ export default {
     projects: '/projects',
     work: '/work',
     contact: '/contact',
+    careers: '/careers',
   },
 }
