@@ -1,3 +1,5 @@
+@import '@/app/styles/variables/breakpoints';
+
 .header-submenu {
   position: fixed;
   left: 50%;
@@ -36,9 +38,11 @@
             transition: var(--duration-hover) var(--ease);
           }
 
-          &:hover {
-            .text {
-              color: var(--primary-color);
+          @media (width>$breakpoint-mob) {
+            &:hover {
+              .text {
+                color: var(--primary-color);
+              }
             }
           }
 

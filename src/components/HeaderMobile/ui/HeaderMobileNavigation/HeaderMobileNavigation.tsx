@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import HeaderNavigation from '@/components/Header/ui/HeaderNavigation/HeaderNavigation'
 import { headerSubmenuData } from '@/components/Header/ui/HeaderSubmenu/data'
 import { motion } from 'framer-motion'
@@ -7,6 +7,7 @@ import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import CallMenuButton from '@/components/Header/ui/CallMenuButton/CallMenuButton'
 
 import styles from './HeaderMobileNavigation.module.scss'
+import { router } from 'next/client'
 
 type HeaderMobileNavigation = {
   setCallMenu: React.Dispatch<React.SetStateAction<boolean>>
@@ -27,6 +28,18 @@ const HeaderMobileNavigation: FC<HeaderMobileNavigation> = ({
   const socialLinks = headerSubmenuData
     .flatMap((group) => group.links)
     .filter((link) => link.src && link.href)
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setCallMenu((prev) => !prev)
+    }
+
+    router.events.on('routeChangeStart', handleRouteChange)
+
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange)
+    }
+  }, [router])
 
   return (
     <motion.div
