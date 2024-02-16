@@ -11,6 +11,10 @@
     svg{
       width: 100%;
       height: 174rem;
+
+      @media (width<=$breakpoint-mob) {
+        height: 35rem;
+      }
     }
   }
 
@@ -20,7 +24,7 @@
 
     @media (width<=$breakpoint-mob) {
       flex-direction: column;
-      margin: 48rem 0 0;
+      margin: 43rem 0 0;
     }
 
     .left-section {
@@ -30,7 +34,7 @@
       @media (width<=$breakpoint-mob) {
         display: block;
         flex: initial;
-        margin: 0 0 64rem;
+        margin: 0 0 55rem;
       }
 
       &__logo {
@@ -57,6 +61,7 @@
 
           @media (width<=$breakpoint-mob) {
             font-size: 16rem;
+            text-transform: capitalize;
           }
         }
 
@@ -65,6 +70,7 @@
           font: var(--link-s);
 
           @media (width<=$breakpoint-mob) {
+            margin: 4rem 0 0;
             font-size: 14rem;
           }
         }
@@ -73,6 +79,10 @@
           display: flex;
           flex-wrap: wrap;
           margin: 28rem 0 0;
+
+          @media (width <=$breakpoint-mob) {
+            margin: 4rem 0 0;
+          }
 
           &__link {
             width: 100rem;
@@ -83,7 +93,6 @@
               width: calc((100% - (8rem * 10)) / 5);
               height: 66rem;
               margin: 8rem;
-
             }
           }
         }
@@ -101,16 +110,32 @@
 
         &:nth-child(1){
           flex: 0 1 74%;
+
+          @media (width<=$breakpoint-mob) {
+            flex: 0 1 66%;
+          }
         }
 
         &_link {
           margin: 0 0 24rem;
           transition: var(--duration-hover) var(--ease);
 
+          &:last-child{
+            margin: 0;
+          }
+
           @media (width>$breakpoint-mob) {
             &:hover {
               color: var(--primary-color);
             }
+          }
+
+          @media (width<=$breakpoint-mob) {
+            align-self: flex-start;
+            margin: 0 0 20rem;
+            font-weight: 400;
+            font-size: 14rem;
+            border-bottom: 1rem solid var(--grey-btn);
           }
         }
       }
