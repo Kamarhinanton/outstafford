@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import {
   navigationFooterLinksLeft,
+  navigationFooterLinksLeftMob,
   navigationFooterLinksRight,
   socialLinksFooterData,
 } from '@/components/Footer/data'
@@ -50,7 +51,28 @@ const Footer = () => {
             </div>
           </div>
           <nav className={styles['right-section']}>
-            <div className={styles['right-section__column']}>
+            <div
+              className={classNames(
+                styles['right-section__column'],
+                styles['mob'],
+              )}
+            >
+              {navigationFooterLinksLeftMob.map((link) => (
+                <Link
+                  className={styles['right-section__column_link']}
+                  key={link.description}
+                  href={link.href}
+                >
+                  {link.description}
+                </Link>
+              ))}
+            </div>
+            <div
+              className={classNames(
+                styles['right-section__column'],
+                styles['desktop'],
+              )}
+            >
               {navigationFooterLinksLeft.map((link) => (
                 <Link
                   className={styles['right-section__column_link']}

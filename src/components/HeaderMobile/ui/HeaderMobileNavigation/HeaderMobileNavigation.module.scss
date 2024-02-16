@@ -11,6 +11,13 @@
   overflow-y: auto;
   background-color: var(--black);
 
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
   &__container{
     &_social {
       display: flex;

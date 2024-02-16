@@ -27,6 +27,33 @@ export const navigationFooterLinksLeft = [
   },
 ]
 
+export const navigationFooterLinksLeftMob = [
+  {
+    href: '/',
+    description: 'Projects & Case studies',
+  },
+  {
+    href: '/',
+    description: 'Mobile App Development',
+  },
+  {
+    href: '/',
+    description: 'AI integrations',
+  },
+  {
+    href: '/',
+    description: 'Web Development',
+  },
+  {
+    href: '/',
+    description: 'Join our team',
+  },
+  {
+    href: routes.public.contact,
+    description: 'Contact us',
+  },
+]
+
 export const navigationFooterLinksRight = [
   {
     href: '/',
