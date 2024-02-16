@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import CallMenuButton from '@/components/Header/ui/CallMenuButton/CallMenuButton'
 import Container from '@/app/layouts/Container'
 import HeaderMobileNavigation from '@/components/HeaderMobile/ui/HeaderMobileNavigation/HeaderMobileNavigation'
