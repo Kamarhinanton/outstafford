@@ -37,7 +37,7 @@ const Footer = () => {
                 {socialLinksFooterData.map((social) => (
                   <Link
                     className={styles['social__link']}
-                    key={social.src}
+                    key={social.link}
                     href={social.href}
                   >
                     <BackgroundImage

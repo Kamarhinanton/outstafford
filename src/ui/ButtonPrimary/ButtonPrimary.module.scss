@@ -6,9 +6,16 @@
   font-family: var(--font-family-primary);
   line-height: 22rem;
   border-radius: 500rem;
+  transition: var(--duration-hover) var(--ease);
 
   &.grey{
     background: var(--grey-btn);
+
+    @media (width>$breakpoint-mob) {
+      &:hover{
+        background: var(--primary-color);
+      }
+    }
   }
 
   &.green{
