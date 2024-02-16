@@ -3,24 +3,46 @@
 .footer {
   padding: 90rem 0 373rem;
 
+  @media (width<=$breakpoint-mob) {
+    padding: 96rem 0;
+  }
+
   .title {
-    color: var(--primary-color);
+    svg{
+      width: 100%;
+      height: 174rem;
+    }
   }
 
   &__wrapper {
     display: flex;
-    margin: 83rem 0 0;
+    margin: 60rem 0 0;
+
+    @media (width<=$breakpoint-mob) {
+      flex-direction: column;
+      margin: 48rem 0 0;
+    }
 
     .left-section {
       display: flex;
-      flex: 0 1 70%;
+      flex: 0 1 72%;
+
+      @media (width<=$breakpoint-mob) {
+        display: block;
+        flex: initial;
+        margin: 0 0 64rem;
+      }
 
       &__logo {
-        width: 109rem;
-        height: 106rem;
-        margin: 0 36rem 0 0;
+        width: 126rem;
+        height: 118rem;
+        margin: 0 19rem 0 0;
 
-        svg{
+        @media (width<=$breakpoint-mob) {
+          display: none;
+        }
+
+        svg {
           width: 100%;
           height: 100%;
           object-fit: contain;
@@ -32,20 +54,37 @@
           font-weight: 700;
           font-size: 48rem;
           font-family: var(--font-family-primary);
+
+          @media (width<=$breakpoint-mob) {
+            font-size: 16rem;
+          }
         }
 
         .bottom-text {
+          margin: 8rem 0 0;
           font: var(--link-s);
+
+          @media (width<=$breakpoint-mob) {
+            font-size: 14rem;
+          }
         }
 
         .social {
           display: flex;
-          margin: 36rem 0 0;
+          flex-wrap: wrap;
+          margin: 28rem 0 0;
 
           &__link {
             width: 100rem;
             height: 100rem;
             margin: 0 11rem 0 0;
+
+            @media (width<=$breakpoint-mob) {
+              width: calc((100% - (8rem * 10)) / 5);
+              height: 66rem;
+              margin: 8rem;
+
+            }
           }
         }
       }
@@ -53,27 +92,26 @@
 
     .right-section {
       display: flex;
-      flex: 0 1 30%;
-      flex-flow: column wrap;
-      height: 300rem;
+      flex: 1;
 
-      &__link {
-        margin: 0 0 24rem;
-        transition: var(--duration-hover) var(--ease);
+      &__column {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
 
-        @media (width>$breakpoint-mob) {
-          &:hover{
-            color: var(--primary-color);
+        &:nth-child(1){
+          flex: 0 1 74%;
+        }
+
+        &_link {
+          margin: 0 0 24rem;
+          transition: var(--duration-hover) var(--ease);
+
+          @media (width>$breakpoint-mob) {
+            &:hover {
+              color: var(--primary-color);
+            }
           }
-        }
-
-        &:nth-child(-n+5){
-          width: 70%;
-          padding: 0 24rem 0 0;
-        }
-
-        &:nth-child(n+6) {
-          width: 30%;
         }
       }
     }

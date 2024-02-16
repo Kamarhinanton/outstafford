@@ -1,20 +1,26 @@
 import React from 'react'
 import Container from '@/app/layouts/Container'
 import Logo from '../../../public/icons/logo.svg'
-import { socialLinksData } from '@/components/HeaderMobile/ui/HeaderMobileNavigation/data'
 import Link from 'next/link'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
-import { navigationFooterLinks } from '@/components/Footer/data'
-
-import styles from './Footer.module.scss'
+import {
+  navigationFooterLinksLeft,
+  navigationFooterLinksRight,
+  socialLinksFooterData,
+} from '@/components/Footer/data'
 import classNames from 'classnames'
 import routes from '@/utils/routes'
+import Outstafford from '../../../public/icons/outstafford.svg'
+
+import styles from './Footer.module.scss'
 
 const Footer = () => {
   return (
     <footer className={styles['footer']}>
       <Container>
-        <p className={classNames(styles['title'], 'h1')}>Outstafford</p>
+        <div className={classNames(styles['title'], 'h1')}>
+          <Outstafford />
+        </div>
         <div className={styles['footer__wrapper']}>
           <div className={styles['left-section']}>
             <Link
@@ -27,7 +33,7 @@ const Footer = () => {
               <p className={styles['top-text']}>It’s all about the team</p>
               <p className={styles['bottom-text']}>© Outstafford 2024</p>
               <nav className={styles['social']}>
-                {socialLinksData.map((social) => (
+                {socialLinksFooterData.map((social) => (
                   <Link
                     className={styles['social__link']}
                     key={social.src}
@@ -44,15 +50,28 @@ const Footer = () => {
             </div>
           </div>
           <nav className={styles['right-section']}>
-            {navigationFooterLinks.map((link) => (
-              <Link
-                className={styles['right-section__link']}
-                key={link.description}
-                href={link.href}
-              >
-                {link.description}
-              </Link>
-            ))}
+            <div className={styles['right-section__column']}>
+              {navigationFooterLinksLeft.map((link) => (
+                <Link
+                  className={styles['right-section__column_link']}
+                  key={link.description}
+                  href={link.href}
+                >
+                  {link.description}
+                </Link>
+              ))}
+            </div>
+            <div className={styles['right-section__column']}>
+              {navigationFooterLinksRight.map((link) => (
+                <Link
+                  className={styles['right-section__column_link']}
+                  key={link.description}
+                  href={link.href}
+                >
+                  {link.description}
+                </Link>
+              ))}
+            </div>
           </nav>
         </div>
       </Container>

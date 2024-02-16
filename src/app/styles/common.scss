@@ -2,7 +2,7 @@ html {
   font-size: calc(100vw / 1920);
 
   @media (width <= $breakpoint-mob) {
-    font-size: calc(100vw / 360);
+    font-size: calc(100vw / 390);
   }
 
   @media (width >= $breakpoint-desktop-large) {

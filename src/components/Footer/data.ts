@@ -1,6 +1,6 @@
 import routes from '@/utils/routes'
 
-export const navigationFooterLinks = [
+export const navigationFooterLinksLeft = [
   {
     href: routes.public.about,
     description: 'About',
@@ -18,9 +18,16 @@ export const navigationFooterLinks = [
     description: 'Careers',
   },
   {
+    href: routes.public.blog,
+    description: 'Our Blog',
+  },
+  {
     href: routes.public.contact,
     description: 'Contact us',
   },
+]
+
+export const navigationFooterLinksRight = [
   {
     href: '/',
     description: 'Terms',
@@ -33,4 +40,12 @@ export const navigationFooterLinks = [
     href: '/',
     description: 'Cookies',
   },
+]
+
+export const socialLinksFooterData = [
+  { href: '/', src: '/icons/logo.svg', link: 'Upwork' },
+  { href: '/', src: '/icons/logo.svg', link: 'Clutch' },
+  { href: '/', src: '/icons/logo.svg', link: 'G2' },
+  { href: '/', src: '/icons/logo.svg', link: 'Dribbble' },
+  { href: '/', src: '/icons/logo.svg', link: 'Behance' },
 ]

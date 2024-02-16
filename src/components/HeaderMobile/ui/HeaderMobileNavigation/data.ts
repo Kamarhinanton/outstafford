@@ -1,8 +1,8 @@
 export const socialLinksData = [
-  { href: '/', src: '/icons/icon.png', link: 'Upwork' },
-  { href: '/', src: '/icons/icon.png', link: 'Clutch' },
-  { href: '/', src: '/icons/icon.png', link: 'G2' },
-  { href: '/', src: '/icons/icon.png', link: 'Dribbble' },
-  { href: '/', src: '/icons/icon.png', link: 'Behance' },
-  { href: '/', src: '/icons/icon.png', link: 'Instagram' },
+  { href: '/', src: '/icons/logo.svg', link: 'Upwork' },
+  { href: '/', src: '/icons/logo.svg', link: 'Clutch' },
+  { href: '/', src: '/icons/logo.svg', link: 'G2' },
+  { href: '/', src: '/icons/logo.svg', link: 'Dribbble' },
+  { href: '/', src: '/icons/logo.svg', link: 'Behance' },
+  { href: '/', src: '/icons/logo.svg', link: 'Instagram' },
 ]
