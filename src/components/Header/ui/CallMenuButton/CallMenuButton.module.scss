@@ -11,6 +11,12 @@
   border-radius: 40rem;
   transition: background-color var(--duration) var(--ease);
 
+  @media (width>$breakpoint-mob){
+    &:hover{
+      background-color: var(--primary-color);
+    }
+  }
+
   @media (width>$breakpoint-mob) {
     &.open {
       background-color: var(--primary-color);

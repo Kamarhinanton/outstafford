@@ -2,6 +2,8 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import AppLayout from '@/app/layouts/AppLayout'
 import localFont from 'next/font/local'
+import { Provider } from 'react-redux'
+import store from '@/store/store'
 
 import '@/app/styles/index.scss'
 
@@ -54,9 +56,11 @@ export default function App({ Component, pageProps }: AppProps) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
         />
       </Head>
-      <AppLayout>
-        <Component {...pageProps} />
-      </AppLayout>
+      <Provider store={store}>
+        <AppLayout>
+          <Component {...pageProps} />
+        </AppLayout>
+      </Provider>
     </>
   )
 }

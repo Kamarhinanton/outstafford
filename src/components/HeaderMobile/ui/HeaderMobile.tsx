@@ -3,10 +3,12 @@ import CallMenuButton from '@/components/Header/ui/CallMenuButton/CallMenuButton
 import Container from '@/app/layouts/Container'
 import HeaderMobileNavigation from '@/components/HeaderMobile/ui/HeaderMobileNavigation/HeaderMobileNavigation'
 import { AnimatePresence } from 'framer-motion'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/store/store'
 
 import styles from './HeaderMobile.module.scss'
 const HeaderMobile = () => {
-  const [callMenu, setCallMenu] = useState(false)
+  const callMenu = useSelector((state: RootState) => state.callMenu.callMenu)
 
   useEffect(() => {
     if (callMenu) {
@@ -20,14 +22,12 @@ const HeaderMobile = () => {
     <>
       <header className={styles['header-mobile']}>
         <Container className={styles['header-mobile__container']}>
-          <CallMenuButton setCallMenu={setCallMenu} callMenu={callMenu}>
-            Menu
-          </CallMenuButton>
+          <CallMenuButton>Menu</CallMenuButton>
+          <AnimatePresence>
+            {callMenu && <HeaderMobileNavigation />}
+          </AnimatePresence>
         </Container>
       </header>
-      <AnimatePresence>
-        {callMenu && <HeaderMobileNavigation setCallMenu={setCallMenu} />}
-      </AnimatePresence>
     </>
   )
 }

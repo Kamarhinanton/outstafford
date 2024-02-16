@@ -1,25 +1,33 @@
 import React, { FC, ReactNode } from 'react'
 import classNames from 'classnames'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCallMenu } from '@/store/reducers/callMenuSlice'
+import { RootState } from '@/store/store'
 
 import styles from './CallMenuButton.module.scss'
 
 type CallMenuButtonProps = {
-  setCallMenu?: React.Dispatch<React.SetStateAction<boolean>>
-  callMenu?: boolean
   children?: ReactNode
   className?: string
   cross?: boolean
 }
 
 const CallMenuButton: FC<CallMenuButtonProps> = ({
-  setCallMenu,
-  callMenu,
   children,
   className,
   cross = false,
 }) => {
+  const callMenu = useSelector(
+    (state: RootState) => state.callMenu.callMenu,
+  ) as boolean
+  const dispatch = useDispatch()
+
   const handleCallMenu = () => {
-    setCallMenu && setCallMenu((prev) => !prev)
+    if (callMenu) {
+      dispatch(setCallMenu(false))
+    } else if (!callMenu) {
+      dispatch(setCallMenu(true))
+    }
   }
 
   const mods = {

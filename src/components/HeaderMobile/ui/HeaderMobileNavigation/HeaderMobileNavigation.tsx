@@ -1,17 +1,13 @@
-import React, { FC, useEffect } from 'react'
+import React from 'react'
 import HeaderNavigation from '@/components/Header/ui/HeaderNavigation/HeaderNavigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import CallMenuButton from '@/components/Header/ui/CallMenuButton/CallMenuButton'
-import { router } from 'next/client'
+import { socialLinksData } from '@/components/HeaderMobile/ui/HeaderMobileNavigation/data'
+import useRouteChange from '@/hooks/useRoutChange'
 
 import styles from './HeaderMobileNavigation.module.scss'
-import { socialLinksData } from '@/components/HeaderMobile/ui/HeaderMobileNavigation/data'
-
-type HeaderMobileNavigation = {
-  setCallMenu: React.Dispatch<React.SetStateAction<boolean>>
-}
 
 const headerVariant = {
   animate: { opacity: 1, y: 0 },
@@ -22,20 +18,8 @@ const headerVariant = {
     duration: 0.5,
   },
 }
-const HeaderMobileNavigation: FC<HeaderMobileNavigation> = ({
-  setCallMenu,
-}) => {
-  useEffect(() => {
-    const handleRouteChange = () => {
-      setCallMenu((prev) => !prev)
-    }
-
-    router.events.on('routeChangeStart', handleRouteChange)
-
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChange)
-    }
-  }, [router])
+const HeaderMobileNavigation = () => {
+  useRouteChange()
 
   return (
     <motion.div
@@ -57,7 +41,6 @@ const HeaderMobileNavigation: FC<HeaderMobileNavigation> = ({
         </nav>
       </div>
       <CallMenuButton
-        setCallMenu={setCallMenu}
         className={styles['header-mobile-navigation__button']}
         cross
       >

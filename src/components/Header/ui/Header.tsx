@@ -1,29 +1,28 @@
-import React, { useState } from 'react'
+import React from 'react'
 import CallMenuButton from '@/components/Header/ui/CallMenuButton/CallMenuButton'
 import HeaderNavigation from '@/components/Header/ui/HeaderNavigation/HeaderNavigation'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import HeaderSubmenu from '@/components/Header/ui/HeaderSubmenu/HeaderSubmenu'
-import { AnimatePresence } from 'framer-motion'
+import routes from '@/utils/routes'
+import useRouteChange from '@/hooks/useRoutChange'
 
 import styles from './Header.module.scss'
-import routes from '@/utils/routes'
-
 const Header = () => {
-  const [callMenu, setCallMenu] = useState(false)
+  useRouteChange()
 
   return (
     <>
       <header className={styles['header']}>
         <div className={styles['header__container']}>
           <div className={styles['header__container_content']}>
-            <CallMenuButton setCallMenu={setCallMenu} callMenu={callMenu} />
+            <CallMenuButton />
             <HeaderNavigation />
             <ButtonPrimary href={routes.public.contact}>
               Contact us
             </ButtonPrimary>
           </div>
+          <HeaderSubmenu />
         </div>
-        <AnimatePresence>{callMenu && <HeaderSubmenu />}</AnimatePresence>
       </header>
     </>
   )
