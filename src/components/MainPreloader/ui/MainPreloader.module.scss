@@ -1,0 +1,24 @@
+@import '@/app/styles/variables/breakpoints';
+
+.main-preloader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--black);
+
+  &__lottie{
+    width: 370rem;
+    height: 60rem;
+
+    @media (width<=$breakpoint-mob) {
+      width: 300rem;
+      height: 40rem;
+    }
+  }
+}

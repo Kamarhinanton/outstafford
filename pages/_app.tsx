@@ -4,6 +4,7 @@ import AppLayout from '@/app/layouts/AppLayout'
 import localFont from 'next/font/local'
 import { Provider } from 'react-redux'
 import store from '@/store/store'
+import { MainPreloader } from '@/components/MainPreloader'
 
 import '@/app/styles/index.scss'
 
@@ -58,6 +59,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <Provider store={store}>
         <AppLayout>
+          <MainPreloader />
           <Component {...pageProps} />
         </AppLayout>
       </Provider>
