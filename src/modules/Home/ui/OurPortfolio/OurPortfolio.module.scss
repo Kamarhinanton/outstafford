@@ -4,7 +4,10 @@
   display: flex;
   min-height: 100svh;
   padding: 24rem 0 120rem;
-  background-color: white;
+
+  @media (width<=$breakpoint-mob){
+    padding: 66rem 0 60rem;
+  }
 
   &__content{
     position: relative;
@@ -15,8 +18,12 @@
       display: block;
       width: 100%;
       height: 100%;
-      background-color: var(--grey-btn);
+      background-color: var(--grey-dark);
       border-radius: 36rem;
+
+      @media (width<=$breakpoint-mob){
+        border-radius: 20rem;
+      }
 
       @media (width>$breakpoint-mob) {
         &:hover {
@@ -32,6 +39,12 @@
         left: 48rem;
         text-transform: capitalize;
         transition: var(--duration-hover) var(--ease) var(--hover-delay);
+
+        @media (width<=$breakpoint-mob){
+          bottom: 21rem;
+          left: 20rem;
+          max-width: 200rem;
+        }
       }
     }
   }
