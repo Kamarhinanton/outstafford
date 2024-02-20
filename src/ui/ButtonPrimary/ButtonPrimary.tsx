@@ -5,13 +5,15 @@ import classNames from 'classnames'
 import styles from './ButtonPrimary.module.scss'
 
 type ButtonPrimaryVariants = 'grey' | 'green' | 'transparent'
+type ButtonPrimarySizes = 'normal' | 'large'
 
 type ButtonPrimaryProps = {
   // isLoading?: boolean
   href?: string
-  // arrows?: boolean
+  arrows?: boolean
   className?: string
   variant?: ButtonPrimaryVariants
+  size?: ButtonPrimarySizes
 } & DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
@@ -20,13 +22,16 @@ type ButtonPrimaryProps = {
 const ButtonPrimary: FC<ButtonPrimaryProps> = ({
   // isLoading,
   href = '/',
-  // arrows,
+  arrows = false,
   className,
   children,
   variant = 'grey',
+  size = 'normal',
 }) => {
   const mods = {
     [styles[variant]]: true,
+    [styles[size]]: true,
+    [styles['arrows']]: arrows,
   }
 
   return (
