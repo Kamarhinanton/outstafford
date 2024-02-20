@@ -42,3 +42,16 @@ body {
 main {
   position: relative;
 }
+
+.desk-view {
+  @media (width<=$breakpoint-mob ) {
+    display: none;
+  }
+}
+
+.mobile-view {
+  display: none;
+  @media (width<= $breakpoint-mob) {
+    display: block;
+  }
+}

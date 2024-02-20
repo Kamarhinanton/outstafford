@@ -1,3 +1,5 @@
+@import '@/app/styles/variables/breakpoints';
+
 .header-mobile-navigation {
   position: fixed;
   top: 0;
@@ -25,6 +27,10 @@
       display: flex;
       flex-wrap: wrap;
       padding: 0 88rem 86rem;
+
+      @media (width<=$breakpoint-mob){
+        padding: 0 88rem 34rem;
+      }
 
       .link {
         width: calc((100% - (4rem * 6)) / 3);

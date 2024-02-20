@@ -2,25 +2,52 @@ import React from 'react'
 import Container from '@/app/layouts/Container'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import Logo from '../../../../../public/icons/logo.svg'
+import classNames from 'classnames'
+import routes from '@/utils/routes'
+
+import styles from './HeroSection.module.scss'
 
 const HeroSection = () => {
   return (
-    <section>
+    <section className={styles['hero']}>
       <Container>
-        <div>
-          <div>
-            <Logo />
-            <h3>
+        <div className={styles['hero__content']}>
+          <div className={styles['hero__content_top']}>
+            <div className={styles['logo']}>
+              <Logo />
+            </div>
+            <h4 className={classNames(styles['subtitle'], 'h4')}>
               Hey, we’re <span>Outstafford</span>
-            </h3>
+            </h4>
           </div>
-          <h1>
-            We <span>create</span> awesome mobile and web apps for{' '}
-            <span>Startups</span>
-          </h1>
-          <ButtonPrimary arrows={true} size={'large'} variant={'transparent'}>
-            Contact us
-          </ButtonPrimary>
+          <div className={styles['hero__content_bottom']}>
+            <h1 className={classNames(styles['title'], styles['desk'], 'h1')}>
+              We <span>create</span>
+              <br /> awesome mobile
+              <br /> and web apps for <span>Startups</span>
+            </h1>
+            <h1 className={classNames(styles['title'], styles['mob'], 'h1')}>
+              <strong>
+                We <span>create</span>
+                <br /> awesome
+              </strong>
+              <strong>
+                mobile and
+                <br />
+                web apps for
+                <br /> <span>Startups</span>
+              </strong>
+            </h1>
+            <ButtonPrimary
+              className={styles['button']}
+              arrows={true}
+              size={'large'}
+              variant={'transparent'}
+              href={routes.public.contact}
+            >
+              Contact us
+            </ButtonPrimary>
+          </div>
         </div>
       </Container>
     </section>

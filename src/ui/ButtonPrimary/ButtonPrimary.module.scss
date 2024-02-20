@@ -20,7 +20,7 @@
   &.large {
     padding: 19rem 37rem;
     font-size: 28rem;
-    line-height: 28rem;
+    line-height: normal;
 
     @media (width<=$breakpoint-mob) {
       padding: 9rem 23rem;
