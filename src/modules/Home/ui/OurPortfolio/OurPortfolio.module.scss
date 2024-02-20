@@ -1,0 +1,38 @@
+@import '@/app/styles/variables/breakpoints';
+
+.our-portfolio{
+  display: flex;
+  min-height: 100svh;
+  padding: 24rem 0 120rem;
+  background-color: white;
+
+  &__content{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &_link{
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: var(--grey-btn);
+      border-radius: 36rem;
+
+      @media (width>$breakpoint-mob) {
+        &:hover {
+          .title{
+            color: var(--primary-color);
+          }
+        }
+      }
+
+      .title{
+        position: absolute;
+        bottom: 48rem;
+        left: 48rem;
+        text-transform: capitalize;
+        transition: var(--duration-hover) var(--ease) var(--hover-delay);
+      }
+    }
+  }
+}
