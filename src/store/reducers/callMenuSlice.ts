@@ -1,23 +1,23 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type CallMenuSliceType = {
-  callMenu: boolean
+  isMenuActive: boolean
 }
 
 const initialState: CallMenuSliceType = {
-  callMenu: false,
+  isMenuActive: false,
 }
 
 const callMenuSlice = createSlice({
   name: 'callMenu',
   initialState,
   reducers: {
-    setCallMenu(state, action: PayloadAction<boolean>) {
-      state.callMenu = action.payload
+    setIsMenuActive(state, action: PayloadAction<boolean>) {
+      state.isMenuActive = action.payload
     },
   },
 })
 
-export const { setCallMenu } = callMenuSlice.actions
+export const { setIsMenuActive } = callMenuSlice.actions
 
 export default callMenuSlice.reducer

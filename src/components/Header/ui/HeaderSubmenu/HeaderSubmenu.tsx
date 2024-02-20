@@ -9,9 +9,11 @@ import { RootState } from '@/store/store'
 import styles from './HeaderSubmenu.module.scss'
 
 const HeaderSubmenu = () => {
-  const callMenu = useSelector((state: RootState) => state.callMenu.callMenu)
+  const isMenuActive = useSelector(
+    (state: RootState) => state.callMenu.isMenuActive,
+  )
   const mods = {
-    [styles['active']]: callMenu,
+    [styles['active']]: isMenuActive,
   }
 
   return (

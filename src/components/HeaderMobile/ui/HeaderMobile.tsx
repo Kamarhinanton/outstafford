@@ -8,15 +8,17 @@ import { RootState } from '@/store/store'
 
 import styles from './HeaderMobile.module.scss'
 const HeaderMobile = () => {
-  const callMenu = useSelector((state: RootState) => state.callMenu.callMenu)
+  const isMenuActive = useSelector(
+    (state: RootState) => state.callMenu.isMenuActive,
+  )
 
   useEffect(() => {
-    if (callMenu) {
+    if (isMenuActive) {
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'auto'
     }
-  }, [callMenu])
+  }, [isMenuActive])
 
   return (
     <>
@@ -24,7 +26,7 @@ const HeaderMobile = () => {
         <Container className={styles['header-mobile__container']}>
           <CallMenuButton>Menu</CallMenuButton>
           <AnimatePresence>
-            {callMenu && <HeaderMobileNavigation />}
+            {isMenuActive && <HeaderMobileNavigation />}
           </AnimatePresence>
         </Container>
       </header>

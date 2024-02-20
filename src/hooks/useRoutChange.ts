@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useDispatch } from 'react-redux'
-import { setCallMenu } from '@/store/reducers/callMenuSlice'
+import { setIsMenuActive } from '@/store/reducers/callMenuSlice'
 
 const useRouteChange = () => {
   const dispatch = useDispatch()
@@ -9,7 +9,7 @@ const useRouteChange = () => {
 
   useEffect(() => {
     const handleRouteChange = () => {
-      dispatch(setCallMenu(false))
+      dispatch(setIsMenuActive(false))
     }
 
     router.events.on('routeChangeStart', handleRouteChange)
