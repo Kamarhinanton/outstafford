@@ -6,13 +6,14 @@
   font-family: var(--font-family-primary);
   line-height: 22rem;
   border-radius: 500rem;
-  transition: var(--duration-hover) var(--ease);
+  transition: background-color var(--duration-hover) var(--ease), color var(--duration-hover) var(--ease) 0.2s;
 
   &.grey{
     background: var(--grey-btn);
 
     @media (width>$breakpoint-mob) {
       &:hover{
+        color: var(--black);
         background: var(--primary-color);
       }
     }
