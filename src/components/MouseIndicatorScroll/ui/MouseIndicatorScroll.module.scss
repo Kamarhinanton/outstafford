@@ -1,0 +1,44 @@
+.indicator {
+  position: fixed;
+  right: 30rem;
+  bottom: 43rem;
+  width: 50rem;
+  height: 50rem;
+
+  &::before, &::after {
+    position: absolute;
+    left: 50%;
+    width: 25rem;
+    height: 25rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transform: translateX(-50%);
+    transition: var(--hover-delay) var(--ease);
+    content: '';
+  }
+
+  &::before {
+    top: -20rem;
+    background-image: url("/icons/mouse-arrow.svg");
+    transform: translateX(-50%) rotate(180deg);
+  }
+
+  &::after {
+    bottom: -20rem;
+    background-image: url("/icons/mouse-arrow.svg");
+  }
+
+  &.top {
+    &::before {
+      opacity: 0;
+    }
+  }
+
+  &.bottom {
+    &::after {
+      opacity: 0;
+    }
+  }
+
+}

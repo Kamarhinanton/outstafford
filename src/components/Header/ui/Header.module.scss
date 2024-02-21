@@ -1,15 +1,21 @@
-.header{
+@import '@/app/styles/variables/breakpoints';
+
+.header {
   position: fixed;
   bottom: 24rem;
   left: 0;
   z-index: 10;
   width: 100%;
 
-  &__container{
+  @media (width<=$breakpoint-mob) {
+    display: none;
+  }
+
+  &__container {
     display: flex;
     justify-content: center;
 
-    &_content{
+    &_content {
       position: relative;
       z-index: 10;
       display: inline-flex;

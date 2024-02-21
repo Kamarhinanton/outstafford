@@ -2,7 +2,7 @@ import React, { FC, ReactNode } from 'react'
 import classNames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
 import { setIsMenuActive } from '@/store/reducers/callMenuSlice'
-import { RootState } from '@/store/store'
+import { AppDispatch, RootState } from '@/store/store'
 
 import styles from './CallMenuButton.module.scss'
 
@@ -20,7 +20,7 @@ const CallMenuButton: FC<CallMenuButtonProps> = ({
   const isMenuActive = useSelector(
     (state: RootState) => state.callMenu.isMenuActive,
   ) as boolean
-  const dispatch = useDispatch()
+  const dispatch: AppDispatch = useDispatch()
 
   const handleCallMenu = () => {
     if (isMenuActive) {

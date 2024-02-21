@@ -5,6 +5,9 @@ import loaderJson from '../data/preloader.json'
 import { motion } from 'framer-motion'
 
 import styles from './MainPreloader.module.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '@/store/store'
+import { setIsPreloaderActive } from '@/store/reducers/preloaderStateSlice'
 
 const preloaderVariant = {
   initial: { opacity: 1 },
@@ -16,18 +19,21 @@ const preloaderVariant = {
 }
 
 const MainPreloader: FC = () => {
-  const [isVisible, setIsVisible] = useState(true)
+  const isPreloaderActive = useSelector(
+    (state: RootState) => state.preloaderState.isPreloaderActive,
+  )
+  const dispatch: AppDispatch = useDispatch()
 
   return (
     <AnimatePresence>
-      {isVisible && (
+      {isPreloaderActive && (
         <motion.div {...preloaderVariant} className={styles['main-preloader']}>
           <Lottie
             className={styles['main-preloader__lottie']}
             animationData={loaderJson}
             autoplay={true}
             loop={false}
-            onComplete={() => setIsVisible(false)}
+            onComplete={() => dispatch(setIsPreloaderActive(false))}
           />
         </motion.div>
       )}

@@ -3,6 +3,7 @@ import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { breakpointMob } from '@/utils/variables'
 import dynamic from 'next/dynamic'
 import Footer from '@/components/Footer/Footer'
+import { Header } from '@/components/Header'
 
 const MobileCTA = dynamic(
   () => import('@/components/HeaderMobileCTA/HeaderMobileCTA'),
@@ -10,10 +11,6 @@ const MobileCTA = dynamic(
     ssr: false,
   },
 )
-
-const DesktopHeader = dynamic(() => import('@/components/Header/ui/Header'), {
-  ssr: false,
-})
 
 const MobileHeader = dynamic(
   () => import('@/components/HeaderMobile/ui/HeaderMobile'),
@@ -31,7 +28,7 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
 
   return (
     <>
-      {width > breakpointMob && <DesktopHeader />}
+      <Header />
       {width <= breakpointMob && <MobileCTA />}
       {width <= breakpointMob && <MobileHeader />}
       {children}
