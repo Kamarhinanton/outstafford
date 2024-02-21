@@ -5,9 +5,6 @@ import localFont from 'next/font/local'
 import { Provider } from 'react-redux'
 import store from '@/store/store'
 import { MainPreloader } from '@/components/MainPreloader'
-import useWindowDimensions from '@/hooks/useWindowDimensions'
-import { breakpointMob } from '@/utils/variables'
-import dynamic from 'next/dynamic'
 
 import '@/app/styles/index.scss'
 
@@ -45,16 +42,7 @@ const matter = localFont({
   display: 'swap',
 })
 
-const MouseIndicator = dynamic(
-  () => import('@/components/MouseIndicatorScroll/ui/MouseIndicatorScroll'),
-  {
-    ssr: false,
-  },
-)
-
 export default function App({ Component, pageProps }: AppProps) {
-  const { width } = useWindowDimensions()
-
   return (
     <>
       <style jsx global>{`
@@ -72,7 +60,6 @@ export default function App({ Component, pageProps }: AppProps) {
       <Provider store={store}>
         <AppLayout>
           <MainPreloader />
-          {width > breakpointMob && <MouseIndicator />}
           <Component {...pageProps} />
         </AppLayout>
       </Provider>
