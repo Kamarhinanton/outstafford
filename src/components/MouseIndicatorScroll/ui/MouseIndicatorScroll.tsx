@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Lottie, { LottieRefCurrentProps } from 'lottie-react'
 import indicatorJson from '@/components/MouseIndicatorScroll/data/indicator.json'
 import { useSelector } from 'react-redux'

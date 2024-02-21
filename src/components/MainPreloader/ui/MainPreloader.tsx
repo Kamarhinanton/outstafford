@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import Lottie from 'lottie-react'
 import loaderJson from '../data/preloader.json'
