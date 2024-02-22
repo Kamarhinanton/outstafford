@@ -1,0 +1,10 @@
+@import '@/app/styles/variables/breakpoints';
+
+.fourth-section{
+  display: flex;
+  gap: 24rem;
+
+  @media (width<=$breakpoint-mob) {
+    display: block;
+  }
+}

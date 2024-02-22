@@ -41,7 +41,7 @@ const Footer = () => {
                     href={social.href}
                   >
                     <BackgroundImage
-                      contain
+                      position={'contain'}
                       src={social.src}
                       alt={social.link}
                     />

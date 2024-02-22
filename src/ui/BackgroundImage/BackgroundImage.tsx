@@ -6,8 +6,7 @@ import styles from './BackgroundImage.module.scss'
 
 type BackgroundImageProps = {
   className?: string
-  cover?: boolean
-  contain?: boolean
+  position?: 'cover' | 'contain'
 } & ImageProps
 
 export const BackgroundImage: FC<BackgroundImageProps> = ({
@@ -15,16 +14,15 @@ export const BackgroundImage: FC<BackgroundImageProps> = ({
   alt,
   quality = 75,
   className,
-  cover = false,
-  contain = true,
+  position = 'contain',
   ...props
 }) => {
   return (
     <div className={classNames(styles['background-image'], className)}>
       <Image
         className={classNames(
-          cover ? styles['cowerStyle'] : '',
-          contain ? styles['containStyle'] : '',
+          position === 'cover' ? styles['cowerStyle'] : '',
+          position === 'contain' ? styles['containStyle'] : '',
         )}
         src={src}
         fill={true}

@@ -1,0 +1,148 @@
+@import '@/app/styles/variables/breakpoints';
+
+.partner-review {
+  max-width: 860rem;
+  padding: 36rem;
+  background: var(--grey-bg);
+  border-radius: 36rem;
+
+  @media (width<=$breakpoint-mob) {
+
+  }
+
+  &__content {
+    position: relative;
+
+    &_top {
+      .title {
+        text-transform: capitalize;
+      }
+
+      .description {
+        display: flex;
+        align-items: center;
+        margin: 20rem 0 0;
+        font-size: 24rem;
+        line-height: 150%;
+        opacity: 0.5;
+
+        .clutch {
+          height: 24rem;
+          margin: 0 12rem 7rem;
+        }
+
+        .upwork {
+          height: 37rem;
+          margin: 0 12rem;
+        }
+      }
+    }
+
+    .swiper {
+      position: relative;
+      margin: 36rem 0 0;
+
+      &__slide {
+        padding: 0 20rem 20rem 65rem;
+
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 49rem;
+          height: 49rem;
+          background-image: url("/icons/commas.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          content: '';
+        }
+
+        .image {
+          position: relative;
+          height: 297rem;
+          margin: 0 0 36rem;
+          overflow: hidden;
+          border-radius: 14rem;
+          cursor: pointer;
+
+          &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 2;
+            width: 51rem;
+            height: 68rem;
+            background-image: url("/icons/play.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            transform: translateX(-50%) translateY(-50%);
+            transition: var(--duration-hover) var(--ease);
+            content: '';
+            pointer-events: none;
+          }
+
+          @media (width>$breakpoint-mob) {
+            &:hover {
+              &::before {
+                opacity: 0.5;
+              }
+            }
+          }
+        }
+
+        .top-description{
+          height: 126rem;
+
+          &__text{
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+          }
+        }
+
+        .bottom-description {
+          margin: 24rem 0 0;
+          font-weight: 400;
+          font-size: 24rem;
+          line-height: 150%;
+
+          span {
+            color: var(--primary-color);
+          }
+        }
+      }
+    }
+
+    &_button-group {
+      position: absolute;
+      top: 5rem;
+      right: 15rem;
+      display: flex;
+      gap: 20rem;
+
+      .arrow {
+        width: 42rem;
+        height: 35rem;
+        cursor: pointer;
+
+        &::before {
+          position: absolute;
+          width: 42rem;
+          height: 35rem;
+          background-image: url("/icons/arrow_green.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          content: '';
+        }
+
+        &.prev {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
