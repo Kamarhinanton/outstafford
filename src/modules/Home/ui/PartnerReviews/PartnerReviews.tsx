@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Upwork from '../../../../../public/icons/social/upwork.svg'
 import Clutch from '../../../../../public/icons/social/clutch.svg'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
@@ -6,10 +6,25 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import classNames from 'classnames'
 import { sliderData } from '@/modules/Home/ui/PartnerReviews/data'
+import { AnimatePresence } from 'framer-motion'
+import dynamic from 'next/dynamic'
 
 import styles from './PartnerReviews.module.scss'
 
+const PopUp = dynamic(() => import('@/components/VideoPopUp/VideoPopUp'), {
+  ssr: false,
+})
+
 const PartnerReviews = () => {
+  const [isPopUpVisible, setIsPopUpVisible] = useState(false)
+  const [videoId, setVideoId] = useState<string | null>(null)
+  const playVideo = (videoId: string | null) => {
+    if (videoId) {
+      setVideoId(videoId)
+      setIsPopUpVisible(true)
+    }
+  }
+
   return (
     <section className={styles['partner-review']}>
       <div className={styles['partner-review__content']}>
@@ -40,6 +55,7 @@ const PartnerReviews = () => {
                 src={slide.preview}
                 alt={'picture'}
                 position={'cover'}
+                onClick={() => playVideo(slide.id)}
               />
               <div className={styles['top-description']}>
                 <p className={styles['top-description__text']}>
@@ -62,6 +78,11 @@ const PartnerReviews = () => {
           />
           <div className={classNames(styles['arrow'], 'swiper-partner-next')} />
         </div>
+        <AnimatePresence>
+          {isPopUpVisible && videoId && (
+            <PopUp videoId={videoId} setIsPopUpVisible={setIsPopUpVisible} />
+          )}
+        </AnimatePresence>
       </div>
     </section>
   )

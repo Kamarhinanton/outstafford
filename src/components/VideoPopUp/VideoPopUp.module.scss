@@ -1,0 +1,77 @@
+@import '@/app/styles/variables/breakpoints';
+
+.video-pop-up{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100svh;
+
+  &::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--black);
+    opacity: 0.5;
+    transition: var(--duration-hover) var(--ease);
+    content: "";
+  }
+
+  &__content{
+    position: relative;
+    width: 100%;
+    max-width: 1460rem;
+    height: 100%;
+    max-height: 60svh;
+    background-color: var(--black);
+
+    &_iframe{
+      width: 100%;
+      height: 100%;
+    }
+
+    .cross{
+      position: absolute;
+      top: -97rem;
+      right: 0;
+      width: 94rem;
+      height: 72rem;
+      background-color: var(--dark-green);
+      border-radius: 59rem;
+      cursor: pointer;
+      transition: var(--duration-hover) var(--ease);
+
+      @media (width>$breakpoint-mob) {
+        &:hover{
+          background-color: var(--dark-light-green);
+        }
+      }
+
+      span{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        width: 35rem;
+        height: 5rem;
+        background-color: var(--primary-color);
+        transform: translateY(-50%) translateX(-50%);
+        opacity: 1;
+
+        &:nth-child(1){
+          transform: translateY(-50%) translateX(-50%) rotate(45deg);
+        }
+
+        &:nth-child(2){
+          transform: translateY(-50%) translateX(-50%) rotate(-45deg);
+        }
+      }
+    }
+  }
+}
