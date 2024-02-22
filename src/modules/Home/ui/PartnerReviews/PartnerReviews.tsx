@@ -4,9 +4,10 @@ import Clutch from '../../../../../public/icons/social/clutch.svg'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
+import classNames from 'classnames'
+import { sliderData } from '@/modules/Home/ui/PartnerReviews/data'
 
 import styles from './PartnerReviews.module.scss'
-import classNames from 'classnames'
 
 const PartnerReviews = () => {
   return (
@@ -32,46 +33,24 @@ const PartnerReviews = () => {
           }}
           className={styles['swiper']}
         >
-          <SwiperSlide className={styles['swiper__slide']}>
-            <BackgroundImage
-              className={styles['image']}
-              src={'/images/Home/preview.jpg'}
-              alt={'picture'}
-              position={'cover'}
-            />
-            <div className={styles['top-description']}>
-              <p className={styles['top-description__text']}>
-                <strong>
-                  I can say enough good things about Outstafford! As a startup
-                  founder, I was in dire need of a top-notch mobile app for my
-                  business.
-                </strong>
+          {sliderData.map((slide) => (
+            <SwiperSlide key={slide.id} className={styles['swiper__slide']}>
+              <BackgroundImage
+                className={styles['image']}
+                src={slide.preview}
+                alt={'picture'}
+                position={'cover'}
+              />
+              <div className={styles['top-description']}>
+                <p className={styles['top-description__text']}>
+                  <strong>{slide.description}</strong>
+                </p>
+              </div>
+              <p className={styles['bottom-description']}>
+                <span>{slide.author}</span>, {slide.position}
               </p>
-            </div>
-            <p className={styles['bottom-description']}>
-              <span>William Flemming</span>, CEO of Checkem
-            </p>
-          </SwiperSlide>
-          <SwiperSlide className={styles['swiper__slide']}>
-            <BackgroundImage
-              className={styles['image']}
-              src={'/images/Home/preview.jpg'}
-              alt={'picture'}
-              position={'cover'}
-            />
-            <div className={styles['top-description']}>
-              <p className={styles['top-description__text']}>
-                <strong>
-                  I can say enough good things about Outstafford! As a startup
-                  founder, I was in dire need of a top-notch mobile app for my
-                  business.
-                </strong>
-              </p>
-            </div>
-            <p className={styles['bottom-description']}>
-              <span>William Flemming</span>, CEO of Checkem
-            </p>
-          </SwiperSlide>
+            </SwiperSlide>
+          ))}
         </Swiper>
         <div className={styles['partner-review__content_button-group']}>
           <div
