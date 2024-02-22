@@ -23,6 +23,7 @@ const PartnerReviews = () => {
         </div>
         <Swiper
           speed={2000}
+          spaceBetween={20}
           slidesPerView={1}
           modules={[Navigation]}
           navigation={{
@@ -41,9 +42,9 @@ const PartnerReviews = () => {
             <div className={styles['top-description']}>
               <p className={styles['top-description__text']}>
                 <strong>
-                  I can&apos;t say enough good things about Outstafford! As a
-                  startup founder, I was in dire need of a top-notch mobile app
-                  for my business.
+                  I can say enough good things about Outstafford! As a startup
+                  founder, I was in dire need of a top-notch mobile app for my
+                  business.
                 </strong>
               </p>
             </div>
@@ -58,13 +59,15 @@ const PartnerReviews = () => {
               alt={'picture'}
               position={'cover'}
             />
-            <p>
-              <strong>
-                I can&apos;t say enough good things about Outstafford! As a
-                startup founder, I was in dire need of a top-notch mobile app
-                for my business.
-              </strong>
-            </p>
+            <div className={styles['top-description']}>
+              <p className={styles['top-description__text']}>
+                <strong>
+                  I can say enough good things about Outstafford! As a startup
+                  founder, I was in dire need of a top-notch mobile app for my
+                  business.
+                </strong>
+              </p>
+            </div>
             <p className={styles['bottom-description']}>
               <span>William Flemming</span>, CEO of Checkem
             </p>
