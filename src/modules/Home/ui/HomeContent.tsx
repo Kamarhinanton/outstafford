@@ -12,13 +12,13 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Mousewheel, Pagination } from 'swiper/modules'
 import Footer from '@/components/Footer/Footer'
 import { Swiper as SwiperType } from 'swiper/types'
-
-import styles from './HomeContent.module.scss'
-import 'swiper/css'
 import { AppDispatch } from '@/store/store'
 import { useDispatch } from 'react-redux'
 import { setIsBottom } from '@/store/reducers/detectSliderPosition'
 import { setIsTop } from '@/store/reducers/detectSliderPosition'
+
+import styles from './HomeContent.module.scss'
+import 'swiper/css'
 
 const MouseIndicator = dynamic(
   () => import('@/components/MouseIndicatorScroll/ui/MouseIndicatorScroll'),
@@ -56,15 +56,12 @@ const SwiperHomeComponent = () => {
 
   const handleSlideChange = () => {
     if (swiper?.isBeginning) {
-      console.log('begin')
       dispatch(setIsTop(true))
-    }
-    if (swiper?.isEnd) {
-      console.log('end')
+      dispatch(setIsBottom(false))
+    } else if (swiper?.isEnd) {
       dispatch(setIsBottom(true))
-    }
-    if (!swiper?.isBeginning && !swiper?.isEnd) {
-      console.log('middle')
+      dispatch(setIsTop(false))
+    } else if (!swiper?.isBeginning && !swiper?.isEnd) {
       dispatch(setIsBottom(false))
       dispatch(setIsTop(false))
     }
