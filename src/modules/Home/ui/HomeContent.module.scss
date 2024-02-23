@@ -1,34 +1,38 @@
 @import '@/app/styles/variables/breakpoints';
 
 .bottom-section {
-  display: flex;
-  flex-direction: column;
-  min-height: 100svh;
+  background-color: var(--black);
 
-  @media (width<=$breakpoint-mob) {
-    min-height: initial;
-  }
-
-  &__top {
+  &__content {
     display: flex;
-    flex-grow: 1;
-    gap: 24rem;
+    flex-direction: column;
+    min-height: 100svh;
 
     @media (width<=$breakpoint-mob) {
-      flex-grow: initial;
+      min-height: initial;
     }
 
-    @media (width<=$breakpoint-mob) {
-      display: block;
+    &_top {
+      display: flex;
+      flex-grow: 1;
+      gap: 24rem;
+
+      @media (width<=$breakpoint-mob) {
+        flex-grow: initial;
+      }
+
+      @media (width<=$breakpoint-mob) {
+        display: block;
+      }
     }
-  }
 
-  &__bottom {
-    display: flex;
-    flex-grow: 1;
+    &_bottom {
+      display: flex;
+      flex-grow: 1;
 
-    @media (width<=$breakpoint-mob) {
-      flex-grow: initial;
+      @media (width<=$breakpoint-mob) {
+        flex-grow: initial;
+      }
     }
   }
 }
@@ -39,15 +43,15 @@
   @media (width <= $breakpoint-mob) {
     height: initial;
 
-    .slider{
-      &__wrapper{
+    .slider {
+      &__wrapper {
         display: block;
       }
     }
   }
 }
 
-.pagination{
+.pagination {
   position: fixed;
   top: 50%;
   right: 50rem;
@@ -57,7 +61,7 @@
   width: 12rem;
   transform: translateY(-50%);
 
-  &__bullet{
+  &__bullet {
     width: 12rem;
     height: 12rem;
     margin: 0 0 17rem;
@@ -66,11 +70,11 @@
     cursor: pointer;
     transition: var(--duration-hover) var(--ease);
 
-    &.active{
+    &.active {
       background-color: var(--primary-color);
     }
 
-    &:last-child{
+    &:last-child {
       margin: 0;
     }
   }

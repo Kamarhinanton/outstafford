@@ -41,7 +41,7 @@ const PartnerReviews = () => {
           </p>
         </div>
         <Swiper
-          speed={2000}
+          speed={1000}
           spaceBetween={20}
           slidesPerView={1}
           modules={[Navigation]}

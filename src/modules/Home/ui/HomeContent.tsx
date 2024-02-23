@@ -9,7 +9,7 @@ import Container from '@/app/layouts/Container'
 // import OurBlog from '@/modules/Home/ui/OurBlog/OurBlog'
 import CTA from '@/modules/Home/ui/CTA/CTA'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Mousewheel, Pagination } from 'swiper/modules'
+import { EffectCreative, Mousewheel, Pagination } from 'swiper/modules'
 import Footer from '@/components/Footer/Footer'
 import { Swiper as SwiperType } from 'swiper/types'
 import { AppDispatch } from '@/store/store'
@@ -29,17 +29,19 @@ const MouseIndicator = dynamic(
 
 const BottomSection = () => {
   return (
-    <Container size={'small'}>
-      <div className={styles['bottom-section']}>
-        <div className={styles['bottom-section__top']}>
-          <PartnerReviews />
-          {/*<OurBlog />*/}
+    <div className={styles['bottom-section']}>
+      <Container size={'small'}>
+        <div className={styles['bottom-section__content']}>
+          <div className={styles['bottom-section__content_top']}>
+            <PartnerReviews />
+            {/*<OurBlog />*/}
+          </div>
+          <div className={styles['bottom-section__content_bottom']}>
+            <CTA />
+          </div>
         </div>
-        <div className={styles['bottom-section__bottom']}>
-          <CTA />
-        </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   )
 }
 
@@ -79,11 +81,20 @@ const SwiperHomeComponent = () => {
         bulletClass: styles['pagination__bullet'],
         bulletActiveClass: styles['active'],
       }}
-      modules={[Mousewheel, Pagination]}
-      speed={2000}
+      modules={[Mousewheel, Pagination, EffectCreative]}
+      speed={1500}
       onSwiper={(e) => setSwiper(e)}
       onSlideChange={handleSlideChange}
       wrapperClass={styles['slider__wrapper']}
+      effect={'creative'}
+      creativeEffect={{
+        prev: {
+          translate: [0, 0, -200],
+        },
+        next: {
+          translate: [0, '100%', 0],
+        },
+      }}
     >
       {sectionsArray.map((section) => (
         <SwiperSlide key={section.key}>{section}</SwiperSlide>

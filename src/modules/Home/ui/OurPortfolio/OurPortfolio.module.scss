@@ -3,6 +3,7 @@
 .our-portfolio{
   display: flex;
   min-height: 100svh;
+  background-color: var(--black);
 
   &__content{
     position: relative;
