@@ -1,12 +1,36 @@
 @import '@/app/styles/variables/breakpoints';
 
 .fourth-section {
-  &__top {
+  &__content{
     display: flex;
-    gap: 24rem;
+    flex-direction: column;
+    min-height: 100svh;
 
     @media (width<=$breakpoint-mob) {
-      display: block;
+      min-height: initial;
+    }
+
+    &_top {
+      display: flex;
+      flex-grow: 1;
+      gap: 24rem;
+
+      @media (width<=$breakpoint-mob) {
+        flex-grow: initial;
+      }
+
+      @media (width<=$breakpoint-mob) {
+        display: block;
+      }
+    }
+
+    &_bottom{
+      display: flex;
+      flex-grow: 1;
+
+      @media (width<=$breakpoint-mob) {
+        flex-grow: initial;
+      }
     }
   }
 }

@@ -28,12 +28,14 @@ const HomeContent = () => {
       <OurPortfolio />
       <div className={styles['fourth-section']}>
         <Container size={'small'}>
-          <div className={styles['fourth-section__top']}>
-            <PartnerReviews />
-            <OurBlog />
-          </div>
-          <div className={styles['fourth-section__bottom']}>
-            <CTA />
+          <div className={styles['fourth-section__content']}>
+            <div className={styles['fourth-section__content_top']}>
+              <PartnerReviews />
+              {/*<OurBlog />*/}
+            </div>
+            <div className={styles['fourth-section__content_bottom']}>
+              <CTA />
+            </div>
           </div>
         </Container>
       </div>

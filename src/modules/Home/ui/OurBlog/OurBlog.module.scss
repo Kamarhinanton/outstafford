@@ -1,8 +1,11 @@
 @import '@/app/styles/variables/breakpoints';
 
 .our-blog{
+  display: flex;
   flex: 1 0;
-  padding: 36rem;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10rem 36rem;
   background: var(--grey-bg);
   border-radius: 36rem;
 

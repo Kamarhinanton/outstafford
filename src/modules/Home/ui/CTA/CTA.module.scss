@@ -2,9 +2,11 @@
 
 .cta{
   display: flex;
+  align-items: center;
   justify-content: flex-end;
+  width: 100%;
   margin: 36rem 0 0;
-  padding: 94rem 229rem;
+  padding: 10rem 229rem;
   color: var(--black);
   background-color: var(--primary-color);
   border-radius: 36rem;
@@ -30,7 +32,7 @@
     }
 
     .description{
-      margin: 35rem 0 0;
+      margin: 15rem 0 0;
       font-size: 24rem;
 
       @media (width<= $breakpoint-mob) {

@@ -3,16 +3,16 @@
 .our-portfolio{
   display: flex;
   min-height: 100svh;
-  padding: 24rem 0 120rem;
-
-  @media (width<=$breakpoint-mob){
-    padding: 66rem 0 60rem;
-  }
 
   &__content{
     position: relative;
     width: 100%;
     height: 100%;
+    padding: 24rem 0 120rem;
+
+    @media (width<=$breakpoint-mob){
+      padding: 66rem 0 60rem;
+    }
 
     &_link{
       display: block;
@@ -35,13 +35,13 @@
 
       .title{
         position: absolute;
-        bottom: 48rem;
+        bottom: 168rem;
         left: 48rem;
         text-transform: capitalize;
         transition: var(--duration-hover) var(--ease) var(--hover-delay);
 
         @media (width<=$breakpoint-mob){
-          bottom: 21rem;
+          bottom: 81rem;
           left: 20rem;
           max-width: 200rem;
         }
