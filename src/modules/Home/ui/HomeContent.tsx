@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import HeroSection from '@/modules/Home/ui/HeroSection/HeroSection'
 import OurPortfolio from '@/modules/Home/ui/OurPortfolio/OurPortfolio'
 import dynamic from 'next/dynamic'
@@ -8,8 +8,13 @@ import PartnerReviews from '@/modules/Home/ui/PartnerReviews/PartnerReviews'
 import Container from '@/app/layouts/Container'
 import OurBlog from '@/modules/Home/ui/OurBlog/OurBlog'
 import CTA from '@/modules/Home/ui/CTA/CTA'
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
+import { Mousewheel } from 'swiper/modules'
+import Footer from '@/components/Footer/Footer'
+import { Swiper as SwiperType } from 'swiper/types'
 
 import styles from './HomeContent.module.scss'
+import 'swiper/css'
 
 const MouseIndicator = dynamic(
   () => import('@/components/MouseIndicatorScroll/ui/MouseIndicatorScroll'),
@@ -18,27 +23,68 @@ const MouseIndicator = dynamic(
   },
 )
 
+const BottomSection = () => {
+  return (
+    <Container size={'small'}>
+      <div className={styles['bottom-section']}>
+        <div className={styles['bottom-section__top']}>
+          <PartnerReviews />
+          {/*<OurBlog />*/}
+        </div>
+        <div className={styles['bottom-section__bottom']}>
+          <CTA />
+        </div>
+      </div>
+    </Container>
+  )
+}
+
+const SwiperHomeComponent = () => {
+  const [swiper, setSwiper] = useState<SwiperType | null>(null)
+  const { width } = useWindowDimensions()
+
+  useEffect(() => {
+    if (width <= breakpointMob && swiper) {
+      swiper.destroy(true, true)
+    }
+  }, [width, swiper])
+
+  const handle = (e: SwiperType) => {
+    setSwiper(e)
+  }
+
+  return (
+    <Swiper
+      className={styles['slider']}
+      direction={'vertical'}
+      slidesPerView={1}
+      mousewheel={true}
+      modules={[Mousewheel]}
+      speed={2000}
+      onSwiper={handle}
+      wrapperClass={styles['slider__wrapper']}
+    >
+      {sectionsArray.map((section) => (
+        <SwiperSlide key={section.key}>{section}</SwiperSlide>
+      ))}
+    </Swiper>
+  )
+}
+
+const sectionsArray = [
+  <HeroSection key="hero" />,
+  <OurPortfolio key="portfolio" />,
+  <BottomSection key="bottom" />,
+  <Footer key="footer" />,
+]
+
 const HomeContent = () => {
   const { width } = useWindowDimensions()
 
   return (
     <main>
       {width > breakpointMob && <MouseIndicator />}
-      <HeroSection />
-      <OurPortfolio />
-      <div className={styles['fourth-section']}>
-        <Container size={'small'}>
-          <div className={styles['fourth-section__content']}>
-            <div className={styles['fourth-section__content_top']}>
-              <PartnerReviews />
-              {/*<OurBlog />*/}
-            </div>
-            <div className={styles['fourth-section__content_bottom']}>
-              <CTA />
-            </div>
-          </div>
-        </Container>
-      </div>
+      <SwiperHomeComponent />
     </main>
   )
 }

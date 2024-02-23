@@ -10,6 +10,7 @@ import { AnimatePresence } from 'framer-motion'
 import dynamic from 'next/dynamic'
 
 import styles from './PartnerReviews.module.scss'
+import 'swiper/css'
 
 const PopUp = dynamic(() => import('@/components/VideoPopUp/VideoPopUp'), {
   ssr: false,

@@ -1,35 +1,47 @@
 @import '@/app/styles/variables/breakpoints';
 
-.fourth-section {
-  &__content{
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+
+  @media (width<=$breakpoint-mob) {
+    min-height: initial;
+  }
+
+  &__top {
     display: flex;
-    flex-direction: column;
-    min-height: 100svh;
+    flex-grow: 1;
+    gap: 24rem;
 
     @media (width<=$breakpoint-mob) {
-      min-height: initial;
+      flex-grow: initial;
     }
 
-    &_top {
-      display: flex;
-      flex-grow: 1;
-      gap: 24rem;
+    @media (width<=$breakpoint-mob) {
+      display: block;
+    }
+  }
 
-      @media (width<=$breakpoint-mob) {
-        flex-grow: initial;
-      }
+  &__bottom {
+    display: flex;
+    flex-grow: 1;
 
-      @media (width<=$breakpoint-mob) {
+    @media (width<=$breakpoint-mob) {
+      flex-grow: initial;
+    }
+  }
+}
+
+.slider {
+  height: 100vh;
+
+  @media (width <= $breakpoint-mob) {
+    height: initial;
+
+    .slider{
+      &__wrapper{
         display: block;
-      }
-    }
-
-    &_bottom{
-      display: flex;
-      flex-grow: 1;
-
-      @media (width<=$breakpoint-mob) {
-        flex-grow: initial;
       }
     }
   }

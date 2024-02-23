@@ -2,7 +2,6 @@ import { FC, ReactNode } from 'react'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { breakpointMob } from '@/utils/variables'
 import dynamic from 'next/dynamic'
-import Footer from '@/components/Footer/Footer'
 import { Header } from '@/components/Header'
 
 const MobileCTA = dynamic(
@@ -32,7 +31,6 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
       {width <= breakpointMob && <MobileCTA />}
       {width <= breakpointMob && <MobileHeader />}
       {children}
-      <Footer />
     </>
   )
 }

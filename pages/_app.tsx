@@ -6,7 +6,6 @@ import { Provider } from 'react-redux'
 import store from '@/store/store'
 import { MainPreloader } from '@/components/MainPreloader'
 
-import 'swiper/css'
 import '@/app/styles/index.scss'
 
 const grtskTera = localFont({
