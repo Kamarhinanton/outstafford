@@ -7,6 +7,7 @@ import useWindowDimensions from '@/hooks/useWindowDimensions'
 import PartnerReviews from '@/modules/Home/ui/PartnerReviews/PartnerReviews'
 import Container from '@/app/layouts/Container'
 import OurBlog from '@/modules/Home/ui/OurBlog/OurBlog'
+import CTA from '@/modules/Home/ui/CTA/CTA'
 
 import styles from './HomeContent.module.scss'
 
@@ -25,10 +26,17 @@ const HomeContent = () => {
       {width > breakpointMob && <MouseIndicator />}
       <HeroSection />
       <OurPortfolio />
-      <Container className={styles['fourth-section']} size={'small'}>
-        <PartnerReviews />
-        <OurBlog />
-      </Container>
+      <div className={styles['fourth-section']}>
+        <Container size={'small'}>
+          <div className={styles['fourth-section__top']}>
+            <PartnerReviews />
+            <OurBlog />
+          </div>
+          <div className={styles['fourth-section__bottom']}>
+            <CTA />
+          </div>
+        </Container>
+      </div>
     </main>
   )
 }
