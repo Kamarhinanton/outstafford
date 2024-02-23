@@ -4,7 +4,6 @@ import indicatorJson from '@/components/MouseIndicatorScroll/data/indicator.json
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
 import classNames from 'classnames'
-import { useViewportPosition } from '@/hooks/useViewportPosition'
 
 import styles from './MouseIndicatorScroll.module.scss'
 const MouseIndicatorScroll = () => {
@@ -12,7 +11,12 @@ const MouseIndicatorScroll = () => {
     (state: RootState) => state.preloaderState.isPreloaderActive,
   )
   const lottieRef = useRef<LottieRefCurrentProps>(null)
-  const { isTop, isBottom } = useViewportPosition()
+  const isTop = useSelector(
+    (state: RootState) => state.detectSliderPosition.isTop,
+  )
+  const isBottom = useSelector(
+    (state: RootState) => state.detectSliderPosition.isBottom,
+  )
 
   const mods = {
     [styles['top']]: isTop,

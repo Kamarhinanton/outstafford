@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import HeroSection from '@/modules/Home/ui/HeroSection/HeroSection'
 import OurPortfolio from '@/modules/Home/ui/OurPortfolio/OurPortfolio'
 import dynamic from 'next/dynamic'
@@ -15,6 +15,10 @@ import { Swiper as SwiperType } from 'swiper/types'
 
 import styles from './HomeContent.module.scss'
 import 'swiper/css'
+import { AppDispatch } from '@/store/store'
+import { useDispatch } from 'react-redux'
+import { setIsBottom } from '@/store/reducers/detectSliderPosition'
+import { setIsTop } from '@/store/reducers/detectSliderPosition'
 
 const MouseIndicator = dynamic(
   () => import('@/components/MouseIndicatorScroll/ui/MouseIndicatorScroll'),
@@ -42,6 +46,7 @@ const BottomSection = () => {
 const SwiperHomeComponent = () => {
   const [swiper, setSwiper] = useState<SwiperType | null>(null)
   const { width } = useWindowDimensions()
+  const dispatch: AppDispatch = useDispatch()
 
   useEffect(() => {
     if (width <= breakpointMob && swiper) {
@@ -49,8 +54,20 @@ const SwiperHomeComponent = () => {
     }
   }, [width, swiper])
 
-  const handle = (e: SwiperType) => {
-    setSwiper(e)
+  const handleSlideChange = () => {
+    if (swiper?.isBeginning) {
+      console.log('begin')
+      dispatch(setIsTop(true))
+    }
+    if (swiper?.isEnd) {
+      console.log('end')
+      dispatch(setIsBottom(true))
+    }
+    if (!swiper?.isBeginning && !swiper?.isEnd) {
+      console.log('middle')
+      dispatch(setIsBottom(false))
+      dispatch(setIsTop(false))
+    }
   }
 
   return (
@@ -67,7 +84,8 @@ const SwiperHomeComponent = () => {
       }}
       modules={[Mousewheel, Pagination]}
       speed={2000}
-      onSwiper={handle}
+      onSwiper={(e) => setSwiper(e)}
+      onSlideChange={handleSlideChange}
       wrapperClass={styles['slider__wrapper']}
     >
       {sectionsArray.map((section) => (
