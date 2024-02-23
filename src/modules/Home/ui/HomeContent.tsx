@@ -84,6 +84,7 @@ const HomeContent = () => {
   return (
     <main>
       {width > breakpointMob && <MouseIndicator />}
+      <div id="sliderPopUp" />
       <SwiperHomeComponent />
     </main>
   )

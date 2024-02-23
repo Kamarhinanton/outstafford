@@ -11,6 +11,7 @@ import dynamic from 'next/dynamic'
 
 import styles from './PartnerReviews.module.scss'
 import 'swiper/css'
+import { Portal } from '@/ui/Portal/Portal'
 
 const PopUp = dynamic(() => import('@/components/VideoPopUp/VideoPopUp'), {
   ssr: false,
@@ -82,7 +83,9 @@ const PartnerReviews = () => {
         </div>
         <AnimatePresence>
           {isPopUpVisible && videoId && (
-            <PopUp videoId={videoId} setIsPopUpVisible={setIsPopUpVisible} />
+            <Portal selector="sliderPopUp">
+              <PopUp videoId={videoId} setIsPopUpVisible={setIsPopUpVisible} />
+            </Portal>
           )}
         </AnimatePresence>
       </div>
