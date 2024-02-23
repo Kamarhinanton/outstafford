@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import HeroSection from '@/modules/Home/ui/HeroSection/HeroSection'
 import OurPortfolio from '@/modules/Home/ui/OurPortfolio/OurPortfolio'
 import dynamic from 'next/dynamic'
@@ -8,8 +8,8 @@ import PartnerReviews from '@/modules/Home/ui/PartnerReviews/PartnerReviews'
 import Container from '@/app/layouts/Container'
 import OurBlog from '@/modules/Home/ui/OurBlog/OurBlog'
 import CTA from '@/modules/Home/ui/CTA/CTA'
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
-import { Mousewheel } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Mousewheel, Navigation, Pagination } from 'swiper/modules'
 import Footer from '@/components/Footer/Footer'
 import { Swiper as SwiperType } from 'swiper/types'
 
@@ -59,7 +59,13 @@ const SwiperHomeComponent = () => {
       direction={'vertical'}
       slidesPerView={1}
       mousewheel={true}
-      modules={[Mousewheel]}
+      pagination={{
+        clickable: true,
+        verticalClass: styles['pagination'],
+        bulletClass: styles['pagination__bullet'],
+        bulletActiveClass: styles['active'],
+      }}
+      modules={[Mousewheel, Pagination]}
       speed={2000}
       onSwiper={handle}
       wrapperClass={styles['slider__wrapper']}
