@@ -22,6 +22,7 @@ const PartnerReviews = () => {
     if (videoId) {
       setVideoId(videoId)
       setIsPopUpVisible(true)
+      document.body.style.overflow = 'hidden'
     }
   }
 
