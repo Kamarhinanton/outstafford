@@ -8,10 +8,10 @@ import classNames from 'classnames'
 import { sliderData } from '@/modules/Home/ui/PartnerReviews/data'
 import { AnimatePresence } from 'framer-motion'
 import dynamic from 'next/dynamic'
+import { Portal } from '@/ui/Portal/Portal'
 
 import styles from './PartnerReviews.module.scss'
 import 'swiper/css'
-import { Portal } from '@/ui/Portal/Portal'
 
 const PopUp = dynamic(() => import('@/components/VideoPopUp/VideoPopUp'), {
   ssr: false,
