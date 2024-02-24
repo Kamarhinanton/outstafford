@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import HeroSection from '@/modules/Home/ui/HeroSection/HeroSection'
 import OurPortfolio from '@/modules/Home/ui/OurPortfolio/OurPortfolio'
 import dynamic from 'next/dynamic'
@@ -8,10 +8,11 @@ import PartnerReviews from '@/modules/Home/ui/PartnerReviews/PartnerReviews'
 import Container from '@/app/layouts/Container'
 // import OurBlog from '@/modules/Home/ui/OurBlog/OurBlog'
 import CTA from '@/modules/Home/ui/CTA/CTA'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react'
 import { EffectCreative, Mousewheel, Pagination } from 'swiper/modules'
 import Footer from '@/components/Footer/Footer'
 import { Swiper as SwiperType } from 'swiper/types'
+import SwiperInit from 'swiper'
 import { AppDispatch } from '@/store/store'
 import { useDispatch } from 'react-redux'
 import { setIsBottom } from '@/store/reducers/detectSliderPosition'
@@ -19,6 +20,7 @@ import { setIsTop } from '@/store/reducers/detectSliderPosition'
 
 import styles from './HomeContent.module.scss'
 import 'swiper/css'
+import classNames from 'classnames'
 
 const MouseIndicator = dynamic(
   () => import('@/components/MouseIndicatorScroll/ui/MouseIndicatorScroll'),
@@ -44,62 +46,73 @@ const BottomSection = () => {
     </div>
   )
 }
-
 const SwiperHomeComponent = () => {
-  const [swiper, setSwiper] = useState<SwiperType | null>(null)
   const { width } = useWindowDimensions()
   const dispatch: AppDispatch = useDispatch()
-
-  useEffect(() => {
-    if (width <= breakpointMob && swiper) {
-      swiper.destroy(true, true)
-    }
-  }, [width, swiper])
+  const swiperRef = useRef<SwiperType | null>(null)
 
   const handleSlideChange = () => {
-    if (swiper?.isBeginning) {
+    if (swiperRef.current?.isBeginning) {
       dispatch(setIsTop(true))
       dispatch(setIsBottom(false))
-    } else if (swiper?.isEnd) {
+    } else if (swiperRef.current?.isEnd) {
       dispatch(setIsBottom(true))
       dispatch(setIsTop(false))
-    } else if (!swiper?.isBeginning && !swiper?.isEnd) {
+    } else if (!swiperRef.current?.isBeginning && !swiperRef.current?.isEnd) {
       dispatch(setIsBottom(false))
       dispatch(setIsTop(false))
     }
   }
 
+  const swiperProps: SwiperProps = {
+    direction: 'vertical',
+    slidesPerView: 1,
+    mousewheel: true,
+    pagination: {
+      el: '.current-pagination',
+      clickable: true,
+      verticalClass: styles['pagination'],
+      bulletClass: styles['pagination__bullet'],
+      bulletActiveClass: styles['active'],
+    },
+    modules: [Mousewheel, Pagination, EffectCreative],
+    speed: 1500,
+    wrapperClass: styles['slider__wrapper'],
+    effect: 'creative',
+    creativeEffect: {
+      prev: {
+        translate: [0, 0, -200],
+      },
+      next: {
+        translate: [0, '100%', 0],
+      },
+    },
+    onSlideChange: handleSlideChange,
+    className: classNames(styles['slider'], 'current-swiper'),
+    onInit: (swiper) => {
+      swiperRef.current = swiper
+    },
+  }
+
+  useEffect(() => {
+    if (width <= breakpointMob) {
+      swiperRef.current?.destroy(true, true)
+    }
+    if (width > breakpointMob && swiperRef.current?.destroyed) {
+      swiperRef.current = new SwiperInit('.current-swiper', swiperProps)
+      swiperRef.current.on('slideChange', handleSlideChange)
+    }
+  }, [width])
+
   return (
-    <Swiper
-      className={styles['slider']}
-      direction={'vertical'}
-      slidesPerView={1}
-      mousewheel={true}
-      pagination={{
-        clickable: true,
-        verticalClass: styles['pagination'],
-        bulletClass: styles['pagination__bullet'],
-        bulletActiveClass: styles['active'],
-      }}
-      modules={[Mousewheel, Pagination, EffectCreative]}
-      speed={1500}
-      onSwiper={(e) => setSwiper(e)}
-      onSlideChange={handleSlideChange}
-      wrapperClass={styles['slider__wrapper']}
-      effect={'creative'}
-      creativeEffect={{
-        prev: {
-          translate: [0, 0, -200],
-        },
-        next: {
-          translate: [0, '100%', 0],
-        },
-      }}
-    >
-      {sectionsArray.map((section) => (
-        <SwiperSlide key={section.key}>{section}</SwiperSlide>
-      ))}
-    </Swiper>
+    <>
+      <div className="current-pagination" />
+      <Swiper {...swiperProps}>
+        {sectionsArray.map((section) => (
+          <SwiperSlide key={section.key}>{section}</SwiperSlide>
+        ))}
+      </Swiper>
+    </>
   )
 }
 

@@ -11,7 +11,6 @@ export const Portal: FC<PortalProps> = ({ children, selector }) => {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    console.log(selector)
     ref.current = document.getElementById(selector)
     setMounted(true)
 
