@@ -5,34 +5,14 @@
 
   &__content {
     display: flex;
-    flex-direction: column;
+    gap: 24rem;
+    align-items: center;
     min-height: 100svh;
 
     @media (width<=$breakpoint-mob) {
+      flex-direction: column;
+      align-items: initial;
       min-height: initial;
-    }
-
-    &_top {
-      display: flex;
-      flex-grow: 1;
-      gap: 24rem;
-
-      @media (width<=$breakpoint-mob) {
-        flex-grow: initial;
-      }
-
-      @media (width<=$breakpoint-mob) {
-        display: block;
-      }
-    }
-
-    &_bottom {
-      display: flex;
-      flex-grow: 1;
-
-      @media (width<=$breakpoint-mob) {
-        flex-grow: initial;
-      }
     }
   }
 }

@@ -1,11 +1,8 @@
 @import '@/app/styles/variables/breakpoints';
 
 .partner-review {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   max-width: 860rem;
-  padding: 10rem 36rem;
+  padding: 36rem;
   background: var(--grey-bg);
   border-radius: 36rem;
 
@@ -59,17 +56,20 @@
 
         .upwork, .clutch {
           display: flex;
-          opacity: 0.5;
-          transition: var(--duration-hover) var(--ease);
 
           svg {
             width: 100%;
             height: 100%;
+            backface-visibility: hidden;
+            opacity: 0.5;
+            transition: opacity var(--duration-hover) var(--ease);
           }
 
           @media (width>$breakpoint-mob) {
             &:hover {
-              opacity: 1;
+              svg {
+                opacity: 1;
+              }
             }
           }
         }
@@ -81,7 +81,9 @@
           line-height: 150%;
 
           .upwork, .clutch {
-            opacity: 1;
+            svg {
+              opacity: 1;
+            }
           }
         }
       }

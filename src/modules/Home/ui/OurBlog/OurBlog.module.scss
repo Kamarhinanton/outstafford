@@ -1,16 +1,14 @@
 @import '@/app/styles/variables/breakpoints';
 
 .our-blog{
-  display: flex;
   flex: 1 0;
-  flex-direction: column;
-  justify-content: center;
-  padding: 10rem 36rem;
+  min-height: 729rem;
+  padding: 36rem;
   background: var(--grey-bg);
   border-radius: 36rem;
 
   @media (width<=$breakpoint-mob) {
-    display: none;
+    min-height: 100svh;
   }
 
   .title{

@@ -6,8 +6,7 @@ import { breakpointMob } from '@/utils/variables'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import PartnerReviews from '@/modules/Home/ui/PartnerReviews/PartnerReviews'
 import Container from '@/app/layouts/Container'
-// import OurBlog from '@/modules/Home/ui/OurBlog/OurBlog'
-import CTA from '@/modules/Home/ui/CTA/CTA'
+import OurBlog from '@/modules/Home/ui/OurBlog/OurBlog'
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react'
 import { EffectCreative, Mousewheel, Pagination } from 'swiper/modules'
 import Footer from '@/components/Footer/Footer'
@@ -17,10 +16,10 @@ import { AppDispatch } from '@/store/store'
 import { useDispatch } from 'react-redux'
 import { setIsBottom } from '@/store/reducers/detectSliderPosition'
 import { setIsTop } from '@/store/reducers/detectSliderPosition'
+import classNames from 'classnames'
 
 import styles from './HomeContent.module.scss'
 import 'swiper/css'
-import classNames from 'classnames'
 
 const MouseIndicator = dynamic(
   () => import('@/components/MouseIndicatorScroll/ui/MouseIndicatorScroll'),
@@ -34,13 +33,8 @@ const BottomSection = () => {
     <div className={styles['bottom-section']}>
       <Container size={'small'}>
         <div className={styles['bottom-section__content']}>
-          <div className={styles['bottom-section__content_top']}>
-            <PartnerReviews />
-            {/*<OurBlog />*/}
-          </div>
-          <div className={styles['bottom-section__content_bottom']}>
-            <CTA />
-          </div>
+          <PartnerReviews />
+          <OurBlog />
         </div>
       </Container>
     </div>
