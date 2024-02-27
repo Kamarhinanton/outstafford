@@ -12,6 +12,7 @@ import { Portal } from '@/ui/Portal/Portal'
 
 import styles from './PartnerReviews.module.scss'
 import 'swiper/css'
+import Link from 'next/link'
 
 const PopUp = dynamic(() => import('@/components/VideoPopUp/VideoPopUp'), {
   ssr: false,
@@ -35,9 +36,13 @@ const PartnerReviews = () => {
           <h3 className={classNames(styles['title'], 'h3')}>Partner reviews</h3>
           <p className={styles['description']}>
             <span>More verified reviews on</span>
-            <Clutch className={styles['clutch']} />
+            <Link className={styles['clutch']} href={'/'}>
+              <Clutch />
+            </Link>
             <span>and</span>
-            <Upwork className={styles['upwork']} />
+            <Link className={styles['upwork']} href={'/'}>
+              <Upwork />
+            </Link>
           </p>
         </div>
         <Swiper
@@ -62,7 +67,7 @@ const PartnerReviews = () => {
               />
               <div className={styles['top-description']}>
                 <p className={styles['top-description__text']}>
-                  <strong>{slide.description}</strong>
+                  {slide.description}
                 </p>
               </div>
               <p className={styles['bottom-description']}>
