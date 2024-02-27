@@ -42,6 +42,12 @@
   &.green {
     color: var(--black);
     background: var(--primary-color);
+
+    @media (width>$breakpoint-mob) {
+      &:hover {
+        background: var(--white);
+      }
+    }
   }
 
   &.transparent {

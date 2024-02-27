@@ -20,6 +20,7 @@ import classNames from 'classnames'
 
 import styles from './HomeContent.module.scss'
 import 'swiper/css'
+import CTA from '@/modules/Home/ui/CTA/CTA'
 
 const MouseIndicator = dynamic(
   () => import('@/components/MouseIndicatorScroll/ui/MouseIndicatorScroll'),
@@ -114,6 +115,7 @@ const sectionsArray = [
   <HeroSection key="hero" />,
   <OurPortfolio key="portfolio" />,
   <BottomSection key="bottom" />,
+  <CTA key="cta" />,
   <Footer key="footer" />,
 ]
 

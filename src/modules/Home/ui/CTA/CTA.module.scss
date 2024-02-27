@@ -1,44 +1,93 @@
 @import '@/app/styles/variables/breakpoints';
 
-.cta{
+.cta {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   width: 100%;
-  margin: 36rem 0 0;
-  padding: 10rem 229rem;
-  color: var(--black);
-  background-color: var(--primary-color);
-  border-radius: 36rem;
+  min-height: 100svh;
+  background-color: var(--black);
 
   @media (width<= $breakpoint-mob) {
     display: block;
     justify-content: initial;
-    margin: 16rem 0 0;
-    padding: 26rem 33rem 26rem 162rem;
-    border-radius: 24rem;
+    min-height: initial;
+    margin: 16rem 0;
   }
 
-  &__content{
-    max-width: 577rem;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 291rem 50rem 112rem;
+    background-color: var(--dark-green);
+    border-radius: 36rem;
 
-    .title{
-      @media (width<= $breakpoint-mob) {
-        display: inline-block;
-        padding: 0 0 4rem;
-        font-size: 16rem;
-        border-bottom: 2rem solid var(--black);
-      }
+    @media (width<= $breakpoint-mob) {
+      padding: 26rem 33rem 26rem 162rem;
+      background-color: var(--primary-color);
+      border-radius: 24rem;
     }
 
-    .description{
-      margin: 15rem 0 0;
-      font-size: 24rem;
+    &_content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 900rem;
+      color: var(--black);
+      text-align: center;
 
       @media (width<= $breakpoint-mob) {
-        margin: 8rem 0 0;
-        font-size: 14rem;
+        text-align: left;
+      }
+
+      .title {
+        margin: 0 0 23rem;
+        color: var(--primary-color);
         line-height: normal;
+        text-transform: capitalize;
+
+        &.mob {
+          display: none;
+        }
+
+        @media (width<= $breakpoint-mob) {
+          &.desk {
+            display: none;
+          }
+
+          &.mob {
+            display: inline-block;
+          }
+
+          display: inline-block;
+          margin: 0;
+          padding: 0 0 4rem;
+          color: var(--black);
+          font-size: 16rem;
+          border-bottom: 2rem solid var(--black);
+        }
+      }
+
+      .description {
+        margin: 0 0 25rem;
+        color: var(--white);
+        font-size: 28rem;
+        line-height: 150%;
+
+        @media (width<= $breakpoint-mob) {
+          margin: 4rem 0 0;
+          color: var(--black);
+          font-size: 14rem;
+          line-height: normal;
+        }
+      }
+
+      .button {
+        @media (width <= $breakpoint-mob) {
+          display: none;
+        }
       }
     }
   }

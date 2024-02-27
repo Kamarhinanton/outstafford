@@ -1,18 +1,39 @@
 import React from 'react'
+import classNames from 'classnames'
+import Container from '@/app/layouts/Container'
+import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
+import Link from 'next/link'
 
 import styles from './CTA.module.scss'
-import classNames from 'classnames'
 
 const Cta = () => {
   return (
     <section className={styles['cta']}>
-      <div className={styles['cta__content']}>
-        <h2 className={classNames(styles['title'], 'h2')}>Let’s talk!</h2>
-        <p className={styles['description']}>
-          Feel free to choose a time that works best for you, and we&apos;ll
-          have a chat about your idea
-        </p>
-      </div>
+      <Container>
+        <div className={styles['cta__wrapper']}>
+          <div className={styles['cta__wrapper_content']}>
+            <h2 className={classNames(styles['title'], styles['desk'], 'h2')}>
+              Get your detailed estimate today
+            </h2>
+            <Link
+              href={'/'}
+              className={classNames(styles['title'], styles['mob'], 'h2')}
+            >
+              Book a meeting
+            </Link>
+            <p className={styles['description']}>
+              Shoot us a message and we’ll reply within 8 hours
+            </p>
+            <ButtonPrimary
+              className={styles['button']}
+              size={'large'}
+              variant={'green'}
+            >
+              Contact us
+            </ButtonPrimary>
+          </div>
+        </div>
+      </Container>
     </section>
   )
 }
