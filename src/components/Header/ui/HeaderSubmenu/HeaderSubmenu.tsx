@@ -3,10 +3,11 @@ import Link from 'next/link'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import { headerSubmenuData } from '@/components/Header/ui/HeaderSubmenu/data'
 import classNames from 'classnames'
-import { useSelector } from 'react-redux'
-import { RootState } from '@/store/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '@/store/store'
 
 import styles from './HeaderSubmenu.module.scss'
+import { setIsMenuActive } from '@/store/reducers/callMenuSlice'
 
 const HeaderSubmenu = () => {
   const isMenuActive = useSelector(
@@ -15,10 +16,26 @@ const HeaderSubmenu = () => {
   const mods = {
     [styles['active']]: isMenuActive,
   }
+  const dispatch: AppDispatch = useDispatch()
+
+  const mouseLeaveDetect = ({
+    clientX,
+    clientY,
+    currentTarget,
+  }: React.MouseEvent<HTMLUListElement>) => {
+    const { top, left, right } = currentTarget.getBoundingClientRect()
+
+    if (clientY < top || clientX < left || clientX > right) {
+      dispatch(setIsMenuActive(false))
+    }
+  }
 
   return (
     <div className={classNames(styles['header-submenu'], mods)}>
-      <ul className={styles['header-submenu__wrapper']}>
+      <ul
+        onMouseLeave={mouseLeaveDetect}
+        className={styles['header-submenu__wrapper']}
+      >
         {headerSubmenuData.map((column) => (
           <li
             className={styles['header-submenu__wrapper_column']}

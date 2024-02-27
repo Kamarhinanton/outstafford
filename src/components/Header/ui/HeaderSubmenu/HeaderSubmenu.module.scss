@@ -4,6 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 9;
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -41,13 +42,19 @@
     position: absolute;
     bottom: 128rem;
     left: 50%;
-    z-index: 9;
     display: flex;
     padding: 36rem 36rem 40rem;
     background-color: var(--grey-dark);
     border-radius: 24rem;
     transform: translateX(-50%);
     transition: var(--duration-hover) var(--ease);
+
+    &::before{
+      position: absolute;
+      z-index: -1;
+      content: '';
+      inset: -300rem -200rem -148rem;
+    }
 
     &_column {
       width: 260rem;
