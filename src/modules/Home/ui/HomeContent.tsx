@@ -17,10 +17,10 @@ import { useDispatch } from 'react-redux'
 import { setIsBottom } from '@/store/reducers/detectSliderPosition'
 import { setIsTop } from '@/store/reducers/detectSliderPosition'
 import classNames from 'classnames'
+import CTA from '@/modules/Home/ui/CTA/CTA'
 
 import styles from './HomeContent.module.scss'
 import 'swiper/css'
-import CTA from '@/modules/Home/ui/CTA/CTA'
 
 const MouseIndicator = dynamic(
   () => import('@/components/MouseIndicatorScroll/ui/MouseIndicatorScroll'),

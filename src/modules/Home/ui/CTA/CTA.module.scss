@@ -22,14 +22,29 @@
     padding: 291rem 50rem 112rem;
     background-color: var(--dark-green);
     border-radius: 36rem;
+    transform-style: preserve-3d;
+    perspective: 800px;
+
+    //.cursor{
+    //  position: absolute;
+    //  top: 0;
+    //  left: 0;
+    //  z-index: -1;
+    //  width: 500rem;
+    //  height: 500rem;
+    //  background: radial-gradient(circle, rgb(119 254 99 / 20%) 0%, rgb(251 249 249 / 0%) 60%);
+    //  border-radius: 50%;
+    //}
 
     @media (width<= $breakpoint-mob) {
       padding: 26rem 33rem 26rem 162rem;
       background-color: var(--primary-color);
       border-radius: 24rem;
+      perspective: initial;
     }
 
     &_content {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -37,9 +52,12 @@
       max-width: 900rem;
       color: var(--black);
       text-align: center;
+      transform: translateZ(50px);
+      transform-style: preserve-3d;
 
       @media (width<= $breakpoint-mob) {
         text-align: left;
+        transform: initial;
       }
 
       .title {
