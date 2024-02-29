@@ -10,7 +10,7 @@ import styles from './CTA.module.scss'
 const Cta = () => {
   return (
     <section className={styles['cta']}>
-      <Container>
+      <Container className={styles['container']}>
         <CardTransformPerspective className={styles['cta__wrapper']}>
           <div className={styles['cta__wrapper_content']}>
             <h2 className={classNames(styles['title'], styles['desk'], 'h2')}>

@@ -4,7 +4,6 @@ import useFramerSpringValue from '@/hooks/useFramerSpringValue'
 import { motion, useTransform } from 'framer-motion'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { breakpointMob } from '@/utils/variables'
-import classNames from 'classnames'
 
 type CardTransformPerspectiveType = {
   children: ReactNode
@@ -28,8 +27,6 @@ const CardTransformPerspective: FC<CardTransformPerspectiveType> = ({
       const offsetX = event.clientX - window.innerWidth / 2
       const offsetY = event.clientY - window.innerHeight / 2
       const rect = event.currentTarget.getBoundingClientRect()
-      // const rectWidth = rect.width
-      // const rectHeight = rect.height
       const mouseX = Math.round(event.clientX - rect.left) - 250
       const mouseY = Math.round(event.clientY - rect.top) - 250
 
@@ -47,29 +44,21 @@ const CardTransformPerspective: FC<CardTransformPerspectiveType> = ({
     }
   }
   return (
-    <div
+    <motion.div
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={className}
       style={{
-        perspective: '1200px',
+        rotateX,
+        rotateY,
       }}
     >
-      <motion.div
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        className={className}
-        style={{
-          rotateX,
-          rotateY,
-          position: 'relative',
-          transformStyle: 'preserve-3d',
-        }}
-      >
-        <SectionCursor
-          xPosition={cardMouseSpringX}
-          yPosition={cardMouseSpringY}
-        />
-        {children}
-      </motion.div>
-    </div>
+      <SectionCursor
+        xPosition={cardMouseSpringX}
+        yPosition={cardMouseSpringY}
+      />
+      {children}
+    </motion.div>
   )
 }
 

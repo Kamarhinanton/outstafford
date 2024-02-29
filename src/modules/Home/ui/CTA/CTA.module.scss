@@ -8,6 +8,10 @@
   min-height: 100svh;
   background-color: var(--black);
 
+  .container{
+    perspective: 1500px;
+  }
+
   @media (width<= $breakpoint-mob) {
     display: block;
     justify-content: initial;
@@ -21,20 +25,21 @@
     flex-direction: column;
     align-items: center;
     padding: 291rem 50rem 112rem;
-    background-color: var(--dark-green);
-    border-radius: 36rem;
+    background-image: url("/images/Home/bg.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     transform-style: preserve-3d;
-    perspective: 800px;
 
     @media (width<= $breakpoint-mob) {
       padding: 26rem 33rem 26rem 162rem;
       background-color: var(--primary-color);
+      background-image: none;
       border-radius: 24rem;
       perspective: initial;
     }
 
     &_content {
-      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
