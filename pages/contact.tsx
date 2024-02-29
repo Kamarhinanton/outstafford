@@ -1,10 +1,14 @@
 import React from 'react'
-import Container from '@/app/layouts/Container'
+import Head from 'next/head'
+import { ContactContent } from '@/modules/Contact'
 
 export default function Contact() {
   return (
-    <Container>
-      <h1>Contact page</h1>
-    </Container>
+    <>
+      <Head>
+        <title>Contact page</title>
+      </Head>
+      <ContactContent />
+    </>
   )
 }

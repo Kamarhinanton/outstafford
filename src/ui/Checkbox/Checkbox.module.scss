@@ -1,0 +1,35 @@
+.checkbox {
+  display: flex;
+  border-radius: 34rem;
+  cursor: pointer;
+
+  &__title{
+  padding: 8rem 16rem;
+  color: var(--white);
+  font-size: 20rem;
+  line-height: normal;
+  border: 1px solid var(--grey-light);
+  border-radius: 34rem;
+  transition: var(--duration-hover) var(--ease);
+}
+
+  input {
+    display: none;
+  }
+
+  input[type="checkbox"]:checked + .checkbox__title{
+    color: var(--black);
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+  }
+
+  &.__error{
+    .checkbox{
+      &__title{
+        color: var(--red);
+        border: 1px solid var(--red);
+      }
+    }
+  }
+
+}

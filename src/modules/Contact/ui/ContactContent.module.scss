@@ -1,0 +1,57 @@
+@import '@/app/styles/variables/breakpoints';
+
+.contact {
+  margin: 52rem 0 0;
+
+  &__content {
+    display: flex;
+    gap: 24rem;
+    max-width: 1302rem;
+    margin: 0 auto;
+
+    &_column {
+      &:nth-child(1) {
+        display: flex;
+        flex: 0 1 449rem;
+        flex-direction: column;
+        gap: 24rem;
+
+        .card {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          height: 449rem;
+          cursor: pointer;
+
+          .title{
+            transition: var(--duration-hover) var(--ease);
+          }
+
+          .description{
+            margin: 16rem 0 0;
+            font-size: 20rem;
+            line-height: 150%;
+          }
+
+          @media (width > $breakpoint-mob) {
+            &:hover{
+              .title{
+                color: var(--primary-color);
+              }
+            }
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        flex: 1;
+      }
+    }
+
+    .card {
+      padding: 36rem;
+      background: var(--grey-bg);
+      border-radius: 36rem;
+    }
+  }
+}

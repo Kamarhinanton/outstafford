@@ -3,6 +3,7 @@
 .buttonPrimary {
   position: relative;
   font-family: var(--font-family-primary);
+  text-align: center;
   border-radius: 500rem;
   transition: background-color var(--duration-hover) var(--ease), color var(--duration-hover) var(--ease) var(--hover-delay);
 

@@ -1,0 +1,33 @@
+.form {
+  &__row {
+    margin: 36rem 0 0;
+
+    &.with-columns {
+      display: flex;
+      gap: 16rem;
+
+      .with-columns {
+        &__col {
+          flex: 0 1 50%;
+        }
+      }
+    }
+
+    &_description {
+      font-size: 20rem;
+      line-height: 150%;
+    }
+
+    &_list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8rem;
+      margin: 16rem 0 0;
+    }
+  }
+
+  .button{
+    display: block;
+    width: 100%;
+  }
+}
