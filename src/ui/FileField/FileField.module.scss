@@ -1,0 +1,111 @@
+@import '@/app/styles/variables/breakpoints';
+
+.file-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 0 36rem;
+  padding: 18rem;
+  border: 3px dashed var(--grey-btn);
+  border-radius: 26rem;
+  cursor: pointer;
+  transition: border var(--duration-hover) var(--ease);
+
+  &.accept {
+    border: 3px dashed var(--primary-color);
+  }
+
+  @media (width> $breakpoint-mob) {
+    &:hover {
+      border: 3px dashed var(--primary-color);
+    }
+  }
+
+  &__icon {
+    width: 24rem;
+    height: 30rem;
+    margin: 0 8rem 0 0;
+    opacity: .6;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 20rem;
+    line-height: 150%;
+    opacity: .6;
+  }
+}
+
+.upload-list {
+  margin: 0 0 16rem;
+
+  &__link {
+    position: relative;
+    display: flex;
+    gap: 10rem;
+    align-items: center;
+
+    &_paperclip {
+      width: 48rem;
+      height: 48rem;
+    }
+
+    &_description {
+      font-weight: 400;
+      font-size: 20rem;
+      line-height: 150%;
+
+      .top {
+        font-weight: 400;
+        font-size: 20rem;
+        line-height: 150%;
+      }
+
+      .bottom{
+        margin: 8rem 0 0;
+        font-size: 16rem;
+        opacity: .6;
+      }
+    }
+
+    .cross{
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 30rem;
+      height: 30rem;
+      transform: translateY(-50%);
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity var(--duration-hover) var(--ease);
+
+      @media (width>$breakpoint-mob) {
+        &:hover{
+          opacity: 1;
+        }
+      }
+
+      span{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        width: 100%;
+        height: 3rem;
+        background-color: var(--white);
+        border-radius: 5rem;
+        transform: translateY(-50%) translateX(-50%);
+        opacity: 1;
+
+        &:nth-child(1){
+          transform: translateY(-50%) translateX(-50%) rotate(45deg);
+        }
+
+        &:nth-child(2){
+          transform: translateY(-50%) translateX(-50%) rotate(-45deg);
+        }
+      }
+    }
+  }
+}

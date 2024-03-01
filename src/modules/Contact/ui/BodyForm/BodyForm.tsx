@@ -2,9 +2,10 @@ import React from 'react'
 import Checkbox from '@/ui/Checkbox/Checkbox'
 import TextField from '@/ui/TextField/TextField'
 import classNames from 'classnames'
+import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
+import FileField from '@/ui/FileField/FileField'
 
 import styles from './BodyForm.module.scss'
-import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 
 const BodyForm = () => {
   return (
@@ -51,6 +52,9 @@ const BodyForm = () => {
             'Project details, deadlines – everything you think we need to know about our collaboration.'
           }
         />
+      </div>
+      <div className={styles['form__row']}>
+        <FileField />
       </div>
       <ButtonPrimary
         className={styles['button']}
