@@ -1,7 +1,13 @@
+@import '@/app/styles/variables/breakpoints';
+
 .text-field{
   position: relative;
   display: flex;
   padding: 38rem 0 25rem;
+
+  @media (width <= $breakpoint-mob) {
+    padding: 29rem 0 20rem;
+  }
 
   &.__error{
     .text-field{
@@ -22,12 +28,20 @@
     border: 1px solid transparent;
     border-radius: 12rem;
 
+    @media (width <= $breakpoint-mob) {
+      font-size: 14rem;
+    }
+
     &::placeholder {
       color: var(--white);
       font-weight: 400;
       font-size: 20rem;
       line-height: 150%;
       opacity: 0.2;
+
+      @media (width <= $breakpoint-mob) {
+        font-size: 14rem;
+      }
     }
 
     &.textarea{
@@ -44,6 +58,10 @@
     font-weight: 400;
     font-size: 20rem;
     line-height: 150%;
+
+    @media (width <= $breakpoint-mob) {
+      font-size: 14rem;
+    }
   }
 
   &__error{
@@ -57,6 +75,11 @@
       width: 20rem;
       height: 20rem;
       margin: 0 2rem 0 0;
+
+      @media (width <= $breakpoint-mob) {
+        width: 15rem;
+        height: 15rem;
+      }
     }
 
     &_text{
@@ -64,6 +87,10 @@
       font-weight: 400;
       font-size: 16rem;
       line-height: 150%;
+
+      @media (width <= $breakpoint-mob) {
+        font-size: 14rem;
+      }
     }
   }
 }

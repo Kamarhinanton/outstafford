@@ -1,8 +1,18 @@
+@import '@/app/styles/variables/breakpoints';
+
 .form {
   margin: 40rem 0 0;
 
+  @media (width<=$breakpoint-mob) {
+    margin: 20rem 0 0;
+  }
+
   &__row {
     margin: 36rem 0 0;
+
+    @media (width<=$breakpoint-mob) {
+      margin: 21rem 0 0;
+    }
 
     &.with-columns {
       display: flex;
@@ -12,6 +22,10 @@
       .with-columns {
         &__col {
           flex: 0 1 calc(50% - 8rem);
+
+          @media (width<=$breakpoint-mob) {
+            flex: 0 1 100%;
+          }
 
           &.full{
             flex: 0 1 100%;
@@ -23,6 +37,10 @@
     &_description {
       font-size: 20rem;
       line-height: 150%;
+
+      @media (width<=$breakpoint-mob) {
+        font-size: 14rem;
+      }
     }
 
     &_list {
@@ -30,6 +48,11 @@
       flex-wrap: wrap;
       gap: 8rem;
       margin: 16rem 0 0;
+
+      @media (width<=$breakpoint-mob) {
+        gap: 4rem;
+        margin: 9rem 0 0;
+      }
     }
   }
 

@@ -11,7 +11,7 @@ const ContactContent = () => {
       <Container>
         <div className={styles['contact__content']}>
           <div className={styles['contact__content_column']}>
-            <div className={classNames(styles['card'], styles['small'])}>
+            <div className={styles['card']}>
               <h3 className={classNames(styles['title'], 'h3')}>
                 Send us a message
               </h3>
@@ -27,7 +27,9 @@ const ContactContent = () => {
           </div>
           <div className={styles['contact__content_column']}>
             <div className={styles['card']}>
-              <h3 className={'h3'}>Tell us about your project</h3>
+              <h3 className={classNames(styles['title'], 'h3')}>
+                Tell us about your project
+              </h3>
               <BodyForm />
             </div>
           </div>

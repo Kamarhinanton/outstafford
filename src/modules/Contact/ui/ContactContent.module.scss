@@ -1,13 +1,36 @@
 @import '@/app/styles/variables/breakpoints';
 
 .contact {
-  margin: 52rem 0 0;
+  padding: 52rem 0 252rem;
+
+  @media (width <= $breakpoint-mob) {
+    padding: 84rem 0 174rem;
+  }
 
   &__content {
     display: flex;
     gap: 24rem;
     max-width: 1302rem;
     margin: 0 auto;
+
+    @media (width <= $breakpoint-mob) {
+      flex-direction: column;
+      gap: 8rem;
+
+      .contact {
+        &__content {
+          &_column {
+            &:nth-child(2) {
+              order: 1;
+            }
+
+            &:nth-child(1) {
+              order: 2;
+            }
+          }
+        }
+      }
+    }
 
     &_column {
       &:nth-child(1) {
@@ -16,6 +39,10 @@
         flex-direction: column;
         gap: 24rem;
 
+        @media (width <= $breakpoint-mob) {
+          gap: 8rem;
+        }
+
         .card {
           display: flex;
           flex-direction: column;
@@ -23,20 +50,32 @@
           height: 50%;
           cursor: pointer;
 
-          .title{
-            line-height: 120%;
-            transition: var(--duration-hover) var(--ease);
+          @media (width <= $breakpoint-mob) {
+            height: 250rem;
           }
 
-          .description{
+          .title {
+            transition: var(--duration-hover) var(--ease);
+
+            @media (width <= $breakpoint-mob) {
+              max-width: 174rem;
+            }
+          }
+
+          .description {
             margin: 16rem 0 0;
             font-size: 20rem;
             line-height: 150%;
+
+            @media (width <= $breakpoint-mob) {
+              margin: 8rem 0 0;
+              font-size: 18rem;
+            }
           }
 
           @media (width > $breakpoint-mob) {
-            &:hover{
-              .title{
+            &:hover {
+              .title {
                 color: var(--primary-color);
               }
             }
@@ -53,6 +92,20 @@
       padding: 38rem;
       background: var(--grey-bg);
       border-radius: 36rem;
+
+      .title {
+        line-height: 120%;
+      }
+
+      @media (width <= $breakpoint-mob) {
+        padding: 24rem;
+        border-radius: 24rem;
+
+        .title {
+          font-size: 24rem;
+          text-transform: capitalize;
+        }
+      }
     }
   }
 }

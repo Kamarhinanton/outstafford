@@ -3,6 +3,10 @@
 .file-field{
   margin: 9rem 0 0;
 
+  @media (width<= $breakpoint-mob) {
+    margin: 0;
+  }
+
   &__content {
     display: flex;
     align-items: center;
@@ -14,6 +18,12 @@
     border-radius: 26rem;
     cursor: pointer;
     transition: border var(--duration-hover) var(--ease);
+
+    @media (width<= $breakpoint-mob) {
+      margin: 0 0 20rem;
+      padding: 4rem;
+      border-radius: 16rem;
+    }
 
     &.accept {
       border: 3px dashed var(--primary-color);
@@ -37,6 +47,10 @@
       font-size: 20rem;
       line-height: 150%;
       opacity: .6;
+
+      @media (width<= $breakpoint-mob) {
+        font-size: 14rem;
+      }
     }
   }
 

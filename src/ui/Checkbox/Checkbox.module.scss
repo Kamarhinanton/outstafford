@@ -1,3 +1,5 @@
+@import '@/app/styles/variables/breakpoints';
+
 .checkbox {
   display: flex;
   border-radius: 34rem;
@@ -11,6 +13,11 @@
   border: 1px solid var(--grey-light);
   border-radius: 34rem;
   transition: var(--duration-hover) var(--ease);
+
+    @media (width <= $breakpoint-mob) {
+      padding: 6rem 15rem;
+      font-size: 14rem;
+    }
 }
 
   input {

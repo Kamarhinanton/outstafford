@@ -32,23 +32,25 @@ const FileField = () => {
 
   return (
     <div className={styles['file-field']}>
-      <ul className={styles['file-field__list']}>
-        {uploadedFiles.map((file) => (
-          <li className={styles['file-field__list_link']} key={file.name}>
-            <Paperclip className={styles['paperclip']} />
-            <div className={styles['description']}>
-              <p className={styles['description__top']}>{file.name}</p>
-              <p className={styles['description__bottom']}>
-                {(file.size / (1024 * 1024)).toFixed(2)} MB
-              </p>
-            </div>
-            <div onClick={removeAcceptedFiles} className={styles['cross']}>
-              <span></span>
-              <span></span>
-            </div>
-          </li>
-        ))}
-      </ul>
+      {uploadedFiles.length > 0 && (
+        <ul className={styles['file-field__list']}>
+          {uploadedFiles.map((file) => (
+            <li className={styles['file-field__list_link']} key={file.name}>
+              <Paperclip className={styles['paperclip']} />
+              <div className={styles['description']}>
+                <p className={styles['description__top']}>{file.name}</p>
+                <p className={styles['description__bottom']}>
+                  {(file.size / (1024 * 1024)).toFixed(2)} MB
+                </p>
+              </div>
+              <div onClick={removeAcceptedFiles} className={styles['cross']}>
+                <span></span>
+                <span></span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
       <div
         className={classNames(
           styles['file-field__content'],
