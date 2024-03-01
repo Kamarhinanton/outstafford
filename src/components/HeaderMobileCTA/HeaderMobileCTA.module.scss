@@ -6,6 +6,20 @@
   width: 100%;
   padding: 13rem 0;
 
+  &.no-button{
+    pointer-events: none;
+
+    .header-mobile-cta{
+      &__content{
+        justify-content: center;
+
+        &_logo{
+          pointer-events: initial;
+        }
+      }
+    }
+  }
+
   &__content{
     display: flex;
     align-items: center;

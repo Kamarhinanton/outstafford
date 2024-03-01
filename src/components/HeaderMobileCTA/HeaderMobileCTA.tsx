@@ -4,12 +4,22 @@ import routes from '@/utils/routes'
 import Container from '@/app/layouts/Container'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import Logo from '../../../public/icons/logo.svg'
+import { useRouter } from 'next/router'
 
 import styles from './HeaderMobileCTA.module.scss'
+import classNames from 'classnames'
 
 const HeaderMobileCta = () => {
+  const router = useRouter()
+  const isContactPage = router.pathname === routes.public.contact
+
   return (
-    <section className={styles['header-mobile-cta']}>
+    <section
+      className={classNames(
+        styles['header-mobile-cta'],
+        isContactPage ? styles['no-button'] : '',
+      )}
+    >
       <Container>
         <div className={styles['header-mobile-cta__content']}>
           <Link
@@ -18,9 +28,11 @@ const HeaderMobileCta = () => {
           >
             <Logo />
           </Link>
-          <ButtonPrimary href={routes.public.contact} variant={'green'}>
-            Contact us
-          </ButtonPrimary>
+          {!isContactPage && (
+            <ButtonPrimary href={routes.public.contact} variant={'green'}>
+              Contact us
+            </ButtonPrimary>
+          )}
         </div>
       </Container>
     </section>

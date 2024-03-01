@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import Container from '@/app/layouts/Container'
 import BodyForm from '@/modules/Contact/ui/BodyForm/BodyForm'
+import Link from 'next/link'
 
 import styles from './ContactContent.module.scss'
 
@@ -33,6 +34,7 @@ const ContactContent = () => {
               <BodyForm />
             </div>
           </div>
+          <Link href={'/'} className={styles['backward-button']} />
         </div>
       </Container>
     </section>
