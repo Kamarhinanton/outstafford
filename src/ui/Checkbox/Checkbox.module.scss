@@ -4,10 +4,10 @@
   cursor: pointer;
 
   &__title{
-  padding: 8rem 16rem;
+  padding: 8rem 10rem;
   color: var(--white);
   font-size: 20rem;
-  line-height: normal;
+  line-height: 100%;
   border: 1px solid var(--grey-light);
   border-radius: 34rem;
   transition: var(--duration-hover) var(--ease);

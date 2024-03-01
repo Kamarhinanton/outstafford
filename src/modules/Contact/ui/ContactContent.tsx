@@ -17,7 +17,7 @@ const ContactContent = () => {
               </h3>
               <p className={styles['description']}>in Telegram</p>
             </div>
-            <div className={classNames(styles['card'], styles['small'])}>
+            <div className={styles['card']}>
               <h3 className={classNames(styles['title'], 'h3')}>
                 Book a сall <br />
                 with us
@@ -27,7 +27,7 @@ const ContactContent = () => {
           </div>
           <div className={styles['contact__content_column']}>
             <div className={styles['card']}>
-              <h3>Tell us about your project</h3>
+              <h3 className={'h3'}>Tell us about your project</h3>
               <BodyForm />
             </div>
           </div>

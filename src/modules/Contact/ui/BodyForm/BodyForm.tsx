@@ -42,9 +42,8 @@ const BodyForm = () => {
           label={'Email'}
           placeholder={'james@williams.com'}
         />
-      </div>
-      <div className={styles['form__row']}>
         <TextField
+          className={classNames(styles['with-columns__col'], styles['full'])}
           name={'Your message'}
           element={'textarea'}
           label={'Your message'}
@@ -53,9 +52,7 @@ const BodyForm = () => {
           }
         />
       </div>
-      <div className={styles['form__row']}>
-        <FileField />
-      </div>
+      <FileField />
       <ButtonPrimary
         className={styles['button']}
         size={'large'}

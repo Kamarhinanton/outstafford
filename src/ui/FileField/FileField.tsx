@@ -31,14 +31,14 @@ const FileField = () => {
   }
 
   return (
-    <>
-      <ul className={styles['upload-list']}>
+    <div className={styles['file-field']}>
+      <ul className={styles['file-field__list']}>
         {uploadedFiles.map((file) => (
-          <li className={styles['upload-list__link']} key={file.name}>
-            <Paperclip className={styles['upload-list__link_paperclip']} />
-            <div className={styles['upload-list__link_description']}>
-              <p className={styles['top']}>{file.name}</p>
-              <p className={styles['bottom']}>
+          <li className={styles['file-field__list_link']} key={file.name}>
+            <Paperclip className={styles['paperclip']} />
+            <div className={styles['description']}>
+              <p className={styles['description__top']}>{file.name}</p>
+              <p className={styles['description__bottom']}>
                 {(file.size / (1024 * 1024)).toFixed(2)} MB
               </p>
             </div>
@@ -51,18 +51,18 @@ const FileField = () => {
       </ul>
       <div
         className={classNames(
-          styles['file-field'],
+          styles['file-field__content'],
           isDragAccept ? styles['accept'] : '',
         )}
         {...getRootProps()}
       >
         <input {...getInputProps()} />
-        <Paperclip className={styles['file-field__icon']} />
-        <p className={styles['file-field__text']}>
+        <Paperclip className={styles['file-field__content_icon']} />
+        <p className={styles['file-field__content_text']}>
           Attach file (doc, docx, pdf - 15 mb)
         </p>
       </div>
-    </>
+    </div>
   )
 }
 

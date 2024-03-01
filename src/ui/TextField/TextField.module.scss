@@ -1,7 +1,7 @@
 .text-field{
   position: relative;
   display: flex;
-  padding: 38rem 0 36rem;
+  padding: 38rem 0 25rem;
 
   &.__error{
     .text-field{
@@ -13,7 +13,7 @@
 
   &__input{
     width: 100%;
-    padding: 18rem 16rem;
+    padding: 12rem 16rem;
     color: var(--white);
     font-weight: 400;
     font-size: 20rem;
