@@ -5,9 +5,9 @@ import Container from '@/app/layouts/Container'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import Logo from '../../../public/icons/logo.svg'
 import { useRouter } from 'next/router'
+import classNames from 'classnames'
 
 import styles from './HeaderMobileCTA.module.scss'
-import classNames from 'classnames'
 
 const HeaderMobileCta = () => {
   const router = useRouter()
