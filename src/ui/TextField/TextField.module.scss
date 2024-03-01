@@ -32,6 +32,10 @@
       font-size: 14rem;
     }
 
+    &:focus{
+      border: 1px solid var(--primary-color);
+    }
+
     &::placeholder {
       color: var(--white);
       font-weight: 400;
