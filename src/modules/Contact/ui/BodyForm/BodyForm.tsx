@@ -7,28 +7,29 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Controller, Resolver, useForm } from 'react-hook-form'
 import { validationSchema } from '@/modules/Contact/ui/BodyForm/validationSchema'
 import Checkbox from '@/ui/Checkbox/Checkbox'
+import ErrorMessage from '@/ui/ErrorMessage/ErrorMessage'
 
 import styles from './BodyForm.module.scss'
 
 export type FormData = {
-  checkboxGroup: string[]
+  interestGroup: string[]
   email: string
   message: string
   name: string
-  // budget: boolean[]
+  budgetGroup: string[]
   // document: File | undefined;
 }
 
 const defaultValues = {
-  checkboxGroup: [],
+  interestGroup: [],
   email: '',
   message: '',
   name: '',
-  // budget: [],
+  budgetGroup: [],
   // document: undefined,
 }
 
-const checkboxesGroup = [
+const interestGroup = [
   { label: 'Mobile App Development' },
   { label: 'Web Development' },
   { label: 'UX/UI design' },
@@ -36,13 +37,20 @@ const checkboxesGroup = [
   { label: 'AI Integration' },
 ]
 
+const budgetGroup = [
+  { label: 'Not Sure' },
+  { label: 'MVP: 10-30k' },
+  { label: 'Business: 30-100k' },
+  { label: 'Enterprise: >100k' },
+]
+
 const BodyForm = () => {
   const {
     handleSubmit,
     formState: { errors },
     control,
-    reset,
-    trigger,
+    // reset,
+    // trigger,
     watch,
   } = useForm<FormData>({
     values: defaultValues,
@@ -53,39 +61,66 @@ const BodyForm = () => {
     console.log('data', data)
   }
 
-  const watchedCheckboxGroup = watch('checkboxGroup', [])
+  const watchedInterestGroup = watch(
+    'interestGroup',
+    defaultValues.interestGroup,
+  )
+
+  const watchedBudgetGroup = watch('budgetGroup', defaultValues.budgetGroup)
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles['form']}>
       <div className={styles['form__row']}>
         <p className={styles['form__row_description']}>I’m interested in...</p>
         <div className={styles['form__row_list']}>
-          {checkboxesGroup.map((item) => (
+          {interestGroup.map((item) => (
             <Controller
               control={control}
               key={item.label}
-              name="checkboxGroup"
+              name="interestGroup"
               render={({ field }) => (
                 <Checkbox
                   {...field}
                   value={item.label}
                   title={item.label}
-                  watchedCheckboxGroup={watchedCheckboxGroup}
+                  watchedCheckboxGroup={watchedInterestGroup}
                 />
               )}
             />
           ))}
-          {errors['checkboxGroup']?.message}
+          {errors['interestGroup'] && (
+            <ErrorMessage
+              className={styles['row-error']}
+              error={errors['interestGroup']?.message}
+            />
+          )}
         </div>
       </div>
       <div className={styles['form__row']}>
         <p className={styles['form__row_description']}>Project budget (USD)</p>
-        {/*<div className={styles['form__row_list']}>*/}
-        {/*  <Checkbox title={'Not Sure'} />*/}
-        {/*  <Checkbox title={'MVP: 10-30k'} />*/}
-        {/*  <Checkbox title={'Business: 30-100k'} />*/}
-        {/*  <Checkbox title={'Enterprise: >100k'} />*/}
-        {/*</div>*/}
+        <div className={styles['form__row_list']}>
+          {budgetGroup.map((item) => (
+            <Controller
+              control={control}
+              key={item.label}
+              name="budgetGroup"
+              render={({ field }) => (
+                <Checkbox
+                  {...field}
+                  value={item.label}
+                  title={item.label}
+                  watchedCheckboxGroup={watchedBudgetGroup}
+                />
+              )}
+            />
+          ))}
+          {errors['budgetGroup'] && (
+            <ErrorMessage
+              className={styles['row-error']}
+              error={errors['budgetGroup']?.message}
+            />
+          )}
+        </div>
       </div>
       <div className={classNames(styles['form__row'], styles['with-columns'])}>
         <Controller

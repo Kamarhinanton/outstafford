@@ -8,6 +8,7 @@
   }
 
   &__row {
+    position: relative;
     margin: 36rem 0 0;
 
     @media (width<=$breakpoint-mob) {
@@ -27,7 +28,7 @@
             flex: 0 1 100%;
           }
 
-          &.full{
+          &.full {
             flex: 0 1 100%;
           }
         }
@@ -53,10 +54,18 @@
         gap: 4rem;
         margin: 9rem 0 0;
       }
+
+      .row-error {
+        bottom: -25rem;
+
+        @media (width<=$breakpoint-mob) {
+          bottom: -20rem;
+        }
+      }
     }
   }
 
-  .button{
+  .button {
     display: block;
     width: 100%;
   }

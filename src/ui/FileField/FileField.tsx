@@ -1,10 +1,4 @@
-import React, {
-  ChangeEvent,
-  FC,
-  ForwardedRef,
-  forwardRef,
-  useState,
-} from 'react'
+import React, { FC, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import Paperclip from '../../../public/icons/paperclip.svg'
 import classNames from 'classnames'

@@ -67,34 +67,4 @@
       font-size: 14rem;
     }
   }
-
-  &__error{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-
-    &_icon{
-      width: 20rem;
-      height: 20rem;
-      margin: 0 2rem 0 0;
-
-      @media (width <= $breakpoint-mob) {
-        width: 15rem;
-        height: 15rem;
-      }
-    }
-
-    &_text{
-      color: var(--red);
-      font-weight: 400;
-      font-size: 16rem;
-      line-height: 150%;
-
-      @media (width <= $breakpoint-mob) {
-        font-size: 14rem;
-      }
-    }
-  }
 }
