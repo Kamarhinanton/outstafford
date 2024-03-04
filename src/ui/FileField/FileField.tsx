@@ -1,11 +1,26 @@
-import React, { useState } from 'react'
+import React, {
+  ChangeEvent,
+  FC,
+  ForwardedRef,
+  forwardRef,
+  useState,
+} from 'react'
 import { useDropzone } from 'react-dropzone'
 import Paperclip from '../../../public/icons/paperclip.svg'
 import classNames from 'classnames'
+// import ErrorIcon from '../../../public/icons/error.svg'
 
 import styles from './FileField.module.scss'
 
-const FileField = () => {
+type FileFieldType = {
+  label?: string
+  // error?: string
+  // onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+  name?: string
+  // value?: File
+}
+
+const FileField: FC<FileFieldType> = ({ label }) => {
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([])
 
   const { getRootProps, getInputProps, isDragAccept, inputRef } = useDropzone({
@@ -20,6 +35,10 @@ const FileField = () => {
     },
     maxFiles: 1,
   })
+
+  // const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  //   onChange && onChange(e)
+  // }
 
   const removeAcceptedFiles = () => {
     if (uploadedFiles.length > 0) {
@@ -58,12 +77,21 @@ const FileField = () => {
         )}
         {...getRootProps()}
       >
-        <input {...getInputProps()} />
+        <input
+          {...getInputProps()}
+          // onChange={handleChange}
+          // ref={ref}
+          // value={value}
+        />
         <Paperclip className={styles['file-field__content_icon']} />
-        <p className={styles['file-field__content_text']}>
-          Attach file (doc, docx, pdf - 15 mb)
-        </p>
+        {label && <p className={styles['file-field__content_text']}>{label}</p>}
       </div>
+      {/*{error && (*/}
+      {/*  <p className={styles['file-field__error']}>*/}
+      {/*    <ErrorIcon className={styles['file-field__error_icon']} />*/}
+      {/*    <span className={styles['file-field__error_text']}>{error}</span>*/}
+      {/*  </p>*/}
+      {/*)}*/}
     </div>
   )
 }

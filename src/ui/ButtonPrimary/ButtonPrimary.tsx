@@ -21,12 +21,13 @@ type ButtonPrimaryProps = {
 
 const ButtonPrimary: FC<ButtonPrimaryProps> = ({
   // isLoading,
-  href = '/',
+  href,
   arrows = false,
   className,
   children,
   variant = 'grey',
   size = 'normal',
+  ...buttonProps
 }) => {
   const mods = {
     [styles[variant]]: true,
@@ -35,12 +36,23 @@ const ButtonPrimary: FC<ButtonPrimaryProps> = ({
   }
 
   return (
-    <Link
-      className={classNames(styles['buttonPrimary'], className, mods)}
-      href={href}
-    >
-      {children}
-    </Link>
+    <>
+      {!href ? (
+        <button
+          className={classNames(styles['buttonPrimary'], className, mods)}
+          {...buttonProps}
+        >
+          {children}
+        </button>
+      ) : (
+        <Link
+          className={classNames(styles['buttonPrimary'], className, mods)}
+          href={href}
+        >
+          {children}
+        </Link>
+      )}
+    </>
   )
 }
 
