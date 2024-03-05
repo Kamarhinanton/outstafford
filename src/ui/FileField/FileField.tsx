@@ -73,7 +73,7 @@ const FileField = forwardRef<HTMLInputElement, FileFieldType>(
             )}
           </ul>
         )}
-        <div
+        <label
           className={classNames(
             styles['file-field__content'],
             isDragAccept ? styles['accept'] : '',
@@ -85,7 +85,7 @@ const FileField = forwardRef<HTMLInputElement, FileFieldType>(
           {label && (
             <p className={styles['file-field__content_text']}>{label}</p>
           )}
-        </div>
+        </label>
         {error && <ErrorMessage error={error} />}
       </div>
     )
