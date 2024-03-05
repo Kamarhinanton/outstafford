@@ -17,7 +17,7 @@ export type FormData = {
   message: string
   name: string
   budgetGroup: string[]
-  // document: File | undefined;
+  document: FileList | undefined
 }
 
 const defaultValues = {
@@ -26,7 +26,7 @@ const defaultValues = {
   message: '',
   name: '',
   budgetGroup: [],
-  // document: undefined,
+  document: undefined,
 }
 
 const interestGroup = [
@@ -175,7 +175,19 @@ const BodyForm = () => {
           }}
         />
       </div>
-      <FileField label={'Attach file (doc, docx, pdf - 15 mb)'} />
+      <Controller
+        control={control}
+        name={'document'}
+        render={({ field }) => {
+          return (
+            <FileField
+              {...field}
+              error={errors['document']?.message}
+              label={'Attach file (doc, docx, pdf - 15 mb)'}
+            />
+          )
+        }}
+      />
       <ButtonPrimary
         type="submit"
         className={styles['button']}
