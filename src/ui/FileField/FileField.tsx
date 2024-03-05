@@ -22,7 +22,12 @@ const FileField = forwardRef<HTMLInputElement, FileFieldType>(
       undefined,
     )
 
-    const { getRootProps, getInputProps, isDragAccept } = useDropzone({
+    const {
+      getRootProps,
+      getInputProps,
+      isDragAccept,
+      inputRef = ref,
+    } = useDropzone({
       onDrop: (acceptedFiles) => {
         setUploadedFiles(acceptedFiles[0])
         handleChange(acceptedFiles[0])
@@ -73,19 +78,19 @@ const FileField = forwardRef<HTMLInputElement, FileFieldType>(
             )}
           </ul>
         )}
-        <label
+        <div
           className={classNames(
             styles['file-field__content'],
             isDragAccept ? styles['accept'] : '',
           )}
           {...getRootProps()}
         >
-          <input {...getInputProps()} ref={ref} />
+          <input {...getInputProps()} ref={inputRef} />
           <Paperclip className={styles['file-field__content_icon']} />
           {label && (
             <p className={styles['file-field__content_text']}>{label}</p>
           )}
-        </label>
+        </div>
         {error && <ErrorMessage error={error} />}
       </div>
     )
