@@ -21,6 +21,7 @@ import CTA from '@/modules/Home/ui/CTA/CTA'
 
 import styles from './HomeContent.module.scss'
 import 'swiper/css'
+import PagePreview from '@/components/PagePreview/PagePreview'
 
 const MouseIndicator = dynamic(
   () => import('@/components/MouseIndicatorScroll/ui/MouseIndicatorScroll'),

@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { HomeContent } from '@/modules/Home'
+import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
 
 export default function Home() {
   return (
@@ -7,7 +8,12 @@ export default function Home() {
       <Head>
         <title>Home page</title>
       </Head>
-      <HomeContent />
+      <PageTransitionLayout
+        title={'Home text'}
+        description={'home description'}
+      >
+        <HomeContent />
+      </PageTransitionLayout>
     </>
   )
 }

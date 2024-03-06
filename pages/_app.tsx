@@ -7,6 +7,8 @@ import store from '@/store/store'
 import { MainPreloader } from '@/components/MainPreloader'
 
 import '@/app/styles/index.scss'
+import { useRouter } from 'next/router'
+import { AnimatePresence } from 'framer-motion'
 
 const grtskTera = localFont({
   src: [
@@ -43,6 +45,8 @@ const matter = localFont({
 })
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter()
+  const pageKey = router.asPath
   return (
     <>
       <style jsx global>{`
@@ -60,7 +64,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <Provider store={store}>
         <AppLayout>
           <MainPreloader />
-          <Component {...pageProps} />
+          <AnimatePresence>
+            <Component {...pageProps} key={pageKey} />
+          </AnimatePresence>
         </AppLayout>
       </Provider>
     </>
