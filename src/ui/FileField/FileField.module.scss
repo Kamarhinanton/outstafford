@@ -61,13 +61,18 @@
       display: flex;
       gap: 10rem;
       align-items: center;
+      padding: 0 60rem 0 0;
+
+      @media (width<= $breakpoint-mob) {
+       padding: 0 30rem 0 0;
+      }
 
       .paperclip {
-        width: 48rem;
+        flex:0 0 48rem;
         height: 48rem;
 
         @media (width<= $breakpoint-mob) {
-          width: 24rem;
+          flex: 0 0 24rem;
           height: 24rem;
         }
       }
@@ -77,6 +82,7 @@
           font-weight: 400;
           font-size: 20rem;
           line-height: 150%;
+          word-break: break-word;
 
           @media (width<= $breakpoint-mob) {
             font-size: 14rem;

@@ -55,9 +55,9 @@ const FileField = forwardRef<HTMLInputElement, FileFieldType>(
     return (
       <div className={styles['file-field']}>
         {uploadedFiles && (
-          <ul className={styles['file-field__list']}>
+          <div className={styles['file-field__list']}>
             {uploadedFiles && (
-              <li
+              <div
                 className={styles['file-field__list_link']}
                 key={uploadedFiles.name}
               >
@@ -74,9 +74,9 @@ const FileField = forwardRef<HTMLInputElement, FileFieldType>(
                   <span></span>
                   <span></span>
                 </div>
-              </li>
+              </div>
             )}
-          </ul>
+          </div>
         )}
         <div
           className={classNames(

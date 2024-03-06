@@ -18,6 +18,13 @@
       padding: 6rem 15rem;
       font-size: 14rem;
     }
+
+    @media (width > $breakpoint-mob) {
+      &:hover{
+        color: var(--black);
+        background-color: var(--white);
+      }
+    }
 }
 
   input {

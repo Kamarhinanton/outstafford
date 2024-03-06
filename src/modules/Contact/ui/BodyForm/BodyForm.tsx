@@ -8,6 +8,7 @@ import { Controller, Resolver, useForm } from 'react-hook-form'
 import { validationSchema } from '@/modules/Contact/ui/BodyForm/validationSchema'
 import Checkbox from '@/ui/Checkbox/Checkbox'
 import ErrorMessage from '@/ui/ErrorMessage/ErrorMessage'
+// import FormPopup from '@/ui/FormPopup/FormPopup'
 
 import styles from './BodyForm.module.scss'
 
@@ -193,9 +194,11 @@ const BodyForm = () => {
         className={styles['button']}
         size={'large'}
         variant={'green'}
+        // isLoading={true}
       >
         Send
       </ButtonPrimary>
+      {/*<FormPopup visible={true} message={'The letter was sent successfully'} />*/}
     </form>
   )
 }

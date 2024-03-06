@@ -119,4 +119,45 @@
       }
     }
   }
+
+  &.__loading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black);
+    background-color: var(--light-green);
+    pointer-events: none;
+
+    @keyframes spin {
+      0% {
+        transform:rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    &::before{
+      position: static;
+      display: block;
+      box-sizing: border-box;
+      width: 28rem;
+      height: 28rem;
+      margin: 0 24rem 0 0;
+      background-image: url("/icons/spinner-b.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 28rem 28rem;
+      animation: spin 2s linear infinite;
+      content: '';
+    }
+
+    @media (width>$breakpoint-mob) {
+      &:hover{
+        color: var(--black);
+        background-color: var(--light-green);
+      }
+    }
+  }
 }

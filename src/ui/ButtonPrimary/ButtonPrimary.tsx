@@ -8,7 +8,7 @@ type ButtonPrimaryVariants = 'grey' | 'green' | 'transparent'
 type ButtonPrimarySizes = 'normal' | 'large'
 
 type ButtonPrimaryProps = {
-  // isLoading?: boolean
+  isLoading?: boolean
   href?: string
   arrows?: boolean
   className?: string
@@ -20,7 +20,7 @@ type ButtonPrimaryProps = {
 >
 
 const ButtonPrimary: FC<ButtonPrimaryProps> = ({
-  // isLoading,
+  isLoading = false,
   href,
   arrows = false,
   className,
@@ -33,6 +33,7 @@ const ButtonPrimary: FC<ButtonPrimaryProps> = ({
     [styles[variant]]: true,
     [styles[size]]: true,
     [styles['arrows']]: arrows,
+    [styles['__loading']]: isLoading,
   }
 
   return (
@@ -42,14 +43,14 @@ const ButtonPrimary: FC<ButtonPrimaryProps> = ({
           className={classNames(styles['buttonPrimary'], className, mods)}
           {...buttonProps}
         >
-          {children}
+          {isLoading ? 'Loading...' : children}
         </button>
       ) : (
         <Link
           className={classNames(styles['buttonPrimary'], className, mods)}
           href={href}
         >
-          {children}
+          {isLoading ? 'Loading...' : children}
         </Link>
       )}
     </>
