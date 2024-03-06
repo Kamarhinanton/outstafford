@@ -1,12 +1,12 @@
 import React, { FC, useEffect, useState } from 'react'
 import classNames from 'classnames'
 import { AnimatePresence, motion } from 'framer-motion'
-
-import styles from './PagePreview.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '@/store/store'
-import { setIsMenuActive } from '@/store/reducers/callMenuSlice'
 import { setIsFirstLoading } from '@/store/reducers/isFirstLoadingSlice'
+
+import styles from './PagePreview.module.scss'
+import { usePathname } from 'next/navigation'
 
 type PagePreviewType = {
   title: string
@@ -42,19 +42,18 @@ const variants = {
 const PagePreview: FC<PagePreviewType> = ({ title, description }) => {
   const [isAnimate, setIsAnimate] = useState(true)
   const dispatch: AppDispatch = useDispatch()
+  const isFirstLoading = useSelector(
+    (state: RootState) => state.isFirstLoading.isFirstLoading,
+  ) as boolean
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setIsAnimate(false)
-      dispatch(setIsFirstLoading(false))
+      isFirstLoading && dispatch(setIsFirstLoading(false))
     }, 2000)
 
     return () => clearTimeout(timeoutId)
   }, [])
-
-  const isFirstLoading = useSelector(
-    (state: RootState) => state.isFirstLoading.isFirstLoading,
-  ) as boolean
 
   return (
     <AnimatePresence>

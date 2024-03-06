@@ -53,7 +53,6 @@ const ContactContent = () => {
           </div>
           <Link href={'/'} className={styles['backward-button']} />
         </div>
-        <div id={'calendly'}></div>
       </Container>
       <Calendly isOpen={isOpen} handleClose={handleClose} />
     </section>

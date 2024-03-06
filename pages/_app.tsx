@@ -9,6 +9,7 @@ import { MainPreloader } from '@/components/MainPreloader'
 import '@/app/styles/index.scss'
 import { useRouter } from 'next/router'
 import { AnimatePresence } from 'framer-motion'
+import React from 'react'
 
 const grtskTera = localFont({
   src: [
@@ -63,6 +64,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <Provider store={store}>
         <AppLayout>
+          <div id={'calendly'} />
           <MainPreloader />
           <AnimatePresence>
             <Component {...pageProps} key={pageKey} />
