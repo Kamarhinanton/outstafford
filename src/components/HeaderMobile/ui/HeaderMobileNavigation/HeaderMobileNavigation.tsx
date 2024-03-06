@@ -32,7 +32,7 @@ const HeaderMobileNavigation = () => {
           {socialLinksData.map((social) => (
             <Link
               className={styles['link']}
-              key={social.src}
+              key={social.link}
               href={social.href}
             >
               <BackgroundImage src={social.src} alt={social.link} />
