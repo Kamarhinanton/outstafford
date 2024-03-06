@@ -4,7 +4,6 @@ import { breakpointMob } from '@/utils/variables'
 import dynamic from 'next/dynamic'
 import { Header } from '@/components/Header'
 import { usePathname } from 'next/navigation'
-import { router } from 'next/client'
 import routes from '@/utils/routes'
 
 const MobileCTA = dynamic(
