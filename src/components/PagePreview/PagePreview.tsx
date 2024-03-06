@@ -6,7 +6,6 @@ import { AppDispatch, RootState } from '@/store/store'
 import { setIsFirstLoading } from '@/store/reducers/isFirstLoadingSlice'
 
 import styles from './PagePreview.module.scss'
-import { usePathname } from 'next/navigation'
 
 type PagePreviewType = {
   title: string
