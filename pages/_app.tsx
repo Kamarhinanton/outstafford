@@ -10,6 +10,7 @@ import '@/app/styles/index.scss'
 import { useRouter } from 'next/router'
 import { AnimatePresence } from 'framer-motion'
 import React from 'react'
+import { useNextCssRemovalPrevention } from '@madeinhaus/nextjs-page-transition'
 
 const grtskTera = localFont({
   src: [
@@ -48,6 +49,8 @@ const matter = localFont({
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
   const pageKey = router.asPath
+  useNextCssRemovalPrevention()
+
   return (
     <>
       <style jsx global>{`
