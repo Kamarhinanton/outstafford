@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import routes from '@/utils/routes'
 import Container from '@/app/layouts/Container'
@@ -11,13 +11,31 @@ import styles from './HeaderMobileCTA.module.scss'
 
 const HeaderMobileCta = () => {
   const router = useRouter()
-  const isContactPage = router.pathname === routes.public.contact
+  const [isAnimate, setIsAnimate] = useState(false)
+
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout
+
+    if (router.pathname === routes.public.contact) {
+      timeoutId = setTimeout(() => {
+        setIsAnimate(true)
+      }, 2000)
+    } else {
+      timeoutId = setTimeout(() => {
+        setIsAnimate(false)
+      }, 2000)
+    }
+
+    return () => {
+      clearTimeout(timeoutId)
+    }
+  }, [router])
 
   return (
     <section
       className={classNames(
         styles['header-mobile-cta'],
-        isContactPage ? styles['no-button'] : '',
+        isAnimate ? styles['no-button'] : '',
       )}
     >
       <Container>
@@ -28,7 +46,7 @@ const HeaderMobileCta = () => {
           >
             <Logo />
           </Link>
-          {!isContactPage && (
+          {!isAnimate && (
             <ButtonPrimary href={routes.public.contact} variant={'green'}>
               Contact us
             </ButtonPrimary>
