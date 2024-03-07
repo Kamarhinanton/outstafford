@@ -116,7 +116,7 @@ const sectionsArray = [
   <OurPortfolio key="portfolio" />,
   <BottomSection key="bottom" />,
   <CTA key="cta" />,
-  <Footer key="footer" />,
+  <Footer className={styles['footer-height']} key="footer" />,
 ]
 
 const HomeContent = () => {

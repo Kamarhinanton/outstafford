@@ -9,7 +9,11 @@ const OurPortfolio = () => {
     <section className={styles['our-portfolio']}>
       <Container size={'small'}>
         <div className={styles['our-portfolio__content']}>
-          <Link className={styles['our-portfolio__content_link']} href={'/'}>
+          <Link
+            scroll={false}
+            className={styles['our-portfolio__content_link']}
+            href={'/'}
+          >
             <h2 className={classNames(styles['title'], 'h2')}>
               Explore our Projects
             </h2>

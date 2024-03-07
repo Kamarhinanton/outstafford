@@ -59,3 +59,11 @@
     }
   }
 }
+
+.footer-height{
+  min-height: 100svh;
+
+  @media (width<=$breakpoint-mob) {
+    min-height: initial;
+  }
+}

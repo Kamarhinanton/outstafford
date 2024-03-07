@@ -51,7 +51,11 @@ const ContactContent = () => {
               <BodyForm />
             </div>
           </div>
-          <Link href={'/'} className={styles['backward-button']} />
+          <Link
+            scroll={false}
+            href={'/'}
+            className={styles['backward-button']}
+          />
         </div>
       </Container>
       <Calendly isOpen={isOpen} handleClose={handleClose} />

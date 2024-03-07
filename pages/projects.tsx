@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from '@/app/layouts/Container'
 import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
+import { ProjectsContent } from '@/modules/Projects'
 
 export default function Projects() {
   return (
@@ -9,7 +10,7 @@ export default function Projects() {
         title={'Projects text'}
         description={'projects description'}
       >
-        <h1>Projects page</h1>
+        <ProjectsContent />
       </PageTransitionLayout>
     </Container>
   )

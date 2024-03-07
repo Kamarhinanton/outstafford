@@ -17,6 +17,7 @@ const Cta = () => {
               Get your detailed estimate today
             </h2>
             <Link
+              scroll={false}
               href={'/'}
               className={classNames(styles['title'], styles['mob'], 'h2')}
             >

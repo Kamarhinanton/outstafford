@@ -45,7 +45,11 @@ const HeaderSubmenu = () => {
             <ul className={styles['list']}>
               {column.links.map((row) => (
                 <li className={styles['list__item']} key={row.link}>
-                  <Link className={styles['list__item_link']} href={row.href}>
+                  <Link
+                    scroll={false}
+                    className={styles['list__item_link']}
+                    href={row.href}
+                  >
                     {row.src && (
                       <BackgroundImage
                         className={styles['icon']}

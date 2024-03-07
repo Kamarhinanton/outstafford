@@ -31,6 +31,7 @@ const HeaderMobileNavigation = () => {
         <nav className={styles['header-mobile-navigation__container_social']}>
           {socialLinksData.map((social) => (
             <Link
+              scroll={false}
               className={styles['link']}
               key={social.link}
               href={social.href}

@@ -33,9 +33,9 @@ const PageTransitionLayout: FC<PageTransitionLayoutTypes> = ({
 }) => {
   return (
     <>
-      <div>
+      <>
         <PagePreview title={title} description={description} />
-      </div>
+      </>
       <motion.div {...variants}>{children}</motion.div>
     </>
   )

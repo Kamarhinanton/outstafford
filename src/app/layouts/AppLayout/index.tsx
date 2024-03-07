@@ -27,18 +27,26 @@ type AppLayoutProps = {
 const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   const { width } = useWindowDimensions()
   const pathname = usePathname()
-  const [isContact, setIsContact] = useState(false)
+  const [isVisible, setIsVisible] = useState({
+    contact: false,
+  })
+
   useEffect(() => {
-    if (pathname === routes.public.contact) {
-      setIsContact(true)
-    } else {
-      setIsContact(false)
+    switch (pathname) {
+      case routes.public.contact:
+        setIsVisible((prevState) => ({ ...prevState, contact: true }))
+        break
+      default:
+        setIsVisible((prevState) => ({
+          ...prevState,
+          contact: false,
+        }))
     }
   }, [pathname])
 
   return (
     <>
-      {!isContact && <Header />}
+      {!isVisible.contact && <Header />}
       {width <= breakpointMob && <MobileCTA />}
       {width <= breakpointMob && <MobileHeader />}
       {children}

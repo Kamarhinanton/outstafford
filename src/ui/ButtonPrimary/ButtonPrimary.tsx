@@ -47,6 +47,7 @@ const ButtonPrimary: FC<ButtonPrimaryProps> = ({
         </button>
       ) : (
         <Link
+          scroll={false}
           className={classNames(styles['buttonPrimary'], className, mods)}
           href={href}
         >

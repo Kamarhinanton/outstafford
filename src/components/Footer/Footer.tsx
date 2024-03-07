@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Container from '@/app/layouts/Container'
 import Logo from '../../../public/icons/logo.svg'
 import Link from 'next/link'
@@ -15,9 +15,12 @@ import Outstafford from '../../../public/icons/outstafford.svg'
 
 import styles from './Footer.module.scss'
 
-const Footer = () => {
+type FooterPropsType = {
+  className?: string
+}
+const Footer: FC<FooterPropsType> = ({ className }) => {
   return (
-    <footer className={styles['footer']}>
+    <footer className={classNames(styles['footer'], className)}>
       <Container>
         <div className={classNames(styles['title'], 'h1')}>
           <Outstafford />
@@ -25,6 +28,7 @@ const Footer = () => {
         <div className={styles['footer__wrapper']}>
           <div className={styles['left-section']}>
             <Link
+              scroll={false}
               className={styles['left-section__logo']}
               href={routes.public.index}
             >
@@ -36,6 +40,7 @@ const Footer = () => {
               <nav className={styles['social']}>
                 {socialLinksFooterData.map((social) => (
                   <Link
+                    scroll={false}
                     className={styles['social__link']}
                     key={social.link}
                     href={social.href}
@@ -59,6 +64,7 @@ const Footer = () => {
             >
               {navigationFooterLinksLeftMob.map((link) => (
                 <Link
+                  scroll={false}
                   className={styles['right-section__column_link']}
                   key={link.description}
                   href={link.href}
@@ -75,6 +81,7 @@ const Footer = () => {
             >
               {navigationFooterLinksLeft.map((link) => (
                 <Link
+                  scroll={false}
                   className={styles['right-section__column_link']}
                   key={link.description}
                   href={link.href}
@@ -86,6 +93,7 @@ const Footer = () => {
             <div className={styles['right-section__column']}>
               {navigationFooterLinksRight.map((link) => (
                 <Link
+                  scroll={false}
                   className={styles['right-section__column_link']}
                   key={link.description}
                   href={link.href}

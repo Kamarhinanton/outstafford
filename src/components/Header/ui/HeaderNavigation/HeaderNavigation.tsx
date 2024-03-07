@@ -16,6 +16,7 @@ const HeaderNavigation = () => {
     <nav className={styles['header-navigation']}>
       {navigationHeaderLinks.map((link) => (
         <Link
+          scroll={false}
           className={classNames(styles['header-navigation__link'], {
             [styles['active']]: link.href === activeLink,
           })}

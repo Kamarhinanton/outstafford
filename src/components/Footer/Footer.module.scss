@@ -4,13 +4,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100svh;
   padding: 90rem 0 373rem;
   background-color: var(--black);
 
   @media (width<=$breakpoint-mob) {
     display: block;
-    min-height: initial;
     padding: 96rem 0;
   }
 

@@ -36,11 +36,11 @@ const PartnerReviews = () => {
           <h3 className={classNames(styles['title'], 'h3')}>Partner reviews</h3>
           <p className={styles['description']}>
             <span>More verified reviews on</span>
-            <Link className={styles['clutch']} href={'/'}>
+            <Link scroll={false} className={styles['clutch']} href={'/'}>
               <Clutch />
             </Link>
             <span>and</span>
-            <Link className={styles['upwork']} href={'/'}>
+            <Link scroll={false} className={styles['upwork']} href={'/'}>
               <Upwork />
             </Link>
           </p>

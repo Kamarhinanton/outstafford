@@ -41,6 +41,7 @@ const HeaderMobileCta = () => {
       <Container>
         <div className={styles['header-mobile-cta__content']}>
           <Link
+            scroll={false}
             className={styles['header-mobile-cta__content_logo']}
             href={routes.public.index}
           >

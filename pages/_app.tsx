@@ -50,6 +50,9 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
   const pageKey = router.asPath
   useNextCssRemovalPrevention()
+  const onExitComplete = () => {
+    window.scrollTo({ top: 0 })
+  }
 
   return (
     <>
@@ -65,11 +68,11 @@ export default function App({ Component, pageProps }: AppProps) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
         />
       </Head>
+      <div id="calendly" />
       <Provider store={store}>
         <AppLayout>
-          <div id={'calendly'} />
           <MainPreloader />
-          <AnimatePresence>
+          <AnimatePresence onExitComplete={onExitComplete}>
             <Component {...pageProps} key={pageKey} />
           </AnimatePresence>
         </AppLayout>
