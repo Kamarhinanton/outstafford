@@ -23,7 +23,7 @@ export const navigationFooterLinksLeft = [
   },
   {
     href: routes.public.contact,
-    description: 'ui us',
+    description: 'Contact us',
   },
 ]
 

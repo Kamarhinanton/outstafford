@@ -14,7 +14,8 @@
 
     @media (width <= $breakpoint-mob) {
       justify-content: flex-start;
-      padding: 0 0 0 16rem;
+      max-width: 100%;
+      padding: 0 16rem;
       overflow: auto;
     }
 

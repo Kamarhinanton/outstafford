@@ -1,3 +1,137 @@
-.blog{
+@import '@/app/styles/variables/breakpoints';
 
+.blog {
+  display: flex;
+
+  @media (width <= $breakpoint-mob) {
+    margin: 24rem 0 48rem;
+    padding: 0 16rem;
+  }
+
+  .menu{
+    position: relative;
+    flex: 0 0 206rem;
+    padding: 0 0 0 36rem;
+
+    @media (width <= $breakpoint-mob) {
+      display: none;
+    }
+
+    &__categories{
+      position: sticky;
+      top: 10rem;
+      left: 0;
+      display: flex;
+      row-gap: 8rem;
+      flex-direction: column;
+
+      &_category{
+        display: flex;
+        align-self: flex-start;
+        padding: 8rem 16rem;
+        font: var(--font-s);
+        background-color: var(--grey-bg);
+        border-radius: 87rem;
+        cursor: pointer;
+        transition: var(--duration-hover) var(--ease);
+
+        &.active{
+          color: var(--black);
+          background-color: var(--primary-color);
+        }
+
+        @media (width > $breakpoint-mob) {
+          &:hover{
+            color: var(--black);
+            background-color: var(--primary-color);
+          }
+        }
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 72rem 24rem;
+    width: 100%;
+    padding: 0 206rem 0 0;
+
+    @media (width <= $breakpoint-mob) {
+      padding: 0;
+      row-gap: 36rem;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: calc(50% - 12rem);
+
+      @media (width <= $breakpoint-mob) {
+        width: 100%;
+      }
+
+      &:nth-child(3n) {
+        width: 100%;
+
+        .card{
+          &__top{
+            @media (width <= $breakpoint-mob) {
+              height: 613rem;
+            }
+          }
+        }
+      }
+
+      &__top{
+        height: 499rem;
+        overflow: hidden;
+        background-color: var(--grey-bg);
+        border-radius: 24rem;
+
+        @media (width <= $breakpoint-mob) {
+          height: 259rem;
+        }
+      }
+
+      &__bottom{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8rem;
+        margin: 24rem 0 8rem;
+
+        .topic{
+          position: relative;
+          padding: 4rem 16rem 4rem 32rem;
+          color: var(--primary-color);
+          font: var(--font-s);
+          background-color: var(--grey-bg);
+          border-radius: 34rem;
+
+          @media (width <= $breakpoint-mob) {
+            font-size: 14rem;
+          }
+
+          &::before{
+            position: absolute;
+            top: 50%;
+            left: 16rem;
+            width: 6rem;
+            height: 6rem;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            content: '';
+          }
+        }
+
+      }
+
+      .title{
+        @media (width <= $breakpoint-mob) {
+          font-size: 24rem;
+        }
+      }
+    }
+  }
 }
