@@ -1,0 +1,30 @@
+@import '@/app/styles/variables/breakpoints';
+
+.hero {
+  padding: 259rem 0 64rem;
+
+  @media (width<=$breakpoint-mob){
+    padding: 160rem 0 24rem;
+  }
+
+  &__content {
+    .title {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        span {
+          color: var(--primary-color);
+        }
+
+        &:nth-child(2) {
+          margin: 0 0 0 242rem;
+
+          @media (width<=$breakpoint-mob){
+            margin: 0 0 0 30rem;
+          }
+        }
+      }
+    }
+  }
+}

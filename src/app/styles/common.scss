@@ -25,10 +25,10 @@ body {
   height: 100%;
   color: var(--white);
   background-color: var(--black);
-  //backface-visibility: hidden;
-  //-webkit-font-smoothing: antialiased;
-  //text-size-adjust: 100%;
-  //text-rendering: optimizelegibility;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+  text-rendering: optimizelegibility;
 }
 
 .wrapper {

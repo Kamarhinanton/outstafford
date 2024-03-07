@@ -3,9 +3,9 @@ import classNames from 'classnames'
 import Container from '@/app/layouts/Container'
 import BodyForm from '@/modules/Contact/ui/BodyForm/BodyForm'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 
 import styles from './ContactContent.module.scss'
-import dynamic from 'next/dynamic'
 
 const Calendly = dynamic(
   () => import('./CalendlyComponent/CalendlyComponent'),
