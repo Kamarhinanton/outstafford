@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import Footer from '@/components/Footer/Footer'
 import CTA from '@/modules/Home/ui/CTA/CTA'
 import HeroSection from '@/modules/Projects/ui/HeroSection/HeroSection'
