@@ -36,6 +36,11 @@ const AnimatedElement: FC<AnimatedElementProps> = ({
       x: reverse ? 0 : 15,
       y: 0,
     },
+    exit: {
+      opacity: 0,
+      x: reverse ? 0 : 15,
+      y: 0,
+    },
   }
 
   return (
@@ -45,6 +50,7 @@ const AnimatedElement: FC<AnimatedElementProps> = ({
         variants={elementFrame}
         initial="hidden"
         animate={isInView ? 'visible' : ''}
+        exit={'exit'}
         ref={ref}
       >
         {children}
