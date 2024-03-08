@@ -22,7 +22,10 @@
       align-items: center;
       justify-content: center;
       padding: 8rem;
-      background-color: rgb(175 159 159 / 12%);
+
+      //background-color: rgb(175 159 159 / 12%);
+      background-color: var(--grey-dark);
+      border: 1rem solid var(--grey-btn);
       border-radius: 500rem;
     }
   }

@@ -1,9 +1,14 @@
 @import '@/app/styles/variables/breakpoints';
 
 .hero {
-  padding: 259rem 0 64rem;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding: 64rem 0;
 
   @media (width<=$breakpoint-mob){
+    display: block;
+    min-height: initial;
     padding: 160rem 0 24rem;
   }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import routes from '@/utils/routes'
 import Container from '@/app/layouts/Container'
@@ -12,6 +12,15 @@ import styles from './HeaderMobileCTA.module.scss'
 const HeaderMobileCta = () => {
   const router = useRouter()
   const [isAnimate, setIsAnimate] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  const handleScroll = useCallback(() => {
+    if (window.scrollY > 10) {
+      setScrolled(true)
+    } else {
+      setScrolled(false)
+    }
+  }, [])
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout
@@ -31,13 +40,20 @@ const HeaderMobileCta = () => {
     }
   }, [router])
 
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [handleScroll])
+
+  const mods = {
+    [styles['no-button']]: isAnimate,
+    [styles['scrolled']]: scrolled,
+  }
+
   return (
-    <section
-      className={classNames(
-        styles['header-mobile-cta'],
-        isAnimate ? styles['no-button'] : '',
-      )}
-    >
+    <section className={classNames(styles['header-mobile-cta'], mods)}>
       <Container>
         <div className={styles['header-mobile-cta__content']}>
           <Link

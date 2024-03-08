@@ -23,7 +23,7 @@ const AnimatedElement: FC<AnimatedElementProps> = ({
   const elementFrame = {
     visible: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
         ease: 'anticipate',
         duration: 1.2,
@@ -32,7 +32,7 @@ const AnimatedElement: FC<AnimatedElementProps> = ({
     },
     hidden: {
       opacity: 0,
-      y: reverse ? -15 : 15,
+      x: reverse ? -15 : 15,
     },
   }
 

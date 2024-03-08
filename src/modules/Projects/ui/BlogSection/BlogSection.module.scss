@@ -89,6 +89,16 @@
         background-color: var(--grey-bg);
         border-radius: 24rem;
 
+        .image{
+          transition: scale var(--duration-hover) var(--ease);
+
+          @media (width > $breakpoint-mob) {
+            &:hover{
+              scale: 1.1;
+            }
+          }
+        }
+
         @media (width <= $breakpoint-mob) {
           height: 259rem;
         }
