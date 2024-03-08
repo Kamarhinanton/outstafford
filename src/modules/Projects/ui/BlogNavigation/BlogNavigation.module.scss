@@ -1,10 +1,10 @@
 @import '@/app/styles/variables/breakpoints';
 
 .blog-navigation{
-  margin: 64rem auto;
+  padding: 64rem 0;
 
   @media (width <= $breakpoint-mob) {
-    margin: 24rem auto;
+    padding: 24rem 0;
   }
 
   &__list{

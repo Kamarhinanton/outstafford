@@ -13,7 +13,7 @@ const BlogNavigation: FC<BlogSectionType> = ({
   handleAll,
 }) => {
   return (
-    <div className={styles['blog-navigation']}>
+    <div id={'topBlog'} className={styles['blog-navigation']}>
       <ul className={styles['blog-navigation__list']}>
         <li
           onClick={handleAll}

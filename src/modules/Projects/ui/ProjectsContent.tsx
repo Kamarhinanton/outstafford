@@ -30,6 +30,7 @@ const ProjectsContent = () => {
       setIsAll(true)
     }
     setActiveCategories([])
+    scrollToContent()
   }, [isAll])
 
   const handleClick = useCallback(
@@ -42,6 +43,7 @@ const ProjectsContent = () => {
       if (updatedCategories.length === 0) {
         setIsAll(true)
       }
+      scrollToContent()
     },
     [activeCategories],
   )
@@ -51,6 +53,16 @@ const ProjectsContent = () => {
       activeCategories.every((i) => item.topics.includes(i)),
     )
   }, [blogData, activeCategories])
+
+  const scrollToContent = () => {
+    const targetElement = document.getElementById('topBlog')
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+    }
+  }
 
   return (
     <main>
