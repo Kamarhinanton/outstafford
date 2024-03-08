@@ -1,10 +1,12 @@
-import React, { useCallback, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import Footer from '@/components/Footer/Footer'
 import CTA from '@/modules/Home/ui/CTA/CTA'
 import HeroSection from '@/modules/Projects/ui/HeroSection/HeroSection'
 import BlogSection from '@/modules/Projects/ui/BlogSection/BlogSection'
 import BlogNavigation from '@/modules/Projects/ui/BlogNavigation/BlogNavigation'
 import { blogData } from '@/modules/Projects/ui/BlogSection/data'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
+import { breakpointMob } from '@/utils/variables'
 
 type CardType = {
   preview: string
@@ -24,6 +26,7 @@ export type BlogSectionType = {
 const ProjectsContent = () => {
   const [activeCategories, setActiveCategories] = useState<string[]>([])
   const [isAll, setIsAll] = useState(true)
+  const { width } = useWindowDimensions()
 
   const handleAll = useCallback(() => {
     if (!isAll) {
@@ -31,7 +34,7 @@ const ProjectsContent = () => {
     }
     setActiveCategories([])
     scrollToContent()
-  }, [isAll])
+  }, [isAll, width])
 
   const handleClick = useCallback(
     (category: string) => {
@@ -45,7 +48,7 @@ const ProjectsContent = () => {
       }
       scrollToContent()
     },
-    [activeCategories],
+    [activeCategories, width],
   )
 
   const filteredBlogData = useMemo(() => {
@@ -55,12 +58,14 @@ const ProjectsContent = () => {
   }, [blogData, activeCategories])
 
   const scrollToContent = () => {
-    const targetElement = document.getElementById('topBlog')
-    if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      })
+    if (width > breakpointMob) {
+      const targetElement = document.getElementById('topBlog')
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        })
+      }
     }
   }
 
