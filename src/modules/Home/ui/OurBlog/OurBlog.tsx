@@ -1,11 +1,9 @@
 import React, { useEffect, useRef } from 'react'
 import classNames from 'classnames'
-import Matter, {
+import {
   Engine,
   Render,
-  World,
   Bodies,
-  Body,
   MouseConstraint,
   Mouse,
   Composite,
@@ -27,8 +25,9 @@ const OurBlog = () => {
       engine: engine,
       options: {
         wireframes: false,
-        width: canvasWidth,
-        height: canvasHeight,
+        width: canvasWidth - 1,
+        height: canvasHeight - 1,
+        pixelRatio: 2,
         background: 'transparent',
       },
     })
@@ -112,10 +111,70 @@ const OurBlog = () => {
       },
     })
 
+    const gig = Bodies.rectangle(200, 0, 125, 40, {
+      chamfer: { radius: 20 },
+      render: {
+        sprite: {
+          texture: '/images/Home/blogTopics/gig.png',
+          xScale: 0.25,
+          yScale: 0.25,
+        },
+      },
+    })
+
+    const health = Bodies.rectangle(200, 0, 110, 40, {
+      chamfer: { radius: 20 },
+      render: {
+        sprite: {
+          texture: '/images/Home/blogTopics/health.png',
+          xScale: 0.25,
+          yScale: 0.25,
+        },
+      },
+    })
+
+    const location = Bodies.rectangle(200, 0, 160, 40, {
+      chamfer: { radius: 20 },
+      render: {
+        sprite: {
+          texture: '/images/Home/blogTopics/location.png',
+          xScale: 0.25,
+          yScale: 0.25,
+        },
+      },
+    })
+
+    const social = Bodies.rectangle(200, 0, 125, 40, {
+      chamfer: { radius: 20 },
+      render: {
+        sprite: {
+          texture: '/images/Home/blogTopics/social.png',
+          xScale: 0.25,
+          yScale: 0.25,
+        },
+      },
+    })
+
+    const travel = Bodies.rectangle(200, 0, 85, 40, {
+      chamfer: { radius: 20 },
+      render: {
+        sprite: {
+          texture: '/images/Home/blogTopics/travel.png',
+          xScale: 0.25,
+          yScale: 0.25,
+        },
+      },
+    })
+
     Composite.add(engine.world, [
       dating,
       ecommerce,
       fin,
+      gig,
+      location,
+      health,
+      social,
+      travel,
       groundTop,
       groundBottom,
       groundRight,

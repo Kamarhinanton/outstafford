@@ -16,7 +16,7 @@
   }
 
   @media (width<=$breakpoint-mob) {
-    min-height: 100svh;
+    display: none;
   }
 
   .title{
