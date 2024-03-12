@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { useInView } from 'framer-motion'
 import classNames from 'classnames'
 import {
   Engine,
@@ -14,6 +15,7 @@ import styles from './OurBlog.module.scss'
 const OurBlog = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const canvasParent = useRef<HTMLDivElement>(null)
+  const isInView = useInView(canvasParent, { once: true })
 
   useEffect(() => {
     if (!canvasRef.current) return
@@ -185,7 +187,7 @@ const OurBlog = () => {
 
     const runner = Runner.create()
 
-    Runner.run(runner, engine)
+    isInView && Runner.run(runner, engine)
 
     const mouse = Mouse.create(render.canvas),
       mouseConstraint = MouseConstraint.create(engine, {
@@ -201,7 +203,7 @@ const OurBlog = () => {
     Composite.add(engine.world, mouseConstraint)
 
     render.mouse = mouse
-  }, [])
+  }, [isInView])
 
   return (
     <section className={styles['our-blog']}>

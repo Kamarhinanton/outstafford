@@ -6,7 +6,6 @@ import { breakpointMob } from '@/utils/variables'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import PartnerReviews from '@/modules/Home/ui/PartnerReviews/PartnerReviews'
 import Container from '@/app/layouts/Container'
-import OurBlog from '@/modules/Home/ui/OurBlog/OurBlog'
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react'
 import { EffectCreative, Mousewheel, Pagination } from 'swiper/modules'
 import Footer from '@/components/Footer/Footer'
@@ -29,13 +28,17 @@ const MouseIndicator = dynamic(
   },
 )
 
+const Blog = dynamic(() => import('@/modules/Home/ui/OurBlog/OurBlog'), {
+  ssr: false,
+})
+
 const BottomSection = () => {
   return (
     <div className={styles['bottom-section']}>
       <Container size={'small'}>
         <div className={styles['bottom-section__content']}>
           <PartnerReviews />
-          <OurBlog />
+          <Blog />
         </div>
       </Container>
     </div>
