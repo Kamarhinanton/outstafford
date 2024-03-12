@@ -28,9 +28,9 @@ const MouseIndicator = dynamic(
   },
 )
 
-const Blog = dynamic(() => import('@/modules/Home/ui/OurBlog/OurBlog'), {
-  ssr: false,
-})
+// const Blog = dynamic(() => import('@/modules/Home/ui/OurBlog/OurBlog'), {
+//   ssr: false,
+// })
 
 const BottomSection = () => {
   return (
@@ -38,7 +38,7 @@ const BottomSection = () => {
       <Container size={'small'}>
         <div className={styles['bottom-section__content']}>
           <PartnerReviews />
-          <Blog />
+          {/*<Blog />*/}
         </div>
       </Container>
     </div>
