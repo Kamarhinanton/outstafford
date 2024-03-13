@@ -10,7 +10,6 @@ import {
   Mouse,
   Composite,
   Runner,
-  World,
 } from 'matter-js'
 
 import styles from './OurBlog.module.scss'
@@ -40,7 +39,6 @@ const OurBlog = () => {
   }
 
   useEffect(() => {
-    // if (isInView) {
     if (!canvasRef.current) return
     const canvasWidth = canvasParent.current?.offsetWidth || 800
     const canvasHeight = canvasParent.current?.offsetHeight || 800
@@ -116,7 +114,6 @@ const OurBlog = () => {
     Composite.add(engine.world, mouseConstraint)
 
     render.mouse = mouse
-    // }
     return () => {
       Render.stop(render)
       Composite.clear(engine.world, true)
