@@ -26,12 +26,12 @@ const CardTransformPerspective: FC<CardTransformPerspectiveType> = ({
   useEffect(() => {
     window.addEventListener('mousemove', (event) => {
       const rect = ref.current?.getBoundingClientRect() as DOMRect
-      const isOut =
-        event.clientY < rect.top ||
-        event.clientY > rect.top + rect.height ||
-        event.clientX < rect.left ||
-        event.clientX > rect.left + rect.width
       if (width > breakpointMob && rect) {
+        const isOut =
+          event.clientY < rect.top ||
+          event.clientY > rect.top + rect.height ||
+          event.clientX < rect.left ||
+          event.clientX > rect.left + rect.width
         isOut
           ? (cardX.set(0), cardY.set(0))
           : requestAnimationFrame(() => {

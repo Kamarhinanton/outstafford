@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import { useInView } from 'framer-motion'
 import classNames from 'classnames'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
 import {
   Engine,
   Render,
@@ -9,6 +10,7 @@ import {
   Mouse,
   Composite,
   Runner,
+  World,
 } from 'matter-js'
 
 import styles from './OurBlog.module.scss'
@@ -16,8 +18,29 @@ const OurBlog = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const canvasParent = useRef<HTMLDivElement>(null)
   const isInView = useInView(canvasParent, { once: true })
+  const width = useWindowDimensions()
+
+  const createRectangle = (
+    x: number,
+    y: number,
+    width: number,
+    height: number,
+    texture: string,
+  ) => {
+    return Bodies.rectangle(x, y, width, height, {
+      chamfer: { radius: 20 },
+      render: {
+        sprite: {
+          texture,
+          xScale: 0.25,
+          yScale: 0.25,
+        },
+      },
+    })
+  }
 
   useEffect(() => {
+    // if (isInView) {
     if (!canvasRef.current) return
     const canvasWidth = canvasParent.current?.offsetWidth || 800
     const canvasHeight = canvasParent.current?.offsetHeight || 800
@@ -34,154 +57,44 @@ const OurBlog = () => {
       },
     })
 
-    const groundBottom = Bodies.rectangle(
-      canvasWidth / 2,
-      -50,
-      canvasWidth,
-      100,
-      {
+    const topics = [
+      createRectangle(100, 0, 85, 40, '/images/Home/blogTopics/dating.png'),
+      createRectangle(100, 0, 125, 40, '/images/Home/blogTopics/ecom.png'),
+      createRectangle(200, 0, 90, 40, '/images/Home/blogTopics/fin.png'),
+      createRectangle(200, 0, 125, 40, '/images/Home/blogTopics/gig.png'),
+      createRectangle(200, 0, 110, 40, '/images/Home/blogTopics/health.png'),
+      createRectangle(200, 0, 160, 40, '/images/Home/blogTopics/location.png'),
+      createRectangle(200, 0, 125, 40, '/images/Home/blogTopics/social.png'),
+      createRectangle(200, 0, 85, 40, '/images/Home/blogTopics/travel.png'),
+    ]
+    const grounds = [
+      Bodies.rectangle(-50, canvasHeight / 2, 100, canvasHeight, {
         isStatic: true,
         render: {
           visible: false,
         },
-      },
-    )
-    const groundTop = Bodies.rectangle(
-      canvasWidth / 2,
-      canvasHeight + 50,
-      canvasWidth,
-      100,
-      {
+      }),
+      Bodies.rectangle(canvasWidth + 50, canvasHeight / 2, 100, canvasHeight, {
         isStatic: true,
         render: {
           visible: false,
         },
-      },
-    )
-    const groundRight = Bodies.rectangle(
-      canvasWidth + 50,
-      canvasHeight / 2,
-      100,
-      canvasHeight,
-      {
+      }),
+      Bodies.rectangle(canvasWidth / 2, canvasHeight + 50, canvasWidth, 100, {
         isStatic: true,
         render: {
           visible: false,
         },
-      },
-    )
-    const groundLeft = Bodies.rectangle(
-      -50,
-      canvasHeight / 2,
-      100,
-      canvasHeight,
-      {
+      }),
+      Bodies.rectangle(canvasWidth / 2, -50, canvasWidth, 100, {
         isStatic: true,
         render: {
           visible: false,
         },
-      },
-    )
-    const dating = Bodies.rectangle(100, 0, 85, 40, {
-      chamfer: { radius: 20 },
-      render: {
-        sprite: {
-          texture: '/images/Home/blogTopics/dating.png',
-          xScale: 0.25,
-          yScale: 0.25,
-        },
-      },
-    })
-    const ecommerce = Bodies.rectangle(100, 0, 125, 40, {
-      chamfer: { radius: 20 },
-      render: {
-        sprite: {
-          texture: '/images/Home/blogTopics/ecom.png',
-          xScale: 0.25,
-          yScale: 0.25,
-        },
-      },
-    })
-    const fin = Bodies.rectangle(200, 0, 90, 40, {
-      chamfer: { radius: 20 },
-      render: {
-        sprite: {
-          texture: '/images/Home/blogTopics/fin.png',
-          xScale: 0.25,
-          yScale: 0.25,
-        },
-      },
-    })
+      }),
+    ]
 
-    const gig = Bodies.rectangle(200, 0, 125, 40, {
-      chamfer: { radius: 20 },
-      render: {
-        sprite: {
-          texture: '/images/Home/blogTopics/gig.png',
-          xScale: 0.25,
-          yScale: 0.25,
-        },
-      },
-    })
-
-    const health = Bodies.rectangle(200, 0, 110, 40, {
-      chamfer: { radius: 20 },
-      render: {
-        sprite: {
-          texture: '/images/Home/blogTopics/health.png',
-          xScale: 0.25,
-          yScale: 0.25,
-        },
-      },
-    })
-
-    const location = Bodies.rectangle(200, 0, 160, 40, {
-      chamfer: { radius: 20 },
-      render: {
-        sprite: {
-          texture: '/images/Home/blogTopics/location.png',
-          xScale: 0.25,
-          yScale: 0.25,
-        },
-      },
-    })
-
-    const social = Bodies.rectangle(200, 0, 125, 40, {
-      chamfer: { radius: 20 },
-      render: {
-        sprite: {
-          texture: '/images/Home/blogTopics/social.png',
-          xScale: 0.25,
-          yScale: 0.25,
-        },
-      },
-    })
-
-    const travel = Bodies.rectangle(200, 0, 85, 40, {
-      chamfer: { radius: 20 },
-      render: {
-        sprite: {
-          texture: '/images/Home/blogTopics/travel.png',
-          xScale: 0.25,
-          yScale: 0.25,
-        },
-      },
-    })
-
-    Composite.add(engine.world, [
-      dating,
-      ecommerce,
-      fin,
-      gig,
-      location,
-      health,
-      social,
-      travel,
-      groundTop,
-      groundBottom,
-      groundRight,
-      groundLeft,
-    ])
+    Composite.add(engine.world, [...topics, ...grounds])
 
     Render.run(render)
 
@@ -203,7 +116,12 @@ const OurBlog = () => {
     Composite.add(engine.world, mouseConstraint)
 
     render.mouse = mouse
-  }, [isInView])
+    // }
+    return () => {
+      Render.stop(render)
+      Composite.clear(engine.world, true)
+    }
+  }, [isInView, width])
 
   return (
     <section className={styles['our-blog']}>
