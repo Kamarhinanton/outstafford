@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent, ReactNode } from 'react'
+import React, { FC, ReactNode, useEffect, useRef } from 'react'
 import SectionCursor from '@/components/SectionCursor/SectionCursor'
 import useFramerSpringValue from '@/hooks/useFramerSpringValue'
 import { motion, useTransform } from 'framer-motion'
@@ -21,35 +21,37 @@ const CardTransformPerspective: FC<CardTransformPerspectiveType> = ({
   const rotateX = useTransform(cardYSpring, [800, -800], ['7.5deg', '-7.5deg'])
   const rotateY = useTransform(cardXSpring, [800, -800], ['-7.5deg', '7.5deg'])
   const { width } = useWindowDimensions()
+  const ref = useRef<HTMLDivElement>(null)
 
-  const handleMouseMove = (event: MouseEvent) => {
-    if (width > breakpointMob) {
-      const rect = event.currentTarget.getBoundingClientRect()
+  useEffect(() => {
+    window.addEventListener('mousemove', (event) => {
+      const rect = ref.current?.getBoundingClientRect() as DOMRect
+      if (width > breakpointMob && rect) {
+        requestAnimationFrame(() => {
+          const offsetX = event.clientX - window.innerWidth / 2
+          const offsetY = event.clientY - window.innerHeight / 2
+          const mouseX = Math.round(event.clientX - rect.left) - 250
+          const mouseY = Math.round(event.clientY - rect.top) - 250
+          cardX.set(offsetX)
+          cardY.set(offsetY)
+          cardMouseX.set(mouseX)
+          cardMouseY.set(mouseY)
+        })
+      }
+    })
+  }, [])
 
-      requestAnimationFrame(() => {
-        const offsetX = event.clientX - window.innerWidth / 2
-        const offsetY = event.clientY - window.innerHeight / 2
-        const mouseX = Math.round(event.clientX - rect.left) - 250
-        const mouseY = Math.round(event.clientY - rect.top) - 250
-
-        cardX.set(offsetX)
-        cardY.set(offsetY)
-        cardMouseX.set(mouseX)
-        cardMouseY.set(mouseY)
-      })
-    }
-  }
-
-  const handleMouseLeave = () => {
-    if (width > breakpointMob) {
-      cardX.set(0)
-      cardY.set(0)
-    }
-  }
+  // const handleMouseLeave = () => {
+  //   if (width > breakpointMob) {
+  //     cardX.set(0)
+  //     cardY.set(0)
+  //   }
+  // }
   return (
     <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      // onMouseMove={handleMouseMove}
+      // onMouseLeave={handleMouseLeave}
+      ref={ref}
       className={className}
       style={{
         rotateX,
