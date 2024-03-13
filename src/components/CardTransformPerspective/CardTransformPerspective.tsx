@@ -46,7 +46,7 @@ const CardTransformPerspective: FC<CardTransformPerspectiveType> = ({
             })
       }
     })
-  }, [])
+  }, [cardX, cardY, cardMouseY, cardMouseX, width])
 
   return (
     <motion.div
