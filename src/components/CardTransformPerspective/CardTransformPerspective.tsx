@@ -24,16 +24,18 @@ const CardTransformPerspective: FC<CardTransformPerspectiveType> = ({
 
   const handleMouseMove = (event: MouseEvent) => {
     if (width > breakpointMob) {
-      const offsetX = event.clientX - window.innerWidth / 2
-      const offsetY = event.clientY - window.innerHeight / 2
       const rect = event.currentTarget.getBoundingClientRect()
-      const mouseX = Math.round(event.clientX - rect.left) - 250
-      const mouseY = Math.round(event.clientY - rect.top) - 250
+      requestAnimationFrame(() => {
+        const offsetX = event.clientX - window.innerWidth / 2
+        const offsetY = event.clientY - window.innerHeight / 2
+        const mouseX = Math.round(event.clientX - rect.left) - 250
+        const mouseY = Math.round(event.clientY - rect.top) - 250
 
-      cardX.set(offsetX)
-      cardY.set(offsetY)
-      cardMouseX.set(mouseX)
-      cardMouseY.set(mouseY)
+        cardX.set(offsetX)
+        cardY.set(offsetY)
+        cardMouseX.set(mouseX)
+        cardMouseY.set(mouseY)
+      })
     }
   }
 
