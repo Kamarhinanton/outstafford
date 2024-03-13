@@ -26,31 +26,30 @@ const CardTransformPerspective: FC<CardTransformPerspectiveType> = ({
   useEffect(() => {
     window.addEventListener('mousemove', (event) => {
       const rect = ref.current?.getBoundingClientRect() as DOMRect
+      const isOut =
+        event.clientY < rect.top ||
+        event.clientY > rect.top + rect.height ||
+        event.clientX < rect.left ||
+        event.clientX > rect.left + rect.width
       if (width > breakpointMob && rect) {
-        requestAnimationFrame(() => {
-          const offsetX = event.clientX - window.innerWidth / 2
-          const offsetY = event.clientY - window.innerHeight / 2
-          const mouseX = Math.round(event.clientX - rect.left) - 250
-          const mouseY = Math.round(event.clientY - rect.top) - 250
-          cardX.set(offsetX)
-          cardY.set(offsetY)
-          cardMouseX.set(mouseX)
-          cardMouseY.set(mouseY)
-        })
+        isOut
+          ? (cardX.set(0), cardY.set(0))
+          : requestAnimationFrame(() => {
+              const offsetX = event.clientX - window.innerWidth / 2
+              const offsetY = event.clientY - window.innerHeight / 2
+              const mouseX = Math.round(event.clientX - rect.left) - 250
+              const mouseY = Math.round(event.clientY - rect.top) - 250
+              cardX.set(offsetX)
+              cardY.set(offsetY)
+              cardMouseX.set(mouseX)
+              cardMouseY.set(mouseY)
+            })
       }
     })
   }, [])
 
-  // const handleMouseLeave = () => {
-  //   if (width > breakpointMob) {
-  //     cardX.set(0)
-  //     cardY.set(0)
-  //   }
-  // }
   return (
     <motion.div
-      // onMouseMove={handleMouseMove}
-      // onMouseLeave={handleMouseLeave}
       ref={ref}
       className={className}
       style={{
