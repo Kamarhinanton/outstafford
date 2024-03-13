@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useInView } from 'framer-motion'
 import classNames from 'classnames'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
