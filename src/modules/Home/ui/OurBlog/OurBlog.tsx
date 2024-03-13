@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useInView } from 'framer-motion'
 import classNames from 'classnames'
-import useWindowDimensions from '@/hooks/useWindowDimensions'
+// import useWindowDimensions from '@/hooks/useWindowDimensions'
 import {
   Engine,
   Render,
@@ -14,10 +14,16 @@ import {
 
 import styles from './OurBlog.module.scss'
 const OurBlog = () => {
+  // const width = useWindowDimensions()
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const canvasParent = useRef<HTMLDivElement>(null)
   const isInView = useInView(canvasParent, { once: true })
-  const width = useWindowDimensions()
+  const [widthCanvas, setWidthCanvas] = useState<number | undefined>(undefined)
+  const [heightCanvas, setHeightCanvas] = useState<number | undefined>(
+    undefined,
+  )
+  // const [key, setKey] = useState(0)
+  // const [, setViewport] = useState(width)
 
   const createRectangle = (
     x: number,
@@ -38,10 +44,10 @@ const OurBlog = () => {
     })
   }
 
-  useEffect(() => {
+  const runCanvas = () => {
     if (!canvasRef.current) return
-    const canvasWidth = canvasParent.current?.offsetWidth || 800
-    const canvasHeight = canvasParent.current?.offsetHeight || 800
+    const canvasWidth = widthCanvas || 600
+    const canvasHeight = heightCanvas || 600
     const engine = Engine.create()
     const render = Render.create({
       canvas: canvasRef.current,
@@ -56,14 +62,62 @@ const OurBlog = () => {
     })
 
     const topics = [
-      createRectangle(100, 0, 85, 40, '/images/Home/blogTopics/dating.png'),
-      createRectangle(100, 0, 125, 40, '/images/Home/blogTopics/ecom.png'),
-      createRectangle(200, 0, 90, 40, '/images/Home/blogTopics/fin.png'),
-      createRectangle(200, 0, 125, 40, '/images/Home/blogTopics/gig.png'),
-      createRectangle(200, 0, 110, 40, '/images/Home/blogTopics/health.png'),
-      createRectangle(200, 0, 160, 40, '/images/Home/blogTopics/location.png'),
-      createRectangle(200, 0, 125, 40, '/images/Home/blogTopics/social.png'),
-      createRectangle(200, 0, 85, 40, '/images/Home/blogTopics/travel.png'),
+      createRectangle(
+        canvasWidth / 2 - 30,
+        0,
+        85,
+        40,
+        '/images/Home/blogTopics/dating.png',
+      ),
+      createRectangle(
+        canvasWidth / 2 - 30,
+        0,
+        125,
+        40,
+        '/images/Home/blogTopics/ecom.png',
+      ),
+      createRectangle(
+        canvasWidth / 2 - 30,
+        0,
+        90,
+        40,
+        '/images/Home/blogTopics/fin.png',
+      ),
+      createRectangle(
+        canvasWidth / 2 - 30,
+        0,
+        125,
+        40,
+        '/images/Home/blogTopics/gig.png',
+      ),
+      createRectangle(
+        canvasWidth / 2 + 30,
+        0,
+        110,
+        40,
+        '/images/Home/blogTopics/health.png',
+      ),
+      createRectangle(
+        canvasWidth / 2 + 30,
+        0,
+        160,
+        40,
+        '/images/Home/blogTopics/location.png',
+      ),
+      createRectangle(
+        canvasWidth / 2 + 30,
+        0,
+        125,
+        40,
+        '/images/Home/blogTopics/social.png',
+      ),
+      createRectangle(
+        canvasWidth / 2 + 30,
+        0,
+        85,
+        40,
+        '/images/Home/blogTopics/travel.png',
+      ),
     ]
     const grounds = [
       Bodies.rectangle(-50, canvasHeight / 2, 100, canvasHeight, {
@@ -98,7 +152,7 @@ const OurBlog = () => {
 
     const runner = Runner.create()
 
-    isInView && Runner.run(runner, engine)
+    Runner.run(runner, engine)
 
     const mouse = Mouse.create(render.canvas),
       mouseConstraint = MouseConstraint.create(engine, {
@@ -114,11 +168,34 @@ const OurBlog = () => {
     Composite.add(engine.world, mouseConstraint)
 
     render.mouse = mouse
-    return () => {
-      Render.stop(render)
-      Composite.clear(engine.world, true)
+  }
+
+  // useEffect(() => {
+  //   console.log('3')
+  //
+  //   setWidthCanvas(canvasParent.current?.offsetWidth)
+  //   setHeightCanvas(canvasParent.current?.offsetHeight)
+  // }, [width])
+  // console.log('hello')
+
+  useEffect(() => {
+    setWidthCanvas(canvasParent.current?.offsetWidth)
+    setHeightCanvas(canvasParent.current?.offsetHeight)
+    if (isInView && canvasParent.current) {
+      runCanvas()
     }
-  }, [isInView, width])
+  }, [isInView])
+
+  // useEffect(() => {
+  //   setViewport((prev) => {
+  //     if (width !== prev) {
+  //       console.log('1')
+  //       setKey((k) => k + 1)
+  //       return width
+  //     }
+  //     return prev
+  //   })
+  // }, [width])
 
   return (
     <section className={styles['our-blog']}>
@@ -127,7 +204,7 @@ const OurBlog = () => {
         ref={canvasParent}
         className={classNames('swiper-no-swiping', styles['our-blog__canvas'])}
       >
-        <canvas ref={canvasRef}></canvas>
+        <canvas ref={canvasRef} />
       </div>
     </section>
   )
