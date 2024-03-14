@@ -44,6 +44,16 @@
     color: var(--black);
     background: var(--primary-color);
 
+    &.arrows{
+      &::before {
+        background-image: url("/icons/arrow_black.svg");
+      }
+
+      &::after {
+        background-image: url("/icons/arrow_black.svg");
+      }
+    }
+
     @media (width>$breakpoint-mob) {
       &:hover {
         background: var(--white);

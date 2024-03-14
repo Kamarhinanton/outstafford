@@ -14,9 +14,12 @@ import Link from 'next/link'
 import styles from './PartnerReviews.module.scss'
 import 'swiper/css'
 
-const PopUp = dynamic(() => import('@/components/VideoPopUp/VideoPopUp'), {
-  ssr: false,
-})
+const PopUp = dynamic(
+  () => import('@/modules/Home/ui/PartnerReviews/VideoPopUp/VideoPopUp'),
+  {
+    ssr: false,
+  },
+)
 
 const PartnerReviews = () => {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false)

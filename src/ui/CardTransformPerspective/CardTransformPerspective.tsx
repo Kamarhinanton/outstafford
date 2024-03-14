@@ -1,5 +1,5 @@
 import React, { FC, ReactNode, useEffect, useRef } from 'react'
-import SectionCursor from '@/components/SectionCursor/SectionCursor'
+import SectionCursor from '@/ui/SectionCursor/SectionCursor'
 import useFramerSpringValue from '@/hooks/useFramerSpringValue'
 import { motion, useTransform } from 'framer-motion'
 import useWindowDimensions from '@/hooks/useWindowDimensions'

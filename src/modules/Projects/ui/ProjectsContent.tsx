@@ -1,12 +1,12 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import Footer from '@/components/Footer/Footer'
-import CTA from '@/modules/Home/ui/CTA/CTA'
-import HeroSection from '@/modules/Projects/ui/HeroSection/HeroSection'
+import CTA from '@/components/CTA/CTA'
 import BlogSection from '@/modules/Projects/ui/BlogSection/BlogSection'
 import BlogNavigation from '@/modules/Projects/ui/BlogNavigation/BlogNavigation'
 import { blogData } from '@/modules/Projects/ui/BlogSection/data'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { breakpointMob } from '@/utils/variables'
+import HeroProjects from '@/modules/Projects/ui/HeroSection/HeroProjects'
 
 type CardType = {
   preview: string
@@ -71,7 +71,7 @@ const ProjectsContent = () => {
 
   return (
     <main>
-      <HeroSection />
+      <HeroProjects />
       <BlogNavigation
         activeCategory={activeCategories}
         handleClick={handleClick}

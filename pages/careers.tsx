@@ -1,16 +1,20 @@
 import React from 'react'
-import Container from '@/app/layouts/Container'
 import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
+import { CareersContent } from '@/modules/Careers'
+import Head from 'next/head'
 
 export default function Careers() {
   return (
-    <Container>
+    <>
+      <Head>
+        <title>Careers page</title>
+      </Head>
       <PageTransitionLayout
         title={'Careers text'}
         description={'careers description'}
       >
-        <h1>Careers page</h1>
+        <CareersContent />
       </PageTransitionLayout>
-    </Container>
+    </>
   )
 }

@@ -2,17 +2,17 @@ import React from 'react'
 import Container from '@/app/layouts/Container'
 import classNames from 'classnames'
 
-import styles from './HeroSection.module.scss'
+import styles from './HeroCareers.module.scss'
 
-const HeroSection = () => {
+const HeroCareers = () => {
   return (
     <section className={styles['hero']}>
       <Container>
         <div className={styles['hero__content']}>
           <h1 className={classNames('h1', styles['title'])}>
-            <span>Explore</span>
+            <span>Explore our</span>
             <span>
-              Our <span>Projects</span>
+              open <span>positions</span>
             </span>
           </h1>
         </div>
@@ -21,4 +21,4 @@ const HeroSection = () => {
   )
 }
 
-export default HeroSection
+export default HeroCareers

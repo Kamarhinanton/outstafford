@@ -1,3 +1,5 @@
+import routes from '@/utils/routes'
+
 type CustomLink = {
   href: string
   src?: string
@@ -17,7 +19,7 @@ export const headerSubmenuData: HeaderSubmenuData = [
     links: [
       { link: 'Main', href: '/' },
       { link: 'About', href: '/' },
-      { link: 'Projects', href: '/' },
+      { link: 'Projects', href: routes.public.projects },
     ],
   },
   {
@@ -26,8 +28,8 @@ export const headerSubmenuData: HeaderSubmenuData = [
       { link: 'Our team', href: '/' },
       { link: 'How we work', href: '/' },
       { link: 'Reviews', href: '/' },
-      { link: 'Our blog', href: '/' },
-      { link: 'Careers', href: '/' },
+      { link: 'Our blog', href: routes.public.blog },
+      { link: 'Careers', href: routes.public.careers },
     ],
   },
   {

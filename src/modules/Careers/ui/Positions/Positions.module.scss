@@ -1,0 +1,73 @@
+@import '@/app/styles/variables/breakpoints';
+
+.positions{
+  margin: 94rem 0 188rem;
+
+  @media (width<= $breakpoint-mob) {
+    margin: 24rem 0 98rem;
+
+  }
+
+  &__list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 24rem;
+
+    .link{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 64rem 72rem;
+      background-color: var(--grey-bg);
+      border-radius: 36rem;
+
+      @media (width<= $breakpoint-mob) {
+        flex-direction: column;
+        align-items: initial;
+        justify-content: initial;
+        padding: 24rem;
+      }
+
+      &__description{
+        @media (width<= $breakpoint-mob) {
+          display: flex;
+          flex-direction: column;
+          margin: 0 0 24rem;
+        }
+
+        .title{
+          color: var(--white);
+
+          @media (width<= $breakpoint-mob) {
+            order: 2;
+          }
+        }
+
+        .topics{
+          display: flex;
+          flex-wrap: wrap;
+          gap: 7rem;
+          margin: 22rem 0 0;
+
+          @media (width<= $breakpoint-mob) {
+            order: 1;
+            margin: 0 0 24rem;
+          }
+
+          &__topic{
+            padding: 4rem 16rem;
+            color: var(--primary-color);
+            font-size: 24rem;
+            line-height: 150%;
+            background-color: var(--grey-dark);
+            border-radius: 34rem;
+
+            @media (width<= $breakpoint-mob) {
+              font-size: 14rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

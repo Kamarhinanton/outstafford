@@ -3,9 +3,10 @@ import classNames from 'classnames'
 import Container from '@/app/layouts/Container'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import Link from 'next/link'
-import CardTransformPerspective from '@/components/CardTransformPerspective/CardTransformPerspective'
+import CardTransformPerspective from '@/ui/CardTransformPerspective/CardTransformPerspective'
 
 import styles from './CTA.module.scss'
+import routes from '@/utils/routes'
 
 const Cta = () => {
   return (
@@ -18,7 +19,7 @@ const Cta = () => {
             </h2>
             <Link
               scroll={false}
-              href={'/'}
+              href={routes.public.contact}
               className={classNames(styles['title'], styles['mob'], 'h2')}
             >
               Book a meeting
@@ -30,6 +31,7 @@ const Cta = () => {
               className={styles['button']}
               size={'large'}
               variant={'green'}
+              href={routes.public.contact}
             >
               Contact us
             </ButtonPrimary>
