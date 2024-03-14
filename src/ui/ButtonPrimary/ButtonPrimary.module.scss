@@ -52,6 +52,24 @@
       &::after {
         background-image: url("/icons/arrow_black.svg");
       }
+
+      @media (width<=$breakpoint-mob) {
+        &.green{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 16rem 36rem;
+
+          &::before{
+            position: static;
+            order: 2;
+            height: 16rem;
+            margin: 0 0 0 24rem;
+            background-size: cover;
+            transform: initial;
+          }
+        }
+      }
     }
 
     @media (width>$breakpoint-mob) {
@@ -82,6 +100,12 @@
 
     @media (width<=$breakpoint-mob) {
       padding: 10rem 72rem 10rem 24rem;
+    }
+
+    &.normal{
+      &::before, &::after{
+        right: 37rem;
+      }
     }
 
     &::before, &::after{
