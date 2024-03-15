@@ -50,7 +50,7 @@ export const navigationFooterLinksLeftMob = [
   },
   {
     href: routes.public.contact,
-    description: 'ui us',
+    description: 'Contact us',
   },
 ]
 

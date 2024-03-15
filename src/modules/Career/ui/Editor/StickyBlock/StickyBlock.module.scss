@@ -1,0 +1,78 @@
+@import '@/app/styles/variables/breakpoints';
+
+.sticky-block {
+  position: sticky;
+  top: 100rem;
+  padding: 48rem 54rem;
+  background-color: var(--grey-bg);
+  border-radius: 36rem;
+
+  @media (width<= $breakpoint-mob) {
+    position: static;
+    padding: 24rem 16rem;
+    border-radius: 24rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7rem;
+    margin: 0 0 48rem;
+
+    @media (width<= $breakpoint-mob) {
+      margin: 0 0 24rem;
+    }
+
+    &_link {
+      padding: 4rem 16rem;
+      color: var(--primary-color);
+      font-size: 24rem;
+      line-height: 150%;
+      background-color: var(--dark-green);
+      border-radius: 34rem;
+
+      @media (width<= $breakpoint-mob) {
+        font-size: 14rem;
+      }
+    }
+  }
+
+  &__text {
+    margin: 0 0 48rem;
+
+    @media (width<= $breakpoint-mob) {
+      margin: 24rem 0 0;
+    }
+
+    &_title {
+      margin: 0 0 8rem;
+      color: var(--grey-light);
+      font-size: 16rem;
+      line-height: 150%;
+
+      @media (width<= $breakpoint-mob) {
+        font-size: 14rem;
+      }
+    }
+
+    &_description {
+      font-size: 28rem;
+      line-height: 150%;
+
+      @media (width<= $breakpoint-mob) {
+        font-size: 18rem;
+      }
+    }
+  }
+
+  &__button {
+    &_btn{
+      width: 100%;
+      text-align: left;
+    }
+
+    @media (width<= $breakpoint-mob) {
+     display: none;
+    }
+  }
+}

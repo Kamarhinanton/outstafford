@@ -1,0 +1,163 @@
+@import '@/app/styles/variables/breakpoints';
+
+.editor {
+  margin: 170rem 0 114rem;
+
+  @media (width<= $breakpoint-mob) {
+    margin: 93rem 0 106rem;
+  }
+
+  &__content {
+    display: flex;
+
+    .article {
+      padding: 0 199rem 0 0;
+
+      @media (width<= $breakpoint-mob) {
+        padding: 0;
+      }
+
+      &__top {
+        margin: 0 0 95rem;
+
+        @media (width<= $breakpoint-mob) {
+          margin: 0 0 24rem;
+        }
+
+        .title {
+          margin: 0 0 55rem;
+          color: var(--primary-color);
+
+          @media (width<= $breakpoint-mob) {
+            margin: 0 0 24rem;
+          }
+        }
+
+        .description {
+          font-size: 36rem;
+
+          @media (width<= $breakpoint-mob) {
+            font-size: 18rem;
+          }
+        }
+      }
+
+      &__bottom {
+        h1, h2, h3, h4, h5, h6 {
+          margin: 114rem 0 34rem;
+
+          @media (width<= $breakpoint-mob) {
+            margin: 64rem 0 34rem;
+          }
+        }
+
+        p {
+          margin: 20rem 0;
+
+          @media (width<= $breakpoint-mob) {
+            margin: 10rem 0;
+            font-size: 14rem;
+          }
+        }
+
+        ul, ol {
+          margin: 24rem 0;
+        }
+
+        ul {
+          li {
+            position: relative;
+            margin: 10rem 0;
+            font: var(--font-l);
+
+            @media (width<= $breakpoint-mob) {
+              padding: 0 0 0 20rem;
+              font-size: 14rem;
+            }
+
+            &::before {
+              position: absolute;
+              top: 14rem;
+              left: -20rem;
+              width: 10rem;
+              height: 10rem;
+              background-color: var(--primary-color);
+              border-radius: 50%;
+              content: '';
+
+              @media (width<= $breakpoint-mob) {
+                top: 7rem;
+                left: 5rem;
+                width: 5rem;
+                height: 5rem;
+                background-color: var(--white);
+              }
+            }
+          }
+        }
+
+        ol {
+          counter-reset: ordered-list-counter;
+
+          li {
+            margin: 10rem 0;
+            font: var(--font-l);
+            counter-increment: ordered-list-counter;
+
+            @media (width<= $breakpoint-mob) {
+              position: relative;
+              padding: 0 0 0 20rem;
+              font-size: 14rem;
+            }
+
+            &::before {
+              margin: 0 10rem 0 0;
+              content: counter(ordered-list-counter) ".";
+
+              @media (width<= $breakpoint-mob) {
+                position: absolute;
+                top: 0;
+                left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &_menu {
+      flex: 0 0 488rem;
+
+      @media (width<= $breakpoint-mob) {
+        display: none;
+      }
+    }
+
+
+    .sticky-block {
+      display: none;
+
+      @media (width<= $breakpoint-mob) {
+        display: block;
+      }
+    }
+  }
+
+  &__fixed-button{
+    position: fixed;
+    bottom: 60rem;
+    left: 0;
+    z-index: 2;
+    display: none;
+    width: 100%;
+    padding: 0 16rem;
+
+    &_btn{
+      width: 100%;
+    }
+
+    @media (width<= $breakpoint-mob) {
+      display: block;
+    }
+  }
+}
