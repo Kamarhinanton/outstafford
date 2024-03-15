@@ -49,8 +49,8 @@ const Editor = () => {
                 <li>
                   Experience as a Mid to Senior level Designer or UX/UI Design
                   in Product environments, ideally in early stage companies or
-                  products so you've had experience designing from scratch and
-                  not just polishing existing products
+                  products so you&apos;ve had experience designing from scratch
+                  and not just polishing existing products
                 </li>
                 <li>A folio of beautiful product work</li>
                 <li>
@@ -67,12 +67,12 @@ const Editor = () => {
                   to do design, not the other way around
                 </li>
               </ul>
-              <h3>Why you'll love working at Outstafford</h3>
+              <h3>Why you&apos;ll love working at Outstafford</h3>
               <p>
-                We're a calm, profitable tech company. We know work is only one
-                part of your life. And we expect you to fit it in around your
-                family and life, not the other way around. But that doesn't mean
-                we aren't ambitious.
+                We&apos;re a calm, profitable tech company. We know work is only
+                one part of your life. And we expect you to fit it in around
+                your family and life, not the other way around. But that
+                doesn&apos;t mean we aren&apos;t ambitious.
               </p>
               <p>
                 In just three years, our small team of ten has built the best
@@ -82,8 +82,8 @@ const Editor = () => {
                 have big plans for the next three years.
               </p>
               <p>
-                You'll be working with awesome people, building a product people
-                genuinely love.
+                You&apos;ll be working with awesome people, building a product
+                people genuinely love.
               </p>
               <h3>Here are a few of the key benefits:</h3>
               <p>A fully remote team culture</p>
@@ -102,7 +102,9 @@ const Editor = () => {
                   You may be invited to do a short, paid co-working exercise
                 </li>
                 <li>You may be invited to two interviews with our team</li>
-                <li>Within 30 days, you'll have an offer or a rejection</li>
+                <li>
+                  Within 30 days, you&apos;ll have an offer or a rejection
+                </li>
               </ol>
             </div>
           </div>
