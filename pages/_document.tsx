@@ -1,10 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import React, { Suspense } from 'react'
-import dynamic from 'next/dynamic'
-
-const Restorer = dynamic(() => import('@/ui/ScrollRestorer/ScrollRestorer'), {
-  ssr: false,
-})
+import React from 'react'
 
 export default function Document() {
   return (
@@ -30,9 +25,6 @@ export default function Document() {
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </Head>
       <body>
-        <Suspense>
-          <Restorer />
-        </Suspense>
         <div className="wrapper">
           <Main />
           <NextScript />

@@ -50,7 +50,9 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
   const pageKey = router.asPath
   useNextCssRemovalPrevention()
+
   const onExitComplete = () => {
+    history.scrollRestoration = 'manual'
     window.scrollTo({ top: 0 })
   }
 
