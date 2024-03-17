@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import classNames from 'classnames'
 import Container from '@/app/layouts/Container'
 import BodyForm from '@/modules/Contact/ui/BodyForm/BodyForm'
-import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 
 import styles from './ContactContent.module.scss'
 
@@ -16,6 +16,7 @@ const Calendly = dynamic(
 
 const ContactContent = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
   const handleClose = () => {
     setIsOpen(false)
   }
@@ -51,9 +52,8 @@ const ContactContent = () => {
               <BodyForm />
             </div>
           </div>
-          <Link
-            scroll={false}
-            href={'/'}
+          <button
+            onClick={() => router.back()}
             className={styles['backward-button']}
           />
         </div>
