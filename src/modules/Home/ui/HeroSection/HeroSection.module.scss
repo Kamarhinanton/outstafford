@@ -2,11 +2,9 @@
 
 .hero {
   display: flex;
-  min-height: 100svh;
-  padding: 10rem 0 75rem;
-  background-color: var(--black);
 
   @media (width<=$breakpoint-mob){
+    min-height: 100vh;
     padding: 136rem 0;
   }
 

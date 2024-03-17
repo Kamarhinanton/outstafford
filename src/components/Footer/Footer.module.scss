@@ -1,14 +1,9 @@
 @import '@/app/styles/variables/breakpoints';
 
 .footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 90rem 0 373rem;
-  background-color: var(--black);
 
   @media (width<=$breakpoint-mob) {
-    display: block;
     padding: 96rem 0;
   }
 

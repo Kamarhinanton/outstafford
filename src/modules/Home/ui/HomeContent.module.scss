@@ -1,18 +1,13 @@
 @import '@/app/styles/variables/breakpoints';
 
 .bottom-section {
-  background-color: var(--black);
-
   &__content {
     display: flex;
     gap: 24rem;
-    align-items: center;
-    min-height: 100svh;
 
     @media (width<=$breakpoint-mob) {
       flex-direction: column;
       align-items: initial;
-      min-height: initial;
     }
   }
 }
@@ -60,10 +55,8 @@
   }
 }
 
-.footer-height{
-  min-height: 100svh;
-
-  @media (width<=$breakpoint-mob) {
-    min-height: initial;
+.footer-no-padding{
+  @media (width>$breakpoint-mob) {
+    padding: 0;
   }
 }

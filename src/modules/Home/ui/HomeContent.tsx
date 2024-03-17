@@ -17,6 +17,7 @@ import { setIsBottom } from '@/store/reducers/detectSliderPosition'
 import { setIsTop } from '@/store/reducers/detectSliderPosition'
 import classNames from 'classnames'
 import CTA from '@/components/CTA/CTA'
+import SectionFullPage from '@/app/layouts/SectionFullPage'
 
 import styles from './HomeContent.module.scss'
 import 'swiper/css'
@@ -107,7 +108,9 @@ const SwiperHomeComponent = () => {
       <div className="current-pagination" />
       <Swiper {...swiperProps}>
         {sectionsArray.map((section) => (
-          <SwiperSlide key={section.key}>{section}</SwiperSlide>
+          <SwiperSlide key={section.key}>
+            <SectionFullPage>{section}</SectionFullPage>
+          </SwiperSlide>
         ))}
       </Swiper>
     </>
@@ -119,7 +122,7 @@ const sectionsArray = [
   <OurPortfolio key="portfolio" />,
   <BottomSection key="bottom" />,
   <CTA key="cta" />,
-  <Footer className={styles['footer-height']} key="footer" />,
+  <Footer className={styles['footer-no-padding']} key="footer" />,
 ]
 
 const HomeContent = () => {

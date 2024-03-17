@@ -2,16 +2,18 @@
 
 .blog {
   display: flex;
+  max-width: 1920rem;
+  margin: 0 auto 467rem;
+  padding: 0 206rem 0 36rem;
 
   @media (width <= $breakpoint-mob) {
-    margin: 24rem 0 48rem;
+    margin: 24rem auto 48rem;
     padding: 0 16rem;
   }
 
   .menu{
     position: relative;
-    flex: 0 0 206rem;
-    padding: 0 0 0 36rem;
+    flex: 0 0 170rem;
 
     @media (width <= $breakpoint-mob) {
       display: none;
@@ -55,7 +57,8 @@
     flex-wrap: wrap;
     gap: 72rem 24rem;
     width: 100%;
-    padding: 0 206rem 0 0;
+
+    //padding: 0 206rem 0 0;
 
     @media (width <= $breakpoint-mob) {
       padding: 0;

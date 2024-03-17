@@ -1,21 +1,11 @@
 @import '@/app/styles/variables/breakpoints';
 
 .cta {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-  min-height: 100svh;
-  background-color: var(--black);
-
   .container{
     perspective: 1500px;
   }
 
   @media (width<= $breakpoint-mob) {
-    display: block;
-    justify-content: initial;
-    min-height: initial;
     margin: 16rem 0;
   }
 

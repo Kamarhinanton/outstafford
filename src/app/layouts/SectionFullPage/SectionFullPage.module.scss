@@ -1,0 +1,20 @@
+@import '@/app/styles/variables/breakpoints';
+
+.full-page{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 0 96rem;
+  background-color: var(--black);
+
+  &__content{
+    width: 100%;
+  }
+
+  @media (width<=$breakpoint-mob){
+    min-height: initial;
+    padding: 0;
+  }
+}
