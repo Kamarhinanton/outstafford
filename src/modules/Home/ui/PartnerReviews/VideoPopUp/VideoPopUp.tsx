@@ -1,11 +1,11 @@
 import React, { FC, useRef } from 'react'
 import YouTube, { YouTubeProps } from 'react-youtube'
 import { motion } from 'framer-motion'
-
-import styles from './VideoPopUp.module.scss'
 import CloseCross from '@/ui/CloseCross/CloseCross'
 
-const popUpVariant = {
+import styles from './VideoPopUp.module.scss'
+
+export const popUpVariant = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
   exit: { opacity: 0 },

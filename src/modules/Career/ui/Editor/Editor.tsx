@@ -2,11 +2,20 @@ import React from 'react'
 import Container from '@/app/layouts/Container'
 import classNames from 'classnames'
 import StickyBlock from '@/modules/Career/ui/Editor/StickyBlock/StickyBlock'
+import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
+import { setIsCareerPopUpActive } from '@/store/reducers/callCareerPopUpSlice'
+import { AppDispatch } from '@/store/store'
+import { useDispatch } from 'react-redux'
 
 import styles from './Editor.module.scss'
-import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 
 const Editor = () => {
+  const dispatch: AppDispatch = useDispatch()
+  const handlePopUpCareer = () => {
+    document.body.style.overflow = 'hidden'
+    dispatch(setIsCareerPopUpActive(true))
+  }
+
   return (
     <section className={styles['editor']}>
       <Container>
@@ -117,6 +126,7 @@ const Editor = () => {
             className={styles['editor__fixed-button_btn']}
             arrows={true}
             variant={'green'}
+            onClick={handlePopUpCareer}
           >
             Apply
           </ButtonPrimary>
