@@ -1,17 +1,19 @@
+import routes from '@/utils/routes'
+
 export const positionsData = [
   {
     title: 'UX/Ui Designer',
-    link: '/',
+    link: routes.public.career,
     topics: ['Remote', 'Full-time'],
   },
   {
     title: 'React Native Developer',
-    link: '/',
+    link: routes.public.career,
     topics: ['Remote', 'Part-time'],
   },
   {
     title: 'Node.js Developer',
-    link: '/',
+    link: routes.public.career,
     topics: ['Remote', 'Freelance'],
   },
 ]

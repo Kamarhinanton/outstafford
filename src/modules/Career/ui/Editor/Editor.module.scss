@@ -1,10 +1,18 @@
 @import '@/app/styles/variables/breakpoints';
 
 .editor {
-  margin: 170rem 0 114rem;
+  margin: 39rem 0 114rem;
 
   @media (width<= $breakpoint-mob) {
-    margin: 93rem 0 106rem;
+    margin: 84rem 0 106rem;
+  }
+
+  &__back{
+    margin: 0 0 95rem;
+
+    @media (width<= $breakpoint-mob) {
+      margin: 0 0 24rem;
+    }
   }
 
   &__content {
@@ -145,7 +153,7 @@
 
   &__fixed-button{
     position: fixed;
-    bottom: 60rem;
+    bottom: 18rem;
     left: 0;
     z-index: 2;
     display: none;

@@ -1,0 +1,21 @@
+.back-button{
+  position: relative;
+  padding: 0 0 0 55rem;
+  color: var(--primary-color);
+  font-size: 24rem;
+  line-height: 150%;
+
+  &::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 39rem;
+    height: 37rem;
+    background-image: url("/icons/arrow_green.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 39rem 37rem;
+    transform: rotate(180deg);
+    content: '';
+  }
+}

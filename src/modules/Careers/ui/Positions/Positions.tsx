@@ -25,7 +25,7 @@ const Positions = () => {
                   ))}
                 </ul>
               </div>
-              <ButtonPrimary href={'/'} arrows={true} variant={'green'}>
+              <ButtonPrimary href={item.link} arrows={true} variant={'green'}>
                 Open
               </ButtonPrimary>
             </li>

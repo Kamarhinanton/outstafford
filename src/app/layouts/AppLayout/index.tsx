@@ -29,17 +29,30 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   const pathname = usePathname()
   const [isVisible, setIsVisible] = useState({
     contact: false,
+    career: false,
   })
 
   useEffect(() => {
     switch (pathname) {
       case routes.public.contact:
-        setIsVisible((prevState) => ({ ...prevState, contact: true }))
+        setIsVisible((prevState) => ({
+          ...prevState,
+          contact: true,
+          career: false,
+        }))
+        break
+      case routes.public.career:
+        setIsVisible((prevState) => ({
+          ...prevState,
+          career: true,
+          contact: false,
+        }))
         break
       default:
         setIsVisible((prevState) => ({
           ...prevState,
           contact: false,
+          career: false,
         }))
     }
   }, [pathname])
@@ -48,7 +61,7 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
     <>
       {!isVisible.contact && <Header />}
       {width <= breakpointMob && <MobileCTA />}
-      {width <= breakpointMob && <MobileHeader />}
+      {!isVisible.career && width <= breakpointMob && <MobileHeader />}
       {children}
     </>
   )

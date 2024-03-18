@@ -6,11 +6,14 @@ import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import { setIsCareerPopUpActive } from '@/store/reducers/callCareerPopUpSlice'
 import { AppDispatch } from '@/store/store'
 import { useDispatch } from 'react-redux'
+import BackButton from '@/ui/BackButton/BackButton'
+import { useRouter } from 'next/router'
 
 import styles from './Editor.module.scss'
 
 const Editor = () => {
   const dispatch: AppDispatch = useDispatch()
+  const router = useRouter()
   const handlePopUpCareer = () => {
     document.body.style.overflow = 'hidden'
     dispatch(setIsCareerPopUpActive(true))
@@ -19,6 +22,10 @@ const Editor = () => {
   return (
     <section className={styles['editor']}>
       <Container>
+        <BackButton
+          callBackFunc={() => router.back()}
+          className={styles['editor__back']}
+        />
         <div className={styles['editor__content']}>
           <div className={styles['article']}>
             <div className={styles['article__top']}>
