@@ -1,16 +1,15 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
-
-import styles from './BackButton.module.scss'
 import Link from 'next/link'
 import routes from '@/utils/routes'
+import styles from './BackButton.module.scss'
 
 type BackButtonType = {
   className?: string
   callBackFunc?: () => void
 }
 
-const BackButton: FC<BackButtonType> = ({ className, callBackFunc }) => {
+const BackButton: FC<BackButtonType> = ({ className }) => {
   return (
     <Link
       href={routes.public.careers}
