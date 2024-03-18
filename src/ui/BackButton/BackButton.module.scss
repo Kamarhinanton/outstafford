@@ -1,9 +1,19 @@
+@import '@/app/styles/variables/breakpoints';
+
 .back-button{
   position: relative;
   padding: 0 0 0 55rem;
   color: var(--primary-color);
   font-size: 24rem;
   line-height: 150%;
+  cursor: pointer;
+  transition:opacity var(--duration-hover) var(--ease);
+
+  @media (width> $breakpoint-mob) {
+    &:hover{
+      opacity: 0.5;
+    }
+  }
 
   &::before{
     position: absolute;
