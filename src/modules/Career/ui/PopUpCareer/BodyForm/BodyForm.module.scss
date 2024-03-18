@@ -1,0 +1,25 @@
+@import '@/app/styles/variables/breakpoints';
+
+.form{
+  width: 100%;
+
+  &__field{
+    margin: 0 0 11rem;
+
+    @media (width<= $breakpoint-mob) {
+      margin: 0 0 4rem;
+    }
+  }
+
+  &__file{
+    margin: 55rem 0 28rem;
+
+    @media (width<= $breakpoint-mob) {
+      margin: 4rem 0;
+    }
+  }
+
+  &__button{
+    width: 100%;
+  }
+}

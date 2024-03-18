@@ -3,6 +3,7 @@ import YouTube, { YouTubeProps } from 'react-youtube'
 import { motion } from 'framer-motion'
 
 import styles from './VideoPopUp.module.scss'
+import CloseCross from '@/ui/CloseCross/CloseCross'
 
 const popUpVariant = {
   initial: { opacity: 0 },
@@ -40,10 +41,7 @@ const VideoPopUp: FC<VideoPopUpType> = ({ videoId, setIsPopUpVisible }) => {
   return (
     <motion.div {...popUpVariant} className={styles['video-pop-up']}>
       <div className={styles['video-pop-up__content']}>
-        <div onClick={pauseVideo} className={styles['cross']}>
-          <span></span>
-          <span></span>
-        </div>
+        <CloseCross callBackFunc={pauseVideo} className={styles['cross']} />
         <YouTube
           ref={youtubeRef}
           className={styles['video-pop-up__content_iframe']}

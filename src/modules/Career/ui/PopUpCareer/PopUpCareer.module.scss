@@ -1,0 +1,83 @@
+@import '@/app/styles/variables/breakpoints';
+
+.pop-up-career{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100%;
+  overflow-y: auto;
+  background: rgb(0 0 0 / 72%);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &__content{
+    position: relative;
+    display: flex;
+    margin: 190rem 0;
+    padding: 64rem;
+    background-color: var(--grey-bg);
+    border-radius: 24rem;
+
+    @media (width<= $breakpoint-mob) {
+      flex-direction: column;
+      margin: 104rem 0;
+      padding: 24rem;
+    }
+
+    .description{
+      flex: 0 0 735rem;
+      margin: 0 167rem 0 0;
+
+      @media (width<= $breakpoint-mob) {
+        flex: initial;
+        margin: 0 0 24rem;
+      }
+
+
+      &__title{
+        margin: 0 0 42rem;
+        color: var(--primary-color);
+
+        @media (width<= $breakpoint-mob) {
+          margin: 0 0 24rem;
+          font-size: 36rem;
+        }
+      }
+
+      &__text{
+        max-width: 545rem;
+        margin: 0 0 42rem;
+        font-size: 24rem;
+
+        @media (width<= $breakpoint-mob) {
+          margin: 0 0 24rem;
+          font-size: 14rem;
+        }
+      }
+    }
+
+    .cross{
+      position: absolute;
+      top: -97rem;
+      right: 0;
+
+      @media (width<=$breakpoint-mob) {
+        position: absolute;
+        top: initial;
+        right: 50%;
+        bottom: -57rem;
+        width: 63rem;
+        height: 48rem;
+        transform: translateX(50%);
+      }
+    }
+  }
+}

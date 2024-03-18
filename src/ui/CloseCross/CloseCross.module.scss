@@ -1,0 +1,46 @@
+@import '@/app/styles/variables/breakpoints';
+
+.cross{
+  width: 94rem;
+  height: 72rem;
+  background-color: var(--dark-green);
+  border-radius: 59rem;
+  cursor: pointer;
+  transition: var(--duration-hover) var(--ease);
+
+  @media (width>$breakpoint-mob) {
+    &:hover{
+      background-color: var(--dark-light-green);
+    }
+  }
+
+  @media (width<=$breakpoint-mob) {
+    width: 45rem;
+    height: 35rem;
+  }
+
+  span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    width: 35rem;
+    height: 5rem;
+    background-color: var(--primary-color);
+    transform: translateY(-50%) translateX(-50%);
+    opacity: 1;
+
+    @media (width<=$breakpoint-mob) {
+      width: 20rem;
+      height: 3rem;
+    }
+
+    &:nth-child(1){
+      transform: translateY(-50%) translateX(-50%) rotate(45deg);
+    }
+
+    &:nth-child(2){
+      transform: translateY(-50%) translateX(-50%) rotate(-45deg);
+    }
+  }
+}

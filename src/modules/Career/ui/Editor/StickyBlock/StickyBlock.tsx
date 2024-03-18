@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import classNames from 'classnames'
+import TopicList from '@/ui/TopicList/TopicList'
 
 import styles from './StickyBlock.module.scss'
 
@@ -10,10 +11,10 @@ type StickyBlockType = {
 const StickyBlock: FC<StickyBlockType> = ({ className }) => {
   return (
     <div className={classNames(styles['sticky-block'], className)}>
-      <ul className={styles['sticky-block__list']}>
-        <li className={styles['sticky-block__list_link']}>Remote</li>
-        <li className={styles['sticky-block__list_link']}>Full-time</li>
-      </ul>
+      <TopicList
+        className={styles['sticky-block__list']}
+        list={['Remote', 'Full-time']}
+      />
       <div className={styles['sticky-block__text']}>
         <p className={styles['sticky-block__text_title']}>About</p>
         <p className={styles['sticky-block__text_description']}>
