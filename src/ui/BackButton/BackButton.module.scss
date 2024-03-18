@@ -2,10 +2,12 @@
 
 .back-button{
   position: relative;
+  display: block;
   padding: 0 0 0 55rem;
   color: var(--primary-color);
   font-size: 24rem;
   line-height: 150%;
+  background-color: transparent;
   cursor: pointer;
   transition:opacity var(--duration-hover) var(--ease);
 

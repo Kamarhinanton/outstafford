@@ -1,7 +1,9 @@
 import React, { FC } from 'react'
+import classNames from 'classnames'
 
 import styles from './BackButton.module.scss'
-import classNames from 'classnames'
+import Link from 'next/link'
+import routes from '@/utils/routes'
 
 type BackButtonType = {
   className?: string
@@ -10,12 +12,14 @@ type BackButtonType = {
 
 const BackButton: FC<BackButtonType> = ({ className, callBackFunc }) => {
   return (
-    <div
-      onClick={callBackFunc}
+    <Link
+      href={routes.public.careers}
+      scroll={false}
+      // onClick={callBackFunc}
       className={classNames(className, styles['back-button'])}
     >
       Back
-    </div>
+    </Link>
   )
 }
 
