@@ -9,10 +9,17 @@
   background: var(--grey-bg);
   border-radius: 36rem;
 
-  &__canvas{
+  &__canvas-wrapper{
+    position: relative;
     flex: 1;
     width: 556rem;
     height: 621rem;
+
+    &_canvas{
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 
   @media (width<=$breakpoint-mob) {

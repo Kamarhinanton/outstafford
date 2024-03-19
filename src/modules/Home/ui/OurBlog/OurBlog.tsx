@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useInView } from 'framer-motion'
 import classNames from 'classnames'
-// import useWindowDimensions from '@/hooks/useWindowDimensions'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
 import {
   Engine,
   Render,
@@ -14,16 +14,10 @@ import {
 
 import styles from './OurBlog.module.scss'
 const OurBlog = () => {
-  // const width = useWindowDimensions()
+  const width = useWindowDimensions()
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const canvasParent = useRef<HTMLDivElement>(null)
   const isInView = useInView(canvasParent, { once: true })
-  const [widthCanvas, setWidthCanvas] = useState<number | undefined>(undefined)
-  const [heightCanvas, setHeightCanvas] = useState<number | undefined>(
-    undefined,
-  )
-  // const [key, setKey] = useState(0)
-  // const [, setViewport] = useState(width)
 
   const createRectangle = (
     x: number,
@@ -44,18 +38,19 @@ const OurBlog = () => {
     })
   }
 
-  const runCanvas = () => {
-    if (!canvasRef.current) return
-    const canvasWidth = widthCanvas || 600
-    const canvasHeight = heightCanvas || 600
+  useEffect(() => {
+    const width = canvasParent.current?.offsetWidth || 600
+    const height = canvasParent.current?.offsetHeight || 600
+    if (!canvasRef.current || width === undefined || height === undefined)
+      return
     const engine = Engine.create()
     const render = Render.create({
       canvas: canvasRef.current,
       engine: engine,
       options: {
         wireframes: false,
-        width: canvasWidth - 1,
-        height: canvasHeight - 1,
+        width: width - 1,
+        height: height - 1,
         pixelRatio: 2,
         background: 'transparent',
       },
@@ -63,56 +58,56 @@ const OurBlog = () => {
 
     const topics = [
       createRectangle(
-        canvasWidth / 2 - 30,
+        width / 2 - 30,
         0,
         85,
         40,
         '/images/Home/blogTopics/dating.png',
       ),
       createRectangle(
-        canvasWidth / 2 - 30,
+        width / 2 - 30,
         0,
         125,
         40,
         '/images/Home/blogTopics/ecom.png',
       ),
       createRectangle(
-        canvasWidth / 2 - 30,
+        width / 2 - 30,
         0,
         90,
         40,
         '/images/Home/blogTopics/fin.png',
       ),
       createRectangle(
-        canvasWidth / 2 - 30,
+        width / 2 - 30,
         0,
         125,
         40,
         '/images/Home/blogTopics/gig.png',
       ),
       createRectangle(
-        canvasWidth / 2 + 30,
+        width / 2 + 30,
         0,
         110,
         40,
         '/images/Home/blogTopics/health.png',
       ),
       createRectangle(
-        canvasWidth / 2 + 30,
+        width / 2 + 30,
         0,
         160,
         40,
         '/images/Home/blogTopics/location.png',
       ),
       createRectangle(
-        canvasWidth / 2 + 30,
+        width / 2 + 30,
         0,
         125,
         40,
         '/images/Home/blogTopics/social.png',
       ),
       createRectangle(
-        canvasWidth / 2 + 30,
+        width / 2 + 30,
         0,
         85,
         40,
@@ -120,25 +115,25 @@ const OurBlog = () => {
       ),
     ]
     const grounds = [
-      Bodies.rectangle(-50, canvasHeight / 2, 100, canvasHeight, {
+      Bodies.rectangle(-50, height / 2, 100, height, {
         isStatic: true,
         render: {
           visible: false,
         },
       }),
-      Bodies.rectangle(canvasWidth + 50, canvasHeight / 2, 100, canvasHeight, {
+      Bodies.rectangle(width + 50, height / 2, 100, height, {
         isStatic: true,
         render: {
           visible: false,
         },
       }),
-      Bodies.rectangle(canvasWidth / 2, canvasHeight + 50, canvasWidth, 100, {
+      Bodies.rectangle(width / 2, height + 50, width, 100, {
         isStatic: true,
         render: {
           visible: false,
         },
       }),
-      Bodies.rectangle(canvasWidth / 2, -50, canvasWidth, 100, {
+      Bodies.rectangle(width / 2, -50, width, 100, {
         isStatic: true,
         render: {
           visible: false,
@@ -148,11 +143,7 @@ const OurBlog = () => {
 
     Composite.add(engine.world, [...topics, ...grounds])
 
-    Render.run(render)
-
     const runner = Runner.create()
-
-    Runner.run(runner, engine)
 
     const mouse = Mouse.create(render.canvas),
       mouseConstraint = MouseConstraint.create(engine, {
@@ -168,43 +159,30 @@ const OurBlog = () => {
     Composite.add(engine.world, mouseConstraint)
 
     render.mouse = mouse
-  }
+    isInView && Render.run(render)
+    isInView && Runner.run(runner, engine)
 
-  // useEffect(() => {
-  //   console.log('3')
-  //
-  //   setWidthCanvas(canvasParent.current?.offsetWidth)
-  //   setHeightCanvas(canvasParent.current?.offsetHeight)
-  // }, [width])
-  // console.log('hello')
-
-  useEffect(() => {
-    setWidthCanvas(canvasParent.current?.offsetWidth)
-    setHeightCanvas(canvasParent.current?.offsetHeight)
-    if (isInView && canvasParent.current) {
-      runCanvas()
+    return () => {
+      Render.stop(render)
+      Composite.clear(engine.world, false)
+      Engine.clear(engine)
     }
-  }, [isInView])
-
-  // useEffect(() => {
-  //   setViewport((prev) => {
-  //     if (width !== prev) {
-  //       console.log('1')
-  //       setKey((k) => k + 1)
-  //       return width
-  //     }
-  //     return prev
-  //   })
-  // }, [width])
+  }, [canvasRef.current, width, isInView])
 
   return (
     <section className={styles['our-blog']}>
       <h3 className={classNames(styles['title'], 'h3')}>Our blog</h3>
       <div
         ref={canvasParent}
-        className={classNames('swiper-no-swiping', styles['our-blog__canvas'])}
+        className={classNames(
+          'swiper-no-swiping',
+          styles['our-blog__canvas-wrapper'],
+        )}
       >
-        <canvas ref={canvasRef} />
+        <canvas
+          className={styles['our-blog__canvas-wrapper_canvas']}
+          ref={canvasRef}
+        />
       </div>
     </section>
   )
