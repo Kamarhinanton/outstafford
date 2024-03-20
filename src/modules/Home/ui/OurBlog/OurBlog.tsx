@@ -17,8 +17,8 @@ const OurBlog = () => {
   const width = useWindowDimensions()
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const canvasParent = useRef<HTMLDivElement>(null)
-  const isInView = useInView(canvasParent, { once: true })
-
+  const engineRef = useRef<Engine | null>(null)
+  const isInView = useInView(canvasParent)
   const createRectangle = (
     x: number,
     y: number,
@@ -41,9 +41,11 @@ const OurBlog = () => {
   useEffect(() => {
     const width = canvasParent.current?.offsetWidth || 600
     const height = canvasParent.current?.offsetHeight || 600
-    if (!canvasRef.current || width === undefined || height === undefined)
-      return
-    const engine = Engine.create()
+    if (!canvasRef.current || !width || !height || engineRef.current) return
+
+    engineRef.current = Engine.create()
+
+    const engine = engineRef.current
     const render = Render.create({
       canvas: canvasRef.current,
       engine: engine,
@@ -157,17 +159,28 @@ const OurBlog = () => {
       })
 
     Composite.add(engine.world, mouseConstraint)
-
+    engine.timing.timeScale = 0
     render.mouse = mouse
-    isInView && Render.run(render)
-    isInView && Runner.run(runner, engine)
+    Render.run(render)
+    Runner.run(runner, engine)
 
     return () => {
       Render.stop(render)
       Composite.clear(engine.world, false)
       Engine.clear(engine)
+      engineRef.current = null
     }
-  }, [canvasRef.current, width, isInView])
+  }, [width])
+
+  useEffect(() => {
+    if (
+      engineRef.current &&
+      isInView &&
+      engineRef.current.timing.timeScale === 0
+    ) {
+      engineRef.current.timing.timeScale = 1
+    }
+  }, [isInView, width])
 
   return (
     <section className={styles['our-blog']}>
