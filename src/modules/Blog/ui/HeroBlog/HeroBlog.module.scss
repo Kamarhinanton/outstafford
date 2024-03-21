@@ -1,0 +1,29 @@
+@import '@/app/styles/variables/breakpoints';
+
+.hero-blog{
+  padding: 160rem 0 48rem;
+
+  @media (width<= $breakpoint-mob) {
+    padding: 112rem 0 24rem;
+  }
+
+  &__content{
+    &_title{
+      text-align: center;
+
+      @media (width<= $breakpoint-mob) {
+        text-align: initial;
+      }
+
+      span{
+        color: var(--primary-color);
+
+        @media (width<= $breakpoint-mob) {
+          display: block;
+          width: 100%;
+          text-align: right;
+        }
+      }
+    }
+  }
+}

@@ -1,16 +1,20 @@
 import React from 'react'
-import Container from '@/app/layouts/Container'
 import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
+import { BlogContent } from '@/modules/Blog'
+import Head from 'next/head'
 
 export default function Blog() {
   return (
-    <Container>
+    <>
+      <Head>
+        <title>Blog page</title>
+      </Head>
       <PageTransitionLayout
         title={'Blog text'}
         description={'blog description'}
       >
-        <h1>Blog page</h1>
+        <BlogContent />
       </PageTransitionLayout>
-    </Container>
+    </>
   )
 }
