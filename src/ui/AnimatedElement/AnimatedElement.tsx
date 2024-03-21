@@ -8,14 +8,12 @@ type AnimatedElementProps = {
   children: ReactNode
   className?: string
   delay?: number
-  reverse?: boolean
 }
 
 const AnimatedElement: FC<AnimatedElementProps> = ({
   children,
   className,
   delay = 0,
-  reverse,
 }) => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
@@ -23,8 +21,6 @@ const AnimatedElement: FC<AnimatedElementProps> = ({
   const elementFrame = {
     visible: {
       opacity: 1,
-      y: reverse ? -15 : 0,
-      x: 0,
       transition: {
         ease: 'anticipate',
         duration: 1.2,
@@ -33,13 +29,9 @@ const AnimatedElement: FC<AnimatedElementProps> = ({
     },
     hidden: {
       opacity: 0,
-      x: reverse ? 0 : 15,
-      y: 0,
     },
     exit: {
       opacity: 0,
-      x: reverse ? 0 : 15,
-      y: 0,
     },
   }
 

@@ -47,7 +47,6 @@ const BlogSection: FC<BlogSectionType> = ({
             filteredBlogData.map((card, index) => (
               <AnimatedElement
                 delay={index % 3 === 1 ? 0.3 : 0}
-                reverse={index % 3 === 2}
                 key={card.title}
                 className={styles['card']}
               >
