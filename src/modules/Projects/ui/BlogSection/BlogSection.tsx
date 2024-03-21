@@ -30,9 +30,10 @@ const BlogSection: FC<BlogSectionType> = ({
         <ul className={styles['menu__categories']}>
           {categories.map((category) => (
             <li
-              onClick={() => handleClick(category)}
+              onClick={() => handleClick && handleClick(category)}
               className={classNames(styles['menu__categories_category'], {
-                [styles['active']]: activeCategory.includes(category),
+                [styles['active']]:
+                  activeCategory && activeCategory.includes(category),
               })}
               key={category}
             >
@@ -50,7 +51,11 @@ const BlogSection: FC<BlogSectionType> = ({
                 key={card.title}
                 className={styles['card']}
               >
-                <Link href={card.href} className={styles['card__top']}>
+                <Link
+                  scroll={false}
+                  href={card.href}
+                  className={styles['card__top']}
+                >
                   <BackgroundImage
                     className={styles['image']}
                     position={'cover'}

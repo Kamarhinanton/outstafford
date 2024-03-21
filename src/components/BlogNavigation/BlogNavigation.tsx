@@ -4,17 +4,21 @@ import classNames from 'classnames'
 
 import styles from './BlogNavigation.module.scss'
 
-const categories = ['Mobile', 'Web', 'AI']
-
 const BlogNavigation: FC<BlogSectionType> = ({
   handleClick,
   activeCategory,
   isAll,
   handleAll,
+  categories,
+  smallTopic,
 }) => {
   return (
     <div id={'topBlog'} className={styles['blog-navigation']}>
-      <ul className={styles['blog-navigation__list']}>
+      <ul
+        className={classNames(styles['blog-navigation__list'], {
+          [styles['small']]: smallTopic,
+        })}
+      >
         <li
           onClick={handleAll}
           key={'All'}
@@ -24,17 +28,19 @@ const BlogNavigation: FC<BlogSectionType> = ({
         >
           <p className={styles['item__text']}>All</p>
         </li>
-        {categories.map((category) => (
-          <li
-            onClick={() => handleClick(category)}
-            key={category}
-            className={classNames(styles['item'], {
-              [styles['active']]: activeCategory.includes(category),
-            })}
-          >
-            <p className={styles['item__text']}>{category}</p>
-          </li>
-        ))}
+        {categories &&
+          categories.map((category) => (
+            <li
+              onClick={() => handleClick && handleClick(category)}
+              key={category}
+              className={classNames(styles['item'], {
+                [styles['active']]:
+                  activeCategory && activeCategory.includes(category),
+              })}
+            >
+              <p className={styles['item__text']}>{category}</p>
+            </li>
+          ))}
       </ul>
     </div>
   )

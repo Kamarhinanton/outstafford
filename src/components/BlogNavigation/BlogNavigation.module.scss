@@ -1,13 +1,13 @@
 @import '@/app/styles/variables/breakpoints';
 
-.blog-navigation{
+.blog-navigation {
   padding: 64rem 0;
 
   @media (width <= $breakpoint-mob) {
     padding: 24rem 0;
   }
 
-  &__list{
+  &__list {
     display: flex;
     gap: 8rem;
     justify-content: center;
@@ -25,7 +25,7 @@
       overflow: auto;
     }
 
-    .item{
+    .item {
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -40,32 +40,58 @@
         border-radius: 8rem;
       }
 
-      &.active{
+      &.active {
         background-color: var(--primary-color);
 
-        .item{
-          &__text{
+        .item {
+          &__text {
             color: var(--black);
           }
         }
       }
 
-      &__text{
+      &__text {
         font: var(--font-h5);
         transition: var(--duration-hover) var(--ease);
       }
 
       @media (width > $breakpoint-mob) {
-        &:hover{
+        &:hover {
           background-color: var(--primary-color);
 
-          .item{
-            &__text{
+          .item {
+            &__text {
               color: var(--black);
             }
           }
         }
       }
     }
+
+    &.small {
+      @media (width <= $breakpoint-mob) {
+        gap: 4rem;
+      }
+
+      .item {
+        padding: 4rem 16rem;
+        border-radius: 34rem;
+
+        @media (width <= $breakpoint-mob) {
+          padding: 6rem 12rem;
+        }
+
+        &__text {
+          font: var(--link-s);
+
+          @media (width <= $breakpoint-mob) {
+            font-size: 14rem;
+            line-height: 150%;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
   }
 }
