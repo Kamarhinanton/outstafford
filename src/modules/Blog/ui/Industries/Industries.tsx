@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import classNames from 'classnames'
 import { Swiper, SwiperSlide, SwiperProps } from 'swiper/react'
+import { breakpointMob } from '@/utils/variables'
 
 import styles from './Industries.module.scss'
 import 'swiper/css'
@@ -11,7 +12,12 @@ import 'swiper/css'
 const swiperProps: SwiperProps = {
   slidesPerView: 'auto',
   speed: 1000,
-  spaceBetween: 22,
+  spaceBetween: 16,
+  breakpoints: {
+    [breakpointMob + 1]: {
+      spaceBetween: 22,
+    },
+  },
 }
 
 const Industries = () => {
