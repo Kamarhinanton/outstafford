@@ -4,11 +4,11 @@
   display: flex;
   align-items: center;
   min-height: 100vh;
-  padding: 160rem 0 48rem;
+  padding: 64rem 0;
 
   @media (width<= $breakpoint-mob) {
     min-height: initial;
-    padding: 112rem 0 24rem;
+    padding: 112rem 0 0;
   }
 
   &__content{

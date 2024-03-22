@@ -1,12 +1,6 @@
 @import '@/app/styles/variables/breakpoints';
 
 .blog {
-  padding: 36rem 0;
-
-  @media (width<=$breakpoint-mob) {
-    padding: 30rem 0;
-  }
-
   &__content {
     display: flex;
     flex-wrap: wrap;
