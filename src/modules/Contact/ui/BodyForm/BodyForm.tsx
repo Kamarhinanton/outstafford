@@ -8,18 +8,10 @@ import { Controller, Resolver, useForm } from 'react-hook-form'
 import { validationSchema } from '@/modules/Contact/ui/BodyForm/validationSchema'
 import Checkbox from '@/ui/Checkbox/Checkbox'
 import ErrorMessage from '@/ui/ErrorMessage/ErrorMessage'
+import { FormData } from '@/utils/globalTypes'
 // import FormPopup from '@/ui/FormPopup/FormPopup'
 
 import styles from './BodyForm.module.scss'
-
-export type FormData = {
-  interestGroup: string[]
-  email: string
-  message: string
-  name: string
-  budgetGroup: string[]
-  document: FileList | undefined
-}
 
 const defaultValues = {
   interestGroup: [],

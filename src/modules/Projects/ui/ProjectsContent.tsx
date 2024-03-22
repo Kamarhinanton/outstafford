@@ -1,34 +1,17 @@
 import React from 'react'
 import Footer from '@/components/Footer/Footer'
 import CTA from '@/components/CTA/CTA'
-import BlogSection from '@/modules/Projects/ui/BlogSection/BlogSection'
+import BlogProjectSection from '@/modules/Projects/ui/BlogProjectSection/BlogProjectSection'
 import BlogNavigation from '@/components/BlogNavigation/BlogNavigation'
-import { blogData } from '@/modules/Projects/ui/BlogSection/data'
+import { blogProjectData } from '@/modules/Projects/ui/BlogProjectSection/data'
 import HeroProjects from '@/modules/Projects/ui/HeroSection/HeroProjects'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
-
-export type CardBlogType = {
-  preview: string
-  topics: string[]
-  title: string
-  href: string
-}
-
-export type BlogSectionType = {
-  filteredBlogData?: CardBlogType[]
-  handleClick?: (e: string) => void
-  activeCategory?: string[]
-  isAll?: boolean
-  handleAll?: () => void
-  categories?: string[]
-  smallTopic?: boolean
-}
 
 const categories = ['Mobile', 'Web', 'AI']
 
 const ProjectsContent = () => {
   const { activeCategories, handleClick, isAll, handleAll, filteredBlogData } =
-    useCategoryFilter(blogData)
+    useCategoryFilter(blogProjectData)
 
   return (
     <main>
@@ -40,7 +23,7 @@ const ProjectsContent = () => {
         handleAll={handleAll}
         categories={categories}
       />
-      <BlogSection
+      <BlogProjectSection
         activeCategory={activeCategories}
         handleClick={handleClick}
         filteredBlogData={filteredBlogData}

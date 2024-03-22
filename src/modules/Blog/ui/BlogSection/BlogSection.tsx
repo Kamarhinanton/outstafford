@@ -3,12 +3,12 @@ import Container from '@/app/layouts/Container'
 import classNames from 'classnames'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import Link from 'next/link'
-import { BlogSectionType } from '@/modules/Projects/ui/ProjectsContent'
 import { AnimatePresence } from 'framer-motion'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
+import { BlogSectionType } from '@/utils/globalTypes'
 
-import styles from './BlogPageSection.module.scss'
-const BlogPageSection: FC<BlogSectionType> = ({ filteredBlogData }) => {
+import styles from './BlogSection.module.scss'
+const BlogSection: FC<BlogSectionType> = ({ filteredBlogData }) => {
   return (
     <section className={styles['blog']}>
       <Container>
@@ -57,4 +57,4 @@ const BlogPageSection: FC<BlogSectionType> = ({ filteredBlogData }) => {
   )
 }
 
-export default BlogPageSection
+export default BlogSection

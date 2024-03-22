@@ -4,9 +4,9 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 import { AnimatePresence } from 'framer-motion'
-import { BlogSectionType } from '@/modules/Projects/ui/ProjectsContent'
+import { BlogSectionType } from '@/utils/globalTypes'
 
-import styles from './BlogSection.module.scss'
+import styles from './BlogProjectSection.module.scss'
 
 const categories = [
   'Healthcare',
@@ -19,7 +19,7 @@ const categories = [
   'Social media',
 ]
 
-const BlogSection: FC<BlogSectionType> = ({
+const BlogProjectSection: FC<BlogSectionType> = ({
   filteredBlogData,
   handleClick,
   activeCategory,
@@ -84,4 +84,4 @@ const BlogSection: FC<BlogSectionType> = ({
   )
 }
 
-export default BlogSection
+export default BlogProjectSection

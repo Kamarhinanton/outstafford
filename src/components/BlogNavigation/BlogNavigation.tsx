@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import { BlogSectionType } from '@/modules/Projects/ui/ProjectsContent'
 import classNames from 'classnames'
+import { BlogSectionType } from '@/utils/globalTypes'
 
 import styles from './BlogNavigation.module.scss'
 

@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { breakpointMob } from '@/utils/variables'
-import { CardBlogType } from '@/modules/Projects/ui/ProjectsContent'
+import { CardBlogType } from '@/utils/globalTypes'
 
 const useCategoryFilter = (data: CardBlogType[]) => {
   const [activeCategories, setActiveCategories] = useState<string[]>([])

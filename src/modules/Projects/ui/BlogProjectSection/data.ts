@@ -1,4 +1,4 @@
-export const blogData = [
+export const blogProjectData = [
   {
     preview: '/images/Home/preview.jpg',
     topics: ['Mobile', 'Web', 'Healthcare'],
