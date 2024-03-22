@@ -3,22 +3,23 @@ import HeroBlog from '@/modules/Blog/ui/HeroBlog/HeroBlog'
 import BlogNavigation from '@/components/BlogNavigation/BlogNavigation'
 import BlogSection from '@/modules/Blog/ui/BlogSection/BlogSection'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
-import { blogPageData } from '@/modules/Blog/ui/BlogSection/data'
+import { blogData } from '@/modules/Blog/ui/BlogSection/data'
+import Industries from '@/modules/Blog/ui/Industries/Industries'
 
 const categories = [
-  'AI & ML',
-  'Career',
-  'Case Study',
+  'AI',
+  'Tech',
+  'Self-Development',
   'UX',
-  'UI',
-  'Facts',
+  'UI Design',
+  'Case Study',
   'Results',
   'News',
 ]
 
 const BlogContent = () => {
   const { activeCategories, handleClick, isAll, handleAll, filteredBlogData } =
-    useCategoryFilter(blogPageData)
+    useCategoryFilter(blogData)
   return (
     <main>
       <HeroBlog />
@@ -31,6 +32,7 @@ const BlogContent = () => {
         smallTopic={true}
       />
       <BlogSection filteredBlogData={filteredBlogData} />
+      <Industries />
     </main>
   )
 }

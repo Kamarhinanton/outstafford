@@ -22,10 +22,7 @@ const BlogSection: FC<BlogSectionType> = ({ filteredBlogData }) => {
                   href={item.href}
                   className={styles['card']}
                 >
-                  <AnimatedElement
-                    key={item.title}
-                    className={styles['card__content']}
-                  >
+                  <AnimatedElement className={styles['card__content']}>
                     <BackgroundImage
                       position={'cover'}
                       src={item.preview}
