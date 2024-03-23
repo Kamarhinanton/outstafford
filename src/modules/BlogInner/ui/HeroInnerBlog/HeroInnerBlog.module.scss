@@ -1,0 +1,46 @@
+@import '@/app/styles/variables/breakpoints';
+
+.hero-inner{
+  padding: 206rem 0 0;
+
+  @media (width<=$breakpoint-mob) {
+    padding: 84rem 0 0;
+  }
+
+  &__content{
+    .title{
+      margin: 0 0 36rem;
+
+      @media (width<=$breakpoint-mob) {
+        margin: 8rem 0 24rem;
+      }
+    }
+
+    .description{
+      max-width: 931rem;
+
+      @media (width<=$breakpoint-mob) {
+        font-size: 18rem;
+      }
+    }
+
+    &_img{
+      height: 807rem;
+      margin: 36rem 0 64rem;
+      overflow: hidden;
+      border-radius: 24rem;
+
+      @media (width<=$breakpoint-mob) {
+        height: 466rem;
+        margin: 24rem 0 46rem;
+      }
+    }
+
+    &_btn{
+      display: block;
+      width: 100%;
+      max-width: 1036rem;
+      margin: 0 auto;
+    }
+  }
+}

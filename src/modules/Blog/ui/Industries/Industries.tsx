@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { blogData } from '@/modules/Blog/ui/BlogSection/data'
 import Link from 'next/link'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
@@ -20,12 +20,23 @@ const swiperProps: SwiperProps = {
   },
 }
 
-const Industries = () => {
+type IndustriesType = {
+  innerVariant?: boolean
+  title?: string
+}
+
+const Industries: FC<IndustriesType> = ({ innerVariant, title }) => {
   return (
-    <section className={styles['industries']}>
-      <h2 className={classNames(styles['industries__title'], 'h2')}>
-        Industries
-      </h2>
+    <section
+      className={classNames(styles['industries'], {
+        [styles['inner']]: innerVariant,
+      })}
+    >
+      {title && (
+        <h2 className={classNames(styles['industries__title'], 'h2')}>
+          {title}
+        </h2>
+      )}
       <div className={styles['industries__content']}>
         <Swiper {...swiperProps}>
           {blogData.map((item) => (

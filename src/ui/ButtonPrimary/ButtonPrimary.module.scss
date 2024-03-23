@@ -40,6 +40,17 @@
     }
   }
 
+  &.dark-green{
+    color: var(--primary-color);
+    background-color: var(--dark-green);
+
+    @media (width>$breakpoint-mob) {
+      &:hover {
+        background: var(--dark-light-green);
+      }
+    }
+  }
+
   &.green {
     color: var(--black);
     background: var(--primary-color);

@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 import styles from './ButtonPrimary.module.scss'
 
-type ButtonPrimaryVariants = 'grey' | 'green' | 'transparent'
+type ButtonPrimaryVariants = 'grey' | 'green' | 'dark-green' | 'transparent'
 type ButtonPrimarySizes = 'normal' | 'large'
 
 type ButtonPrimaryProps = {

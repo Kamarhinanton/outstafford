@@ -32,7 +32,7 @@ const BlogContent = () => {
         smallTopic={true}
       />
       <BlogSection filteredBlogData={filteredBlogData} />
-      <Industries />
+      <Industries title={'Industries'} />
     </main>
   )
 }
