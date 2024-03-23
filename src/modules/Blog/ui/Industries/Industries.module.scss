@@ -40,10 +40,6 @@
         &:hover {
           .card {
             &__content {
-              &::before {
-                opacity: 1;
-              }
-
               &_text {
                 .title {
                   color: var(--primary-color);
@@ -73,7 +69,7 @@
           z-index: 2;
           background: linear-gradient(0deg, rgb(0 0 0 / 90%) 0%, rgb(251 249 249 / 0%) 88%);
           border-radius: 25rem;
-          opacity: 0.8;
+          opacity: 1;
           transition: opacity var(--duration-hover) var(--ease);
           content: '';
           pointer-events: none;
