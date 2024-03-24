@@ -10,8 +10,14 @@ import useCategoryFilter from '@/hooks/useCategoryFilter'
 const categories = ['Mobile', 'Web', 'AI']
 
 const ProjectsContent = () => {
-  const { activeCategories, handleClick, isAll, handleAll, filteredBlogData } =
-    useCategoryFilter(blogProjectData)
+  const {
+    activeCategories,
+    handleClick,
+    isAll,
+    handleAll,
+    filteredBlogData,
+    handleScroll,
+  } = useCategoryFilter(blogProjectData)
 
   return (
     <main>
@@ -22,11 +28,13 @@ const ProjectsContent = () => {
         isAll={isAll}
         handleAll={handleAll}
         categories={categories}
+        handleScroll={handleScroll}
       />
       <BlogProjectSection
         activeCategory={activeCategories}
         handleClick={handleClick}
         filteredBlogData={filteredBlogData}
+        handleScroll={handleScroll}
       />
       <CTA />
       <Footer />

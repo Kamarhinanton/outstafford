@@ -34,7 +34,7 @@ const VideoPopUp: FC<VideoPopUpType> = ({ videoId, setIsPopUpVisible }) => {
     if (youtubeRef.current) {
       youtubeRef.current.internalPlayer.pauseVideo()
       setIsPopUpVisible(false)
-      document.body.style.overflow = 'auto'
+      document.body.style.overflow = ''
     }
   }
 

@@ -2,18 +2,19 @@ import { useCallback, useMemo, useState } from 'react'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { breakpointMob } from '@/utils/variables'
 import { CardBlogType } from '@/utils/globalTypes'
+import { useLenis } from '@studio-freight/react-lenis'
 
 const useCategoryFilter = (data: CardBlogType[]) => {
   const [activeCategories, setActiveCategories] = useState<string[]>([])
   const [isAll, setIsAll] = useState(true)
   const { width } = useWindowDimensions()
+  const lenis = useLenis()
 
   const handleAll = useCallback(() => {
     if (!isAll) {
       setIsAll(true)
     }
     setActiveCategories([])
-    scrollToContent()
   }, [isAll, width])
 
   const handleClick = useCallback(
@@ -26,7 +27,6 @@ const useCategoryFilter = (data: CardBlogType[]) => {
       if (updatedCategories.length === 0) {
         setIsAll(true)
       }
-      scrollToContent()
     },
     [activeCategories, width],
   )
@@ -37,15 +37,17 @@ const useCategoryFilter = (data: CardBlogType[]) => {
     )
   }, [data, activeCategories])
 
-  const scrollToContent = () => {
-    if (width > breakpointMob) {
-      const targetElement = document.getElementById('topBlog')
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        })
-      }
+  const handleScroll = () => {
+    const targetElement = document.getElementById('topBlog')
+    const isMobile = width > breakpointMob ? 0 : -120
+    if (targetElement) {
+      lenis?.scrollTo(targetElement, {
+        duration: 1.5,
+        force: true,
+        offset: isMobile,
+        lock: true,
+      })
+      setTimeout(() => lenis?.resize(), 1200)
     }
   }
   return {
@@ -54,6 +56,7 @@ const useCategoryFilter = (data: CardBlogType[]) => {
     isAll,
     handleAll,
     filteredBlogData,
+    handleScroll,
   }
 }
 

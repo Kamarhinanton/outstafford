@@ -18,8 +18,15 @@ const categories = [
 ]
 
 const BlogContent = () => {
-  const { activeCategories, handleClick, isAll, handleAll, filteredBlogData } =
-    useCategoryFilter(blogData)
+  const {
+    activeCategories,
+    handleClick,
+    isAll,
+    handleAll,
+    filteredBlogData,
+    handleScroll,
+  } = useCategoryFilter(blogData)
+
   return (
     <main>
       <HeroBlog />
@@ -30,6 +37,7 @@ const BlogContent = () => {
         handleAll={handleAll}
         categories={categories}
         smallTopic={true}
+        handleScroll={handleScroll}
       />
       <BlogSection filteredBlogData={filteredBlogData} />
       <Industries title={'Industries'} />

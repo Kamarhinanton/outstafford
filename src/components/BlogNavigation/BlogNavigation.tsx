@@ -11,7 +11,18 @@ const BlogNavigation: FC<BlogSectionType> = ({
   handleAll,
   categories,
   smallTopic,
+  handleScroll,
 }) => {
+  const allOnClick = () => {
+    handleAll && handleAll()
+    handleScroll && handleScroll()
+  }
+
+  const otherOnClick = (category: string) => {
+    handleClick && handleClick(category)
+    handleScroll && handleScroll()
+  }
+
   return (
     <div id={'topBlog'} className={styles['blog-navigation']}>
       <ul
@@ -20,7 +31,7 @@ const BlogNavigation: FC<BlogSectionType> = ({
         })}
       >
         <li
-          onClick={handleAll}
+          onClick={allOnClick}
           key={'All'}
           className={classNames(styles['item'], {
             [styles['active']]: isAll,
@@ -31,7 +42,7 @@ const BlogNavigation: FC<BlogSectionType> = ({
         {categories &&
           categories.map((category) => (
             <li
-              onClick={() => handleClick && handleClick(category)}
+              onClick={() => otherOnClick(category)}
               key={category}
               className={classNames(styles['item'], {
                 [styles['active']]:

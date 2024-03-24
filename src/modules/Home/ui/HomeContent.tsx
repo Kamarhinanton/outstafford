@@ -129,7 +129,7 @@ const HomeContent = () => {
   const { width } = useWindowDimensions()
 
   return (
-    <main>
+    <main data-lenis-prevent={true}>
       {width > breakpointMob && <MouseIndicator />}
       <div id="sliderPopUp" />
       <SwiperHomeComponent />

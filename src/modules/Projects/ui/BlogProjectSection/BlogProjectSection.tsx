@@ -23,14 +23,19 @@ const BlogProjectSection: FC<BlogSectionType> = ({
   filteredBlogData,
   handleClick,
   activeCategory,
+  handleScroll,
 }) => {
+  const navigationOnClick = (category: string) => {
+    handleClick && handleClick(category)
+    handleScroll && handleScroll()
+  }
   return (
     <section className={styles['blog']}>
       <div className={styles['menu']}>
         <ul className={styles['menu__categories']}>
           {categories.map((category) => (
             <li
-              onClick={() => handleClick && handleClick(category)}
+              onClick={() => navigationOnClick(category)}
               className={classNames(styles['menu__categories_category'], {
                 [styles['active']]:
                   activeCategory && activeCategory.includes(category),

@@ -8,6 +8,7 @@ export type CardBlogType = {
 export type BlogSectionType = {
   filteredBlogData?: CardBlogType[]
   handleClick?: (e: string) => void
+  handleScroll?: () => void
   activeCategory?: string[]
   isAll?: boolean
   handleAll?: () => void

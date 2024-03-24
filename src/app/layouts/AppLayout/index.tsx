@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic'
 import { Header } from '@/components/Header'
 import { usePathname } from 'next/navigation'
 import routes from '@/utils/routes'
+import ReactLenis from '@studio-freight/react-lenis'
 
 const MobileCTA = dynamic(
   () => import('@/components/HeaderMobileCTA/HeaderMobileCTA'),
@@ -31,6 +32,13 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
     contact: false,
     career: false,
   })
+
+  const options = {
+    duration: 1.5,
+    smoothWheel: true,
+    smoothTouch: true,
+    autoResize: false,
+  }
 
   useEffect(() => {
     switch (pathname) {
@@ -59,10 +67,12 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
 
   return (
     <>
-      {!isVisible.contact && <Header />}
-      {width <= breakpointMob && <MobileCTA />}
-      {!isVisible.career && width <= breakpointMob && <MobileHeader />}
-      {children}
+      <ReactLenis root {...options}>
+        {!isVisible.contact && <Header />}
+        {width <= breakpointMob && <MobileCTA />}
+        {!isVisible.career && width <= breakpointMob && <MobileHeader />}
+        {children}
+      </ReactLenis>
     </>
   )
 }

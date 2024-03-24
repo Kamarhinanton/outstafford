@@ -16,7 +16,7 @@ const HeaderMobile = () => {
     if (isMenuActive) {
       document.body.style.overflow = 'hidden'
     } else {
-      document.body.style.overflow = 'auto'
+      document.body.style.overflow = ''
     }
   }, [isMenuActive])
 
