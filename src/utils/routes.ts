@@ -7,6 +7,6 @@ export default {
     work: '/work',
     contact: '/contact',
     careers: '/careers',
-    career: '/career',
+    career: '/careers',
   },
 }

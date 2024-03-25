@@ -5,13 +5,15 @@ import TopicList from '@/ui/TopicList/TopicList'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/store/store'
 import { setIsCareerPopUpActive } from '@/store/reducers/callCareerPopUpSlice'
+import { FrontMatterType } from '@/utils/globalTypes'
 
 import styles from './StickyBlock.module.scss'
 
 type StickyBlockType = {
   className?: string
+  frontMatter: FrontMatterType
 }
-const StickyBlock: FC<StickyBlockType> = ({ className }) => {
+const StickyBlock: FC<StickyBlockType> = ({ className, frontMatter }) => {
   const dispatch: AppDispatch = useDispatch()
   const handlePopUpCareer = () => {
     document.body.style.overflow = 'hidden'
@@ -20,21 +22,28 @@ const StickyBlock: FC<StickyBlockType> = ({ className }) => {
 
   return (
     <div className={classNames(styles['sticky-block'], className)}>
-      <TopicList
-        className={styles['sticky-block__list']}
-        list={['Remote', 'Full-time']}
-      />
-      <div className={styles['sticky-block__text']}>
-        <p className={styles['sticky-block__text_title']}>About</p>
-        <p className={styles['sticky-block__text_description']}>
-          We are looking for a UX/UI Designer to work on the next generation of
-          digital commerce, apps and sites combining brand, design and business.
-        </p>
-      </div>
-      <div className={styles['sticky-block__text']}>
-        <p className={styles['sticky-block__text_title']}>Salary</p>
-        <p className={styles['sticky-block__text_description']}>$4000 - 5000</p>
-      </div>
+      {frontMatter.topics && (
+        <TopicList
+          className={styles['sticky-block__list']}
+          list={frontMatter.topics}
+        />
+      )}
+      {frontMatter.about && (
+        <div className={styles['sticky-block__text']}>
+          <p className={styles['sticky-block__text_title']}>About</p>
+          <p className={styles['sticky-block__text_description']}>
+            {frontMatter.about}
+          </p>
+        </div>
+      )}
+      {frontMatter.salary && (
+        <div className={styles['sticky-block__text']}>
+          <p className={styles['sticky-block__text_title']}>Salary</p>
+          <p className={styles['sticky-block__text_description']}>
+            {frontMatter.salary}
+          </p>
+        </div>
+      )}
       <div className={styles['sticky-block__button']}>
         <ButtonPrimary
           className={styles['sticky-block__button_btn']}

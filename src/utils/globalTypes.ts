@@ -24,3 +24,25 @@ export type FormData = {
   budgetGroup: string[]
   document: FileList | undefined
 }
+//Careers types
+export type FrontMatterType = {
+  title?: string
+  topics?: string[]
+  salary?: string
+  about?: string
+  description?: string
+}
+
+type CareerType = {
+  slug: string
+  frontMatter: FrontMatterType
+}
+
+export type CareersType = {
+  careers: CareerType[]
+}
+//Single career types
+export type SingleCareerType = {
+  content: string
+  frontMatter: FrontMatterType
+}

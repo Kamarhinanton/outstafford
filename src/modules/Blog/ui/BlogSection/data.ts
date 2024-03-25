@@ -8,7 +8,7 @@ export const blogData = [
   {
     preview: '/images/Home/preview.jpg',
     topics: ['Self-Development'],
-    title: 'Design Career: How to Get a Dream Design Job  ',
+    title: 'Design Slug: How to Get a Dream Design Job  ',
     href: '/',
   },
   {

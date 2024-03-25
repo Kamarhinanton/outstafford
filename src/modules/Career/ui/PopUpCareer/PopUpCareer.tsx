@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Container from '@/app/layouts/Container'
 import BodyForm from '@/modules/Career/ui/PopUpCareer/BodyForm/BodyForm'
 import classNames from 'classnames'
@@ -9,10 +9,15 @@ import { AppDispatch, RootState } from '@/store/store'
 import { setIsCareerPopUpActive } from '@/store/reducers/callCareerPopUpSlice'
 import { AnimatePresence, motion } from 'framer-motion'
 import { popUpVariant } from '@/modules/Home/ui/PartnerReviews/VideoPopUp/VideoPopUp'
+import { FrontMatterType } from '@/utils/globalTypes'
 
 import styles from './PopUpCareer.module.scss'
 
-const PopUpCareer = () => {
+type PopUpCareerType = {
+  frontMatter: FrontMatterType
+}
+
+const PopUpCareer: FC<PopUpCareerType> = ({ frontMatter }) => {
   const isCareerPopUpActive = useSelector(
     (state: RootState) => state.callCareerPopUp.isCareerPopUpActive,
   )
@@ -30,17 +35,17 @@ const PopUpCareer = () => {
             <div className={styles['pop-up-career__content']}>
               <div className={styles['description']}>
                 <h2 className={classNames('h2', styles['description__title'])}>
-                  Apply to UX/Ui Designer
+                  Apply to {frontMatter.title}
                 </h2>
                 <p className={styles['description__text']}>
-                  We are looking for a UX/UI Designer to work on the next
-                  generation of digital commerce, apps and sites combining
-                  brand, design and business.
+                  {frontMatter.about}
                 </p>
-                <TopicList
-                  className={styles['description__list']}
-                  list={['Remote', 'Full-time']}
-                />
+                {frontMatter.topics && (
+                  <TopicList
+                    className={styles['description__list']}
+                    list={frontMatter.topics}
+                  />
+                )}
               </div>
               <BodyForm />
               <CloseCross
