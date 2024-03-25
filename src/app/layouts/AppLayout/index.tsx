@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useState } from 'react'
+import { FC, ReactNode, useEffect, useMemo, useState } from 'react'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { breakpointMob } from '@/utils/variables'
 import dynamic from 'next/dynamic'
@@ -6,6 +6,7 @@ import { Header } from '@/components/Header'
 import { usePathname } from 'next/navigation'
 import routes from '@/utils/routes'
 import ReactLenis from '@studio-freight/react-lenis'
+import { useRouter } from 'next/router'
 
 const MobileCTA = dynamic(
   () => import('@/components/HeaderMobileCTA/HeaderMobileCTA'),
@@ -28,6 +29,8 @@ type AppLayoutProps = {
 const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   const { width } = useWindowDimensions()
   const pathname = usePathname()
+  const router = useRouter()
+
   const [isVisible, setIsVisible] = useState({
     contact: false,
     career: false,
@@ -40,6 +43,10 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
     autoResize: false,
   }
 
+  const dynamicPath = useMemo(() => {
+    return router.query?.slug?.toString?.() ?? ''
+  }, [router.query?.slug])
+
   useEffect(() => {
     switch (pathname) {
       case routes.public.contact:
@@ -49,7 +56,7 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
           career: false,
         }))
         break
-      case routes.public.career:
+      case routes.public.career(dynamicPath):
         setIsVisible((prevState) => ({
           ...prevState,
           career: true,

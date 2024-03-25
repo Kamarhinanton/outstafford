@@ -7,6 +7,6 @@ export default {
     work: '/work',
     contact: '/contact',
     careers: '/careers',
-    career: '/careers',
+    career: (slug: string) => `/careers/${slug}`,
   },
 }
