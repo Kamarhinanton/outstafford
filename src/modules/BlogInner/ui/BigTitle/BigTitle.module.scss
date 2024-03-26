@@ -1,0 +1,21 @@
+@import '@/app/styles/variables/breakpoints';
+
+.title{
+  display: flex;
+  flex-direction: column;
+  max-width: 1136rem;
+  margin: 0 auto;
+
+  @media (width<= $breakpoint-mob) {
+    text-align: right;
+  }
+
+  span{
+    align-self: flex-end;
+    color: var(--primary-color);
+
+    @media (width<= $breakpoint-mob) {
+      align-self: flex-start;
+    }
+  }
+}

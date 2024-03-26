@@ -3,7 +3,7 @@
 .industries {
   max-width: 1920rem;
   margin: 0 auto;
-  padding: 110rem 0 779rem 90rem;
+  padding: 36rem 0 779rem 90rem;
 
   &.inner {
     .industries {
@@ -22,11 +22,15 @@
   }
 
   @media (width<=$breakpoint-mob) {
-    padding: 82rem 0 93rem 16rem;
+    padding: 24rem 0 93rem 16rem;
   }
 
   &__title {
-    margin: 0 0 34rem;
+    margin: 74rem 0 34rem;
+
+    @media (width<=$breakpoint-mob) {
+      margin: 82rem 0 16rem;
+    }
   }
 
   &__content {

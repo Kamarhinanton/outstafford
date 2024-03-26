@@ -5,6 +5,8 @@ import classNames from 'classnames'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import { FrontMatterType } from '@/utils/globalTypes'
+import { useRouter } from 'next/router'
+import BackButton from '@/ui/BackButton/BackButton'
 
 import styles from './HeroInnerBlog.module.scss'
 
@@ -13,9 +15,15 @@ type HeroInnerType = {
 }
 
 const HeroInnerBlog: FC<HeroInnerType> = ({ frontMatter }) => {
+  const router = useRouter()
+
   return (
     <section className={styles['hero-inner']}>
       <Container>
+        <BackButton
+          callBackFunc={() => router.back()}
+          className={styles['hero-inner__back']}
+        />
         <div className={styles['hero-inner__content']}>
           {frontMatter.topics && <TopicList list={frontMatter.topics} />}
           <h1 className={classNames('h1', styles['title'])}>
