@@ -9,11 +9,11 @@ import { useDispatch } from 'react-redux'
 import BackButton from '@/ui/BackButton/BackButton'
 import { useRouter } from 'next/router'
 import md from 'markdown-it'
-import { SingleCareerType } from '../../../../../pages/careers/[slug]'
+import { SingleMarkdownType } from '@/utils/globalTypes'
 
 import styles from './Editor.module.scss'
 
-const Editor = ({ frontMatter, content }: SingleCareerType) => {
+const Editor = ({ frontMatter, content }: SingleMarkdownType) => {
   const dispatch: AppDispatch = useDispatch()
   const router = useRouter()
   const handlePopUpCareer = () => {

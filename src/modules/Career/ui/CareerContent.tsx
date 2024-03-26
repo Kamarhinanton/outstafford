@@ -2,9 +2,9 @@ import React from 'react'
 import Footer from '@/components/Footer/Footer'
 import Editor from '@/modules/Career/ui/Editor/Editor'
 import PopUpCareer from '@/modules/Career/ui/PopUpCareer/PopUpCareer'
-import { SingleCareerType } from '../../../../pages/careers/[slug]'
+import { SingleMarkdownType } from '@/utils/globalTypes'
 
-const CareerContent = ({ frontMatter, content }: SingleCareerType) => {
+const CareerContent = ({ frontMatter, content }: SingleMarkdownType) => {
   return (
     <main>
       <PopUpCareer frontMatter={frontMatter} />

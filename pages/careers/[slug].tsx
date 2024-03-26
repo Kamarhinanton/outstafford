@@ -2,18 +2,12 @@ import React from 'react'
 import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
 import Head from 'next/head'
 import { CareerContent } from '@/modules/Career'
-import fs from 'fs'
 import { careersDirectory } from '@/utils/variables'
-import matter from 'gray-matter'
-import path from 'path'
-import { FrontMatterType } from '@/utils/globalTypes'
+import { SingleMarkdownType } from '@/utils/globalTypes'
+import { staticPath } from '@/utils/staticPath/staticPath'
+import { getMarkdownInner } from '@/utils/markdown/getMarkdownInner'
 
-export type SingleCareerType = {
-  content: string
-  frontMatter: FrontMatterType
-}
-
-export default function Career({ frontMatter, content }: SingleCareerType) {
+export default function Career({ frontMatter, content }: SingleMarkdownType) {
   return (
     <>
       <Head>
@@ -31,13 +25,7 @@ export default function Career({ frontMatter, content }: SingleCareerType) {
 
 export const getStaticPaths = async () => {
   try {
-    const files = fs.readdirSync(careersDirectory)
-
-    const paths = files.map((fileName) => ({
-      params: {
-        slug: fileName.replace('.md', ''),
-      },
-    }))
+    const paths = staticPath(careersDirectory)
 
     return {
       paths,
@@ -62,10 +50,7 @@ type SlugProps = {
 export const getStaticProps = async ({ params }: SlugProps) => {
   try {
     const { slug } = params
-    const fullPath = path.join(careersDirectory, `${slug}.md`)
-
-    const readFile = fs.readFileSync(fullPath, 'utf-8')
-    const { data: frontMatter, content } = matter(readFile)
+    const [frontMatter, content] = getMarkdownInner(slug, careersDirectory)
 
     return {
       props: {

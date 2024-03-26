@@ -1,11 +1,14 @@
 import React from 'react'
 import Industries from '@/modules/Blog/ui/Industries/Industries'
 import HeroInnerBlog from '@/modules/BlogInner/ui/HeroInnerBlog/HeroInnerBlog'
+import { SingleMarkdownType } from '@/utils/globalTypes'
+import BlogEditor from '@/modules/BlogInner/ui/BlogEditor/BlogEditor'
 
-const BlogInnerContent = () => {
+const BlogInnerContent = ({ frontMatter, content }: SingleMarkdownType) => {
   return (
     <main>
-      <HeroInnerBlog />
+      <HeroInnerBlog frontMatter={frontMatter} />
+      <BlogEditor content={content} />
       <Industries innerVariant={true} />
     </main>
   )

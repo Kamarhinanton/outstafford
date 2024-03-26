@@ -1,0 +1,10 @@
+@import '@/app/styles/variables/breakpoints';
+
+.width-class{
+  max-width: 1372rem;
+  margin: 64rem auto;
+
+  @media (width<=$breakpoint-mob) {
+    margin: 46rem auto 36rem;
+  }
+}

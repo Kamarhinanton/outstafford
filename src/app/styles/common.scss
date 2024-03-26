@@ -142,6 +142,10 @@ main {
     height: 100%;
     object-fit: cover;
     border-radius: 24rem;
+    margin: 64rem 0;
+    @media (width<= $breakpoint-mob) {
+      margin: 36rem 0;
+    }
   }
 
   a {

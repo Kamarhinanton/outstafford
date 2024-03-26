@@ -1,32 +1,36 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Container from '@/app/layouts/Container'
 import TopicList from '@/ui/TopicList/TopicList'
 import classNames from 'classnames'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
+import { FrontMatterType } from '@/utils/globalTypes'
 
 import styles from './HeroInnerBlog.module.scss'
 
-const HeroInnerBlog = () => {
+type HeroInnerType = {
+  frontMatter: FrontMatterType
+}
+
+const HeroInnerBlog: FC<HeroInnerType> = ({ frontMatter }) => {
   return (
     <section className={styles['hero-inner']}>
       <Container>
         <div className={styles['hero-inner__content']}>
-          <TopicList list={['AI', 'Tech']} />
+          {frontMatter.topics && <TopicList list={frontMatter.topics} />}
           <h1 className={classNames('h1', styles['title'])}>
-            State of AI Companion apps
+            {frontMatter.title}
           </h1>
-          <p className={styles['description']}>
-            Ten efficient tips by advertising genius David Ogilvy. Here Tubik
-            Studio designers consider their strong points, highly practical in
-            web and app UI/UX design.
-          </p>
-          <BackgroundImage
-            position={'cover'}
-            className={styles['hero-inner__content_img']}
-            src={'/images/Home/preview.jpg'}
-            alt={'picture'}
-          />
+          <p className={styles['description']}>{frontMatter.description}</p>
+          {frontMatter.preview && (
+            <BackgroundImage
+              position={'cover'}
+              className={styles['hero-inner__content_img']}
+              src={frontMatter.preview}
+              alt={'picture'}
+            />
+          )}
+
           <ButtonPrimary
             className={styles['hero-inner__content_btn']}
             size={'large'}
