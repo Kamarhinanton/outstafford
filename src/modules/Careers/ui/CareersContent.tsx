@@ -3,7 +3,7 @@ import Footer from '@/components/Footer/Footer'
 import HeroCareers from '@/modules/Careers/ui/HeroCareers/HeroCareers'
 import Positions from '@/modules/Careers/ui/Positions/Positions'
 import Benefits from '@/modules/Careers/ui/Benefits/Benefits'
-import { CareersType } from '@/utils/globalTypes'
+import { CareersType } from '../../../../pages/careers'
 
 const CareersContent = ({ careers }: CareersType) => {
   return (

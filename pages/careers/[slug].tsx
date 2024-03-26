@@ -6,7 +6,12 @@ import fs from 'fs'
 import { careersDirectory } from '@/utils/variables'
 import matter from 'gray-matter'
 import path from 'path'
-import { SingleCareerType } from '@/utils/globalTypes'
+import { FrontMatterType } from '@/utils/globalTypes'
+
+export type SingleCareerType = {
+  content: string
+  frontMatter: FrontMatterType
+}
 
 export default function Career({ frontMatter, content }: SingleCareerType) {
   return (

@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux'
 import BackButton from '@/ui/BackButton/BackButton'
 import { useRouter } from 'next/router'
 import md from 'markdown-it'
-import { SingleCareerType } from '@/utils/globalTypes'
+import { SingleCareerType } from '../../../../../pages/careers/[slug]'
 
 import styles from './Editor.module.scss'
 
@@ -42,7 +42,7 @@ const Editor = ({ frontMatter, content }: SingleCareerType) => {
             />
             <div
               dangerouslySetInnerHTML={{ __html: md().render(content) }}
-              className={styles['article__bottom']}
+              className={'editor-content'}
             />
           </div>
           <div className={styles['editor__content_menu']}>

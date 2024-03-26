@@ -2,11 +2,13 @@ import React from 'react'
 import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
 import { CareersContent } from '@/modules/Careers'
 import Head from 'next/head'
-import fs from 'fs'
-import matter from 'gray-matter'
-import { CareersType } from '@/utils/globalTypes'
-import path from 'path'
+import { MarkdownType } from '@/utils/globalTypes'
 import { careersDirectory } from '@/utils/variables'
+import { getMarkdownContent } from '@/utils/markdown/getMarkdownContent'
+
+export type CareersType = {
+  careers: MarkdownType[]
+}
 
 export default function Careers({ careers }: CareersType) {
   return (
@@ -26,21 +28,7 @@ export default function Careers({ careers }: CareersType) {
 
 export const getStaticProps = async () => {
   try {
-    const files = fs.readdirSync(careersDirectory)
-
-    const careers = files.map((fileName) => {
-      const slug = fileName.replace('.md', '')
-      const fullPath = path.join(careersDirectory, fileName)
-
-      const readFile = fs.readFileSync(fullPath, 'utf-8')
-      const { data: frontMatter } = matter(readFile)
-
-      return {
-        slug,
-        frontMatter,
-      }
-    })
-
+    const careers = getMarkdownContent(careersDirectory)
     return {
       props: { careers },
     }

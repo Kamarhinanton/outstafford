@@ -2,7 +2,7 @@ import React from 'react'
 import Footer from '@/components/Footer/Footer'
 import Editor from '@/modules/Career/ui/Editor/Editor'
 import PopUpCareer from '@/modules/Career/ui/PopUpCareer/PopUpCareer'
-import { SingleCareerType } from '@/utils/globalTypes'
+import { SingleCareerType } from '../../../../pages/careers/[slug]'
 
 const CareerContent = ({ frontMatter, content }: SingleCareerType) => {
   return (

@@ -3,6 +3,7 @@ export type CardBlogType = {
   topics: string[]
   title: string
   href: string
+  description?: string
 }
 
 export type BlogSectionType = {
@@ -24,7 +25,7 @@ export type FormData = {
   budgetGroup: string[]
   document: FileList | undefined
 }
-//Careers types
+
 export type FrontMatterType = {
   title?: string
   topics?: string[]
@@ -33,16 +34,7 @@ export type FrontMatterType = {
   description?: string
 }
 
-type CareerType = {
+export type MarkdownType = {
   slug: string
-  frontMatter: FrontMatterType
-}
-
-export type CareersType = {
-  careers: CareerType[]
-}
-//Single career types
-export type SingleCareerType = {
-  content: string
   frontMatter: FrontMatterType
 }

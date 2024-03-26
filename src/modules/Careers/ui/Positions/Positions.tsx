@@ -2,7 +2,7 @@ import React from 'react'
 import Container from '@/app/layouts/Container'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import classNames from 'classnames'
-import { CareersType } from '@/utils/globalTypes'
+import { CareersType } from '../../../../../pages/careers'
 
 import styles from './Positions.module.scss'
 

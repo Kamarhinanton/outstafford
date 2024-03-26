@@ -3,8 +3,8 @@ import HeroBlog from '@/modules/Blog/ui/HeroBlog/HeroBlog'
 import BlogNavigation from '@/components/BlogNavigation/BlogNavigation'
 import BlogSection from '@/modules/Blog/ui/BlogSection/BlogSection'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
-import { blogData } from '@/modules/Blog/ui/BlogSection/data'
 import Industries from '@/modules/Blog/ui/Industries/Industries'
+import { BlogType } from '../../../../pages/blog'
 
 const categories = [
   'AI',
@@ -17,7 +17,7 @@ const categories = [
   'News',
 ]
 
-const BlogContent = () => {
+const BlogContent = ({ blog }: BlogType) => {
   const {
     activeCategories,
     handleClick,
@@ -25,7 +25,7 @@ const BlogContent = () => {
     handleAll,
     filteredBlogData,
     handleScroll,
-  } = useCategoryFilter(blogData)
+  } = useCategoryFilter(blog)
 
   return (
     <main>

@@ -40,7 +40,7 @@ main {
 }
 
 .desk-view {
-  @media (width<=$breakpoint-mob ) {
+  @media (width<=$breakpoint-mob) {
     display: none;
   }
 }
@@ -52,6 +52,109 @@ main {
   }
 }
 
-.swiper-button-disabled{
+.swiper-button-disabled {
   opacity: 0.3;
+}
+
+.editor-content {
+  h1, h2, h3, h4, h5, h6 {
+    margin: 114rem 0 34rem;
+
+    @media (width<= $breakpoint-mob) {
+      margin: 64rem 0 34rem;
+    }
+  }
+
+  p {
+    margin: 20rem 0;
+
+    @media (width<= $breakpoint-mob) {
+      margin: 10rem 0;
+      font-size: 14rem;
+    }
+  }
+
+  ul, ol {
+    margin: 24rem 0;
+  }
+
+  ul {
+    li {
+      position: relative;
+      margin: 10rem 0;
+      font: var(--font-l);
+
+      @media (width<= $breakpoint-mob) {
+        padding: 0 0 0 20rem;
+        font-size: 14rem;
+      }
+
+      &::before {
+        position: absolute;
+        top: 14rem;
+        left: -20rem;
+        width: 10rem;
+        height: 10rem;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        content: '';
+
+        @media (width<= $breakpoint-mob) {
+          top: 7rem;
+          left: 5rem;
+          width: 5rem;
+          height: 5rem;
+          background-color: var(--white);
+        }
+      }
+    }
+  }
+
+  ol {
+    counter-reset: ordered-list-counter;
+
+    li {
+      margin: 10rem 0;
+      font: var(--font-l);
+      counter-increment: ordered-list-counter;
+
+      @media (width<= $breakpoint-mob) {
+        position: relative;
+        padding: 0 0 0 20rem;
+        font-size: 14rem;
+      }
+
+      &::before {
+        margin: 0 10rem 0 0;
+        content: counter(ordered-list-counter) ".";
+
+        @media (width<= $breakpoint-mob) {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24rem;
+  }
+
+  a {
+    color: var(--white);
+    font: var(--font-l);
+    transition: opacity var(--duration-hover) var(--ease);
+    @media (width> $breakpoint-mob) {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+    @media (width<= $breakpoint-mob) {
+      font-size: 14rem;
+    }
+  }
 }

@@ -19,7 +19,7 @@ const BlogSection: FC<BlogSectionType> = ({ filteredBlogData }) => {
                 <Link
                   scroll={false}
                   key={item.title}
-                  href={item.href}
+                  href={`/blog/${item.href}`}
                   className={styles['card']}
                 >
                   <AnimatedElement className={styles['card__content']}>
