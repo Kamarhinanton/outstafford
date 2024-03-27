@@ -2,7 +2,7 @@
 
 .width-class{
   max-width: 1372rem;
-  margin: 64rem auto;
+  margin: 0 auto 64rem;
 
   @media (width<=$breakpoint-mob) {
     margin: 46rem auto 36rem;

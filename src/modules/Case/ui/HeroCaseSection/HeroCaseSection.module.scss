@@ -1,0 +1,132 @@
+@import '@/app/styles/variables/breakpoints';
+
+.hero {
+  margin: 0 0 164rem;
+  padding: 57rem 0 0;
+
+  @media (width<= $breakpoint-mob) {
+    margin: 0 0 64rem;
+  }
+
+  &__back {
+    margin: 0 0 112rem;
+
+    @media (width<= $breakpoint-mob) {
+      margin: 0 0 64rem;
+    }
+  }
+
+  &__topic-list {
+    margin: 0 0 16rem;
+
+    @media (width<= $breakpoint-mob) {
+      margin: 0 0 8rem;
+    }
+  }
+
+  .title {
+    font-size: 135rem;
+
+    @media (width<= $breakpoint-mob) {
+      font-size: 36rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    margin: 22rem 0 0;
+
+    @media (width<= $breakpoint-mob) {
+      flex-direction: column;
+    }
+
+    &_list {
+      display: flex;
+      flex: 1;
+      gap: 30rem;
+      margin: 0 180rem 0 0;
+
+      @media (width<= $breakpoint-mob) {
+        flex: initial;
+        flex-wrap: wrap;
+        margin: 0 0 24rem;
+      }
+
+      .item {
+        width: calc(100% / 3);
+
+        @media (width<= $breakpoint-mob) {
+          width: calc((100% - 30rem) / 2);
+
+          &:first-child{
+            width: 100%;
+          }
+        }
+
+        &__title {
+          color: var(--grey-light);
+          font: var(--font-s);
+
+          @media (width<= $breakpoint-mob) {
+            font-size: 14rem;
+          }
+        }
+
+        &__list{
+          margin: 8rem 0 0;
+
+          @media (width<= $breakpoint-mob) {
+            margin: 4rem 0 0;
+          }
+
+          &_topic{
+            margin: 0 0 11rem;
+            font-size: 20rem;
+
+            @media (width<= $breakpoint-mob) {
+              margin: 0 0 8rem;
+              font-size: 14rem;
+            }
+
+            &:last-child{
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+
+    &_description{
+      flex: 0 1 931rem;
+
+      @media (width<= $breakpoint-mob) {
+        flex: initial;
+
+        p{
+          font-size: 18rem;
+        }
+      }
+
+      .button{
+        margin: 29rem 0 0;
+
+        @media (width<= $breakpoint-mob) {
+         width: 100%;
+          margin: 36rem 0 0 ;
+        }
+      }
+    }
+  }
+
+  &__image{
+    height: 807rem;
+    margin: 36rem 0 0;
+    overflow: hidden;
+    border-radius: 24rem;
+
+    @media (width<= $breakpoint-mob) {
+      height: 627rem;
+      margin: 24rem 0 0;
+    }
+  }
+}
