@@ -1,0 +1,75 @@
+@import '@/app/styles/variables/breakpoints';
+
+.challenges{
+  @media (width<= $breakpoint-mob) {
+    margin: 64rem 0;
+  }
+
+  .title{
+    margin: 0 0 43rem;
+
+    @media (width<= $breakpoint-mob) {
+      margin: 0 0 36rem;
+    }
+  }
+
+  .list{
+    display: flex;
+    flex-direction: column;
+    gap: 26rem;
+
+    @media (width<= $breakpoint-mob) {
+      gap: 16rem;
+      margin: 0 -16rem;
+    }
+
+    &__item{
+      position: relative;
+      padding: 36rem 36rem 36rem 330rem;
+      background-color: var(--grey-bg);
+      border-radius: 36rem;
+      counter-increment: ordered-list-counter;
+
+      @media (width<= $breakpoint-mob) {
+        padding: 168rem 24rem 24rem;
+      }
+
+      &::before{
+        position: absolute;
+        top: 36rem;
+        left: 36rem;
+        color: var(--primary-color);
+        font-size: 64rem;
+        font-family: var(--font-family-primary);
+        line-height: normal;
+        content: counter(ordered-list-counter, decimal-leading-zero);
+
+        @media (width<= $breakpoint-mob) {
+          left: 24rem;
+          font-size: 36rem;
+        }
+      }
+
+      &_title{
+        max-width: 800rem;
+        margin: 0 0 16rem;
+        line-height: normal;
+        text-transform: capitalize;
+
+        @media (width<= $breakpoint-mob) {
+          font-size: 24rem;
+        }
+      }
+
+      &_description{
+        max-width: 1003rem;
+        font-size: 20rem;
+        opacity: 0.6;
+
+        @media (width<= $breakpoint-mob) {
+          font-size: 14rem;
+        }
+      }
+    }
+  }
+}
