@@ -1,0 +1,192 @@
+@import '@/app/styles/variables/breakpoints';
+
+.mosaic {
+  margin: 164rem 0;
+
+  @media (width <= $breakpoint-mob) {
+    margin: 64rem 0;
+  }
+
+  &__content {
+    .top-description {
+      display: flex;
+
+      @media (width <= $breakpoint-mob) {
+        flex-direction: column;
+      }
+
+      &__title {
+        flex: 1;
+        padding: 0 30rem 0 0;
+
+        @media (width <= $breakpoint-mob) {
+          flex: initial;
+          margin: 0 0 24rem;
+          font-size: 36rem;
+        }
+      }
+
+      &__text {
+        max-width: 1005rem;
+
+        > p {
+          font: var(--link-s);
+
+          @media (width <= $breakpoint-mob) {
+            font-size: 14rem;
+          }
+        }
+      }
+    }
+
+    .bottom-description {
+      display: flex;
+      flex-direction: column;
+      gap: 24rem;
+      margin: 36rem 0 0;
+
+      .image {
+        width: 100%;
+        height: 807rem;
+        overflow: hidden;
+        border-radius: 24rem;
+
+        &.mob {
+          @media (width <= $breakpoint-mob) {
+            height: 642rem;
+          }
+        }
+
+        @media (width <= $breakpoint-mob) {
+          height: 168rem;
+        }
+      }
+
+      .double-images {
+        display: flex;
+        gap: 24rem;
+
+        @media (width <= $breakpoint-mob) {
+          gap: 8rem;
+        }
+
+        .image {
+          height: 1181rem;
+
+          @media (width <= $breakpoint-mob) {
+            height: 215rem;
+          }
+
+          &:nth-child(1) {
+            width: 707rem;
+
+            @media (width <= $breakpoint-mob) {
+              width: 50%;
+            }
+          }
+
+          &:nth-child(2) {
+            flex: 1;
+            width: initial;
+
+            @media (width <= $breakpoint-mob) {
+              flex: initial;
+              width: 50%;
+            }
+          }
+        }
+      }
+
+      &.no-double{
+        @media (width <= $breakpoint-mob) {
+          gap: 8rem;
+
+          .image{
+            height: 232rem;
+
+            &:nth-child(1){
+              height: 642rem;
+            }
+          }
+        }
+      }
+    }
+
+    .quote {
+      position: relative;
+      margin: 64rem 0;
+
+      @media (width <= $breakpoint-mob) {
+        margin: 48rem 0;
+        padding: 58rem 0 0;
+      }
+
+      &::before{
+        position: absolute;
+        top: 0;
+        left: -120rem;
+        width: 98rem;
+        height: 98rem;
+        background-image: url("/icons/commas.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        content: '';
+
+        @media (width <= $breakpoint-mob) {
+          top: 0;
+          left: 0;
+          width: 58rem;
+          height: 58rem;
+        }
+      }
+
+      &__top {
+        margin: 0 0 24rem;
+        font: var(--font-h3);
+        line-height: 138%;
+        text-transform: capitalize;
+
+        @media (width <= $breakpoint-mob) {
+          text-transform: initial;
+        }
+      }
+
+      &__bottom {
+        display: flex;
+        align-items: center;
+
+        &_img {
+          flex: 0 0 66rem;
+          height: 66rem;
+          margin: 0 16rem 0 0;
+          overflow: hidden;
+          border-radius: 50%;
+
+          @media (width <= $breakpoint-mob) {
+            flex:0 0 42rem;
+            height: 42rem;
+          }
+        }
+
+        &_naming{
+          p{
+            font-size: 20rem;
+
+            @media (width <= $breakpoint-mob) {
+              font-size: 14rem;
+            }
+
+            span{
+              font-size: 16rem;
+
+              @media (width <= $breakpoint-mob) {
+                opacity: 0.5;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
