@@ -1,0 +1,60 @@
+@import '@/app/styles/variables/breakpoints';
+
+.summary{
+  margin: 164rem 0;
+
+  @media (width<= $breakpoint-mob) {
+    margin: 64rem 0;
+  }
+
+  &__content{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 29rem 19rem;
+    margin: 64rem 0 0;
+
+    @media (width<= $breakpoint-mob) {
+      gap: 16rem;
+    }
+
+    &_item{
+      width: calc((100% - 38rem) / 3);
+      padding: 36rem;
+      background-color: var(--grey-bg);
+      border-radius: 36rem;
+
+      @media (width<= $breakpoint-mob) {
+        width: 100%;
+        border-radius: 24rem;
+      }
+
+      &:nth-child(1){
+        width: 100%;
+        padding: 36rem 287rem 36rem 723rem;
+
+        @media (width<= $breakpoint-mob) {
+          padding: 36rem 16rem 16rem;
+        }
+      }
+
+      .title{
+        margin: 0 0 16rem;
+        color: var(--primary-color);
+
+        @media (width<= $breakpoint-mob) {
+          font-size: 24rem;
+        }
+      }
+
+      .description{
+        font-size: 20rem;
+        opacity: 0.6;
+
+        @media (width<= $breakpoint-mob) {
+          max-width: 306rem;
+          font-size: 14rem;
+        }
+      }
+    }
+  }
+}
