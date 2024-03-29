@@ -6,6 +6,8 @@ import MosaicSection from '@/modules/Case/ui/MosaicSection/MosaicSection'
 import SummaryCase from '@/modules/Case/ui/SummaryCase/SummaryCase'
 import TeamCase from '@/modules/Case/ui/TeamCase/TeamCase'
 import MoreCases from '@/modules/Case/ui/MoreCases/MoreCases'
+import BigTitleCase from '@/modules/Case/ui/BigTitleCase/BigTitleCase'
+import ExploreMoreProjects from '@/modules/Case/ui/ExploreMoreProjects/ExploreMoreProjects'
 
 const mosaicData1 = {
   description: {
@@ -51,6 +53,8 @@ const CaseContent = () => {
       <MosaicSection mosaicData={mosaicData2} />
       <SummaryCase />
       <TeamCase />
+      <BigTitleCase />
+      <ExploreMoreProjects />
       <MoreCases />
       <Footer />
     </main>
