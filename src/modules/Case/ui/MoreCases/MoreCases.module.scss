@@ -1,0 +1,44 @@
+@import '@/app/styles/variables/breakpoints';
+
+.more-cases{
+  margin: 87rem 0 200rem;
+
+  @media (width<= $breakpoint-mob) {
+    margin: 66rem 0;
+  }
+
+  &__content{
+    display: flex;
+    justify-content: flex-end;
+    padding: 24rem 85rem;
+    background-color: var(--grey-bg);
+    border-radius: 36rem;
+
+    @media (width<= $breakpoint-mob) {
+      flex-direction: column;
+      justify-content: initial;
+      padding: 154rem 16rem 16rem;
+    }
+
+    .title{
+      width: 100%;
+      max-width: 887rem;
+      margin: 0 19rem 0 0;
+      text-transform: capitalize;
+
+      @media (width<= $breakpoint-mob) {
+        margin: 0 0 19rem;
+        font-size: 24rem;
+      }
+    }
+
+    .button{
+      align-self: center;
+
+      @media (width<= $breakpoint-mob) {
+        align-self: initial;
+        width: 100%;
+      }
+    }
+  }
+}
