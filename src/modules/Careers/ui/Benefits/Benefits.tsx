@@ -7,17 +7,17 @@ import styles from './Benefits.module.scss'
 
 const benefitsData = [
   {
-    title: 'Supportive Team',
-    description: 'Supportive Team',
+    title: 'Supportive TeamCase',
+    description: 'Supportive TeamCase',
   },
   {
     title: 'Free Courses',
-    description: 'Supportive Team',
+    description: 'Supportive TeamCase',
     image: '/images/Careers/1.png',
   },
   {
     title: 'Regular Bonuses',
-    description: 'Supportive Team',
+    description: 'Supportive TeamCase',
   },
   {
     title: 'MacBooks and iMacs',

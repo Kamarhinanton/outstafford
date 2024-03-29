@@ -1,0 +1,70 @@
+@import '@/app/styles/variables/breakpoints';
+
+.team-case{
+  margin: 164rem 0 200rem;
+
+  @media (width<= $breakpoint-mob) {
+    margin: 64rem 0;
+  }
+
+  &__content{
+    display: flex;
+
+    @media (width<= $breakpoint-mob) {
+      flex-direction: column;
+    }
+
+    .title{
+      flex: 1;
+
+      @media (width<= $breakpoint-mob) {
+        flex: initial;
+        margin: 0 0 36rem;
+        font-size: 36rem;
+      }
+    }
+
+    .list{
+      display: flex;
+      width: 100%;
+      max-width: 600rem;
+      margin: 0 378rem 0 0;
+
+      @media (width<= $breakpoint-mob) {
+        flex-direction: column;
+        gap: 36rem;
+        margin: 0;
+      }
+
+      &__item{
+        display: flex;
+        flex-direction: column;
+        width: calc(100%/3);
+        padding: 0 20rem 0 0;
+
+        @media (width<= $breakpoint-mob) {
+          width: 100%;
+          padding: 0;
+        }
+
+        p{
+          font-size: 16rem;
+          opacity: 0.6;
+        }
+
+        ul{
+          margin: 12rem 0 0;
+
+          li{
+            font-size: 20rem;
+            line-height: 150%;
+
+            @media (width<= $breakpoint-mob) {
+              font-size: 24rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
