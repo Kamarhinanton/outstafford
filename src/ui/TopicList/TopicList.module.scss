@@ -5,6 +5,32 @@
   flex-wrap: wrap;
   gap: 7rem;
 
+  &.dots {
+    .topic-list {
+      &__link {
+        position: relative;
+        padding: 4rem 16rem 4rem 32rem;
+        font-size: 20rem;
+
+        @media (width<= $breakpoint-mob) {
+          font-size: 14rem;
+        }
+
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: 16rem;
+          width: 6rem;
+          height: 6rem;
+          background-color: var(--primary-color);
+          border-radius: 50%;
+          transform: translateY(-50%);
+          content: '';
+        }
+      }
+    }
+  }
+
   &__link {
     padding: 4rem 16rem;
     color: var(--primary-color);

@@ -27,6 +27,7 @@ const HeroCaseSection = ({ data }: HeroCase) => {
           <TopicList
             className={styles['hero__topic-list']}
             list={data.topics}
+            dots={true}
           />
         )}
         {data.title && (
