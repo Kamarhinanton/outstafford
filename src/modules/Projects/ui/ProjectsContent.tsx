@@ -3,13 +3,13 @@ import Footer from '@/components/Footer/Footer'
 import CTA from '@/components/CTA/CTA'
 import BlogProjectSection from '@/modules/Projects/ui/BlogProjectSection/BlogProjectSection'
 import BlogNavigation from '@/components/BlogNavigation/BlogNavigation'
-import { blogProjectData } from '@/modules/Projects/ui/BlogProjectSection/data'
 import HeroProjects from '@/modules/Projects/ui/HeroSection/HeroProjects'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
+import { ProjectPageType } from '../../../../pages/projects'
 
 const categories = ['Mobile', 'Web', 'AI']
 
-const ProjectsContent = () => {
+const ProjectsContent = ({ projects }: ProjectPageType) => {
   const {
     activeCategories,
     handleClick,
@@ -17,7 +17,7 @@ const ProjectsContent = () => {
     handleAll,
     filteredBlogData,
     handleScroll,
-  } = useCategoryFilter(blogProjectData)
+  } = useCategoryFilter(projects)
 
   return (
     <main>

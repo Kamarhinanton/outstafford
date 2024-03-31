@@ -6,24 +6,14 @@ import TopicList from '@/ui/TopicList/TopicList'
 import classNames from 'classnames'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
+import { ProjectHero } from '@/utils/globalTypes'
 
 import styles from './HeroCaseSection.module.scss'
 
-const dataCase = [
-  {
-    title: 'Client',
-    topics: ['Camber'],
-  },
-  {
-    title: 'Involvement',
-    topics: ['UI/UX Design', 'Graphic Design', 'Motion Design'],
-  },
-  {
-    title: 'Deliverables',
-    topics: ['Mobile App', 'AR experience'],
-  },
-]
-const HeroCaseSection = () => {
+type HeroCase = {
+  data: ProjectHero
+}
+const HeroCaseSection = ({ data }: HeroCase) => {
   const router = useRouter()
 
   return (
@@ -33,18 +23,22 @@ const HeroCaseSection = () => {
           className={styles['hero__back']}
           callBackFunc={() => router.back()}
         />
-        <TopicList
-          className={styles['hero__topic-list']}
-          list={['Mobile', 'AI App']}
-        />
-        <h1 className={classNames(styles['title'], 'h1')}>Checkem</h1>
+        {data.topics && (
+          <TopicList
+            className={styles['hero__topic-list']}
+            list={data.topics}
+          />
+        )}
+        {data.title && (
+          <h1 className={classNames(styles['title'], 'h1')}>{data.title}</h1>
+        )}
         <div className={styles['hero__content']}>
           <ul className={styles['hero__content_list']}>
-            {dataCase.map((item) => (
+            {data.columns?.map((item) => (
               <li key={item.title} className={styles['item']}>
                 <p className={styles['item__title']}>{item.title}</p>
                 <ul className={styles['item__list']}>
-                  {item.topics.map((topic) => (
+                  {item.topics?.map((topic) => (
                     <li key={topic} className={styles['item__list_topic']}>
                       {topic}
                     </li>
@@ -54,28 +48,26 @@ const HeroCaseSection = () => {
             ))}
           </ul>
           <div className={styles['hero__content_description']}>
-            <p>
-              Space Needle visitors can now access their photos and videos
-              within seconds, eliminating the previous 10-15 minute wait time.
-              As a result, user satisfaction has increased, leading to a 20%
-              boost in app usage within the first month.
-            </p>
+            {data.description && <p>{data.description}</p>}
             <ButtonPrimary
               className={styles['button']}
               arrows={true}
               variant={'dark-green'}
               size={'large'}
+              href={data.href}
             >
               View Live
             </ButtonPrimary>
           </div>
         </div>
-        <BackgroundImage
-          className={styles['hero__image']}
-          src={'/images/Home/preview.jpg'}
-          alt={'picture'}
-          position={'cover'}
-        />
+        {data.preview && (
+          <BackgroundImage
+            className={styles['hero__image']}
+            src={data.preview}
+            alt={'picture'}
+            position={'cover'}
+          />
+        )}
       </Container>
     </section>
   )

@@ -1,36 +1,23 @@
 import React from 'react'
 import Container from '@/app/layouts/Container'
 import classNames from 'classnames'
+import { ProjectTeam } from '@/utils/globalTypes'
 
 import styles from './TeamCase.module.scss'
 
-const teamCaseData = {
-  title: 'Team',
-  data: [
-    {
-      position: 'Designers',
-      name: ['Artem Larin'],
-    },
-    {
-      position: 'Managers',
-      name: ['Max Onishenko', 'Artem Larin'],
-    },
-    {
-      position: 'Developers',
-      name: ['Evgen Pylypenko', 'Yulia Vlasenko'],
-    },
-  ],
+type TeamCaseType = {
+  team: ProjectTeam
 }
-const TeamCase = () => {
+const TeamCase = ({ team }: TeamCaseType) => {
   return (
     <section className={styles['team-case']}>
       <Container>
         <div className={styles['team-case__content']}>
-          <h2 className={classNames('h2', styles['title'])}>
-            {teamCaseData.title}
-          </h2>
+          {team.title && (
+            <h2 className={classNames('h2', styles['title'])}>{team.title}</h2>
+          )}
           <ul className={styles['list']}>
-            {teamCaseData.data.map((item) => (
+            {team.data?.map((item) => (
               <li key={item.position} className={styles['list__item']}>
                 <p>
                   <span>{item.position}</span>

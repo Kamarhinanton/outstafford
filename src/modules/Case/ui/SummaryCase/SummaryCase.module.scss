@@ -7,6 +7,12 @@
     margin: 64rem 0;
   }
 
+  &__title{
+    @media (width<= $breakpoint-mob) {
+      font-size: 36rem;
+    }
+  }
+
   &__content {
     display: flex;
     flex-wrap: wrap;
@@ -24,6 +30,7 @@
 
       @media (width<= $breakpoint-mob) {
         width: 100%;
+        padding: 16rem;
         border-radius: 24rem;
       }
 
@@ -32,7 +39,7 @@
         padding: 36rem 287rem 145rem 723rem;
 
         @media (width<= $breakpoint-mob) {
-          padding: 36rem 16rem 16rem;
+          padding: 127rem 16rem 16rem;
         }
       }
 

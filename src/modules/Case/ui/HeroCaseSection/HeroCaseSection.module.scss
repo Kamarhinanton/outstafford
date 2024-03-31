@@ -108,6 +108,7 @@
       }
 
       .button{
+        display: inline-block;
         margin: 29rem 0 0;
 
         @media (width<= $breakpoint-mob) {

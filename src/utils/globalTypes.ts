@@ -44,3 +44,79 @@ export type SingleMarkdownType = {
   content: string
   frontMatter: FrontMatterType
 }
+
+//Project types
+
+type HeroColumns = {
+  title?: string
+  topics?: string[]
+}
+
+type ProjectList = {
+  title: string
+  description: string
+}
+
+type TeamList = {
+  position: string
+  name: string[]
+}
+
+export type MosaicDataType = {
+  description?: {
+    title?: string
+    textTop?: string
+    quote?: {
+      text?: string
+      author?: string
+      position?: string
+      img?: string
+    }
+    textBottom?: string
+  }
+  mosaic?: {
+    topImg?: string
+    bottomImg?: string
+    doubleImg?: {
+      img1?: string
+      img2?: string
+    }
+  }
+}
+
+export type ProjectHero = {
+  topics?: string[]
+  title?: string
+  columns?: HeroColumns[]
+  description?: string
+  preview?: string
+  href?: string
+}
+
+export type ProjectChallenges = {
+  title?: string
+  list?: ProjectList[]
+}
+
+export type ProjectSummary = {
+  title?: string
+  list?: ProjectList[]
+}
+
+export type ProjectTeam = {
+  title?: string
+  data?: TeamList[]
+}
+
+export type ProjectType = {
+  hero: ProjectHero
+  challenges: ProjectChallenges
+  mosaic_1: MosaicDataType
+  mosaic_2: MosaicDataType
+  summary: ProjectSummary
+  team: ProjectTeam
+}
+
+export type SingleProjectsType = {
+  frontMatter: ProjectType
+}

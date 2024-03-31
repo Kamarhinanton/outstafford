@@ -2,30 +2,9 @@ import React, { FC } from 'react'
 import Container from '@/app/layouts/Container'
 import classNames from 'classnames'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
+import { MosaicDataType } from '@/utils/globalTypes'
 
 import styles from './MosaicSection.module.scss'
-
-type MosaicDataType = {
-  description?: {
-    title?: string
-    textTop?: string
-    quote?: {
-      text?: string
-      author?: string
-      position?: string
-      img?: string
-    }
-    textBottom?: string
-  }
-  mosaic?: {
-    topImg?: string
-    bottomImg?: string
-    doubleImg?: {
-      img1?: string
-      img2?: string
-    }
-  }
-}
 
 type MosaicSectionType = {
   mosaicData: MosaicDataType

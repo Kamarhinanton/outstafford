@@ -58,7 +58,7 @@ const BlogProjectSection: FC<BlogSectionType> = ({
               >
                 <Link
                   scroll={false}
-                  href={card.href}
+                  href={`/projects/${card.href}`}
                   className={styles['card__top']}
                 >
                   <BackgroundImage
