@@ -28,7 +28,7 @@ const BlogContent = ({ blog }: BlogType) => {
   } = useCategoryFilter(blog)
 
   return (
-    <main>
+    <main className={'wrapper-class variant'}>
       <HeroBlog />
       <BlogNavigation
         activeCategory={activeCategories}

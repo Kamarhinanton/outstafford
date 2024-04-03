@@ -26,6 +26,7 @@ const StickyBlock: FC<StickyBlockType> = ({ className, frontMatter }) => {
         <TopicList
           className={styles['sticky-block__list']}
           list={frontMatter.topics}
+          variants={'x-large'}
         />
       )}
       {frontMatter.about && (

@@ -5,6 +5,7 @@ import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import classNames from 'classnames'
 import { Swiper, SwiperSlide, SwiperProps } from 'swiper/react'
 import { breakpointMob } from '@/utils/variables'
+import TopicList from '@/ui/TopicList/TopicList'
 
 import styles from './Industries.module.scss'
 import 'swiper/css'
@@ -53,13 +54,12 @@ const Industries: FC<IndustriesType> = ({ innerVariant, title }) => {
                   className={styles['card__content_img']}
                 />
                 <div className={styles['card__content_text']}>
-                  <ul className={styles['topics']}>
-                    {item.topics.map((topic) => (
-                      <li className={styles['topics__topic']} key={topic}>
-                        {topic}
-                      </li>
-                    ))}
-                  </ul>
+                  <TopicList
+                    className={styles['topics']}
+                    list={item.topics}
+                    variants={'x-large'}
+                    color={'transparent'}
+                  />
                   <h4 className={classNames(styles['title'], 'h4')}>
                     {item.title}
                   </h4>

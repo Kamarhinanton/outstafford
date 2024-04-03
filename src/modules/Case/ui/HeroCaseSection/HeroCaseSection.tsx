@@ -28,6 +28,7 @@ const HeroCaseSection = ({ data }: HeroCase) => {
             className={styles['hero__topic-list']}
             list={data.topics}
             dots={true}
+            color={'grey'}
           />
         )}
         {data.title && (

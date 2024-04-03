@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { AnimatePresence } from 'framer-motion'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 import { BlogSectionType } from '@/utils/globalTypes'
+import TopicList from '@/ui/TopicList/TopicList'
 
 import styles from './BlogSection.module.scss'
 const BlogSection: FC<BlogSectionType> = ({ filteredBlogData }) => {
@@ -30,13 +31,12 @@ const BlogSection: FC<BlogSectionType> = ({ filteredBlogData }) => {
                       className={styles['card__content_img']}
                     />
                     <div className={styles['card__content_text']}>
-                      <ul className={styles['topics']}>
-                        {item.topics.map((topic) => (
-                          <li className={styles['topics__topic']} key={topic}>
-                            {topic}
-                          </li>
-                        ))}
-                      </ul>
+                      <TopicList
+                        className={styles['topics']}
+                        list={item.topics}
+                        variants={'x-large'}
+                        color={'transparent'}
+                      />
                       <h4 className={classNames(styles['title'], 'h4')}>
                         {item.title}
                       </h4>

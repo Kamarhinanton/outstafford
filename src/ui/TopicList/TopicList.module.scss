@@ -10,11 +10,6 @@
       &__link {
         position: relative;
         padding: 4rem 16rem 4rem 32rem;
-        font-size: 20rem;
-
-        @media (width<= $breakpoint-mob) {
-          font-size: 14rem;
-        }
 
         &::before {
           position: absolute;
@@ -31,12 +26,73 @@
     }
   }
 
+  //sizes
+  &.small {
+    .topic-list {
+      &__link {
+        font-size: 16rem;
+
+        @media (width<= $breakpoint-mob) {
+          font-size: 14rem;
+        }
+      }
+    }
+  }
+
+  &.large {
+    .topic-list {
+      &__link {
+        font-size: 20rem;
+
+        @media (width<= $breakpoint-mob) {
+          font-size: 14rem;
+        }
+      }
+    }
+  }
+
+  &.x-large {
+    .topic-list {
+      &__link {
+        font-size: 24rem;
+
+        @media (width<= $breakpoint-mob) {
+          font-size: 14rem;
+        }
+      }
+    }
+  }
+
+  //colors
+  &.green {
+    .topic-list {
+      &__link {
+        background-color: var(--dark-green);
+      }
+    }
+  }
+
+  &.grey {
+    .topic-list {
+      &__link {
+        background-color: var(--grey-dark);
+      }
+    }
+  }
+
+  &.transparent{
+    .topic-list {
+      &__link {
+        background: rgb(49 49 49 / 70%);
+      }
+    }
+  }
+
   &__link {
     padding: 4rem 16rem;
     color: var(--primary-color);
     font-size: 24rem;
     line-height: 150%;
-    background-color: var(--dark-green);
     border-radius: 34rem;
 
     @media (width<= $breakpoint-mob) {

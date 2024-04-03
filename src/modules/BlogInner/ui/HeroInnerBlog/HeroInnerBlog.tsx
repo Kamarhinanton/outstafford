@@ -25,7 +25,13 @@ const HeroInnerBlog: FC<HeroInnerType> = ({ frontMatter }) => {
           className={styles['hero-inner__back']}
         />
         <div className={styles['hero-inner__content']}>
-          {frontMatter.topics && <TopicList list={frontMatter.topics} />}
+          {frontMatter.topics && (
+            <TopicList
+              list={frontMatter.topics}
+              variants={'x-large'}
+              color={'grey'}
+            />
+          )}
           <h1 className={classNames('h1', styles['title'])}>
             {frontMatter.title}
           </h1>

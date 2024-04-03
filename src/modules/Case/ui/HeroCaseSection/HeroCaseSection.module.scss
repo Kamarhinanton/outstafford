@@ -2,17 +2,18 @@
 
 .hero {
   margin: 0 0 164rem;
-  padding: 57rem 0 0;
+  padding: 39rem 0 0;
 
   @media (width<= $breakpoint-mob) {
     margin: 0 0 64rem;
+    padding: 84rem 0 0;
   }
 
   &__back {
-    margin: 0 0 112rem;
+    margin: 0 0 95rem;
 
     @media (width<= $breakpoint-mob) {
-      margin: 0 0 64rem;
+      margin: 0 0 24rem;
     }
   }
 

@@ -1,6 +1,12 @@
 @import '@/app/styles/variables/breakpoints';
 
 .blog {
+  margin: 52rem 0 100rem;
+
+  @media (width<=$breakpoint-mob) {
+    margin: 24rem 0 82rem;
+  }
+
   &__content {
     display: flex;
     flex-wrap: wrap;
@@ -97,26 +103,10 @@
           z-index: 3;
 
           .topics {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7rem;
             margin: 0 0 21rem;
 
             @media (width<=$breakpoint-mob) {
               margin: 0 0 16rem;
-            }
-
-            &__topic {
-              padding: 4rem 16rem;
-              color: var(--primary-color);
-              background: rgb(49 49 49 / 70%);
-              border-radius: 34rem;
-
-              @media (width<=$breakpoint-mob) {
-                padding: 4rem 12rem;
-                font-size: 14rem;
-                line-height: 150%;
-              }
             }
           }
         }

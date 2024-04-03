@@ -5,6 +5,7 @@ import classNames from 'classnames'
 import { CareersType } from '../../../../../pages/careers'
 
 import styles from './Positions.module.scss'
+import TopicList from '@/ui/TopicList/TopicList'
 
 const Positions = ({ careers }: CareersType) => {
   return (
@@ -17,14 +18,14 @@ const Positions = ({ careers }: CareersType) => {
                 <h2 className={classNames('h2', styles['title'])}>
                   {frontMatter.title}
                 </h2>
-                <ul className={styles['topics']}>
-                  {frontMatter.topics &&
-                    frontMatter.topics.map((topic) => (
-                      <li className={styles['topics__topic']} key={topic}>
-                        {topic}
-                      </li>
-                    ))}
-                </ul>
+                {frontMatter.topics && (
+                  <TopicList
+                    list={frontMatter.topics}
+                    color={'grey'}
+                    variants={'x-large'}
+                    className={styles['topics']}
+                  />
+                )}
               </div>
               <ButtonPrimary
                 href={`/careers/${slug}`}

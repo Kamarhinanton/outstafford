@@ -5,12 +5,12 @@ import localFont from 'next/font/local'
 import { Provider } from 'react-redux'
 import store from '@/store/store'
 import { MainPreloader } from '@/components/MainPreloader'
-
-import '@/app/styles/index.scss'
 import { useRouter } from 'next/router'
 import { AnimatePresence } from 'framer-motion'
 import React, { useEffect } from 'react'
 import { useNextCssRemovalPrevention } from '@madeinhaus/nextjs-page-transition'
+
+import '@/app/styles/index.scss'
 
 const grtskTera = localFont({
   src: [

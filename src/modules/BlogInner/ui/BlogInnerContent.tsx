@@ -7,7 +7,7 @@ import BigTitle from '@/modules/BlogInner/ui/BigTitle/BigTitle'
 
 const BlogInnerContent = ({ frontMatter, content }: SingleMarkdownType) => {
   return (
-    <main>
+    <main className={'wrapper-class'}>
       <HeroInnerBlog frontMatter={frontMatter} />
       <BlogEditor content={content} />
       <BigTitle />

@@ -58,7 +58,7 @@ main {
 
 .editor-content {
   h1, h2, h3, h4, h5, h6 {
-    margin: 114rem 0 34rem;
+    margin: 68rem 0 40rem;
 
     @media (width<= $breakpoint-mob) {
       margin: 64rem 0 34rem;
@@ -66,7 +66,7 @@ main {
   }
 
   p {
-    margin: 20rem 0;
+    margin: 15rem 0;
 
     @media (width<= $breakpoint-mob) {
       margin: 10rem 0;
@@ -142,7 +142,7 @@ main {
     height: 100%;
     object-fit: cover;
     border-radius: 24rem;
-    margin: 64rem 0;
+    margin: 54rem 0;
     @media (width<= $breakpoint-mob) {
       margin: 36rem 0;
     }
@@ -161,4 +161,39 @@ main {
       font-size: 14rem;
     }
   }
+}
+
+.wrapper-class {
+  padding: 39rem 0 779rem;
+
+  &.variant {
+    padding: 0 0 779rem;
+    @media (width<= $breakpoint-mob) {
+      padding: 0 0 93rem;
+    }
+  }
+
+  @media (width<= $breakpoint-mob) {
+    padding: 84rem 0 93rem;
+  }
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

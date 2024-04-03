@@ -12,6 +12,7 @@ const BlogNavigation: FC<BlogSectionType> = ({
   categories,
   smallTopic,
   handleScroll,
+  className,
 }) => {
   const allOnClick = () => {
     handleAll && handleAll()
@@ -24,7 +25,10 @@ const BlogNavigation: FC<BlogSectionType> = ({
   }
 
   return (
-    <div id={'topBlog'} className={styles['blog-navigation']}>
+    <div
+      id={'topBlog'}
+      className={classNames(styles['blog-navigation'], className)}
+    >
       <ul
         className={classNames(styles['blog-navigation__list'], {
           [styles['small']]: smallTopic,

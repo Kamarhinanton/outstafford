@@ -5,9 +5,9 @@ import { headerSubmenuData } from '@/components/Header/ui/HeaderSubmenu/data'
 import classNames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '@/store/store'
+import { setIsMenuActive } from '@/store/reducers/callMenuSlice'
 
 import styles from './HeaderSubmenu.module.scss'
-import { setIsMenuActive } from '@/store/reducers/callMenuSlice'
 
 const HeaderSubmenu = () => {
   const isMenuActive = useSelector(

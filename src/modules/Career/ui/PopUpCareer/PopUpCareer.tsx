@@ -44,6 +44,7 @@ const PopUpCareer: FC<PopUpCareerType> = ({ frontMatter }) => {
                   <TopicList
                     className={styles['description__list']}
                     list={frontMatter.topics}
+                    variants={'x-large'}
                   />
                 )}
               </div>

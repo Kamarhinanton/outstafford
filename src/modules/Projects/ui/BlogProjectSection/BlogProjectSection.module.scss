@@ -3,11 +3,11 @@
 .blog {
   display: flex;
   max-width: 1920rem;
-  margin: 0 auto 467rem;
+  margin: 16rem auto 467rem;
   padding: 0 206rem 0 36rem;
 
   @media (width <= $breakpoint-mob) {
-    margin: 24rem auto 48rem;
+    margin: 0 auto 48rem;
     padding: 0 16rem;
   }
 
@@ -110,32 +110,6 @@
         flex-wrap: wrap;
         gap: 8rem;
         margin: 24rem 0 8rem;
-
-        .topic{
-          position: relative;
-          padding: 4rem 16rem 4rem 32rem;
-          color: var(--primary-color);
-          font: var(--font-s);
-          background-color: var(--grey-bg);
-          border-radius: 34rem;
-
-          @media (width <= $breakpoint-mob) {
-            font-size: 14rem;
-          }
-
-          &::before{
-            position: absolute;
-            top: 50%;
-            left: 16rem;
-            width: 6rem;
-            height: 6rem;
-            background-color: var(--primary-color);
-            border-radius: 50%;
-            transform: translateY(-50%);
-            content: '';
-          }
-        }
-
       }
 
       .title{

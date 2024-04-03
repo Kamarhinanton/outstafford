@@ -57,39 +57,10 @@
           margin: 24rem 0 0;
 
           .topics {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8rem;
             margin: 0 0 21rem;
 
             @media (width<=$breakpoint-mob) {
               margin: 0 0 7rem;
-            }
-
-            &__topic {
-              position: relative;
-              padding: 4rem 16rem 4rem 32rem;
-              color: var(--primary-color);
-              font-size: 16rem;
-              line-height: normal;
-              background: rgb(49 49 49 / 70%);
-              border-radius: 34rem;
-
-              &::before{
-                position: absolute;
-                top: 50%;
-                left: 16rem;
-                width: 6rem;
-                height: 6rem;
-                background-color: var(--primary-color);
-                border-radius: 50%;
-                transform: translateY(-50%);
-                content: '';
-              }
-
-              @media (width<=$breakpoint-mob) {
-                font-size: 14rem;
-              }
             }
           }
 

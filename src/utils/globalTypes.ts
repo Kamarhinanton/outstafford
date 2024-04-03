@@ -15,6 +15,7 @@ export type BlogSectionType = {
   handleAll?: () => void
   categories?: string[]
   smallTopic?: boolean
+  className?: string
 }
 
 export type FormData = {

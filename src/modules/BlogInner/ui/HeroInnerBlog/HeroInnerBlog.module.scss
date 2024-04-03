@@ -1,10 +1,10 @@
 @import '@/app/styles/variables/breakpoints';
 
 .hero-inner{
-  padding: 39rem 0 114rem;
+  margin: 0 0 67rem;
 
   @media (width<= $breakpoint-mob) {
-    padding: 84rem 0 0;
+    margin: 0;
   }
 
   &__back{
@@ -17,7 +17,7 @@
 
   &__content{
     .title{
-      margin: 0 0 36rem;
+      margin: 15rem 0 36rem;
 
       @media (width<=$breakpoint-mob) {
         margin: 8rem 0 24rem;
@@ -34,7 +34,7 @@
 
     &_img{
       height: 807rem;
-      margin: 36rem 0 64rem;
+      margin: 76rem 0 64rem;
       overflow: hidden;
       border-radius: 24rem;
 

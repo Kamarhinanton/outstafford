@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide, SwiperProps } from 'swiper/react'
 
 import styles from './ExploreMoreProjects.module.scss'
 import 'swiper/css'
+import TopicList from '@/ui/TopicList/TopicList'
 
 const swiperProps: SwiperProps = {
   slidesPerView: 'auto',
@@ -33,13 +34,13 @@ const ExploreMoreProjects: FC = () => {
                   className={styles['card__content_img']}
                 />
                 <div className={styles['card__content_text']}>
-                  <ul className={styles['topics']}>
-                    {item.topics.map((topic) => (
-                      <li className={styles['topics__topic']} key={topic}>
-                        {topic}
-                      </li>
-                    ))}
-                  </ul>
+                  <TopicList
+                    list={item.topics}
+                    dots={true}
+                    color={'grey'}
+                    variants={'small'}
+                    className={styles['topics']}
+                  />
                   <h3 className={classNames(styles['title'], 'h3')}>
                     {item.title}
                   </h3>

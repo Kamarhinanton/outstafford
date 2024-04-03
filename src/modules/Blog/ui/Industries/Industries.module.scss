@@ -2,8 +2,13 @@
 
 .industries {
   max-width: 1920rem;
-  margin: 0 auto;
-  padding: 36rem 0 779rem 90rem;
+  margin: 53rem auto 0;
+  padding: 0 0 0 90rem;
+
+  @media (width<=$breakpoint-mob) {
+    margin: 24rem auto 0;
+    padding: 0 0 0 16rem;
+  }
 
   &.inner {
     .industries {
@@ -21,9 +26,7 @@
     }
   }
 
-  @media (width<=$breakpoint-mob) {
-    padding: 24rem 0 93rem 16rem;
-  }
+
 
   &__title {
     margin: 74rem 0 34rem;
@@ -80,7 +83,7 @@
         }
 
         @media (width<=$breakpoint-mob) {
-          padding: 16rem;
+          padding: 16rem 10rem;
         }
 
         &_img {
@@ -100,26 +103,10 @@
           z-index: 3;
 
           .topics {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7rem;
             margin: 0 0 21rem;
 
             @media (width<=$breakpoint-mob) {
               margin: 0 0 16rem;
-            }
-
-            &__topic {
-              padding: 4rem 16rem;
-              color: var(--primary-color);
-              background: rgb(49 49 49 / 70%);
-              border-radius: 34rem;
-
-              @media (width<=$breakpoint-mob) {
-                padding: 4rem 10rem;
-                font-size: 14rem;
-                line-height: 150%;
-              }
             }
           }
 

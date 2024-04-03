@@ -5,6 +5,7 @@ import Link from 'next/link'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 import { AnimatePresence } from 'framer-motion'
 import { BlogSectionType } from '@/utils/globalTypes'
+import TopicList from '@/ui/TopicList/TopicList'
 
 import styles from './BlogProjectSection.module.scss'
 
@@ -69,11 +70,12 @@ const BlogProjectSection: FC<BlogSectionType> = ({
                   />
                 </Link>
                 <div className={styles['card__bottom']}>
-                  {card.topics.map((topic) => (
-                    <span key={topic} className={styles['topic']}>
-                      {topic}
-                    </span>
-                  ))}
+                  <TopicList
+                    list={card.topics}
+                    dots={true}
+                    variants={'small'}
+                    color={'grey'}
+                  />
                 </div>
                 <h3 className={classNames(styles['title'], 'h3')}>
                   {card.title}
