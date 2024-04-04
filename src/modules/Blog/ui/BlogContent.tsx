@@ -3,7 +3,7 @@ import HeroBlog from '@/modules/Blog/ui/HeroBlog/HeroBlog'
 import BlogNavigation from '@/components/BlogNavigation/BlogNavigation'
 import BlogSection from '@/modules/Blog/ui/BlogSection/BlogSection'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
-import Industries from '@/modules/Blog/ui/Industries/Industries'
+import Industries from '@/components/Industries/Industries'
 import { BlogType } from '../../../../pages/blog'
 
 const categories = [

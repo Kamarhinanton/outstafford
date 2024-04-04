@@ -1,5 +1,5 @@
 import React from 'react'
-import Industries from '@/modules/Blog/ui/Industries/Industries'
+import Industries from '@/components/Industries/Industries'
 import HeroInnerBlog from '@/modules/BlogInner/ui/HeroInnerBlog/HeroInnerBlog'
 import { SingleMarkdownType } from '@/utils/globalTypes'
 import BlogEditor from '@/modules/BlogInner/ui/BlogEditor/BlogEditor'
