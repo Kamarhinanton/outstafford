@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '@/store/store'
 import { setIsFirstLoading } from '@/store/reducers/isFirstLoadingSlice'
-import { useLenis } from '@studio-freight/react-lenis'
 
 import styles from './PagePreview.module.scss'
 
@@ -54,16 +53,11 @@ const PagePreview: FC<PagePreviewType> = ({ title, description }) => {
 
     return () => clearTimeout(timeoutId)
   }, [])
-  const lenis = useLenis()
 
   return (
     <AnimatePresence>
       {!isFirstLoading && isAnimate && (
-        <motion.div
-          onAnimationComplete={() => lenis?.resize()}
-          {...variants}
-          className={styles['page-preview']}
-        >
+        <motion.div {...variants} className={styles['page-preview']}>
           <div className={styles['page-preview__inner']}>
             <h1>{title}</h1>
             <p

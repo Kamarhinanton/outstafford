@@ -47,7 +47,6 @@ const useCategoryFilter = (data: CardBlogType[]) => {
         offset: isMobile,
         lock: true,
       })
-      setTimeout(() => lenis?.resize(), 1200)
     }
   }
   return {

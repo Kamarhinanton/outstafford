@@ -40,7 +40,6 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
     duration: 1.5,
     smoothWheel: true,
     smoothTouch: true,
-    autoResize: false,
   }
 
   const dynamicPath = useMemo(() => {

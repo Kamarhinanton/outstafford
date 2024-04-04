@@ -6,7 +6,6 @@ import { motion } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '@/store/store'
 import { setIsPreloaderActive } from '@/store/reducers/preloaderStateSlice'
-import { useLenis } from '@studio-freight/react-lenis'
 
 import styles from './MainPreloader.module.scss'
 
@@ -24,16 +23,11 @@ const MainPreloader: FC = () => {
     (state: RootState) => state.preloaderState.isPreloaderActive,
   )
   const dispatch: AppDispatch = useDispatch()
-  const lenis = useLenis()
 
   return (
     <AnimatePresence>
       {isPreloaderActive && (
-        <motion.div
-          onAnimationComplete={() => lenis?.resize()}
-          {...preloaderVariant}
-          className={styles['main-preloader']}
-        >
+        <motion.div {...preloaderVariant} className={styles['main-preloader']}>
           <Lottie
             className={styles['main-preloader__lottie']}
             animationData={loaderJson}
