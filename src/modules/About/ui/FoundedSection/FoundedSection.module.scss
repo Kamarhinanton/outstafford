@@ -1,0 +1,36 @@
+@import '@/app/styles/variables/breakpoints';
+
+.founded {
+  margin: 150rem 0;
+
+  @media (width<=$breakpoint-mob) {
+    margin: 25rem 0;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1168rem;
+    margin: 0 auto;
+
+    @media (width<=$breakpoint-mob) {
+      flex-direction: column;
+      gap: 36rem;
+      justify-content: initial;
+    }
+
+    &_item {
+      text-align: center;
+
+      p {
+        margin: 10rem 0 0;
+        font-size: 26rem;
+
+        @media (width<=$breakpoint-mob) {
+          margin: 6rem 0 0;
+          font-size: 18rem;
+        }
+      }
+    }
+  }
+}
