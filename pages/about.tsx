@@ -1,16 +1,20 @@
 import React from 'react'
-import Container from '@/app/layouts/Container'
 import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
+import { AboutContent } from '@/modules/About'
+import Head from 'next/head'
 
 export default function About() {
   return (
-    <Container>
+    <>
+      <Head>
+        <title>About page</title>
+      </Head>
       <PageTransitionLayout
         title={'About text'}
         description={'about description'}
       >
-        <h1>About page</h1>
+        <AboutContent />
       </PageTransitionLayout>
-    </Container>
+    </>
   )
 }
