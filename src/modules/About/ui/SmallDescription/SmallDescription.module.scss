@@ -1,0 +1,19 @@
+@import '@/app/styles/variables/breakpoints';
+
+.description {
+  margin: 150rem 0;
+
+  @media (width<=$breakpoint-mob) {
+    margin: 38rem 0;
+  }
+
+  h2 {
+    max-width: 1260rem;
+    margin: 0 auto;
+    text-align: center;
+
+    span {
+      color: var(--primary-color);
+    }
+  }
+}
