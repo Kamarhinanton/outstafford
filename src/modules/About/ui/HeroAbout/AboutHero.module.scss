@@ -1,0 +1,68 @@
+@import '@/app/styles/variables/breakpoints';
+
+.about {
+  padding: 220rem 0;
+
+  @media (width<=$breakpoint-mob) {
+    padding: 70rem 0;
+  }
+
+  &__content {
+    position: relative;
+    padding: 260rem 0 0;
+    text-align: center;
+
+    @media (width<=$breakpoint-mob) {
+      padding: 125rem 0 0;
+    }
+
+    &_logo {
+      position: absolute;
+      top: 0;
+      left: calc(50% - 30rem);
+      width: 450rem;
+      height: 360rem;
+      transform: translateX(-50%);
+
+      @media (width<=$breakpoint-mob) {
+        left: 50%;
+        width: 190rem;
+        height: 140rem;
+      }
+    }
+
+    span {
+      color: var(--primary-color);
+    }
+
+    h1 {
+      font-size: 190rem;
+      line-height: 113%;
+
+      @media (width<=$breakpoint-mob) {
+        font-size: 36rem;
+      }
+    }
+
+    h2 {
+      line-height: 120%;
+
+      span {
+        margin: 0 18rem;
+      }
+
+      @media (width<=$breakpoint-mob) {
+        margin: 11rem 0 0;
+        font-size: 16rem;
+
+        br {
+          display: none;
+        }
+
+        span {
+          margin: 0 5rem;
+        }
+      }
+    }
+  }
+}
