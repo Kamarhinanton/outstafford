@@ -14,18 +14,20 @@ const AboutHero = () => {
             src={'/images/logo.png'}
             alt={'logo'}
           />
-          <h1>
-            <span>Outstafford</span>
-          </h1>
-          <h2>
-            Full-stack design and development
-            <br /> team. We build complex
-            <span>mobile apps</span>
-            <br />
-            and progressive <span>web apps</span>
-            with
-            <span>AI integrations.</span>
-          </h2>
+          <div className={styles['about__content_text']}>
+            <h1>
+              <span>Outstafford</span>
+            </h1>
+            <h2>
+              Full-stack design and development
+              <br /> team. We build complex
+              <span>mobile apps</span>
+              <br />
+              and progressive <span>web apps</span>
+              with
+              <span>AI integrations.</span>
+            </h2>
+          </div>
         </div>
       </Container>
     </section>
