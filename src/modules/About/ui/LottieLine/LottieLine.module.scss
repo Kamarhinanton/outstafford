@@ -1,0 +1,17 @@
+@import '@/app/styles/variables/breakpoints';
+
+.line {
+  margin: 150rem 0;
+
+  @media(width<=$breakpoint-mob) {
+    margin: 39rem 0;
+  }
+
+  &__lottie {
+    height: 298rem;
+
+    @media(width<=$breakpoint-mob) {
+      height: 109rem;
+    }
+  }
+}
