@@ -6,6 +6,7 @@ import ExploreMoreProjects from '@/modules/Case/ui/ExploreMoreProjects/ExploreMo
 import FoundedSection from '@/modules/About/ui/FoundedSection/FoundedSection'
 import SmallDescription from '@/modules/About/ui/SmallDescription/SmallDescription'
 import OurServices from '@/modules/About/ui/OurServices/OurServices'
+import OurTeam from '@/modules/About/ui/OutTeam/OurTeam'
 
 const AboutContent = () => {
   return (
@@ -14,6 +15,7 @@ const AboutContent = () => {
       <FoundedSection />
       <SmallDescription />
       <OurServices />
+      <OurTeam />
       <ExploreMoreProjects />
       <CTA />
       <Footer />
