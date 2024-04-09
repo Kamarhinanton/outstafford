@@ -10,6 +10,11 @@
       box-sizing: content-box;
       counter-increment: ordered-list-counter;
 
+      &__lottie {
+        position: absolute;
+        margin: 0;
+      }
+
       &::before {
         position: absolute;
         top: 0;
@@ -25,6 +30,14 @@
         max-width: 807rem;
         margin: 50rem 170rem 300rem 0;
         padding: 10rem 0 0 640rem;
+
+        .item {
+          &__lottie {
+            top: 220rem;
+            left: 160rem;
+            height: 1028rem;
+          }
+        }
       }
 
       &:nth-child(2) {
@@ -32,12 +45,28 @@
         max-width: 807rem;
         margin: 50rem 170rem 71rem 0;
         padding: 287rem 0 0;
+
+        .item {
+          &__lottie {
+            top: 100rem;
+            left: -630rem;
+            height: 1367rem;
+          }
+        }
       }
 
       &:nth-child(3) {
         max-width: 1050rem;
         margin: 71rem 0 268rem 120rem;
         padding: 287rem 0 0;
+
+        .item {
+          &__lottie {
+            bottom: -649rem;
+            left: -100rem;
+            height: 549rem;
+          }
+        }
       }
 
       &:nth-child(4) {
@@ -45,6 +74,14 @@
         max-width: 891rem;
         margin: 50rem 0 551rem 71rem;
         padding: 287rem 0 0;
+
+        .item {
+          &__lottie {
+            right: -450rem;
+            bottom: -579rem;
+            height: 849rem;
+          }
+        }
       }
 
       &:nth-child(5) {
@@ -52,6 +89,14 @@
         max-width: 873rem;
         margin: 50rem 170rem 316rem 0;
         padding: 10rem 0 0 440rem;
+
+        .item {
+          &__lottie {
+            top: 130rem;
+            left: -40rem;
+            height: 1449rem;
+          }
+        }
       }
 
       &:nth-child(6) {
