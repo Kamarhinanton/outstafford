@@ -1,7 +1,11 @@
 @import '@/app/styles/variables/breakpoints';
 
 .about-title {
-  margin: 150rem 0 48rem;
+  margin: 150rem 0 100rem;
+
+  @media (width<=$breakpoint-mob) {
+    margin: 48rem 0;
+  }
 
   .title {
     max-width: 1400rem;

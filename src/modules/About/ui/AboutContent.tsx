@@ -10,6 +10,7 @@ import OurTeam from '@/modules/About/ui/OutTeam/OurTeam'
 import LottieLine from '@/modules/About/ui/LottieLine/LottieLine'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 import AboutBigTitle from '@/modules/About/ui/AboutBigTitle/AboutBigTitle'
+import WeCreate from '@/modules/About/ui/WeCreate/WeCreate'
 
 const AboutContent = () => {
   return (
@@ -31,6 +32,7 @@ const AboutContent = () => {
       <ExploreMoreProjects />
       <LottieLine />
       <AboutBigTitle />
+      <WeCreate />
       <CTA />
       <Footer />
     </main>
