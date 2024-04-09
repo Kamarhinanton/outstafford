@@ -8,15 +8,21 @@ import SmallDescription from '@/modules/About/ui/SmallDescription/SmallDescripti
 import OurServices from '@/modules/About/ui/OurServices/OurServices'
 import OurTeam from '@/modules/About/ui/OutTeam/OurTeam'
 import LottieLine from '@/modules/About/ui/LottieLine/LottieLine'
+import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
+import AboutBigTitle from '@/modules/About/ui/AboutBigTitle/AboutBigTitle'
 
 const AboutContent = () => {
   return (
     <main>
       <AboutHero />
       <LottieLine />
-      <FoundedSection />
+      <AnimatedElement>
+        <FoundedSection />
+      </AnimatedElement>
       <LottieLine />
-      <SmallDescription />
+      <AnimatedElement>
+        <SmallDescription />
+      </AnimatedElement>
       <LottieLine />
       <OurServices />
       <LottieLine />
@@ -24,6 +30,7 @@ const AboutContent = () => {
       <LottieLine />
       <ExploreMoreProjects />
       <LottieLine />
+      <AboutBigTitle />
       <CTA />
       <Footer />
     </main>

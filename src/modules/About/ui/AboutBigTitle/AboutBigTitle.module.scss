@@ -1,0 +1,38 @@
+@import '@/app/styles/variables/breakpoints';
+
+.about-title {
+  margin: 150rem 0 48rem;
+
+  .title {
+    max-width: 1400rem;
+    margin: 0 80rem 0 auto;
+
+    @media (width<=$breakpoint-mob) {
+      margin: 0 14rem;
+    }
+
+    span {
+      color: var(--primary-color);
+    }
+
+    strong {
+      display: block;
+
+      &:nth-child(1) {
+        text-indent: 200rem;
+
+        @media (width<=$breakpoint-mob) {
+          text-indent: initial;
+        }
+      }
+
+      &:nth-child(2) {
+        text-align: right;
+
+        @media (width<=$breakpoint-mob) {
+          margin: 0 12rem 0 0;
+        }
+      }
+    }
+  }
+}
