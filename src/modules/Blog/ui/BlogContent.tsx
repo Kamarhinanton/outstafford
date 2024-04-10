@@ -5,6 +5,7 @@ import BlogSection from '@/modules/Blog/ui/BlogSection/BlogSection'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
 import Industries from '@/components/Industries/Industries'
 import { BlogType } from '../../../../pages/blog'
+import SectionFullPage from '@/app/layouts/SectionFullPage'
 
 const categories = [
   'AI',
@@ -29,7 +30,9 @@ const BlogContent = ({ blog }: BlogType) => {
 
   return (
     <main className={'wrapper-class variant'}>
-      <HeroBlog />
+      <SectionFullPage>
+        <HeroBlog />
+      </SectionFullPage>
       <BlogNavigation
         activeCategory={activeCategories}
         handleClick={handleClick}

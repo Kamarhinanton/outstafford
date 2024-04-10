@@ -6,6 +6,7 @@ import BlogNavigation from '@/components/BlogNavigation/BlogNavigation'
 import HeroProjects from '@/modules/Projects/ui/HeroSection/HeroProjects'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
 import { ProjectPageType } from '../../../../pages/projects'
+import SectionFullPage from '@/app/layouts/SectionFullPage'
 
 const categories = ['Mobile', 'Web', 'AI']
 
@@ -21,7 +22,9 @@ const ProjectsContent = ({ projects }: ProjectPageType) => {
 
   return (
     <main>
-      <HeroProjects />
+      <SectionFullPage>
+        <HeroProjects />
+      </SectionFullPage>
       <BlogNavigation
         activeCategory={activeCategories}
         handleClick={handleClick}
