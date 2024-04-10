@@ -1,14 +1,9 @@
 @import '@/app/styles/variables/breakpoints';
 
 .about {
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
-  padding: 30rem 0;
-
   @media (width<=$breakpoint-mob) {
     min-height: initial;
-    padding: 70rem 0;
+    padding: 70rem 0 0;
   }
 
   &__content {

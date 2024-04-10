@@ -11,11 +11,15 @@ import LottieLine from '@/modules/About/ui/LottieLine/LottieLine'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 import AboutBigTitle from '@/modules/About/ui/AboutBigTitle/AboutBigTitle'
 import WeCreate from '@/modules/About/ui/WeCreate/WeCreate'
+import SectionFullPage from '@/app/layouts/SectionFullPage'
+import ExploreTitle from '@/modules/About/ui/ExploreTitle/ExploreTitle'
 
 const AboutContent = () => {
   return (
     <main>
-      <AboutHero />
+      <SectionFullPage>
+        <AboutHero />
+      </SectionFullPage>
       <LottieLine />
       <AnimatedElement>
         <FoundedSection />
@@ -29,6 +33,7 @@ const AboutContent = () => {
       <LottieLine />
       <OurTeam />
       <LottieLine />
+      <ExploreTitle />
       <ExploreMoreProjects />
       <LottieLine />
       <AboutBigTitle />

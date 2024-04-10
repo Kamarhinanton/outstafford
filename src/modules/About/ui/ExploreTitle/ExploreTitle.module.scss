@@ -1,0 +1,26 @@
+@import '@/app/styles/variables/breakpoints';
+
+.title {
+  display: flex;
+  flex-direction: column;
+  max-width: 1175rem;
+  margin: 0 auto;
+  text-indent: 70rem;
+
+  @media (width<= $breakpoint-mob) {
+    text-align: center;
+    text-indent: initial;
+  }
+
+  span {
+    align-self: flex-end;
+
+    span {
+      color: var(--primary-color);
+    }
+
+    @media (width<= $breakpoint-mob) {
+      align-self: initial;
+    }
+  }
+}
