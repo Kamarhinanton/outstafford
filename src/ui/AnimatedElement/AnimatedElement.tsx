@@ -8,15 +8,17 @@ type AnimatedElementProps = {
   children: ReactNode
   className?: string
   delay?: number
+  amount?: 'all' | 'some' | number
 }
 
 const AnimatedElement: FC<AnimatedElementProps> = ({
   children,
   className,
   delay = 0,
+  amount = 'all',
 }) => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const isInView = useInView(ref, { once: true, amount: amount })
 
   const elementFrame = {
     visible: {

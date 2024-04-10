@@ -7,19 +7,25 @@ import { breakpointMob } from '@/utils/variables'
 
 type CardTransformPerspectiveType = {
   children: ReactNode
-  className: string
+  className?: string
+  cursor?: boolean
+  rotateRangeX?: number[]
+  rotateRangeY?: number[]
 }
 
 const CardTransformPerspective: FC<CardTransformPerspectiveType> = ({
   children,
   className,
+  cursor = true,
+  rotateRangeX = [800, -800],
+  rotateRangeY = [800, -800],
 }) => {
   const [cardX, cardXSpring] = useFramerSpringValue(0)
   const [cardY, cardYSpring] = useFramerSpringValue(0)
   const [cardMouseX, cardMouseSpringX] = useFramerSpringValue(-500)
   const [cardMouseY, cardMouseSpringY] = useFramerSpringValue(-500)
-  const rotateX = useTransform(cardYSpring, [800, -800], ['7.5deg', '-7.5deg'])
-  const rotateY = useTransform(cardXSpring, [800, -800], ['-7.5deg', '7.5deg'])
+  const rotateX = useTransform(cardYSpring, rotateRangeX, ['7.5deg', '-7.5deg'])
+  const rotateY = useTransform(cardXSpring, rotateRangeY, ['-7.5deg', '7.5deg'])
   const { width } = useWindowDimensions()
   const ref = useRef<HTMLDivElement>(null)
 
@@ -57,10 +63,12 @@ const CardTransformPerspective: FC<CardTransformPerspectiveType> = ({
         rotateY,
       }}
     >
-      <SectionCursor
-        xPosition={cardMouseSpringX}
-        yPosition={cardMouseSpringY}
-      />
+      {cursor && (
+        <SectionCursor
+          xPosition={cardMouseSpringX}
+          yPosition={cardMouseSpringY}
+        />
+      )}
       {children}
     </motion.div>
   )

@@ -29,14 +29,24 @@ const AboutContent = () => {
         <SmallDescription />
       </AnimatedElement>
       <LottieLine />
-      <OurServices />
+      <AnimatedElement amount={'some'}>
+        <OurServices />
+      </AnimatedElement>
       <LottieLine />
-      <OurTeam />
+      <AnimatedElement amount={'some'}>
+        <OurTeam />
+      </AnimatedElement>
       <LottieLine />
-      <ExploreTitle />
-      <ExploreMoreProjects />
+      <AnimatedElement>
+        <ExploreTitle />
+      </AnimatedElement>
+      <AnimatedElement amount={'some'}>
+        <ExploreMoreProjects />
+      </AnimatedElement>
       <LottieLine />
-      <AboutBigTitle />
+      <AnimatedElement amount={'some'}>
+        <AboutBigTitle />
+      </AnimatedElement>
       <WeCreate />
       <CTA />
       <Footer />

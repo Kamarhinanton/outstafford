@@ -92,7 +92,7 @@ const WeCreate = () => {
                     fps={item.lottieFps}
                   />
                 )}
-                <AnimatedElement>
+                <AnimatedElement amount={'some'}>
                   <BackgroundImage
                     className={styles['item__img']}
                     src={item.src}

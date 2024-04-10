@@ -56,6 +56,7 @@ const BlogProjectSection: FC<BlogSectionType> = ({
                 delay={index % 3 === 1 ? 0.3 : 0}
                 key={card.title}
                 className={styles['card']}
+                amount={'some'}
               >
                 <Link
                   scroll={false}

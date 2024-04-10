@@ -4,10 +4,10 @@ import Link from 'next/link'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import classNames from 'classnames'
 import { Swiper, SwiperSlide, SwiperProps } from 'swiper/react'
+import TopicList from '@/ui/TopicList/TopicList'
 
 import styles from './ExploreMoreProjects.module.scss'
 import 'swiper/css'
-import TopicList from '@/ui/TopicList/TopicList'
 
 const swiperProps: SwiperProps = {
   slidesPerView: 'auto',
