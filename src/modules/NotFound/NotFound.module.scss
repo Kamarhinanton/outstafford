@@ -1,0 +1,33 @@
+@import '@/app/styles/variables/breakpoints';
+
+.not-found{
+  &__content{
+    text-align: center;
+
+    @media (width<=$breakpoint-mob) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .title{
+      margin: 0 0 38rem;
+      color: var(--primary-color);
+      font-size: 200rem;
+
+      @media (width<=$breakpoint-mob) {
+        margin: 0;
+        font-size: 80rem;
+      }
+    }
+
+    .description{
+      margin: 0 0 70rem;
+
+      @media (width<=$breakpoint-mob) {
+        margin: 0 0 20rem;
+      }
+    }
+  }
+}

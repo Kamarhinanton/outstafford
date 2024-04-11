@@ -34,6 +34,7 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   const [isVisible, setIsVisible] = useState({
     contact: false,
     career: false,
+    notFound: false,
   })
 
   const options = {
@@ -52,7 +53,16 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
         setIsVisible((prevState) => ({
           ...prevState,
           contact: true,
+          notFound: false,
           career: false,
+        }))
+        break
+      case routes.public.notFound:
+        setIsVisible((prevState) => ({
+          ...prevState,
+          contact: false,
+          career: false,
+          notFound: true,
         }))
         break
       case routes.public.career(dynamicPath):
@@ -60,6 +70,7 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
           ...prevState,
           career: true,
           contact: false,
+          notFound: false,
         }))
         break
       default:
@@ -67,6 +78,7 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
           ...prevState,
           contact: false,
           career: false,
+          notFound: false,
         }))
     }
   }, [pathname])
@@ -74,9 +86,11 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   return (
     <>
       <ReactLenis root options={{ ...options }}>
-        {!isVisible.contact && <Header />}
-        {width <= breakpointMob && <MobileCTA />}
-        {!isVisible.career && width <= breakpointMob && <MobileHeader />}
+        {!isVisible.contact && !isVisible.notFound && <Header />}
+        {!isVisible.notFound && width <= breakpointMob && <MobileCTA />}
+        {!isVisible.career && !isVisible.notFound && width <= breakpointMob && (
+          <MobileHeader />
+        )}
         {children}
       </ReactLenis>
     </>

@@ -8,5 +8,6 @@ export default {
     contact: '/contact',
     careers: '/careers',
     career: (slug: string) => `/careers/${slug}`,
+    notFound: '/404',
   },
 }
