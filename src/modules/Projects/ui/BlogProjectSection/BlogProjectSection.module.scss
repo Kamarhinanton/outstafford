@@ -60,7 +60,7 @@
     min-height: calc(100vh - 623rem);
 
     @media (width <= $breakpoint-mob) {
-      min-height: calc(100vh - 248rem);
+      min-height: calc(100vh - 245rem);
       padding: 0;
       row-gap: 36rem;
     }
