@@ -1,14 +1,12 @@
 import React from 'react'
 import Container from '@/app/layouts/Container'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
+import routes from '@/utils/routes'
 import classNames from 'classnames'
-import { useRouter } from 'next/router'
 
 import styles from './NotFound.module.scss'
 
 const NotFound = () => {
-  const router = useRouter()
-
   return (
     <section className={styles['not-found']}>
       <Container>
@@ -18,7 +16,7 @@ const NotFound = () => {
             Page not found
           </h2>
           <ButtonPrimary
-            onClick={() => router.back()}
+            href={routes.public.index}
             variant={'green'}
             size={'large'}
           >

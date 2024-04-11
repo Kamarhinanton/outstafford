@@ -77,7 +77,7 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
     <>
       <ReactLenis root options={{ ...options }}>
         {!isVisible.contact && !is404 && <Header />}
-        {!is404 && width <= breakpointMob && <MobileCTA />}
+        {width <= breakpointMob && <MobileCTA />}
         {!isVisible.career && !is404 && width <= breakpointMob && (
           <MobileHeader />
         )}
