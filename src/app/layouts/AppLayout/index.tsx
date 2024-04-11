@@ -34,7 +34,6 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   const [isVisible, setIsVisible] = useState({
     contact: false,
     career: false,
-    notFound: false,
   })
 
   const options = {
@@ -53,16 +52,7 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
         setIsVisible((prevState) => ({
           ...prevState,
           contact: true,
-          notFound: false,
           career: false,
-        }))
-        break
-      case routes.public.notFound:
-        setIsVisible((prevState) => ({
-          ...prevState,
-          contact: false,
-          career: false,
-          notFound: true,
         }))
         break
       case routes.public.career(dynamicPath):
@@ -70,7 +60,6 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
           ...prevState,
           career: true,
           contact: false,
-          notFound: false,
         }))
         break
       default:
@@ -78,17 +67,18 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
           ...prevState,
           contact: false,
           career: false,
-          notFound: false,
         }))
     }
   }, [pathname])
 
+  const is404 = useMemo(() => router.route === '/404', [router.route])
+
   return (
     <>
       <ReactLenis root options={{ ...options }}>
-        {!isVisible.contact && !isVisible.notFound && <Header />}
-        {!isVisible.notFound && width <= breakpointMob && <MobileCTA />}
-        {!isVisible.career && !isVisible.notFound && width <= breakpointMob && (
+        {!isVisible.contact && !is404 && <Header />}
+        {!is404 && width <= breakpointMob && <MobileCTA />}
+        {!isVisible.career && !is404 && width <= breakpointMob && (
           <MobileHeader />
         )}
         {children}
