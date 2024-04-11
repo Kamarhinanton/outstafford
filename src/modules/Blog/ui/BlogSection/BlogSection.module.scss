@@ -11,9 +11,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: 24rem;
+    min-height: calc(100vh - 240rem);
 
     @media (width<=$breakpoint-mob) {
       gap: 16rem;
+      min-height: calc(100vh - 269rem);
     }
 
     .card {

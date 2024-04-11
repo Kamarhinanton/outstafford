@@ -57,8 +57,10 @@
     flex-wrap: wrap;
     gap: 72rem 24rem;
     width: 100%;
+    min-height: calc(100vh - 623rem);
 
     @media (width <= $breakpoint-mob) {
+      min-height: calc(100vh - 248rem);
       padding: 0;
       row-gap: 36rem;
     }
