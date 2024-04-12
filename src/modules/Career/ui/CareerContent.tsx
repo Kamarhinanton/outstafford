@@ -1,13 +1,17 @@
 import React from 'react'
 import Footer from '@/components/Footer/Footer'
 import Editor from '@/modules/Career/ui/Editor/Editor'
-import PopUpCareer from '@/modules/Career/ui/PopUpCareer/PopUpCareer'
 import { SingleMarkdownType } from '@/utils/globalTypes'
+import dynamic from 'next/dynamic'
+
+const PopUp = dynamic(
+  () => import('@/modules/Career/ui/PopUpCareer/PopUpCareer'),
+)
 
 const CareerContent = ({ frontMatter, content }: SingleMarkdownType) => {
   return (
     <main>
-      <PopUpCareer frontMatter={frontMatter} />
+      <PopUp frontMatter={frontMatter} />
       <Editor frontMatter={frontMatter} content={content} />
       <Footer />
     </main>

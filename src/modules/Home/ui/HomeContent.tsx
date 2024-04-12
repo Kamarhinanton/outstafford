@@ -4,7 +4,6 @@ import OurPortfolio from '@/modules/Home/ui/OurPortfolio/OurPortfolio'
 import dynamic from 'next/dynamic'
 import { breakpointMob } from '@/utils/variables'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
-import PartnerReviews from '@/modules/Home/ui/PartnerReviews/PartnerReviews'
 import Container from '@/app/layouts/Container'
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react'
 import { EffectCreative, Mousewheel, Pagination } from 'swiper/modules'
@@ -16,7 +15,6 @@ import { useDispatch } from 'react-redux'
 import { setIsBottom } from '@/store/reducers/detectSliderPosition'
 import { setIsTop } from '@/store/reducers/detectSliderPosition'
 import classNames from 'classnames'
-import CTA from '@/components/CTA/CTA'
 import SectionFullPage from '@/app/layouts/SectionFullPage'
 
 import styles from './HomeContent.module.scss'
@@ -33,12 +31,18 @@ const Blog = dynamic(() => import('@/modules/Home/ui/OurBlog/OurBlog'), {
   ssr: false,
 })
 
+const Reviews = dynamic(
+  () => import('@/modules/Home/ui/PartnerReviews/PartnerReviews'),
+)
+
+const CTADynamic = dynamic(() => import('@/components/CTA/CTA'))
+
 const BottomSection = () => {
   return (
     <div className={styles['bottom-section']}>
       <Container size={'small'}>
         <div className={styles['bottom-section__content']}>
-          <PartnerReviews />
+          <Reviews />
           <Blog />
         </div>
       </Container>
@@ -121,7 +125,7 @@ const sectionsArray = [
   <HeroSection key="hero" />,
   <OurPortfolio key="portfolio" />,
   <BottomSection key="bottom" />,
-  <CTA key="cta" />,
+  <CTADynamic key="cta" />,
   <Footer className={styles['footer-no-padding']} key="footer" />,
 ]
 

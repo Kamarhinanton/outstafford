@@ -3,9 +3,13 @@ import HeroBlog from '@/modules/Blog/ui/HeroBlog/HeroBlog'
 import BlogNavigation from '@/components/BlogNavigation/BlogNavigation'
 import BlogSection from '@/modules/Blog/ui/BlogSection/BlogSection'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
-import Industries from '@/components/Industries/Industries'
 import { BlogType } from '../../../../pages/blog'
 import SectionFullPage from '@/app/layouts/SectionFullPage'
+import dynamic from 'next/dynamic'
+
+const IndustriesDynamic = dynamic(
+  () => import('@/components/Industries/Industries'),
+)
 
 const categories = [
   'AI',
@@ -43,7 +47,7 @@ const BlogContent = ({ blog }: BlogType) => {
         handleScroll={handleScroll}
       />
       <BlogSection filteredBlogData={filteredBlogData} />
-      <Industries title={'Industries'} />
+      <IndustriesDynamic title={'Industries'} />
     </main>
   )
 }

@@ -1,12 +1,14 @@
 import React from 'react'
 import Footer from '@/components/Footer/Footer'
-import CTA from '@/components/CTA/CTA'
 import BlogProjectSection from '@/modules/Projects/ui/BlogProjectSection/BlogProjectSection'
 import BlogNavigation from '@/components/BlogNavigation/BlogNavigation'
 import HeroProjects from '@/modules/Projects/ui/HeroSection/HeroProjects'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
 import { ProjectPageType } from '../../../../pages/projects'
 import SectionFullPage from '@/app/layouts/SectionFullPage'
+import dynamic from 'next/dynamic'
+
+const CTADynamic = dynamic(() => import('@/components/CTA/CTA'))
 
 const categories = ['Mobile', 'Web', 'AI']
 
@@ -39,7 +41,7 @@ const ProjectsContent = ({ projects }: ProjectPageType) => {
         filteredBlogData={filteredBlogData}
         handleScroll={handleScroll}
       />
-      <CTA />
+      <CTADynamic />
       <Footer />
     </main>
   )

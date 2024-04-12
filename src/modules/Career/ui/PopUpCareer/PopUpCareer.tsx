@@ -7,7 +7,7 @@ import CloseCross from '@/ui/CloseCross/CloseCross'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '@/store/store'
 import { setIsCareerPopUpActive } from '@/store/reducers/callCareerPopUpSlice'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion'
 import { popUpVariant } from '@/modules/Home/ui/PartnerReviews/VideoPopUp/VideoPopUp'
 import { FrontMatterType } from '@/utils/globalTypes'
 
@@ -30,32 +30,36 @@ const PopUpCareer: FC<PopUpCareerType> = ({ frontMatter }) => {
   return (
     <AnimatePresence>
       {isCareerPopUpActive && (
-        <motion.div {...popUpVariant} className={styles['pop-up-career']}>
-          <Container>
-            <div className={styles['pop-up-career__content']}>
-              <div className={styles['description']}>
-                <h2 className={classNames('h2', styles['description__title'])}>
-                  Apply to {frontMatter.title}
-                </h2>
-                <p className={styles['description__text']}>
-                  {frontMatter.about}
-                </p>
-                {frontMatter.topics && (
-                  <TopicList
-                    className={styles['description__list']}
-                    list={frontMatter.topics}
-                    variants={'x-large'}
-                  />
-                )}
+        <LazyMotion features={domAnimation}>
+          <m.div {...popUpVariant} className={styles['pop-up-career']}>
+            <Container>
+              <div className={styles['pop-up-career__content']}>
+                <div className={styles['description']}>
+                  <h2
+                    className={classNames('h2', styles['description__title'])}
+                  >
+                    Apply to {frontMatter.title}
+                  </h2>
+                  <p className={styles['description__text']}>
+                    {frontMatter.about}
+                  </p>
+                  {frontMatter.topics && (
+                    <TopicList
+                      className={styles['description__list']}
+                      list={frontMatter.topics}
+                      variants={'x-large'}
+                    />
+                  )}
+                </div>
+                <BodyForm />
+                <CloseCross
+                  callBackFunc={handlePopUpCareer}
+                  className={styles['cross']}
+                />
               </div>
-              <BodyForm />
-              <CloseCross
-                callBackFunc={handlePopUpCareer}
-                className={styles['cross']}
-              />
-            </div>
-          </Container>
-        </motion.div>
+            </Container>
+          </m.div>
+        </LazyMotion>
       )}
     </AnimatePresence>
   )

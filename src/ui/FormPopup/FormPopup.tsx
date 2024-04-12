@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion'
 
 import styles from './FormPopup.module.scss'
 
@@ -32,9 +32,11 @@ const FormPopup: FC<FormPopupType> = ({ message, visible }) => {
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.div {...formVariant} className={styles['form-popup']}>
-          <div className={styles['form-popup__inner']}>{message}</div>
-        </motion.div>
+        <LazyMotion features={domAnimation}>
+          <m.div {...formVariant} className={styles['form-popup']}>
+            <div className={styles['form-popup__inner']}>{message}</div>
+          </m.div>
+        </LazyMotion>
       )}
     </AnimatePresence>
   )

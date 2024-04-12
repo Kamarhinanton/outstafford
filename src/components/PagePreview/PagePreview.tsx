@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react'
 import classNames from 'classnames'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '@/store/store'
 import { setIsFirstLoading } from '@/store/reducers/isFirstLoadingSlice'
@@ -57,19 +57,21 @@ const PagePreview: FC<PagePreviewType> = ({ title, description }) => {
   return (
     <AnimatePresence>
       {!isFirstLoading && isAnimate && (
-        <motion.div {...variants} className={styles['page-preview']}>
-          <div className={styles['page-preview__inner']}>
-            <h1>{title}</h1>
-            <p
-              className={classNames(
-                'h3',
-                styles['page-preview__inner_description'],
-              )}
-            >
-              {description}
-            </p>
-          </div>
-        </motion.div>
+        <LazyMotion features={domAnimation}>
+          <m.div {...variants} className={styles['page-preview']}>
+            <div className={styles['page-preview__inner']}>
+              <h1>{title}</h1>
+              <p
+                className={classNames(
+                  'h3',
+                  styles['page-preview__inner_description'],
+                )}
+              >
+                {description}
+              </p>
+            </div>
+          </m.div>
+        </LazyMotion>
       )}
     </AnimatePresence>
   )

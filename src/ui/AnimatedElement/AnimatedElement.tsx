@@ -1,6 +1,6 @@
 import { FC, ReactNode, useRef } from 'react'
 import classNames from 'classnames'
-import { useInView, motion, LazyMotion, domAnimation } from 'framer-motion'
+import { useInView, m, LazyMotion, domAnimation } from 'framer-motion'
 
 import styles from './AnimatedElement.module.scss'
 
@@ -39,7 +39,7 @@ const AnimatedElement: FC<AnimatedElementProps> = ({
 
   return (
     <LazyMotion features={domAnimation}>
-      <motion.div
+      <m.div
         className={classNames(styles['element'], className)}
         variants={elementFrame}
         initial="hidden"
@@ -48,7 +48,7 @@ const AnimatedElement: FC<AnimatedElementProps> = ({
         ref={ref}
       >
         {children}
-      </motion.div>
+      </m.div>
     </LazyMotion>
   )
 }

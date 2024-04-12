@@ -1,6 +1,6 @@
 import React, { FC, useRef } from 'react'
 import YouTube, { YouTubeProps } from 'react-youtube'
-import { motion } from 'framer-motion'
+import { domAnimation, LazyMotion, m } from 'framer-motion'
 import CloseCross from '@/ui/CloseCross/CloseCross'
 
 import styles from './VideoPopUp.module.scss'
@@ -39,17 +39,19 @@ const VideoPopUp: FC<VideoPopUpType> = ({ videoId, setIsPopUpVisible }) => {
   }
 
   return (
-    <motion.div {...popUpVariant} className={styles['video-pop-up']}>
-      <div className={styles['video-pop-up__content']}>
-        <CloseCross callBackFunc={pauseVideo} className={styles['cross']} />
-        <YouTube
-          ref={youtubeRef}
-          className={styles['video-pop-up__content_iframe']}
-          videoId={videoId}
-          opts={opts}
-        />
-      </div>
-    </motion.div>
+    <LazyMotion features={domAnimation}>
+      <m.div {...popUpVariant} className={styles['video-pop-up']}>
+        <div className={styles['video-pop-up__content']}>
+          <CloseCross callBackFunc={pauseVideo} className={styles['cross']} />
+          <YouTube
+            ref={youtubeRef}
+            className={styles['video-pop-up__content_iframe']}
+            videoId={videoId}
+            opts={opts}
+          />
+        </div>
+      </m.div>
+    </LazyMotion>
   )
 }
 

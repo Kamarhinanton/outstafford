@@ -1,6 +1,8 @@
 import React, { FC, ReactNode } from 'react'
-import PagePreview from '@/components/PagePreview/PagePreview'
-import { motion } from 'framer-motion'
+import { domAnimation, LazyMotion, m } from 'framer-motion'
+import dynamic from 'next/dynamic'
+
+const Preview = dynamic(() => import('@/components/PagePreview/PagePreview'))
 
 type PageTransitionLayoutTypes = {
   children: ReactNode
@@ -34,9 +36,11 @@ const PageTransitionLayout: FC<PageTransitionLayoutTypes> = ({
   return (
     <>
       <>
-        <PagePreview title={title} description={description} />
+        <Preview title={title} description={description} />
       </>
-      <motion.div {...variants}>{children}</motion.div>
+      <LazyMotion features={domAnimation}>
+        <m.div {...variants}>{children}</m.div>
+      </LazyMotion>
     </>
   )
 }

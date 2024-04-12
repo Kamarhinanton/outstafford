@@ -1,6 +1,6 @@
 import React from 'react'
 import HeaderNavigation from '@/components/Header/ui/HeaderNavigation/HeaderNavigation'
-import { motion } from 'framer-motion'
+import { domAnimation, LazyMotion, m } from 'framer-motion'
 import Link from 'next/link'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import CallMenuButton from '@/components/Header/ui/CallMenuButton/CallMenuButton'
@@ -33,32 +33,31 @@ const HeaderMobileNavigation = () => {
   useRouteChange()
 
   return (
-    <motion.div
-      {...headerVariant}
-      className={styles['header-mobile-navigation']}
-    >
-      <div className={styles['header-mobile-navigation__container']}>
-        <HeaderNavigation />
-        <nav className={styles['header-mobile-navigation__container_social']}>
-          {socialLinksData.map((social) => (
-            <Link
-              scroll={false}
-              className={styles['link']}
-              key={social.link}
-              href={social.href}
-            >
-              <BackgroundImage src={social.src} alt={social.link} />
-            </Link>
-          ))}
-        </nav>
-      </div>
-      <CallMenuButton
-        className={styles['header-mobile-navigation__button']}
-        cross
-      >
-        Back
-      </CallMenuButton>
-    </motion.div>
+    <LazyMotion features={domAnimation}>
+      <m.div {...headerVariant} className={styles['header-mobile-navigation']}>
+        <div className={styles['header-mobile-navigation__container']}>
+          <HeaderNavigation />
+          <nav className={styles['header-mobile-navigation__container_social']}>
+            {socialLinksData.map((social) => (
+              <Link
+                scroll={false}
+                className={styles['link']}
+                key={social.link}
+                href={social.href}
+              >
+                <BackgroundImage src={social.src} alt={social.link} />
+              </Link>
+            ))}
+          </nav>
+        </div>
+        <CallMenuButton
+          className={styles['header-mobile-navigation__button']}
+          cross
+        >
+          Back
+        </CallMenuButton>
+      </m.div>
+    </LazyMotion>
   )
 }
 
