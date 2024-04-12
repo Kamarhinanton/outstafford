@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect, useRef } from 'react'
+import React, { FC, ReactNode, useEffect, useRef, useCallback } from 'react'
 import SectionCursor from '@/ui/SectionCursor/SectionCursor'
 import useFramerSpringValue from '@/hooks/useFramerSpringValue'
 import { motion, useTransform } from 'framer-motion'
@@ -29,8 +29,8 @@ const CardTransformPerspective: FC<CardTransformPerspectiveType> = ({
   const { width } = useWindowDimensions()
   const ref = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    window.addEventListener('mousemove', (event) => {
+  const handleMouseMove = useCallback(
+    (event: MouseEvent) => {
       const rect = ref.current?.getBoundingClientRect() as DOMRect
       if (width > breakpointMob && rect) {
         const isOut =
@@ -38,21 +38,32 @@ const CardTransformPerspective: FC<CardTransformPerspectiveType> = ({
           event.clientY > rect.top + rect.height ||
           event.clientX < rect.left ||
           event.clientX > rect.left + rect.width
-        isOut
-          ? (cardX.set(0), cardY.set(0))
-          : requestAnimationFrame(() => {
-              const offsetX = event.clientX - window.innerWidth / 2
-              const offsetY = event.clientY - window.innerHeight / 2
-              const mouseX = Math.round(event.clientX - rect.left) - 250
-              const mouseY = Math.round(event.clientY - rect.top) - 250
-              cardX.set(offsetX)
-              cardY.set(offsetY)
-              cardMouseX.set(mouseX)
-              cardMouseY.set(mouseY)
-            })
+        if (isOut) {
+          cardX.set(0)
+          cardY.set(0)
+        } else {
+          requestAnimationFrame(() => {
+            const offsetX = event.clientX - window.innerWidth / 2
+            const offsetY = event.clientY - window.innerHeight / 2
+            const mouseX = Math.round(event.clientX - rect.left) - 250
+            const mouseY = Math.round(event.clientY - rect.top) - 250
+            cardX.set(offsetX)
+            cardY.set(offsetY)
+            cardMouseX.set(mouseX)
+            cardMouseY.set(mouseY)
+          })
+        }
       }
-    })
-  }, [cardX, cardY, cardMouseY, cardMouseX, width])
+    },
+    [width],
+  )
+
+  useEffect(() => {
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [handleMouseMove])
 
   return (
     <motion.div
