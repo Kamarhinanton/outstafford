@@ -3,6 +3,7 @@
 .back-button{
   position: relative;
   display: block;
+  margin: 0 0 95rem;
   padding: 0 0 0 55rem;
   color: var(--primary-color);
   font-size: 24rem;
@@ -12,6 +13,7 @@
   transition:opacity var(--duration-hover) var(--ease);
 
   @media (width<= $breakpoint-mob) {
+    margin: 0 0 24rem;
     padding: 10rem 0 10rem 40rem;
     font-size: 18rem;
   }

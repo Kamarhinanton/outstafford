@@ -56,15 +56,15 @@ export const navigationFooterLinksLeftMob = [
 
 export const navigationFooterLinksRight = [
   {
-    href: '/',
+    href: routes.public.terms,
     description: 'Terms',
   },
   {
-    href: '/',
+    href: routes.public.privacy,
     description: 'Privacy',
   },
   {
-    href: '/',
+    href: routes.public.cookies,
     description: 'Cookies',
   },
 ]

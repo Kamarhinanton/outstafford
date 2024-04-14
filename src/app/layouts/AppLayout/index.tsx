@@ -34,6 +34,9 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   const [isVisible, setIsVisible] = useState({
     contact: false,
     career: false,
+    privacy: false,
+    terms: false,
+    cookies: false,
   })
 
   const options = {
@@ -53,6 +56,39 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
           ...prevState,
           contact: true,
           career: false,
+          privacy: false,
+          terms: false,
+          cookies: false,
+        }))
+        break
+      case routes.public.terms:
+        setIsVisible((prevState) => ({
+          ...prevState,
+          contact: false,
+          career: false,
+          privacy: false,
+          terms: true,
+          cookies: false,
+        }))
+        break
+      case routes.public.privacy:
+        setIsVisible((prevState) => ({
+          ...prevState,
+          contact: false,
+          career: false,
+          privacy: true,
+          terms: false,
+          cookies: false,
+        }))
+        break
+      case routes.public.cookies:
+        setIsVisible((prevState) => ({
+          ...prevState,
+          contact: false,
+          career: false,
+          privacy: false,
+          terms: false,
+          cookies: true,
         }))
         break
       case routes.public.career(dynamicPath):
@@ -60,6 +96,9 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
           ...prevState,
           career: true,
           contact: false,
+          privacy: false,
+          terms: false,
+          cookies: false,
         }))
         break
       default:
@@ -67,6 +106,9 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
           ...prevState,
           contact: false,
           career: false,
+          privacy: false,
+          terms: false,
+          cookies: false,
         }))
     }
   }, [pathname])
@@ -76,11 +118,18 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   return (
     <>
       <ReactLenis root options={{ ...options }}>
-        {!isVisible.contact && !is404 && <Header />}
+        {!isVisible.contact &&
+          !isVisible.privacy &&
+          !isVisible.terms &&
+          !isVisible.cookies &&
+          !is404 && <Header />}
         {width <= breakpointMob && <MobileCTA />}
-        {!isVisible.career && !is404 && width <= breakpointMob && (
-          <MobileHeader />
-        )}
+        {!isVisible.career &&
+          !isVisible.privacy &&
+          !isVisible.terms &&
+          !isVisible.cookies &&
+          !is404 &&
+          width <= breakpointMob && <MobileHeader />}
         {children}
       </ReactLenis>
     </>

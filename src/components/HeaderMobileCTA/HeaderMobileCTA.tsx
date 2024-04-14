@@ -25,7 +25,13 @@ const HeaderMobileCta = () => {
   useEffect(() => {
     let timeoutId: NodeJS.Timeout
 
-    if (router.pathname === routes.public.contact || router.route === '/404') {
+    if (
+      router.pathname === routes.public.contact ||
+      router.route === '/404' ||
+      router.route === routes.public.privacy ||
+      router.route === routes.public.terms ||
+      router.route === routes.public.cookies
+    ) {
       timeoutId = setTimeout(() => {
         setIsAnimate(true)
       }, 2000)

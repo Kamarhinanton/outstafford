@@ -60,6 +60,10 @@ main {
   h1, h2, h3, h4, h5, h6 {
     margin: 68rem 0 40rem;
 
+    span {
+      color: var(--primary-color);
+    }
+
     @media (width<= $breakpoint-mob) {
       margin: 64rem 0 34rem;
     }
@@ -149,7 +153,7 @@ main {
   }
 
   a {
-    color: var(--white);
+    color: var(--primary-color);
     font: var(--font-l);
     transition: opacity var(--duration-hover) var(--ease);
     @media (width> $breakpoint-mob) {
