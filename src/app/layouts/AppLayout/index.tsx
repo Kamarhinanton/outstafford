@@ -1,6 +1,6 @@
 import { FC, ReactNode, useEffect, useMemo, useState } from 'react'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
-import { breakpointMob } from '@/utils/variables'
+import { breakpointMob, breakpointTablet } from '@/utils/variables'
 import dynamic from 'next/dynamic'
 import { Header } from '@/components/Header'
 import { usePathname } from 'next/navigation'
@@ -17,6 +17,13 @@ const MobileCTA = dynamic(
 
 const MobileHeader = dynamic(
   () => import('@/components/HeaderMobile/ui/HeaderMobile'),
+  {
+    ssr: false,
+  },
+)
+
+const CustomCursor = dynamic(
+  () => import('@/components/CustomCursor/CustomCursor'),
   {
     ssr: false,
   },
@@ -117,6 +124,7 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
 
   return (
     <>
+      {width > breakpointTablet && <CustomCursor />}
       <ReactLenis root options={{ ...options }}>
         {!isVisible.contact &&
           !isVisible.privacy &&
