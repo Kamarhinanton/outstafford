@@ -10,6 +10,7 @@ import BackButton from '@/ui/BackButton/BackButton'
 import { useRouter } from 'next/router'
 import md from 'markdown-it'
 import { SingleMarkdownType } from '@/utils/globalTypes'
+import { setIsPopUpActive } from '@/store/reducers/callPopUpSlice'
 
 import styles from './Editor.module.scss'
 
@@ -19,6 +20,7 @@ const Editor = ({ frontMatter, content }: SingleMarkdownType) => {
   const handlePopUpCareer = () => {
     document.body.style.overflow = 'hidden'
     dispatch(setIsCareerPopUpActive(true))
+    dispatch(setIsPopUpActive(true))
   }
 
   return (

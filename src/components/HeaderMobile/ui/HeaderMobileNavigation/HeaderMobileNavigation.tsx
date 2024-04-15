@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import HeaderNavigation from '@/components/Header/ui/HeaderNavigation/HeaderNavigation'
 import { domAnimation, LazyMotion, m } from 'framer-motion'
 import Link from 'next/link'
@@ -8,6 +8,9 @@ import { socialLinksData } from '@/components/HeaderMobile/ui/HeaderMobileNaviga
 import useRouteChange from '@/hooks/useRoutChange'
 
 import styles from './HeaderMobileNavigation.module.scss'
+import { setIsPopUpActive } from '@/store/reducers/callPopUpSlice'
+import { AppDispatch } from '@/store/store'
+import { useDispatch } from 'react-redux'
 
 const headerVariant = {
   animate: {
@@ -25,12 +28,20 @@ const headerVariant = {
     transition: {
       ease: 'easeInOut',
       duration: 0.5,
-      delay: 1,
     },
   },
 }
 const HeaderMobileNavigation = () => {
+  const dispatch: AppDispatch = useDispatch()
+
   useRouteChange()
+
+  useEffect(() => {
+    dispatch(setIsPopUpActive(true))
+    return () => {
+      dispatch(setIsPopUpActive(false))
+    }
+  }, [])
 
   return (
     <LazyMotion features={domAnimation}>

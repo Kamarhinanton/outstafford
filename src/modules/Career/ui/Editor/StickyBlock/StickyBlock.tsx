@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/store/store'
 import { setIsCareerPopUpActive } from '@/store/reducers/callCareerPopUpSlice'
 import { FrontMatterType } from '@/utils/globalTypes'
+import { setIsPopUpActive } from '@/store/reducers/callPopUpSlice'
 
 import styles from './StickyBlock.module.scss'
 
@@ -18,6 +19,7 @@ const StickyBlock: FC<StickyBlockType> = ({ className, frontMatter }) => {
   const handlePopUpCareer = () => {
     document.body.style.overflow = 'hidden'
     dispatch(setIsCareerPopUpActive(true))
+    dispatch(setIsPopUpActive(true))
   }
 
   return (

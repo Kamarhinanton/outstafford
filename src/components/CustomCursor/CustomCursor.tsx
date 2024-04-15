@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import { motion } from 'framer-motion'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/store/store'
 
 import styles from './CustomCursor.module.scss'
 
@@ -32,6 +34,10 @@ const CustomCursor = () => {
       opacity: 0,
     },
   }
+
+  const isPopUpActive = useSelector(
+    (state: RootState) => state.callPopUp.isPopUpActive,
+  )
 
   useEffect(() => {
     document.addEventListener('mousemove', (event) => {
@@ -102,7 +108,7 @@ const CustomCursor = () => {
         })
       }, 500)
     }
-  }, [route])
+  }, [route, isPopUpActive])
 
   return (
     <>

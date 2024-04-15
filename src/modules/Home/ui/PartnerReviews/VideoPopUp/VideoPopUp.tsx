@@ -1,10 +1,12 @@
-import React, { FC, useRef } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import YouTube, { YouTubeProps } from 'react-youtube'
 import { domAnimation, LazyMotion, m } from 'framer-motion'
 import CloseCross from '@/ui/CloseCross/CloseCross'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '@/store/store'
+import { setIsPopUpActive } from '@/store/reducers/callPopUpSlice'
 
 import styles from './VideoPopUp.module.scss'
-
 export const popUpVariant = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
@@ -21,6 +23,8 @@ type VideoPopUpType = {
 }
 
 const VideoPopUp: FC<VideoPopUpType> = ({ videoId, setIsPopUpVisible }) => {
+  const dispatch: AppDispatch = useDispatch()
+
   const opts: YouTubeProps['opts'] = {
     height: '100%',
     width: '100%',
@@ -37,6 +41,13 @@ const VideoPopUp: FC<VideoPopUpType> = ({ videoId, setIsPopUpVisible }) => {
       document.body.style.overflow = ''
     }
   }
+
+  useEffect(() => {
+    dispatch(setIsPopUpActive(true))
+    return () => {
+      dispatch(setIsPopUpActive(false))
+    }
+  }, [])
 
   return (
     <LazyMotion features={domAnimation}>

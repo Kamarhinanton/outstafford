@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import Container from '@/app/layouts/Container'
 import BodyForm from '@/modules/Career/ui/PopUpCareer/BodyForm/BodyForm'
 import classNames from 'classnames'
@@ -10,6 +10,7 @@ import { setIsCareerPopUpActive } from '@/store/reducers/callCareerPopUpSlice'
 import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion'
 import { popUpVariant } from '@/modules/Home/ui/PartnerReviews/VideoPopUp/VideoPopUp'
 import { FrontMatterType } from '@/utils/globalTypes'
+import { setIsPopUpActive } from '@/store/reducers/callPopUpSlice'
 
 import styles from './PopUpCareer.module.scss'
 
@@ -25,7 +26,15 @@ const PopUpCareer: FC<PopUpCareerType> = ({ frontMatter }) => {
   const handlePopUpCareer = () => {
     document.body.style.overflow = ''
     dispatch(setIsCareerPopUpActive(false))
+    dispatch(setIsPopUpActive(false))
   }
+
+  useEffect(() => {
+    return () => {
+      dispatch(setIsPopUpActive(false))
+      dispatch(setIsCareerPopUpActive(false))
+    }
+  }, [])
 
   return (
     <AnimatePresence>
