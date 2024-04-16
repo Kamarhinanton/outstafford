@@ -87,8 +87,8 @@ const PagePreview: FC<PagePreviewType> = ({ title, description }) => {
           <m.div
             variants={variants}
             initial="initial"
-            animate={!isFirstLoading && 'animate'}
-            exit={!isFirstLoading && 'exit'}
+            animate={!isFirstLoading ? 'animate' : 'initial'}
+            exit={!isFirstLoading ? 'exit' : 'initial'}
             className={styles['page-preview']}
           >
             <div className={styles['page-preview__inner']}>
