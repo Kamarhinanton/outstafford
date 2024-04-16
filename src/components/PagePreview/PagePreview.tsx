@@ -110,15 +110,18 @@ const PagePreview: FC<PagePreviewType> = ({ title, description }) => {
           >
             <div className={styles['page-preview__inner']}>
               {title && (
-                <m.h1
-                  variants={variantsTitle}
+                <m.p
                   className={classNames(
                     'h1',
                     styles['page-preview__inner_title'],
                   )}
+                  variants={container}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
                 >
-                  {title}
-                </m.h1>
+                  <m.span variants={variantsTitle}>{title}</m.span>
+                </m.p>
               )}
               {description && (
                 <m.p

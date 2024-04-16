@@ -14,14 +14,16 @@
   background-color: var(--primary-color);
 
   &__inner {
+    max-width: 80vw;
+
     &_title{
-      max-width: 70vw;
+      display: flex;
+      color: var(--white);
     }
 
     &_description {
       display: flex;
       flex-direction: column;
-      margin: 14rem 0 0;
       color: var(--black);
       font-size: 40rem;
 
@@ -36,7 +38,6 @@
       }
 
       @media (width<=$breakpoint-mob) {
-        margin: 7rem 0 0;
         font-size: 24rem;
       }
     }
