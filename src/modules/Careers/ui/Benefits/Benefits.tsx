@@ -2,6 +2,7 @@ import React from 'react'
 import Container from '@/app/layouts/Container'
 import classNames from 'classnames'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
+import CardTransformPerspective from '@/ui/CardTransformPerspective/CardTransformPerspective'
 
 import styles from './Benefits.module.scss'
 
@@ -45,22 +46,31 @@ const Benefits = () => {
           <ul className={styles['benefits__content_list']}>
             {benefitsData.map((item) => (
               <li className={styles['item']} key={item.title}>
-                {item.image && (
-                  <BackgroundImage
-                    className={styles['item__image']}
-                    position={'cover'}
-                    src={item.image}
-                    alt={'picture'}
-                  />
-                )}
-                <h3 className={classNames('h3', styles['item__title'])}>
-                  {item.title}
-                </h3>
-                {item.description && (
-                  <p className={styles['item__description']}>
-                    {item.description}
-                  </p>
-                )}
+                <CardTransformPerspective
+                  cursor={false}
+                  className={styles['item__content']}
+                  rotateRangeX={['10deg', '-10deg']}
+                  rotateRangeY={['-10deg', '10deg']}
+                >
+                  {item.image && (
+                    <BackgroundImage
+                      className={styles['item__content_image']}
+                      position={'cover'}
+                      src={item.image}
+                      alt={'picture'}
+                    />
+                  )}
+                  <h3
+                    className={classNames('h3', styles['item__content_title'])}
+                  >
+                    {item.title}
+                  </h3>
+                  {item.description && (
+                    <p className={styles['item__content_description']}>
+                      {item.description}
+                    </p>
+                  )}
+                </CardTransformPerspective>
               </li>
             ))}
           </ul>
