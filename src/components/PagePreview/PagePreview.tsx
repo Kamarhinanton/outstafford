@@ -15,15 +15,11 @@ type PagePreviewType = {
 const variants = {
   initial: {
     height: 0,
-    transition: {
-      duration: 0.9,
-      ease: [0.22, 1, 0.36, 1],
-    },
   },
   animate: {
     height: '100%',
     transition: {
-      duration: 1.9,
+      duration: 1.5,
       ease: [0.22, 1, 0.36, 1],
     },
   },
@@ -33,7 +29,7 @@ const variants = {
     height: 0,
     transition: {
       delay: 0.2,
-      duration: 1.7,
+      duration: 1.3,
       ease: [0.22, 1, 0.36, 1],
     },
   },
@@ -46,14 +42,14 @@ const variantsTitle = {
   animate: {
     y: 0,
     transition: {
-      duration: 1.9,
+      duration: 1.5,
       ease: [0.22, 1, 0.36, 1],
     },
   },
   exit: {
     y: '-100vh',
     transition: {
-      duration: 1.9,
+      duration: 1.5,
       ease: [0.22, 1, 0.36, 1],
     },
   },
@@ -88,7 +84,13 @@ const PagePreview: FC<PagePreviewType> = ({ title, description }) => {
     <AnimatePresence>
       {!isFirstLoading && isAnimate && (
         <LazyMotion features={domAnimation}>
-          <m.div {...variants} className={styles['page-preview']}>
+          <m.div
+            variants={variants}
+            initial="initial"
+            animate={!isFirstLoading && 'animate'}
+            exit={!isFirstLoading && 'exit'}
+            className={styles['page-preview']}
+          >
             <div className={styles['page-preview__inner']}>
               {title && (
                 <m.h1
