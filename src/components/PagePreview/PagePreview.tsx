@@ -16,14 +16,14 @@ const variants = {
   initial: {
     height: 0,
     transition: {
-      duration: 0.7,
+      duration: 0.9,
       ease: [0.22, 1, 0.36, 1],
     },
   },
   animate: {
     height: '100%',
     transition: {
-      duration: 0.7,
+      duration: 1.9,
       ease: [0.22, 1, 0.36, 1],
     },
   },
@@ -32,10 +32,40 @@ const variants = {
     top: 0,
     height: 0,
     transition: {
-      duration: 0.7,
+      delay: 0.2,
+      duration: 1.7,
       ease: [0.22, 1, 0.36, 1],
     },
   },
+}
+
+const variantsTitle = {
+  initial: {
+    y: '100vh',
+  },
+  animate: {
+    y: 0,
+    transition: {
+      duration: 1.9,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+  exit: {
+    y: '-100vh',
+    transition: {
+      duration: 1.9,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+}
+
+const container = {
+  animate: (i = 1) => ({
+    transition: { staggerChildren: 0.03, delayChildren: 0.1 * i },
+  }),
+  exit: (i = 1) => ({
+    transition: { staggerChildren: 0.03, delayChildren: 0.1 * i },
+  }),
 }
 
 const PagePreview: FC<PagePreviewType> = ({ title, description }) => {
@@ -61,30 +91,33 @@ const PagePreview: FC<PagePreviewType> = ({ title, description }) => {
           <m.div {...variants} className={styles['page-preview']}>
             <div className={styles['page-preview__inner']}>
               {title && (
-                <h1
+                <m.h1
+                  variants={variantsTitle}
                   className={classNames(
                     'h1',
                     styles['page-preview__inner_title'],
                   )}
                 >
                   {title}
-                </h1>
+                </m.h1>
               )}
               {description && (
-                <p
+                <m.p
                   className={classNames(
                     'h3',
                     styles['page-preview__inner_description'],
                   )}
+                  variants={container}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
                 >
-                  {description
-                    ?.split(' ')
-                    ?.map((word, index) => (
-                      <span key={`${word + index}`}>
-                        {word.replace('.', ' ')}
-                      </span>
-                    ))}
-                </p>
+                  {description?.split(' ')?.map((word, index) => (
+                    <m.span variants={variantsTitle} key={index} custom={index}>
+                      {word.replace('.', ' ')}
+                    </m.span>
+                  ))}
+                </m.p>
               )}
             </div>
           </m.div>
