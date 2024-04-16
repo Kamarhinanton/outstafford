@@ -35,6 +35,21 @@ const variants = {
   },
 }
 
+const variantsDefault = {
+  initial: {
+    height: 0,
+    opacity: 0,
+  },
+  animate: {
+    height: 0,
+    opacity: 0,
+  },
+  exit: {
+    height: 0,
+    opacity: 0,
+  },
+}
+
 const variantsTitle = {
   initial: {
     y: '100vh',
@@ -77,18 +92,20 @@ const PagePreview: FC<PagePreviewType> = ({ title, description }) => {
       isFirstLoading && dispatch(setIsFirstLoading(false))
     }, 2000)
 
-    return () => clearTimeout(timeoutId)
+    return () => {
+      clearTimeout(timeoutId)
+    }
   }, [])
 
   return (
     <AnimatePresence>
-      {!isFirstLoading && isAnimate && (
+      {isAnimate && (
         <LazyMotion features={domAnimation}>
           <m.div
-            variants={variants}
+            variants={!isFirstLoading ? variants : variantsDefault}
             initial="initial"
-            animate={!isFirstLoading ? 'animate' : 'initial'}
-            exit={!isFirstLoading ? 'exit' : 'initial'}
+            animate="animate"
+            exit="exit"
             className={styles['page-preview']}
           >
             <div className={styles['page-preview__inner']}>
