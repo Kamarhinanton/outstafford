@@ -16,10 +16,7 @@ export default function Projects({ projects }: ProjectPageType) {
       <Head>
         <title>Projects page</title>
       </Head>
-      <PageTransitionLayout
-        title={'Projects text'}
-        description={'projects description'}
-      >
+      <PageTransitionLayout description={'OUR BEST PROJECTS'}>
         <ProjectsContent projects={projects} />
       </PageTransitionLayout>
     </>

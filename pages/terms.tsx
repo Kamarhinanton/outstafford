@@ -14,10 +14,7 @@ export default function Terms() {
       <Head>
         <title>Terms page</title>
       </Head>
-      <PageTransitionLayout
-        title={'Terms text'}
-        description={'terms description'}
-      >
+      <PageTransitionLayout description={'TERMS AND CONDITIONS'}>
         <Container>
           <div className={'editor-content wrapper-class'}>
             <BackButton callBackFunc={() => router.back()} />

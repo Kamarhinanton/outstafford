@@ -14,10 +14,7 @@ export default function Privacy() {
       <Head>
         <title>Privacy page</title>
       </Head>
-      <PageTransitionLayout
-        title={'Privacy text'}
-        description={'privacy description'}
-      >
+      <PageTransitionLayout description={'PRIVACY POLICY'}>
         <Container>
           <div className={'editor-content wrapper-class'}>
             <BackButton callBackFunc={() => router.back()} />

@@ -16,10 +16,7 @@ export default function Blog({ blog }: BlogType) {
       <Head>
         <title>Blog page</title>
       </Head>
-      <PageTransitionLayout
-        title={'Blog text'}
-        description={'blog description'}
-      >
+      <PageTransitionLayout description={'READ OUR BLOG'}>
         <BlogContent blog={blog} />
       </PageTransitionLayout>
     </>

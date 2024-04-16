@@ -10,7 +10,7 @@ export const navigationHeaderLinks = [
     description: 'Projects',
   },
   {
-    href: routes.public.work,
+    href: '/',
     description: 'How We Work',
   },
   {

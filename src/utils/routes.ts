@@ -4,7 +4,6 @@ export default {
     about: '/about',
     blog: '/blog',
     projects: '/projects',
-    work: '/work',
     contact: '/contact',
     careers: '/careers',
     privacy: '/privacy',

@@ -14,12 +14,30 @@
   background-color: var(--primary-color);
 
   &__inner {
+    &_title{
+      max-width: 70vw;
+    }
+
     &_description {
+      display: flex;
+      flex-direction: column;
       margin: 14rem 0 0;
       color: var(--black);
+      font-size: 40rem;
+
+      span{
+        &:nth-child(odd){
+          margin: 0 0 0 70rem;
+
+          @media (width<=$breakpoint-mob) {
+            margin: 0 0 0 40rem;
+          }
+        }
+      }
 
       @media (width<=$breakpoint-mob) {
         margin: 7rem 0 0;
+        font-size: 24rem;
       }
     }
   }

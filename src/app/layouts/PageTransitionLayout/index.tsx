@@ -6,8 +6,8 @@ const Preview = dynamic(() => import('@/components/PagePreview/PagePreview'))
 
 type PageTransitionLayoutTypes = {
   children: ReactNode
-  title: string
-  description: string
+  title?: string
+  description?: string
 }
 
 const variants = {

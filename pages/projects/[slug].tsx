@@ -11,12 +11,9 @@ export default function Case({ frontMatter }: SingleProjectsType) {
   return (
     <>
       <Head>
-        <title>Case page</title>
+        <title>{frontMatter.hero.title}</title>
       </Head>
-      <PageTransitionLayout
-        title={'Case text'}
-        description={'case description'}
-      >
+      <PageTransitionLayout title={frontMatter.hero.title}>
         <CaseContent frontMatter={frontMatter} />
       </PageTransitionLayout>
     </>

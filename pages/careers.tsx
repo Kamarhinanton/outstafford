@@ -16,10 +16,7 @@ export default function Careers({ careers }: CareersType) {
       <Head>
         <title>Careers page</title>
       </Head>
-      <PageTransitionLayout
-        title={'Careers text'}
-        description={'careers description'}
-      >
+      <PageTransitionLayout description={'EXPLORE OPEN POSITION'}>
         <CareersContent careers={careers} />
       </PageTransitionLayout>
     </>

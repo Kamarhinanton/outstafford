@@ -9,10 +9,7 @@ export default function Contact() {
       <Head>
         <title>Contact page</title>
       </Head>
-      <PageTransitionLayout
-        title={'Contact text'}
-        description={'contact description'}
-      >
+      <PageTransitionLayout description={'SAY HI TO.US'}>
         <ContactContent />
       </PageTransitionLayout>
     </>

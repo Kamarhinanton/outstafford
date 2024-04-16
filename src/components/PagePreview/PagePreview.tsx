@@ -8,8 +8,8 @@ import { setIsFirstLoading } from '@/store/reducers/isFirstLoadingSlice'
 import styles from './PagePreview.module.scss'
 
 type PagePreviewType = {
-  title: string
-  description: string
+  title?: string
+  description?: string
 }
 
 const variants = {
@@ -60,15 +60,32 @@ const PagePreview: FC<PagePreviewType> = ({ title, description }) => {
         <LazyMotion features={domAnimation}>
           <m.div {...variants} className={styles['page-preview']}>
             <div className={styles['page-preview__inner']}>
-              <h1>{title}</h1>
-              <p
-                className={classNames(
-                  'h3',
-                  styles['page-preview__inner_description'],
-                )}
-              >
-                {description}
-              </p>
+              {title && (
+                <h1
+                  className={classNames(
+                    'h1',
+                    styles['page-preview__inner_title'],
+                  )}
+                >
+                  {title}
+                </h1>
+              )}
+              {description && (
+                <p
+                  className={classNames(
+                    'h3',
+                    styles['page-preview__inner_description'],
+                  )}
+                >
+                  {description
+                    ?.split(' ')
+                    ?.map((word, index) => (
+                      <span key={`${word + index}`}>
+                        {word.replace('.', ' ')}
+                      </span>
+                    ))}
+                </p>
+              )}
             </div>
           </m.div>
         </LazyMotion>

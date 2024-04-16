@@ -8,10 +8,7 @@ export default function Home() {
       <Head>
         <title>Home page</title>
       </Head>
-      <PageTransitionLayout
-        title={'Home text'}
-        description={'home description'}
-      >
+      <PageTransitionLayout description={'WE LOVE STARTUPS'}>
         <HomeContent />
       </PageTransitionLayout>
     </>

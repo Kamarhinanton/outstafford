@@ -11,12 +11,9 @@ export default function Career({ frontMatter, content }: SingleMarkdownType) {
   return (
     <>
       <Head>
-        <title>Career page</title>
+        <title>{frontMatter.title}</title>
       </Head>
-      <PageTransitionLayout
-        title={'Careers title'}
-        description={'Careers description'}
-      >
+      <PageTransitionLayout title={frontMatter.title}>
         <CareerContent frontMatter={frontMatter} content={content} />
       </PageTransitionLayout>
     </>

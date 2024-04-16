@@ -14,10 +14,7 @@ export default function Cookies() {
       <Head>
         <title>Cookies page</title>
       </Head>
-      <PageTransitionLayout
-        title={'Cookies text'}
-        description={'cookies description'}
-      >
+      <PageTransitionLayout description={'COOKIES'}>
         <Container>
           <div className={'editor-content wrapper-class'}>
             <BackButton callBackFunc={() => router.back()} />

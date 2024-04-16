@@ -9,10 +9,7 @@ export default function About() {
       <Head>
         <title>About page</title>
       </Head>
-      <PageTransitionLayout
-        title={'About text'}
-        description={'about description'}
-      >
+      <PageTransitionLayout description={'ABOUT OUR TEAM'}>
         <AboutContent />
       </PageTransitionLayout>
     </>

@@ -14,12 +14,9 @@ export default function BlogInner({
   return (
     <>
       <Head>
-        <title>Blog inner page</title>
+        <title>{frontMatter.title}</title>
       </Head>
-      <PageTransitionLayout
-        title={'Blog inner text'}
-        description={'blog inner description'}
-      >
+      <PageTransitionLayout title={frontMatter.title}>
         <BlogInnerContent frontMatter={frontMatter} content={content} />
       </PageTransitionLayout>
     </>
