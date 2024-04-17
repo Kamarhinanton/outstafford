@@ -6,11 +6,11 @@ import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import CallMenuButton from '@/components/Header/ui/CallMenuButton/CallMenuButton'
 import { socialLinksData } from '@/components/HeaderMobile/ui/HeaderMobileNavigation/data'
 import useRouteChange from '@/hooks/useRoutChange'
+import { setIsPopUpActive } from '@/store/reducers/callPopUpSlice'
+import { AppDispatch, RootState } from '@/store/store'
+import { useDispatch, useSelector } from 'react-redux'
 
 import styles from './HeaderMobileNavigation.module.scss'
-import { setIsPopUpActive } from '@/store/reducers/callPopUpSlice'
-import { AppDispatch } from '@/store/store'
-import { useDispatch } from 'react-redux'
 
 const headerVariant = {
   animate: {
@@ -33,6 +33,17 @@ const headerVariant = {
 }
 const HeaderMobileNavigation = () => {
   const dispatch: AppDispatch = useDispatch()
+  const isMenuActive = useSelector(
+    (state: RootState) => state.callMenu.isMenuActive,
+  )
+
+  useEffect(() => {
+    if (isMenuActive) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+  }, [isMenuActive])
 
   useRouteChange()
 
@@ -45,7 +56,17 @@ const HeaderMobileNavigation = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-      <m.div {...headerVariant} className={styles['header-mobile-navigation']}>
+      <m.div
+        variants={headerVariant}
+        initial="initial"
+        animate={isMenuActive ? 'animate' : 'exit'}
+        className={styles['header-mobile-navigation']}
+        style={
+          isMenuActive
+            ? { pointerEvents: 'initial' }
+            : { pointerEvents: 'none' }
+        }
+      >
         <div className={styles['header-mobile-navigation__container']}>
           <HeaderNavigation />
           <nav className={styles['header-mobile-navigation__container_social']}>
