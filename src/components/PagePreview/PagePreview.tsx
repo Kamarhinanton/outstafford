@@ -14,17 +14,19 @@ type PagePreviewType = {
 
 const variants = {
   initial: {
-    y: '100vh',
+    height: 0,
   },
   animate: {
-    y: 0,
+    height: '100%',
     transition: {
       duration: 1.7,
       ease: [0.22, 1, 0.36, 1],
     },
   },
   exit: {
-    y: '-100vh',
+    bottom: 'initial',
+    top: 0,
+    height: 0,
     transition: {
       duration: 1.7,
       delay: 0.5,
