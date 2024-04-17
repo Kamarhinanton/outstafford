@@ -5,7 +5,7 @@ import styles from './FoundedSection.module.scss'
 
 const data = [
   {
-    title: '2018',
+    title: '2020',
     description: 'year founded',
   },
   {

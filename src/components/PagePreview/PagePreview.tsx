@@ -14,22 +14,20 @@ type PagePreviewType = {
 
 const variants = {
   initial: {
-    height: 0,
+    y: '100vh',
   },
   animate: {
-    height: '100%',
+    y: 0,
     transition: {
-      duration: 1.5,
+      duration: 1.7,
       ease: [0.22, 1, 0.36, 1],
     },
   },
   exit: {
-    bottom: 'initial',
-    top: 0,
-    height: 0,
+    y: '-100vh',
     transition: {
-      delay: 0.2,
-      duration: 1.3,
+      duration: 1.7,
+      delay: 0.5,
       ease: [0.22, 1, 0.36, 1],
     },
   },
@@ -57,14 +55,14 @@ const variantsTitle = {
   animate: {
     y: 0,
     transition: {
-      duration: 1.5,
+      duration: 1.7,
       ease: [0.22, 1, 0.36, 1],
     },
   },
   exit: {
     y: '-100vh',
     transition: {
-      duration: 1.5,
+      duration: 1.7,
       ease: [0.22, 1, 0.36, 1],
     },
   },
