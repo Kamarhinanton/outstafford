@@ -11,7 +11,7 @@
   transition: var(--duration-hover) var(--ease);
   pointer-events: none;
 
-  &::before{
+  &::before {
     position: absolute;
     top: 0;
     left: 0;
@@ -23,22 +23,29 @@
     content: "";
   }
 
-  &.active{
+  &.active {
     opacity: 1;
     pointer-events: initial;
 
-    &::before{
+    &::before {
       opacity: 0.5;
     }
 
-    .header-submenu{
-      &__wrapper{
+    .header-submenu {
+      &__wrapper {
         bottom: 148rem;
       }
     }
   }
 
-  &__wrapper{
+  .close-area {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    inset: -300rem -200rem -148rem;
+  }
+
+  &__wrapper {
     position: absolute;
     bottom: 128rem;
     left: 50%;
@@ -48,13 +55,6 @@
     border-radius: 24rem;
     transform: translateX(-50%);
     transition: var(--duration-hover) var(--ease);
-
-    &::before{
-      position: absolute;
-      z-index: -1;
-      content: '';
-      inset: -300rem -200rem -148rem;
-    }
 
     &_column {
       width: 260rem;

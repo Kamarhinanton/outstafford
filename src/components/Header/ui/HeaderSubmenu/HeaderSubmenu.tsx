@@ -22,7 +22,7 @@ const HeaderSubmenu = () => {
     clientX,
     clientY,
     currentTarget,
-  }: React.MouseEvent<HTMLUListElement>) => {
+  }: React.MouseEvent<HTMLDivElement>) => {
     const { top, left, right } = currentTarget.getBoundingClientRect()
 
     if (clientY < top || clientX < left || clientX > right) {
@@ -30,12 +30,20 @@ const HeaderSubmenu = () => {
     }
   }
 
+  const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (event.target === event.currentTarget) {
+      dispatch(setIsMenuActive(false))
+    }
+  }
+
   return (
     <div className={classNames(styles['header-submenu'], mods)}>
-      <ul
-        onMouseLeave={mouseLeaveDetect}
-        className={styles['header-submenu__wrapper']}
-      >
+      <ul className={styles['header-submenu__wrapper']}>
+        <div
+          className={styles['close-area']}
+          onMouseLeave={mouseLeaveDetect}
+          onClick={handleClick}
+        />
         {headerSubmenuData.map((column) => (
           <li
             className={styles['header-submenu__wrapper_column']}
