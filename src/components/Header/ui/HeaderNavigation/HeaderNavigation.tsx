@@ -3,46 +3,24 @@ import Link from 'next/link'
 import { navigationHeaderLinks } from '@/components/Header/ui/HeaderNavigation/data'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
-import routes from '@/utils/routes'
-import { useLenis } from '@studio-freight/react-lenis'
-import { useDispatch } from 'react-redux'
-import { AppDispatch } from '@/store/store'
-import { setIsMenuActive } from '@/store/reducers/callMenuSlice'
+import useLenisAnchor, { shouldHandleAnchor } from '@/hooks/useLenisAnchor'
 
 import styles from './HeaderNavigation.module.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '@/store/store'
+import { setActiveLink } from '@/store/reducers/activeLinkSlice'
 
 const HeaderNavigation = () => {
   const router = useRouter()
-  const [activeLink, setActiveLink] = useState('')
-  const lenis = useLenis()
+  const activeLink = useSelector(
+    (state: RootState) => state.activeLink.activeLink,
+  )
   const dispatch: AppDispatch = useDispatch()
-
   useEffect(() => {
-    setActiveLink(router.asPath)
+    dispatch(setActiveLink(router.asPath))
   }, [router.asPath])
 
-  const handleAnchor = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    href: string,
-  ) => {
-    e.preventDefault()
-    if (href === routes.public.about) {
-      lenis?.scrollTo('top')
-      setActiveLink(routes.public.about)
-      dispatch(setIsMenuActive(false))
-    }
-    if (href === `${routes.public.about}?param=work`) {
-      lenis?.scrollTo('#work')
-      setActiveLink(`${routes.public.about}?param=work`)
-      dispatch(setIsMenuActive(false))
-    }
-  }
-
-  const shouldHandleAnchor = (routerPath: string, linkHref: string): boolean =>
-    (routerPath === routes.public.about ||
-      routerPath === `${routes.public.about}?param=work`) &&
-    (linkHref === routes.public.about ||
-      linkHref === `${routes.public.about}?param=work`)
+  const { handleAnchor } = useLenisAnchor()
 
   return (
     <nav className={styles['header-navigation']}>

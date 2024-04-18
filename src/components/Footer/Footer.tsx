@@ -16,6 +16,8 @@ import { useInView } from 'framer-motion'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/store/store'
 import { setIsFooterVisible } from '@/store/reducers/footerVisibilitySlice'
+import useLenisAnchor, { shouldHandleAnchor } from '@/hooks/useLenisAnchor'
+import { useRouter } from 'next/router'
 
 import styles from './Footer.module.scss'
 
@@ -26,6 +28,8 @@ const Footer: FC<FooterPropsType> = ({ className }) => {
   const ref = useRef(null)
   const isInView = useInView(ref)
   const dispatch: AppDispatch = useDispatch()
+  const { handleAnchor } = useLenisAnchor()
+  const router = useRouter()
 
   useEffect(() => {
     const handleFooterVisibility = () => {
@@ -109,6 +113,11 @@ const Footer: FC<FooterPropsType> = ({ className }) => {
                   className={styles['right-section__column_link']}
                   key={link.description}
                   href={link.href}
+                  onClick={
+                    shouldHandleAnchor(router.asPath, link.href)
+                      ? (e) => handleAnchor(e, link.href)
+                      : undefined
+                  }
                 >
                   {link.description}
                 </Link>
