@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { navigationHeaderLinks } from '@/components/Header/ui/HeaderNavigation/data'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import useLenisAnchor, { shouldHandleAnchor } from '@/hooks/useLenisAnchor'
-
-import styles from './HeaderNavigation.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '@/store/store'
 import { setActiveLink } from '@/store/reducers/activeLinkSlice'
 
+import styles from './HeaderNavigation.module.scss'
 const HeaderNavigation = () => {
   const router = useRouter()
   const activeLink = useSelector(
