@@ -5,7 +5,6 @@ import FoundedSection from '@/modules/About/ui/FoundedSection/FoundedSection'
 import SmallDescription from '@/modules/About/ui/SmallDescription/SmallDescription'
 import OurServices from '@/modules/About/ui/OurServices/OurServices'
 import OurTeam from '@/modules/About/ui/OutTeam/OurTeam'
-import LottieLine from '@/modules/About/ui/LottieLine/LottieLine'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 import AboutBigTitle from '@/modules/About/ui/AboutBigTitle/AboutBigTitle'
 import SectionFullPage from '@/app/layouts/SectionFullPage'
@@ -13,6 +12,10 @@ import ExploreTitle from '@/modules/About/ui/ExploreTitle/ExploreTitle'
 import ExploreMoreProjects from '@/modules/Case/ui/ExploreMoreProjects/ExploreMoreProjects'
 import WeCreate from '@/modules/About/ui/WeCreate/WeCreate'
 import dynamic from 'next/dynamic'
+
+const Line = dynamic(() => import('@/modules/About/ui/LottieLine/LottieLine'), {
+  ssr: false,
+})
 
 const CTADynamic = dynamic(() => import('@/components/CTA/CTA'))
 
@@ -22,30 +25,30 @@ const AboutContent = () => {
       <SectionFullPage>
         <AboutHero />
       </SectionFullPage>
-      <LottieLine />
+      <Line />
       <AnimatedElement>
         <FoundedSection />
       </AnimatedElement>
-      <LottieLine />
+      <Line />
       <AnimatedElement>
         <SmallDescription />
       </AnimatedElement>
-      <LottieLine />
+      <Line />
       <AnimatedElement amount={'some'}>
         <OurServices />
       </AnimatedElement>
-      <LottieLine />
+      <Line />
       <AnimatedElement amount={'some'}>
         <OurTeam />
       </AnimatedElement>
-      <LottieLine />
+      <Line />
       <AnimatedElement>
         <ExploreTitle />
       </AnimatedElement>
       <AnimatedElement amount={'some'}>
         <ExploreMoreProjects />
       </AnimatedElement>
-      <LottieLine />
+      <Line />
       <AnimatedElement amount={'some'}>
         <AboutBigTitle />
       </AnimatedElement>

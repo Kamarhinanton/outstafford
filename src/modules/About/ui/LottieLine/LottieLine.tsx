@@ -12,7 +12,7 @@ interface LottieLineProps {
   fps?: number
 }
 
-const LottieLine: FC<LottieLineProps> = ({ src, className, fps = 26 }) => {
+const LottieLine: FC<LottieLineProps> = ({ src, className, fps = 76 }) => {
   const targetRef = useRef<HTMLDivElement>(null)
   const refLottie = useRef<LottieRefCurrentProps>(null)
   const { scrollYProgress } = useScroll({
