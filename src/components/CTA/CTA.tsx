@@ -10,7 +10,7 @@ import styles from './CTA.module.scss'
 
 const Cta = () => {
   return (
-    <section className={styles['cta']}>
+    <section className={classNames(styles['cta'], 'hover-cursor')}>
       <Container className={styles['container']}>
         <CardTransformPerspective className={styles['cta__wrapper']}>
           <div className={styles['cta__wrapper_content']}>
@@ -28,7 +28,7 @@ const Cta = () => {
               Shoot us a message and we’ll reply within 8 hours
             </p>
             <ButtonPrimary
-              className={styles['button']}
+              className={classNames(styles['button'], 'no-hover-cursor')}
               size={'large'}
               variant={'green'}
               href={routes.public.contact}

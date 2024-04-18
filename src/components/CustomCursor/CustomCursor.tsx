@@ -100,7 +100,7 @@ const CustomCursor = () => {
     if (typeof window !== 'undefined') {
       setTimeout(() => {
         const links = document.querySelectorAll(
-          'a, button, input, textarea, canvas, iframe',
+          'a:not(.no-hover-cursor), button, input, textarea, canvas, iframe, .hover-cursor',
         )
         links.forEach((link) => {
           link.addEventListener('mouseenter', handleMouseEnter)
