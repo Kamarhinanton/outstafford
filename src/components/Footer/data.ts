@@ -10,7 +10,7 @@ export const navigationFooterLinksLeft = [
     description: 'Projects',
   },
   {
-    href: '/',
+    href: `${routes.public.about}?param=work`,
     description: 'How We Work',
   },
   {
@@ -29,7 +29,7 @@ export const navigationFooterLinksLeft = [
 
 export const navigationFooterLinksLeftMob = [
   {
-    href: '/',
+    href: routes.public.projects,
     description: 'Projects & Case studies',
   },
   {
@@ -45,7 +45,7 @@ export const navigationFooterLinksLeftMob = [
     description: 'Web Development',
   },
   {
-    href: '/',
+    href: routes.public.careers,
     description: 'Join our team',
   },
   {
@@ -70,9 +70,19 @@ export const navigationFooterLinksRight = [
 ]
 
 export const socialLinksFooterData = [
-  { href: '/', src: '/icons/logo.svg', link: 'Upwork' },
-  { href: '/', src: '/icons/logo.svg', link: 'Clutch' },
-  { href: '/', src: '/icons/logo.svg', link: 'G2' },
-  { href: '/', src: '/icons/logo.svg', link: 'Dribbble' },
-  { href: '/', src: '/icons/logo.svg', link: 'Behance' },
+  {
+    href: 'https://www.linkedin.com/company/outstafford',
+    src: '/images/linkid.png',
+    link: 'Linkedin',
+  },
+  {
+    href: 'https://dribbble.com/outstafford',
+    src: '/images/dribble.png',
+    link: 'Dribble',
+  },
+  {
+    href: 'https://t.me/outstafford',
+    src: '/images/telegram.png',
+    link: 'Telegram',
+  },
 ]

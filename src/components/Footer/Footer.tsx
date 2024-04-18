@@ -28,9 +28,17 @@ const Footer: FC<FooterPropsType> = ({ className }) => {
   const dispatch: AppDispatch = useDispatch()
 
   useEffect(() => {
-    if (isInView) {
-      dispatch(setIsFooterVisible(true))
-    } else {
+    const handleFooterVisibility = () => {
+      if (isInView) {
+        dispatch(setIsFooterVisible(true))
+      } else {
+        dispatch(setIsFooterVisible(false))
+      }
+    }
+
+    handleFooterVisibility()
+
+    return () => {
       dispatch(setIsFooterVisible(false))
     }
   }, [isInView])

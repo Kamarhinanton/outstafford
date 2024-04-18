@@ -5,7 +5,6 @@
   z-index: 10;
   width: 100%;
   transition: transform var(--duration-hover) var(--ease);
-  will-change: transform;
 
   &.hidden{
     transform: translateY(55rem);

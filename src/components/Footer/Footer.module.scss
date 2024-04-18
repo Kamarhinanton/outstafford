@@ -81,17 +81,19 @@
           margin: 28rem 0 0;
 
           @media (width <=$breakpoint-mob) {
-            margin: 4rem 0 0;
+            margin: 4rem -8rem 0;
           }
 
           &__link {
             width: 100rem;
             height: 100rem;
             margin: 0 11rem 0 0;
+            background-color: var(--grey-dark);
+            border-radius: 20rem;
 
             @media (width<=$breakpoint-mob) {
               width: calc((100% - (8rem * 10)) / 5);
-              height: 66rem;
+              height: 60rem;
               margin: 8rem;
             }
           }
