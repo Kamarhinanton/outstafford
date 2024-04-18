@@ -5,14 +5,23 @@ import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import HeaderSubmenu from '@/components/Header/ui/HeaderSubmenu/HeaderSubmenu'
 import routes from '@/utils/routes'
 import useRouteChange from '@/hooks/useRoutChange'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/store/store'
+import classNames from 'classnames'
 
 import styles from './Header.module.scss'
 const Header = () => {
   useRouteChange()
+  const isFooterVisible = useSelector(
+    (state: RootState) => state.footerVisibility.isFooterVisible,
+  )
+  const headerClass = {
+    [styles['hidden']]: isFooterVisible,
+  }
 
   return (
     <>
-      <header className={styles['header']}>
+      <header className={classNames(styles['header'], headerClass)}>
         <div className={styles['header__container']}>
           <div className={styles['header__container_content']}>
             <CallMenuButton />

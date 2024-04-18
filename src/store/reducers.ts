@@ -5,6 +5,7 @@ import detectSliderPosition from '@/store/reducers/detectSliderPosition'
 import isFirstLoading from '@/store/reducers/isFirstLoadingSlice'
 import callCareerPopUp from '@/store/reducers/callCareerPopUpSlice'
 import callPopUp from '@/store/reducers/callPopUpSlice'
+import footerVisibility from '@/store/reducers/footerVisibilitySlice'
 
 const rootReducer = combineReducers({
   callMenu: callMenuReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   isFirstLoading: isFirstLoading,
   callCareerPopUp: callCareerPopUp,
   callPopUp: callPopUp,
+  footerVisibility: footerVisibility,
 })
 
 export default rootReducer

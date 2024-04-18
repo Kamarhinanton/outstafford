@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import Container from '@/app/layouts/Container'
 import Logo from '../../../public/icons/logo.svg'
 import Link from 'next/link'
@@ -12,6 +12,10 @@ import {
 import classNames from 'classnames'
 import routes from '@/utils/routes'
 import Outstafford from '../../../public/icons/outstafford.svg'
+import { useInView } from 'framer-motion'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '@/store/store'
+import { setIsFooterVisible } from '@/store/reducers/footerVisibilitySlice'
 
 import styles from './Footer.module.scss'
 
@@ -19,8 +23,20 @@ type FooterPropsType = {
   className?: string
 }
 const Footer: FC<FooterPropsType> = ({ className }) => {
+  const ref = useRef(null)
+  const isInView = useInView(ref)
+  const dispatch: AppDispatch = useDispatch()
+
+  useEffect(() => {
+    if (isInView) {
+      dispatch(setIsFooterVisible(true))
+    } else {
+      dispatch(setIsFooterVisible(false))
+    }
+  }, [isInView])
+
   return (
-    <footer className={classNames(styles['footer'], className)}>
+    <footer ref={ref} className={classNames(styles['footer'], className)}>
       <Container>
         <div className={classNames(styles['title'], 'h1')}>
           <Outstafford />
