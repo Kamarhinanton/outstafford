@@ -21,16 +21,9 @@ const Cta = () => {
       <Container className={styles['container']}>
         <CardTransform className={styles['cta__wrapper']}>
           <div className={styles['cta__wrapper_content']}>
-            <h2 className={classNames(styles['title'], styles['desk'], 'h2')}>
+            <h2 className={classNames(styles['title'], 'h2')}>
               Get your detailed estimate today
             </h2>
-            <Link
-              scroll={false}
-              href={routes.public.contact}
-              className={classNames(styles['title'], styles['mob'], 'h2')}
-            >
-              Book a meeting
-            </Link>
             <p className={styles['description']}>
               Shoot us a message and we’ll reply within 8 hours
             </p>

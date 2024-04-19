@@ -23,9 +23,8 @@
     transform-style: preserve-3d;
 
     @media (width<= $breakpoint-mob) {
-      padding: 26rem 33rem 26rem 162rem;
+      padding: 59rem 36rem 36rem;
       background-color: var(--primary-color);
-      background-image: none;
       border-radius: 24rem;
       perspective: initial;
     }
@@ -42,7 +41,6 @@
       transform-style: preserve-3d;
 
       @media (width<= $breakpoint-mob) {
-        text-align: left;
         transform: initial;
       }
 
@@ -52,25 +50,11 @@
         line-height: normal;
         text-transform: capitalize;
 
-        &.mob {
-          display: none;
-        }
-
         @media (width<= $breakpoint-mob) {
-          &.desk {
-            display: none;
-          }
-
-          &.mob {
-            display: inline-block;
-          }
-
-          display: inline-block;
           margin: 0;
           padding: 0 0 4rem;
-          color: var(--black);
-          font-size: 16rem;
-          border-bottom: 2rem solid var(--black);
+          font-size: 36rem;
+          text-align: center;
         }
       }
 
@@ -81,16 +65,16 @@
         line-height: 150%;
 
         @media (width<= $breakpoint-mob) {
-          margin: 4rem 0 0;
-          color: var(--black);
-          font-size: 14rem;
+          margin: 22rem 0;
+          font-size: 18rem;
           line-height: normal;
+          text-align: center;
         }
       }
 
-      .button {
-        @media (width <= $breakpoint-mob) {
-          display: none;
+      .button{
+        @media (width<= $breakpoint-mob) {
+          width: 100%;
         }
       }
     }

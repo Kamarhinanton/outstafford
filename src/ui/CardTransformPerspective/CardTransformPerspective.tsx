@@ -82,7 +82,7 @@ const CardTransformPerspective: FC<CardTransformPerspectiveType> = ({
         rotateY,
       }}
     >
-      {cursor && (
+      {cursor && width > breakpointMob && (
         <Cursor xPosition={cardMouseSpringX} yPosition={cardMouseSpringY} />
       )}
       {children}
