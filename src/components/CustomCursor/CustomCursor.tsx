@@ -89,24 +89,50 @@ const CustomCursor = () => {
   }, [])
 
   useEffect(() => {
+    let isInside = false
+    setIsOnSubject(false)
+
     const handleMouseEnter = () => {
-      setIsOnSubject(true)
+      if (!isInside) {
+        setIsOnSubject(true)
+        isInside = true
+      }
     }
 
     const handleMouseLeave = () => {
-      setIsOnSubject(false)
+      if (isInside) {
+        setIsOnSubject(false)
+        isInside = false
+      }
+    }
+
+    const addEventListeners = () => {
+      const links = document.querySelectorAll(
+        'a:not(.no-hover-cursor), button, input, textarea, canvas, iframe, .hover-cursor',
+      )
+      links.forEach((link) => {
+        link.addEventListener('mouseover', handleMouseEnter)
+        link.addEventListener('mouseleave', handleMouseLeave)
+      })
+    }
+
+    const removeEventListeners = () => {
+      const links = document.querySelectorAll(
+        'a:not(.no-hover-cursor), button, input, textarea, canvas, iframe, .hover-cursor',
+      )
+      links.forEach((link) => {
+        link.removeEventListener('mouseover', handleMouseEnter)
+        link.removeEventListener('mouseleave', handleMouseLeave)
+      })
     }
 
     if (typeof window !== 'undefined') {
-      setTimeout(() => {
-        const links = document.querySelectorAll(
-          'a:not(.no-hover-cursor), button, input, textarea, canvas, iframe, .hover-cursor',
-        )
-        links.forEach((link) => {
-          link.addEventListener('mouseenter', handleMouseEnter)
-          link.addEventListener('mouseleave', handleMouseLeave)
-        })
-      }, 500)
+      const timeoutId = setTimeout(addEventListeners, 500)
+
+      return () => {
+        clearTimeout(timeoutId)
+        removeEventListeners()
+      }
     }
   }, [route, isPopUpActive])
 
