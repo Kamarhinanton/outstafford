@@ -2,7 +2,6 @@ import React from 'react'
 import classNames from 'classnames'
 import Container from '@/app/layouts/Container'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
-import Link from 'next/link'
 import routes from '@/utils/routes'
 import dynamic from 'next/dynamic'
 

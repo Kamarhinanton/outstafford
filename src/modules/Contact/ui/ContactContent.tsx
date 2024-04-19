@@ -3,10 +3,9 @@ import classNames from 'classnames'
 import Container from '@/app/layouts/Container'
 import BodyForm from '@/modules/Contact/ui/BodyForm/BodyForm'
 import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
+import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
 
 import styles from './ContactContent.module.scss'
-import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
 
 const Calendly = dynamic(
   () => import('./CalendlyComponent/CalendlyComponent'),
@@ -17,7 +16,6 @@ const Calendly = dynamic(
 
 const ContactContent = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const router = useRouter()
   const handleClose = () => {
     setIsOpen(false)
   }
