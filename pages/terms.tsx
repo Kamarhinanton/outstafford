@@ -4,8 +4,12 @@ import Head from 'next/head'
 import Container from '@/app/layouts/Container'
 import Link from 'next/link'
 import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
+import { breakpointMob } from '@/utils/variables'
 
 export default function Terms() {
+  const { width } = useWindowDimensions()
+
   return (
     <>
       <Head>
@@ -14,7 +18,7 @@ export default function Terms() {
       <PageTransitionLayout description={'TERMS AND CONDITIONS'}>
         <Container>
           <div className={'editor-content wrapper-class'}>
-            <BackButtonVariant />
+            <BackButtonVariant absolute={width <= breakpointMob} />
             <h1>
               This is terms <span>page</span>
             </h1>

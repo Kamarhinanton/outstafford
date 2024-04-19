@@ -4,8 +4,12 @@ import Head from 'next/head'
 import Container from '@/app/layouts/Container'
 import Link from 'next/link'
 import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
+import { breakpointMob } from '@/utils/variables'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
 
 export default function Privacy() {
+  const { width } = useWindowDimensions()
+
   return (
     <>
       <Head>
@@ -14,7 +18,7 @@ export default function Privacy() {
       <PageTransitionLayout description={'PRIVACY POLICY'}>
         <Container>
           <div className={'editor-content wrapper-class'}>
-            <BackButtonVariant />
+            <BackButtonVariant absolute={width <= breakpointMob} />
             <h1>
               This is privacy <span>page</span>
             </h1>

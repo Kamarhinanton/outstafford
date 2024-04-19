@@ -14,6 +14,17 @@
   transform: rotateY(180deg);
   transition: var(--duration-hover) var(--ease);
 
+  &.position {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @media (width<=$breakpoint-mob) {
+      top: 16rem;
+      left: 0;
+    }
+  }
+
   @media (width>$breakpoint-mob) {
     &:hover{
       background-color: var(--dark-light-green);

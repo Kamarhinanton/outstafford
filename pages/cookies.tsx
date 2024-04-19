@@ -4,8 +4,11 @@ import Head from 'next/head'
 import Container from '@/app/layouts/Container'
 import Link from 'next/link'
 import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
+import { breakpointMob } from '@/utils/variables'
 
 export default function Cookies() {
+  const { width } = useWindowDimensions()
   return (
     <>
       <Head>
@@ -14,7 +17,7 @@ export default function Cookies() {
       <PageTransitionLayout description={'COOKIES'}>
         <Container>
           <div className={'editor-content wrapper-class'}>
-            <BackButtonVariant />
+            <BackButtonVariant absolute={width <= breakpointMob} />
             <h1>
               This is cookies <span>page</span>
             </h1>
