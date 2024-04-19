@@ -2,10 +2,10 @@
 
 .our-portfolio{
   display: flex;
-  min-height: calc(100vh - 96rem);
+  min-height: calc(100svh - 96rem);
 
   @media (width<=$breakpoint-mob){
-    min-height: 100vh;
+    min-height: 100svh;
   }
 
   &__content{

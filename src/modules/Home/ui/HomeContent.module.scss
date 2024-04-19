@@ -13,7 +13,7 @@
 }
 
 .slider {
-  height: 100vh;
+  height: 100svh;
 
   @media (width <= $breakpoint-mob) {
     height: initial;
