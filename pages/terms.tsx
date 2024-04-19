@@ -3,12 +3,9 @@ import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
 import Head from 'next/head'
 import Container from '@/app/layouts/Container'
 import Link from 'next/link'
-import BackButton from '@/ui/BackButton/BackButton'
-import { useRouter } from 'next/router'
+import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
 
 export default function Terms() {
-  const router = useRouter()
-
   return (
     <>
       <Head>
@@ -17,7 +14,7 @@ export default function Terms() {
       <PageTransitionLayout description={'TERMS AND CONDITIONS'}>
         <Container>
           <div className={'editor-content wrapper-class'}>
-            <BackButton callBackFunc={() => router.back()} />
+            <BackButtonVariant />
             <h1>
               This is terms <span>page</span>
             </h1>

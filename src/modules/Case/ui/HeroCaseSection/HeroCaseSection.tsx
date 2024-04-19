@@ -1,12 +1,11 @@
 import React from 'react'
 import Container from '@/app/layouts/Container'
-import BackButton from '@/ui/BackButton/BackButton'
-import { useRouter } from 'next/router'
 import TopicList from '@/ui/TopicList/TopicList'
 import classNames from 'classnames'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import { ProjectHero } from '@/utils/globalTypes'
+import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
 
 import styles from './HeroCaseSection.module.scss'
 
@@ -14,15 +13,10 @@ type HeroCase = {
   data: ProjectHero
 }
 const HeroCaseSection = ({ data }: HeroCase) => {
-  const router = useRouter()
-
   return (
     <section className={styles['hero']}>
       <Container>
-        <BackButton
-          className={styles['hero__back']}
-          callBackFunc={() => router.back()}
-        />
+        <BackButtonVariant className={styles['hero__back']} />
         {data.topics && (
           <TopicList
             className={styles['hero__topic-list']}

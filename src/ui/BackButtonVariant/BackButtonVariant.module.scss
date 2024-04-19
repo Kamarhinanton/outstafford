@@ -1,0 +1,29 @@
+@import '@/app/styles/variables/breakpoints';
+
+.backward-button {
+  position: relative;
+  width: 94rem;
+  height: 72rem;
+  margin: 0 0 95rem;
+  background-color: var(--dark-green);
+  background-image: url("/icons/arrow_green.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50rem 40rem;
+  border-radius: 59rem;
+  transform: rotateY(180deg);
+  transition: var(--duration-hover) var(--ease);
+
+  @media (width>$breakpoint-mob) {
+    &:hover{
+      background-color: var(--dark-light-green);
+    }
+  }
+
+  @media (width<=$breakpoint-mob) {
+    width: 55rem;
+    height: 43rem;
+    margin: 0 0 24rem;
+    background-size: 30rem 20rem;
+  }
+}

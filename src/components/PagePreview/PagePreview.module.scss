@@ -35,6 +35,10 @@
             margin: 0 0 0 40rem;
           }
         }
+
+        &:only-child {
+          margin: 0;
+        }
       }
 
       @media (width<=$breakpoint-mob) {

@@ -114,29 +114,10 @@
     position: absolute;
     top: 0;
     left: -224rem;
-    width: 94rem;
-    height: 72rem;
-    background-color: var(--dark-green);
-    background-image: url("/icons/arrow_green.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 50rem 40rem;
-    border-radius: 59rem;
-    transform: rotateY(180deg);
-    transition: var(--duration-hover) var(--ease);
-
-    @media (width>$breakpoint-mob) {
-      &:hover{
-        background-color: var(--dark-light-green);
-      }
-    }
 
     @media (width<=$breakpoint-mob) {
       top: -69rem;
       left: 0;
-      width: 55rem;
-      height: 43rem;
-      background-size: 30rem 20rem;
     }
   }
 }

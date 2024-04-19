@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 
 import styles from './ContactContent.module.scss'
+import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
 
 const Calendly = dynamic(
   () => import('./CalendlyComponent/CalendlyComponent'),
@@ -52,10 +53,7 @@ const ContactContent = () => {
               <BodyForm />
             </div>
           </div>
-          <button
-            onClick={() => router.back()}
-            className={styles['backward-button']}
-          />
+          <BackButtonVariant className={styles['backward-button']} />
         </div>
       </Container>
       <Calendly isOpen={isOpen} handleClose={handleClose} />
