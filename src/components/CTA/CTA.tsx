@@ -3,8 +3,15 @@ import classNames from 'classnames'
 import Container from '@/app/layouts/Container'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import Link from 'next/link'
-import CardTransformPerspective from '@/ui/CardTransformPerspective/CardTransformPerspective'
 import routes from '@/utils/routes'
+import dynamic from 'next/dynamic'
+
+const CardTransform = dynamic(
+  () => import('@/ui/CardTransformPerspective/CardTransformPerspective'),
+  {
+    ssr: false,
+  },
+)
 
 import styles from './CTA.module.scss'
 
@@ -12,7 +19,7 @@ const Cta = () => {
   return (
     <section className={classNames(styles['cta'], 'hover-cursor')}>
       <Container className={styles['container']}>
-        <CardTransformPerspective className={styles['cta__wrapper']}>
+        <CardTransform className={styles['cta__wrapper']}>
           <div className={styles['cta__wrapper_content']}>
             <h2 className={classNames(styles['title'], styles['desk'], 'h2')}>
               Get your detailed estimate today
@@ -36,7 +43,7 @@ const Cta = () => {
               Contact us
             </ButtonPrimary>
           </div>
-        </CardTransformPerspective>
+        </CardTransform>
       </Container>
     </section>
   )

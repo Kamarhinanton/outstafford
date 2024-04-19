@@ -1,9 +1,13 @@
 import React, { FC, ReactNode, useEffect, useRef, useCallback } from 'react'
-import SectionCursor from '@/ui/SectionCursor/SectionCursor'
 import useFramerSpringValue from '@/hooks/useFramerSpringValue'
 import { motion, useTransform } from 'framer-motion'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { breakpointMob } from '@/utils/variables'
+import dynamic from 'next/dynamic'
+
+const Cursor = dynamic(() => import('@/ui/SectionCursor/SectionCursor'), {
+  ssr: false,
+})
 
 type CardTransformPerspectiveType = {
   children: ReactNode
@@ -79,10 +83,7 @@ const CardTransformPerspective: FC<CardTransformPerspectiveType> = ({
       }}
     >
       {cursor && (
-        <SectionCursor
-          xPosition={cardMouseSpringX}
-          yPosition={cardMouseSpringY}
-        />
+        <Cursor xPosition={cardMouseSpringX} yPosition={cardMouseSpringY} />
       )}
       {children}
     </motion.div>
