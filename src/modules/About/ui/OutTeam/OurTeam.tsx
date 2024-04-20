@@ -59,7 +59,11 @@ const OurTeam = () => {
                 alt={'picture'}
                 position={'cover'}
               />
-              <Link className={styles['item__content']} href={item.url}>
+              <Link
+                scroll={false}
+                className={styles['item__content']}
+                href={item.url}
+              >
                 <h4 className={classNames(styles['item__content_title'])}>
                   {item.name}
                 </h4>

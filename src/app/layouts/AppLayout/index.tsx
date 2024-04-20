@@ -122,6 +122,13 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
 
   const is404 = useMemo(() => router.route === '/404', [router.route])
 
+  useEffect(() => {
+    router.beforePopState((state) => {
+      state.options.scroll = false
+      return true
+    })
+  }, [])
+
   return (
     <>
       {width > breakpointTablet && <CustomCursor />}

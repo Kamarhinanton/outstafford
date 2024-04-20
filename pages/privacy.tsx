@@ -42,7 +42,11 @@ export default function Privacy() {
               Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem
               Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem
               Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem
-              Lorem Lorem Lorem Lorem <Link href={'/'}>Lorem</Link> Lorem
+              Lorem Lorem Lorem Lorem{' '}
+              <Link scroll={false} href={'/'}>
+                Lorem
+              </Link>{' '}
+              Lorem
             </p>
             <ul>
               <li>Lorem</li>
