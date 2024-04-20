@@ -5,8 +5,14 @@ import dynamic from 'next/dynamic'
 import { Header } from '@/components/Header'
 import { usePathname } from 'next/navigation'
 import routes from '@/utils/routes'
-import ReactLenis from '@studio-freight/react-lenis'
 import { useRouter } from 'next/router'
+
+const SmoothScroll = dynamic(
+  () => import('@/components/SmoothScroll/SmoothScroll'),
+  {
+    ssr: false,
+  },
+)
 
 const MobileCTA = dynamic(
   () => import('@/components/HeaderMobileCTA/HeaderMobileCTA'),
@@ -45,12 +51,6 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
     terms: false,
     cookies: false,
   })
-
-  const options = {
-    duration: 1.5,
-    smoothWheel: true,
-    smoothTouch: true,
-  }
 
   const dynamicPath = useMemo(() => {
     return router.query?.slug?.toString?.() ?? ''
@@ -132,21 +132,20 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   return (
     <>
       {width > breakpointTablet && <CustomCursor />}
-      <ReactLenis root options={{ ...options }}>
-        {!isVisible.contact &&
-          !isVisible.privacy &&
-          !isVisible.terms &&
-          !isVisible.cookies &&
-          !is404 && <Header />}
-        {width <= breakpointMob && <MobileCTA />}
-        {!isVisible.career &&
-          !isVisible.privacy &&
-          !isVisible.terms &&
-          !isVisible.cookies &&
-          !is404 &&
-          width <= breakpointMob && <MobileHeader />}
-        {children}
-      </ReactLenis>
+      <SmoothScroll />
+      {!isVisible.contact &&
+        !isVisible.privacy &&
+        !isVisible.terms &&
+        !isVisible.cookies &&
+        !is404 && <Header />}
+      {width <= breakpointMob && <MobileCTA />}
+      {!isVisible.career &&
+        !isVisible.privacy &&
+        !isVisible.terms &&
+        !isVisible.cookies &&
+        !is404 &&
+        width <= breakpointMob && <MobileHeader />}
+      {children}
     </>
   )
 }
