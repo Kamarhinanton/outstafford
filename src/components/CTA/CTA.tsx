@@ -4,6 +4,8 @@ import Container from '@/app/layouts/Container'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import routes from '@/utils/routes'
 import dynamic from 'next/dynamic'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
+import { breakpointMob } from '@/utils/variables'
 
 const CardTransform = dynamic(
   () => import('@/ui/CardTransformPerspective/CardTransformPerspective'),
@@ -12,12 +14,19 @@ const CardTransform = dynamic(
   },
 )
 
+const Robot = dynamic(() => import('@/components/Robot/Robot'), {
+  ssr: false,
+})
+
 import styles from './CTA.module.scss'
 
 const Cta = () => {
+  const { width } = useWindowDimensions()
+
   return (
     <section className={classNames(styles['cta'], 'hover-cursor')}>
       <Container className={styles['container']}>
+        {width > breakpointMob && <Robot />}
         <CardTransform className={styles['cta__wrapper']}>
           <div className={styles['cta__wrapper_content']}>
             <h2 className={classNames(styles['title'], 'h2')}>
