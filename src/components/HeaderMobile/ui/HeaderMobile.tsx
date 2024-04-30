@@ -5,14 +5,19 @@ import HeaderMobileNavigation from '@/components/HeaderMobile/ui/HeaderMobileNav
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
 import classNames from 'classnames'
+import useScrollDirection from '@/hooks/useScrollDirection'
 
 import styles from './HeaderMobile.module.scss'
 const HeaderMobile = () => {
+  useScrollDirection()
+  const scrollDirection = useSelector(
+    (state: RootState) => state.scrollDirection.scrollDirection,
+  )
   const isFooterVisible = useSelector(
     (state: RootState) => state.footerVisibility.isFooterVisible,
   )
   const headerClass = {
-    [styles['hidden']]: isFooterVisible,
+    [styles['hidden']]: isFooterVisible || scrollDirection === 'down',
   }
   return (
     <>
