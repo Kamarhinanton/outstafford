@@ -39,11 +39,12 @@ const PartnerReviews = () => {
           <h3 className={classNames(styles['title'], 'h3')}>Partner reviews</h3>
           <p className={styles['description']}>
             <span>More verified reviews on</span>
-            <Link scroll={false} className={styles['clutch']} href={'/'}>
-              <Clutch />
-            </Link>
-            <span>and</span>
-            <Link scroll={false} className={styles['upwork']} href={'/'}>
+            <Link
+              target="_blank"
+              scroll={false}
+              className={styles['upwork']}
+              href={'https://www.upwork.com/agencies/outstafford/'}
+            >
               <Upwork />
             </Link>
           </p>

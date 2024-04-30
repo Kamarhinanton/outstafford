@@ -78,6 +78,7 @@ const Footer: FC<FooterPropsType> = ({ className }) => {
                     className={styles['social__link']}
                     key={social.link}
                     href={social.href}
+                    target="_blank"
                   >
                     <BackgroundImage
                       position={'contain'}
