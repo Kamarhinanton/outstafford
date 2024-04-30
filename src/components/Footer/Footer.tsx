@@ -49,9 +49,7 @@ const Footer: FC<FooterPropsType> = ({ className }) => {
 
   useEffect(() => {
     return () => {
-      if (isFooterVisible && !isInView) {
-        dispatch(setIsFooterVisible(false))
-      }
+      dispatch(setIsFooterVisible(false))
     }
   }, [])
 
