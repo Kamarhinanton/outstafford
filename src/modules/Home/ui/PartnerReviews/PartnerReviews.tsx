@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Upwork from '../../../../../public/icons/social/upwork.svg'
-import Clutch from '../../../../../public/icons/social/clutch.svg'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
