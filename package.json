@@ -19,6 +19,7 @@
     "@react-three/drei": "^9.105.4",
     "@react-three/fiber": "^8.16.2",
     "@reduxjs/toolkit": "^2.2.1",
+    "@smakss/react-scroll-direction": "^4.1.0",
     "@studio-freight/react-lenis": "^0.0.46",
     "@types/react-lottie": "^1.2.10",
     "classnames": "^2.5.1",
