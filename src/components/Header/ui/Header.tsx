@@ -8,20 +8,19 @@ import useRouteChange from '@/hooks/useRoutChange'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
 import classNames from 'classnames'
-import useScrollDirection from '@/hooks/useScrollDirection'
+import useDetectScroll from '@smakss/react-scroll-direction'
 
 import styles from './Header.module.scss'
 const Header = () => {
   useRouteChange()
-  useScrollDirection()
-  const scrollDirection = useSelector(
-    (state: RootState) => state.scrollDirection.scrollDirection,
-  )
+  const { scrollDir } = useDetectScroll({ thr: 10 })
+
   const isFooterVisible = useSelector(
     (state: RootState) => state.footerVisibility.isFooterVisible,
   )
+
   const headerClass = {
-    [styles['hidden']]: isFooterVisible || scrollDirection === 'down',
+    [styles['hidden']]: isFooterVisible || scrollDir === 'down',
   }
 
   return (
