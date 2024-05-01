@@ -19,8 +19,13 @@ const Header = () => {
     (state: RootState) => state.footerVisibility.isFooterVisible,
   )
 
+  const headerAnimated = useSelector(
+    (state: RootState) => state.isHeaderAnimated.isHeaderAnimated,
+  )
+
   const headerClass = {
-    [styles['hidden']]: isFooterVisible || scrollDir === 'down',
+    [styles['hidden']]:
+      isFooterVisible || (scrollDir === 'down' && headerAnimated),
   }
 
   return (

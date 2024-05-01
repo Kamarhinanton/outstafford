@@ -7,6 +7,7 @@ import callCareerPopUp from '@/store/reducers/callCareerPopUpSlice'
 import callPopUp from '@/store/reducers/callPopUpSlice'
 import footerVisibility from '@/store/reducers/footerVisibilitySlice'
 import activeLink from '@/store/reducers/activeLinkSlice'
+import isHeaderAnimated from '@/store/reducers/isHeaderAnimatedSlice'
 
 const rootReducer = combineReducers({
   callMenu: callMenuReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   callPopUp: callPopUp,
   footerVisibility: footerVisibility,
   activeLink: activeLink,
+  isHeaderAnimated: isHeaderAnimated,
 })
 
 export default rootReducer
