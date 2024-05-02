@@ -1,24 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import classNames from 'classnames'
 import Container from '@/app/layouts/Container'
 import { useLenis } from '@studio-freight/react-lenis'
 import { useRouter } from 'next/router'
-import useDetectScroll from '@smakss/react-scroll-direction'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/store/store'
 import { setIsHeaderAnimated } from '@/store/reducers/isHeaderAnimatedSlice'
+import useScrollDown from '@/hooks/useScrollDown'
 
 import styles from './AboutBigTitle.module.scss'
 
 const AboutBigTitle = () => {
   const router = useRouter()
-  const { scrollDir } = useDetectScroll({ thr: 10 })
-  const [scrolling, setIsScrolling] = useState(false)
-  const [isLenisScrolling, setIsLenisScrolling] = useState(false)
   const dispatch: AppDispatch = useDispatch()
-  const lenis = useLenis(({ isScrolling }) => {
-    setIsLenisScrolling(isScrolling)
-  })
+  const lenis = useLenis()
+  const { isScrollingDown, lockMeasure, setLockMeasure, setPrevScrollPos } =
+    useScrollDown()
 
   useEffect(() => {
     if (router.query.param) {
@@ -38,15 +35,16 @@ const AboutBigTitle = () => {
   }, [])
 
   const handleComplete = () => {
-    setIsScrolling(true)
+    setLockMeasure(false)
+    setPrevScrollPos(window.scrollY)
   }
 
   useEffect(() => {
-    if (scrolling && isLenisScrolling && scrollDir === 'down') {
+    if (!lockMeasure && isScrollingDown) {
       dispatch(setIsHeaderAnimated(true))
-      setIsScrolling(false)
+      setLockMeasure(true)
     }
-  }, [scrolling, isLenisScrolling])
+  }, [isScrollingDown])
 
   return (
     <div id="work" className={styles['about-title']}>
