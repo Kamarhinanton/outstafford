@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Container from '@/app/layouts/Container'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
+import useActiveLinkInView from '@/hooks/useActiveLinkInView'
+import routes from '@/utils/routes'
 
 import styles from './AboutHero.module.scss'
 
 const AboutHero = () => {
+  const ref = useRef(null)
+  useActiveLinkInView({ ref, linkInView: routes.public.about })
+
   return (
-    <section className={styles['about']}>
+    <section ref={ref} className={styles['about']}>
       <Container>
         <div className={styles['about__content']}>
           <BackgroundImage
