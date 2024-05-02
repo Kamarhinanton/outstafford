@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React, { FC } from 'react'
 import Container from '@/app/layouts/Container'
 import Logo from '../../../public/icons/logo.svg'
 import Link from 'next/link'
@@ -12,10 +12,6 @@ import {
 import classNames from 'classnames'
 import routes from '@/utils/routes'
 import Outstafford from '../../../public/icons/outstafford.svg'
-import { useInView } from 'framer-motion'
-import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch, RootState } from '@/store/store'
-import { setIsFooterVisible } from '@/store/reducers/footerVisibilitySlice'
 import useLenisAnchor, { shouldHandleAnchor } from '@/hooks/useLenisAnchor'
 import { useRouter } from 'next/router'
 
@@ -25,36 +21,11 @@ type FooterPropsType = {
   className?: string
 }
 const Footer: FC<FooterPropsType> = ({ className }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref)
-  const dispatch: AppDispatch = useDispatch()
   const { handleAnchor } = useLenisAnchor()
   const router = useRouter()
-  const isFooterVisible = useSelector(
-    (state: RootState) => state.footerVisibility.isFooterVisible,
-  )
-
-  useEffect(() => {
-    const handleFooterVisibility = () => {
-      if (isInView && !isFooterVisible) {
-        dispatch(setIsFooterVisible(true))
-      }
-      if (isFooterVisible && !isInView) {
-        dispatch(setIsFooterVisible(false))
-      }
-    }
-
-    handleFooterVisibility()
-  }, [isInView])
-
-  useEffect(() => {
-    return () => {
-      dispatch(setIsFooterVisible(false))
-    }
-  }, [])
 
   return (
-    <footer ref={ref} className={classNames(styles['footer'], className)}>
+    <footer className={classNames(styles['footer'], className)}>
       <Container>
         <div className={classNames(styles['title'], 'h1')}>
           <Outstafford />

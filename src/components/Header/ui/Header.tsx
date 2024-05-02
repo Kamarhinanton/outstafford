@@ -15,17 +15,12 @@ const Header = () => {
   useRouteChange()
   const { scrollDir } = useDetectScroll({ thr: 10 })
 
-  const isFooterVisible = useSelector(
-    (state: RootState) => state.footerVisibility.isFooterVisible,
-  )
-
   const headerAnimated = useSelector(
     (state: RootState) => state.isHeaderAnimated.isHeaderAnimated,
   )
 
   const headerClass = {
-    [styles['hidden']]:
-      isFooterVisible || (scrollDir === 'down' && headerAnimated),
+    [styles['hidden']]: scrollDir === 'down' && headerAnimated,
   }
 
   return (
