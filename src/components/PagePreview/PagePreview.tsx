@@ -4,6 +4,7 @@ import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '@/store/store'
 import { setIsFirstLoading } from '@/store/reducers/isFirstLoadingSlice'
+import { setIsFooterVisible } from '@/store/reducers/footerVisibilitySlice'
 
 import styles from './PagePreview.module.scss'
 
@@ -85,7 +86,9 @@ const PagePreview: FC<PagePreviewType> = ({ title, description }) => {
   const isFirstLoading = useSelector(
     (state: RootState) => state.isFirstLoading.isFirstLoading,
   ) as boolean
-
+  const isFooterVisible = useSelector(
+    (state: RootState) => state.footerVisibility.isFooterVisible,
+  )
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setIsAnimate(false)
@@ -97,6 +100,12 @@ const PagePreview: FC<PagePreviewType> = ({ title, description }) => {
     }
   }, [])
 
+  const handleFooterVisibility = () => {
+    if (isFooterVisible) {
+      dispatch(setIsFooterVisible(false))
+    }
+  }
+
   return (
     <AnimatePresence>
       {isAnimate && (
@@ -107,6 +116,7 @@ const PagePreview: FC<PagePreviewType> = ({ title, description }) => {
             animate="animate"
             exit="exit"
             className={styles['page-preview']}
+            onAnimationComplete={handleFooterVisibility}
           >
             <div className={styles['page-preview__inner']}>
               {title && (
