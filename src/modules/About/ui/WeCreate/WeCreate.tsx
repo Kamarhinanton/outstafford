@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 import dynamic from 'next/dynamic'
+import Lottie from 'lottie-react'
 
 const Line = dynamic(() => import('@/modules/About/ui/LottieLine/LottieLine'), {
   ssr: false,
@@ -16,6 +17,10 @@ import lottie2 from './data/2.json'
 import lottie3 from './data/3.json'
 import lottie4 from './data/4.json'
 import lottie5 from './data/5.json'
+import lottie1_item from './data/1_item.json'
+import lottie4_item from './data/4_item.json'
+import lottie5_item from './data/5_item.json'
+import lottie6_item from './data/6_item.json'
 
 const data = [
   {
@@ -68,9 +73,11 @@ const WeCreate = () => {
         <ul className={styles['create__list']}>
           {data.map((item, index) => {
             let lottieSrc
+            let lottieItem
             switch (index) {
               case 0:
                 lottieSrc = lottie1
+                lottieItem = lottie1_item
                 break
               case 1:
                 lottieSrc = lottie2
@@ -80,9 +87,14 @@ const WeCreate = () => {
                 break
               case 3:
                 lottieSrc = lottie4
+                lottieItem = lottie4_item
                 break
               case 4:
                 lottieSrc = lottie5
+                lottieItem = lottie5_item
+                break
+              case 5:
+                lottieItem = lottie6_item
                 break
             }
 
@@ -96,12 +108,22 @@ const WeCreate = () => {
                   />
                 )}
                 <AnimatedElement amount={'some'}>
-                  <BackgroundImage
-                    className={styles['item__img']}
-                    src={item.src}
-                    alt={'picture'}
-                    position={'cover'}
-                  />
+                  {lottieItem ? (
+                    <Lottie
+                      className={styles['item__img']}
+                      animationData={lottieItem}
+                      autoplay={true}
+                      loop={true}
+                    />
+                  ) : (
+                    <BackgroundImage
+                      className={styles['item__img']}
+                      src={item.src}
+                      alt={'picture'}
+                      position={'cover'}
+                    />
+                  )}
+
                   <h2 className={classNames('h2', styles['item__title'])}>
                     {item.title}
                   </h2>
