@@ -5,17 +5,11 @@ import { degToRad } from 'three/src/math/MathUtils.js'
 import React, { useEffect } from 'react'
 import { motion } from 'framer-motion-3d'
 import { Mesh } from 'three'
-import { useThree } from '@react-three/fiber'
-import * as THREE from 'three'
 
-const Texture = () => {
+export const Texture = () => {
   const { nodes } = useGLTF('/robot.gltf')
   const [cardX, cardXSpring] = useFramerSpringValue(0)
   const [cardY, cardYSpring] = useFramerSpringValue(0)
-  const { scene } = useThree()
-  const light = new THREE.DirectionalLight(0xffffff, 2)
-
-  light.position.set(50, 50, 50)
 
   const rotateX = useTransform(
     cardXSpring,
@@ -45,16 +39,13 @@ const Texture = () => {
     }
   }, [])
 
-  useEffect(() => {
-    scene.add(light)
-
-    return () => {
-      scene.remove(light)
-    }
-  }, [])
-
   return (
-    <motion.group rotation-y={rotateX} rotation-z={rotateY}>
+    <motion.group
+      scale={0.05}
+      dispose={null}
+      rotation-y={rotateX}
+      rotation-z={rotateY}
+    >
       <mesh geometry={(nodes.Cylinder as Mesh).geometry}>
         <meshStandardMaterial color={0x75fb61} />
       </mesh>
@@ -77,4 +68,4 @@ const Texture = () => {
   )
 }
 
-export default Texture
+useGLTF.preload('/robot.gltf')
