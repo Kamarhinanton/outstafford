@@ -30,9 +30,7 @@ const AboutContent = () => {
         <FoundedSection />
       </AnimatedElement>
       <Line />
-      <AnimatedElement>
-        <SmallDescription />
-      </AnimatedElement>
+      <SmallDescription />
       <Line />
       <AnimatedElement amount={'some'}>
         <OurServices />
