@@ -110,6 +110,7 @@ export type ProjectTeam = {
 }
 
 export type ProjectType = {
+  preview: string
   hero: ProjectHero
   challenges: ProjectChallenges
   mosaic_1: MosaicDataType

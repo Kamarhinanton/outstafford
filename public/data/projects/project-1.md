@@ -1,97 +1,62 @@
 ---
+#Case preview
+preview: '/images/Projects/Camber/Camber.jpg'
 #Hero
 hero:
   topics:
     - Mobile
     - AI
-  title: Checkem
+  title: Camber
   columns:
     - title: Client
       topics:
         - Camber
-    - title: Involvement
-      topics:
-        - UI/UX Design
-        - Graphic Design
-        - Motion Design
     - title: Deliverables
       topics:
+        - UI/UX Design
         - Mobile App
-        - AR experience
-  description: Space Needle visitors can now access their photos and videos within seconds, eliminating the previous 10-15 minute wait time. As a result, user satisfaction has increased, leading to a 20% boost in app usage within the first month.
-  preview: '/images/Home/preview.jpg'
+        - Admin Platform
+  description: Camber is a travel recommendations app that allows you to list out your favorite places by city, follow friends to see theirs, and view those recs on an all-inclusive map.
+  preview: '/images/Projects/Camber/case_preview.jpg'
   href: '/'
 #Challenges
 challenges:
   title: Challenges
   list:
-    - title: Business expansion and launch of new services
+    - title: Map integrations
       description:
-        Camber wanted to reflect the company’s changes and growth through design.
-        Great service imply great design.
-    - title: Attraction of a new audience
+        Camber wanted to reflect the company’s changes and growth through design. Great service imply great design.
+    - title: Database transition
       description:
-        Competition in the market is increasing, and updated design should
-        strengthen the company's place in the market and attract a new audience.
-    - title: Business expansion
+        Competition in the market is increasing, and updated design should strengthen the company's place in the market and attract a new audience.
+    - title: Load speed Optimization
       description:
-        Camber wanted to reflect the company’s changes and growth through design.
-        Great service imply great design.
+        Camber wanted to reflect the company’s changes and growth through design. Great service imply great design.
 #Mosaic_1
 mosaic_1:
-  description:
-    title: The story
-    textTop:
-      Space Needle visitors can now access their photos and videos within seconds,
-      eliminating the previous 10-15 minute wait time. As a result, user
-      satisfaction has increased, leading to a 20% boost in app usage within the
-      first month. Space Needle visitors can now access their photos and videos
-      within seconds, eliminating the previous 10-15 minute wait time. As a result,
-      user satisfaction has increased, leading to a 20% boost in app usage within
-      the first month.
   mosaic:
-    topImg: '/images/Home/preview.jpg'
-    bottomImg: '/images/Home/preview.jpg'
+    topImg: '/images/Projects/Camber/m-3.jpg'
+    bottomImg: '/images/Projects/Camber/m-4.jpg'
     doubleImg:
-      img1: '/images/Home/preview.jpg'
-      img2: '/images/Home/preview.jpg'
+      img1: '/images/Projects/Camber/m-1.jpg'
+      img2: '/images/Projects/Camber/m-2.jpg'
 #Mosaic_2
 mosaic_2:
   description:
-    title: Results
-    textTop:
-      Space Needle visitors can now access their photos and videos within seconds,
-      eliminating the previous 10-15 minute wait time. As a result, user
-      satisfaction has increased, leading to a 20% boost in app usage within the
-      first month. Space Needle visitors can now access their photos and videos
-      within seconds, eliminating the previous 10-15 minute wait time.
+    title: The story
     quote:
       text:
-        Space Needle visitors can now access their photos and videos within
-        seconds, eliminating the previous 10-15 minute wait time. As a result, user
-        satisfaction has increased, leading to a 20% boost in app usage within the
-        first month.
-      author: Artem Larin
-      position: CEO of Outstafford
-      img: '/images/Home/preview.jpg'
-    textBottom:
-      Space Needle visitors can now access their photos and videos within seconds,
-      eliminating the previous 10-15 minute wait time. As a result, user
-      satisfaction has increased, leading to a 20% boost in app usage within the
-      first month. Space Needle visitors can now access their photos and videos
-      within seconds, eliminating the previous 10-15 minute wait time.
-  mosaic:
-    topImg: '/images/Home/preview.jpg'
-    bottomImg: '/images/Home/preview.jpg'
+        Space Needle visitors can now access their photos and videos within seconds, eliminating the previous 10-15 minute wait time. As a result, user satisfaction has increased, leading to a 20% boost in app usage within the first month.
+      author: Mady Maio
+      position: CEO of Camber
+      img: '/images/Projects/Camber/author.jpg'
 #Summary
 summary:
-  title: Project Summary
+  title: Project Highlights
   list:
-    - title: 9 new Features
+    - title: Personalized notifications
       description:
-        of User Engagement by designing and launching of the new app for the Camber.
-        Designed and launched new features. of User Engagement by designing and
-        launching of the new app for the Camber. Designed and launched new features.
+        of User Engagement by designing and launching of the new app for the Camber. Designed and launched new features. of User Engagement by designing and launching of the new app for the Camber. Designed and launched new features.
     - title: 28% Increase
       description: of User Engagement
     - title: 15% Increase

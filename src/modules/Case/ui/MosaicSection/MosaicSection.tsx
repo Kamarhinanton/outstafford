@@ -71,7 +71,7 @@ const MosaicSection: FC<MosaicSectionType> = ({ mosaicData }) => {
               <div className={styles['double-images']}>
                 {mosaicData.mosaic?.doubleImg?.img1 && (
                   <BackgroundImage
-                    src={'/images/Home/preview.jpg'}
+                    src={mosaicData.mosaic.doubleImg.img1}
                     alt={'picture'}
                     className={styles['image']}
                     position={'cover'}
@@ -79,7 +79,7 @@ const MosaicSection: FC<MosaicSectionType> = ({ mosaicData }) => {
                 )}
                 {mosaicData.mosaic?.doubleImg?.img2 && (
                   <BackgroundImage
-                    src={'/images/Home/preview.jpg'}
+                    src={mosaicData.mosaic.doubleImg.img2}
                     alt={'picture'}
                     className={styles['image']}
                     position={'cover'}
@@ -89,7 +89,7 @@ const MosaicSection: FC<MosaicSectionType> = ({ mosaicData }) => {
             )}
             {mosaicData.mosaic?.bottomImg && (
               <BackgroundImage
-                src={'/images/Home/preview.jpg'}
+                src={mosaicData.mosaic.bottomImg}
                 alt={'picture'}
                 className={classNames(styles['image'], styles['mob'])}
                 position={'cover'}

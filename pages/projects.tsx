@@ -29,10 +29,10 @@ export const getStaticProps = async () => {
 
     const projects = data.map((project) => {
       const { frontMatter, slug } = project
-      const { hero } = frontMatter
+      const { hero, preview } = frontMatter
 
       return {
-        preview: hero.preview,
+        preview: preview,
         topics: hero.topics,
         title: hero.title,
         href: slug,
