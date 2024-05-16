@@ -1,15 +1,45 @@
 @import '@/app/styles/variables/breakpoints';
 
 .description {
+  position: relative;
+  height: 200svh;
   margin: 150rem 0;
 
   @media (width<=$breakpoint-mob) {
     margin: 38rem 0;
   }
 
-  h2 {
-    max-width: 1260rem;
-    margin: 0 auto;
-    text-align: center;
+  &__container{
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    min-height: 100svh;
+
+    h2 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1260rem;
+      margin: 0 auto;
+
+      .word{
+        position: relative;
+        margin: 14rem 10rem 0 0;
+        color: var(--primary-color);
+
+        @media (width<=$breakpoint-mob) {
+          margin: 5rem 5rem 0 0;
+        }
+
+        &__shadow{
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0.3;
+        }
+      }
+    }
   }
 }
