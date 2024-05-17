@@ -1,42 +1,39 @@
 ---
 #Case preview
-preview: '/images/Projects/Checkem/case_preview.jpg'
+preview: '/images/Projects/ZO/ZO.jpg'
 #Hero
 hero:
   topics:
     - Mobile
-    - Web
-    - Healthcare
-  title: Checkem
+    - Social media
+  title: ZÔ
   columns:
     - title: Client
       topics:
-        - Resuscio LLC
+        - ZÔ
     - title: Deliverables
       topics:
         - UI/UX Design
         - Mobile App
-        - Web App
         - iPad App
-        - Admin Platform
 #    - title: 
 #      topics:
-  description: Checkem is an all-in-one clinical decision-making support solution for emergency medicine. Checkem features interactive checklists, digital protocols, drug-calculators, algorithms, text-to-speech alarms, metronomes, and so much more.
-  preview: '/images/Projects/Checkem/case_preview.jpg'
-  href: 'https://app.resusc.io/'
+  description: ZÔ is an all-in-one clinical decision-making support solution for emergency medicine. ZÔ features interactive checklists, digital protocols, drug-calculators, algorithms, text-to-speech alarms, metronomes, and so much more.
+  preview: '/images/Projects/ZO/case_preview.jpg'
+  href: '/'
 #Challenges
 challenges:
   title: Challenges
   list:
     - title: EHR integration
       description:
-        Checkem wanted to reflect the company’s changes and growth through design. Great service imply great design.
+        ZO wanted to reflect the company’s changes and growth through design. Great service imply great design.
     - title: Multiplatform compatibility
       description:
         Competition in the market is increasing, and updated design should strengthen the company's place in the market and attract a new audience.
     - title: Interactive elements
       description:
-        Checkem wanted to reflect the company’s changes and growth through design. Great service imply great design.
+        ZO wanted to reflect the company’s changes and growth through design. Great service imply great design.
 #Mosaic_1
 mosaic_1:
 #  description:
@@ -49,11 +46,11 @@ mosaic_1:
 #      img: 
 #    textBottom:
   mosaic:
-    topImg: '/images/Projects/Checkem/m-1.jpg'
-    bottomImg: '/images/Projects/Checkem/m-4.jpg'
+    topImg: '/images/Projects/ZO/m-1.jpg'
+    bottomImg: '/images/Projects/ZO/m-4.jpg'
     doubleImg:
-      img1: '/images/Projects/Checkem/m-2.jpg'
-      img2: '/images/Projects/Checkem/m-3.jpg'
+      img1: '/images/Projects/ZO/m-2.jpg'
+      img2: '/images/Projects/ZO/m-3.jpg'
 #Mosaic_2
 mosaic_2:
   description:
