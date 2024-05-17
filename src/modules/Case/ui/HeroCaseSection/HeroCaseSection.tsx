@@ -13,7 +13,7 @@ type HeroCase = {
   data: ProjectHero
 }
 const HeroCaseSection = ({ data }: HeroCase) => {
-  return (
+  return data ? (
     <section className={styles['hero']}>
       <Container>
         <BackButtonVariant className={styles['hero__back']} />
@@ -32,7 +32,9 @@ const HeroCaseSection = ({ data }: HeroCase) => {
           <ul className={styles['hero__content_list']}>
             {data.columns?.map((item) => (
               <li key={item.title} className={styles['item']}>
-                <p className={styles['item__title']}>{item.title}</p>
+                {item.title && (
+                  <p className={styles['item__title']}>{item.title}</p>
+                )}
                 <ul className={styles['item__list']}>
                   {item.topics?.map((topic) => (
                     <li key={topic} className={styles['item__list_topic']}>
@@ -67,7 +69,7 @@ const HeroCaseSection = ({ data }: HeroCase) => {
         )}
       </Container>
     </section>
-  )
+  ) : null
 }
 
 export default HeroCaseSection

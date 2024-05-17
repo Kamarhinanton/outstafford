@@ -10,7 +10,7 @@ type ChallengesCaseType = {
 }
 
 const ChallengesCase = ({ data }: ChallengesCaseType) => {
-  return (
+  return data ? (
     <section className={styles['challenges']}>
       <Container>
         {data.title && (
@@ -19,18 +19,22 @@ const ChallengesCase = ({ data }: ChallengesCaseType) => {
         <ul className={styles['list']}>
           {data.list?.map((item) => (
             <li className={styles['list__item']} key={item.title}>
-              <h3 className={classNames(styles['list__item_title'], 'h3')}>
-                {item.title}
-              </h3>
-              <p className={styles['list__item_description']}>
-                {item.description}
-              </p>
+              {item.title && (
+                <h3 className={classNames(styles['list__item_title'], 'h3')}>
+                  {item.title}
+                </h3>
+              )}
+              {item.description && (
+                <p className={styles['list__item_description']}>
+                  {item.description}
+                </p>
+              )}
             </li>
           ))}
         </ul>
       </Container>
     </section>
-  )
+  ) : null
 }
 
 export default ChallengesCase

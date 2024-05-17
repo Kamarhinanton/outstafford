@@ -56,6 +56,7 @@ type HeroColumns = {
 type ProjectList = {
   title: string
   description: string
+  href?: string
 }
 
 type TeamList = {

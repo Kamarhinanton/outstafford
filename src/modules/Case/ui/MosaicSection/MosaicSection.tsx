@@ -11,7 +11,7 @@ type MosaicSectionType = {
 }
 
 const MosaicSection: FC<MosaicSectionType> = ({ mosaicData }) => {
-  return (
+  return mosaicData ? (
     <section className={styles['mosaic']}>
       <Container>
         <div className={styles['mosaic__content']}>
@@ -113,7 +113,7 @@ const MosaicSection: FC<MosaicSectionType> = ({ mosaicData }) => {
         </div>
       </Container>
     </section>
-  )
+  ) : null
 }
 
 export default MosaicSection

@@ -73,6 +73,7 @@ summary:
     - title: Personalized notifications
       description:
         of User Engagement by designing and launching of the new app for the Camber. Designed and launched new features. of User Engagement by designing and launching of the new app for the Camber. Designed and launched new features.
+      href: '/images/Projects/Camber/logo.png'
     - title: 28% Increase
       description: of User Engagement
     - title: 15% Increase
@@ -80,18 +81,18 @@ summary:
     - title: Successfull Launch
       description: of New Service
 #Team
-team:
-  title: Team
-  data:
-    - position: Designers
-      name:
-        - Artem Larin
-    - position: Managers
-      name:
-        - Max Onishenko
-        - Artem Larin
-    - position: Developers
-      name:
-        - Evgen Pylypenko
-        - Yulia Vlasenko
+#team:
+#  title: Team
+#  data:
+#    - position: Designers
+#      name:
+#        - Artem Larin
+#    - position: Managers
+#      name:
+#        - Max Onishenko
+#        - Artem Larin
+#    - position: Developers
+#      name:
+#        - Evgen Pylypenko
+#        - Yulia Vlasenko
 ---

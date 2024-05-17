@@ -9,7 +9,7 @@ type TeamCaseType = {
   team: ProjectTeam
 }
 const TeamCase = ({ team }: TeamCaseType) => {
-  return (
+  return team ? (
     <section className={styles['team-case']}>
       <Container>
         <div className={styles['team-case__content']}>
@@ -19,9 +19,11 @@ const TeamCase = ({ team }: TeamCaseType) => {
           <ul className={styles['list']}>
             {team.data?.map((item) => (
               <li key={item.position} className={styles['list__item']}>
-                <p>
-                  <span>{item.position}</span>
-                </p>
+                {item.position && (
+                  <p>
+                    <span>{item.position}</span>
+                  </p>
+                )}
                 <ul>
                   {item.name.map((name) => (
                     <li key={name}>{name}</li>
@@ -33,7 +35,7 @@ const TeamCase = ({ team }: TeamCaseType) => {
         </div>
       </Container>
     </section>
-  )
+  ) : null
 }
 
 export default TeamCase

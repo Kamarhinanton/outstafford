@@ -4,13 +4,14 @@ import classNames from 'classnames'
 import { ProjectSummary } from '@/utils/globalTypes'
 
 import styles from './SummaryCase.module.scss'
+import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 
 type SummaryCaseType = {
   summary: ProjectSummary
 }
 
 const SummaryCase = ({ summary }: SummaryCaseType) => {
-  return (
+  return summary ? (
     <section className={styles['summary']}>
       <Container>
         {summary.title && (
@@ -19,18 +20,34 @@ const SummaryCase = ({ summary }: SummaryCaseType) => {
           </h2>
         )}
         <ul className={styles['summary__content']}>
-          {summary.list?.map((item) => (
+          {summary.list?.map((item, i) => (
             <li className={styles['summary__content_item']} key={item.title}>
-              <h3 className={classNames(styles['title'], 'h3')}>
-                {item.title}
-              </h3>
-              <p className={styles['description']}>{item.description}</p>
+              {i === 0 && item.href && (
+                <BackgroundImage
+                  src={item.href}
+                  alt={'picture'}
+                  className={styles['image']}
+                  position={'contain'}
+                />
+              )}
+              <div className={styles['text']}>
+                {item.title && (
+                  <h3 className={classNames(styles['text__title'], 'h3')}>
+                    {item.title}
+                  </h3>
+                )}
+                {item.description && (
+                  <p className={styles['text__description']}>
+                    {item.description}
+                  </p>
+                )}
+              </div>
             </li>
           ))}
         </ul>
       </Container>
     </section>
-  )
+  ) : null
 }
 
 export default SummaryCase
