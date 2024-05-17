@@ -14,6 +14,7 @@ type ButtonPrimaryProps = {
   className?: string
   variant?: ButtonPrimaryVariants
   size?: ButtonPrimarySizes
+  target?: string
 } & DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
@@ -27,6 +28,7 @@ const ButtonPrimary: FC<ButtonPrimaryProps> = ({
   children,
   variant = 'grey',
   size = 'normal',
+  target,
   ...buttonProps
 }) => {
   const mods = {
@@ -50,6 +52,7 @@ const ButtonPrimary: FC<ButtonPrimaryProps> = ({
           scroll={false}
           className={classNames(styles['buttonPrimary'], className, mods)}
           href={href}
+          target={target}
         >
           {isLoading ? 'Loading...' : children}
         </Link>

@@ -46,6 +46,7 @@ const HeroCaseSection = ({ data }: HeroCase) => {
           <div className={styles['hero__content_description']}>
             {data.description && <p>{data.description}</p>}
             <ButtonPrimary
+              target="_blank"
               className={styles['button']}
               arrows={true}
               variant={'dark-green'}

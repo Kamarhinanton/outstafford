@@ -16,9 +16,11 @@ hero:
         - UI/UX Design
         - Mobile App
         - Admin Platform
+#    - title: 
+#      topics:
   description: Camber is a travel recommendations app that allows you to list out your favorite places by city, follow friends to see theirs, and view those recs on an all-inclusive map.
   preview: '/images/Projects/Camber/case_preview.jpg'
-  href: '/'
+  href: 'https://camberapp.com/'
 #Challenges
 challenges:
   title: Challenges
@@ -34,6 +36,15 @@ challenges:
         Camber wanted to reflect the company’s changes and growth through design. Great service imply great design.
 #Mosaic_1
 mosaic_1:
+#  description:
+#    title:
+#    textTop:
+#    quote:
+#      text:
+#      author:
+#      position:
+#      img: 
+#    textBottom:
   mosaic:
     topImg: '/images/Projects/Camber/m-3.jpg'
     bottomImg: '/images/Projects/Camber/m-4.jpg'
@@ -44,12 +55,17 @@ mosaic_1:
 mosaic_2:
   description:
     title: The story
+#    textTop:
     quote:
       text:
         Space Needle visitors can now access their photos and videos within seconds, eliminating the previous 10-15 minute wait time. As a result, user satisfaction has increased, leading to a 20% boost in app usage within the first month.
       author: Mady Maio
       position: CEO of Camber
       img: '/images/Projects/Camber/author.jpg'
+#    textBottom:
+#  mosaic:
+#    topImg:
+#    bottomImg:
 #Summary
 summary:
   title: Project Highlights

@@ -36,6 +36,20 @@
             font-size: 14rem;
           }
         }
+
+        .quote{
+          &:first-child{
+            margin: 0;
+          }
+        }
+
+        .quote + p {
+          margin: 64rem 0 0;
+
+          @media (width <= $breakpoint-mob) {
+            margin: 48rem 0 0;
+          }
+        }
       }
     }
 
@@ -114,10 +128,10 @@
 
     .quote {
       position: relative;
-      margin: 64rem 0;
+      margin: 64rem 0 0;
 
       @media (width <= $breakpoint-mob) {
-        margin: 48rem 0;
+        margin: 48rem 0 0;
         padding: 58rem 0 0;
       }
 
