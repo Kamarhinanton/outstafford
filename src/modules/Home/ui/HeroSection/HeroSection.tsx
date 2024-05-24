@@ -4,8 +4,16 @@ import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import Logo from '../../../../../public/icons/logo.svg'
 import classNames from 'classnames'
 import routes from '@/utils/routes'
+import dynamic from 'next/dynamic'
 
 import styles from './HeroSection.module.scss'
+
+const HeroAnimation = dynamic(
+  () => import('@/modules/Home/ui/HeroAnimation/HeroAnimation'),
+  {
+    ssr: false,
+  },
+)
 
 const HeroSection = () => {
   return (
@@ -49,6 +57,7 @@ const HeroSection = () => {
             </ButtonPrimary>
           </div>
         </div>
+        <HeroAnimation />
       </Container>
     </section>
   )
