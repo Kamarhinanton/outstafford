@@ -1,10 +1,12 @@
-import React, { useEffect, useMemo, useRef } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import vertexShader from '!!raw-loader!./vertexShader.glsl'
 import fragmentShader from '!!raw-loader!./fragmentShader.glsl'
 import { MathUtils, Mesh, ShaderMaterial } from 'three'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { breakpointMob } from '@/utils/variables'
+import { useTransform, m } from 'framer-motion'
+import useFramerSpringValue from '@/hooks/useFramerSpringValue'
 
 import styles from './HeroAnimation.module.scss'
 
@@ -15,7 +17,7 @@ const Blob = () => {
   const uniforms = useMemo(
     () => ({
       u_intensity: {
-        value: 0.3,
+        value: 0.2,
       },
       u_time: {
         value: 0.0,
@@ -28,12 +30,12 @@ const Blob = () => {
     const { clock } = state
     if (mesh.current) {
       const shaderMaterial = mesh.current.material as ShaderMaterial
-      shaderMaterial.uniforms.u_time.value = 0.4 * clock.getElapsedTime()
+      shaderMaterial.uniforms.u_time.value = 0.3 * clock.getElapsedTime()
 
       shaderMaterial.uniforms.u_intensity.value = MathUtils.lerp(
         shaderMaterial.uniforms.u_intensity.value,
-        hover.current ? 1.2 : 0.4,
-        0.02,
+        hover.current ? 1 : 0.3,
+        0.05,
       )
     }
   })
@@ -68,8 +70,35 @@ const Blob = () => {
 }
 
 const HeroAnimation = () => {
+  const [x, xSpring] = useFramerSpringValue(0)
+  const colorX = useTransform(xSpring, [0, 1], ['#0F0F0F', '#1F331C'])
+  const { width } = useWindowDimensions()
+
+  const handleMouseMove = useCallback(
+    (event: MouseEvent) => {
+      if (width > breakpointMob) {
+        const windowWidth = window.innerWidth
+        requestAnimationFrame(() => {
+          const offsetX = event.clientX / windowWidth
+          x.set(offsetX)
+        })
+      }
+    },
+    [width],
+  )
+
+  useEffect(() => {
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [handleMouseMove])
+
   return (
-    <div className={styles['hero-animation']}>
+    <m.div
+      style={{ backgroundColor: colorX }}
+      className={styles['hero-animation']}
+    >
       <Canvas
         orthographic={true}
         camera={{
@@ -85,7 +114,7 @@ const HeroAnimation = () => {
       >
         <Blob />
       </Canvas>
-    </div>
+    </m.div>
   )
 }
 
