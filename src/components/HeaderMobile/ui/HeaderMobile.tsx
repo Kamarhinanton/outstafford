@@ -8,15 +8,18 @@ import classNames from 'classnames'
 import useDetectScroll from '@smakss/react-scroll-direction'
 
 import styles from './HeaderMobile.module.scss'
+
 const HeaderMobile = () => {
-  const { scrollDir } = useDetectScroll({ thr: 10 })
+  const { scrollDir, scrollPosition } = useDetectScroll({ thr: 10 })
 
   const headerAnimated = useSelector(
     (state: RootState) => state.isHeaderAnimated.isHeaderAnimated,
   )
 
   const headerClass = {
-    [styles['hidden']]: scrollDir === 'down' && headerAnimated,
+    [styles['hidden']]:
+      (scrollDir === 'down' && headerAnimated && scrollPosition.bottom > 0) ||
+      scrollPosition.bottom <= 0,
   }
 
   return (
