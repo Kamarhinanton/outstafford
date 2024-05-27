@@ -58,7 +58,7 @@ const Blob = () => {
       onPointerOver={() => (hover.current = true)}
       onPointerOut={() => (hover.current = false)}
     >
-      <icosahedronGeometry args={[2, 80]} />
+      <icosahedronGeometry args={[2, 100]} />
       <shaderMaterial
         fragmentShader={fragmentShader}
         vertexShader={vertexShader}
