@@ -13,7 +13,7 @@ export default function Terms() {
   return (
     <>
       <Head>
-        <title>Terms page</title>
+        <title>Terms – Outstafford</title>
       </Head>
       <PageTransitionLayout description={'TERMS AND CONDITIONS'}>
         <Container>

@@ -29,14 +29,14 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      padding: 21rem 36rem 21rem 112rem;
+      padding: 21rem 74rem;
       background-color: var(--grey-bg);
       border-radius: 16rem;
       cursor: pointer;
       transition: var(--duration-hover) var(--ease);
 
       @media (width <= $breakpoint-mob) {
-        padding: 8rem 14rem 8rem 48rem;
+        padding: 8rem 36rem;
         border-radius: 8rem;
       }
 

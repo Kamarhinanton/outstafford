@@ -81,20 +81,28 @@
           margin: 28rem 0 0;
 
           @media (width <=$breakpoint-mob) {
-            margin: 4rem -8rem 0;
+            margin: 4rem -12rem 0;
           }
 
           &__link {
-            width: 100rem;
-            height: 100rem;
-            margin: 0 11rem 0 0;
-            background-color: var(--grey-dark);
-            border-radius: 20rem;
+            width: 48rem;
+            height: 48rem;
+            margin: 0 24rem 0 0;
+            overflow: hidden;
+            background-color: var(--white);
+            border-radius: 50%;
+            transition: background-color var(--duration-hover) var(--ease);
+
+            @media (width >$breakpoint-mob) {
+              &:hover{
+                background-color: var(--primary-color);
+              }
+            }
 
             @media (width<=$breakpoint-mob) {
-              width: calc((100% - (8rem * 10)) / 5);
-              height: 60rem;
-              margin: 8rem;
+              width: calc((100% - (12rem * 10)) / 5);
+              height: 52rem;
+              margin: 12rem;
             }
           }
         }
@@ -110,22 +118,8 @@
         flex: 1;
         flex-direction: column;
 
-        &.mob {
-          display: none;
-
-          @media (width<=$breakpoint-mob) {
-            display: flex;
-          }
-        }
-
-        &.desktop {
-          @media (width<=$breakpoint-mob) {
-            display: none;
-          }
-        }
-
         &:nth-child(1) {
-          flex: 0 1 74%;
+          flex: 0 1 69%;
 
           @media (width<=$breakpoint-mob) {
             flex: 0 1 66%;

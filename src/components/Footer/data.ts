@@ -27,41 +27,14 @@ export const navigationFooterLinksLeft = [
   },
 ]
 
-export const navigationFooterLinksLeftMob = [
-  {
-    href: routes.public.projects,
-    description: 'Projects & Case studies',
-  },
-  {
-    href: '/',
-    description: 'Mobile App Development',
-  },
-  {
-    href: '/',
-    description: 'AI integrations',
-  },
-  {
-    href: '/',
-    description: 'Web Development',
-  },
-  {
-    href: routes.public.careers,
-    description: 'Join our team',
-  },
-  {
-    href: routes.public.contact,
-    description: 'Contact us',
-  },
-]
-
 export const navigationFooterLinksRight = [
   {
     href: routes.public.terms,
-    description: 'Terms',
+    description: 'T&C',
   },
   {
     href: routes.public.privacy,
-    description: 'Privacy',
+    description: 'Privacy Policy',
   },
   {
     href: routes.public.cookies,
@@ -72,17 +45,17 @@ export const navigationFooterLinksRight = [
 export const socialLinksFooterData = [
   {
     href: 'https://www.linkedin.com/company/outstafford',
-    src: '/images/linkid.png',
+    src: '/images/linkedin_i.svg',
     link: 'Linkedin',
   },
   {
-    href: 'https://dribbble.com/outstafford',
-    src: '/images/dribble.png',
+    href: 'https://t.me/outstafford',
+    src: '/images/telegram_i.svg',
     link: 'Dribble',
   },
   {
-    href: 'https://t.me/outstafford',
-    src: '/images/telegram.png',
+    href: 'https://www.upwork.com/agencies/outstafford/',
+    src: '/images/upwork_i.svg',
     link: 'Telegram',
   },
 ]

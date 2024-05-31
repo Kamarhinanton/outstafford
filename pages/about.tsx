@@ -7,7 +7,7 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About page</title>
+        <title>About Outstafford</title>
       </Head>
       <PageTransitionLayout description={'ABOUT OUR TEAM'}>
         <AboutContent />

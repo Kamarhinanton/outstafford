@@ -2,6 +2,7 @@ import React from 'react'
 import Container from '@/app/layouts/Container'
 import Link from 'next/link'
 import classNames from 'classnames'
+import routes from '@/utils/routes'
 
 import styles from './OurPortfolio.module.scss'
 const OurPortfolio = () => {
@@ -12,7 +13,7 @@ const OurPortfolio = () => {
           <Link
             scroll={false}
             className={styles['our-portfolio__content_link']}
-            href={'/'}
+            href={routes.public.projects}
           >
             <h2 className={classNames(styles['title'], 'h2')}>
               Explore our Projects

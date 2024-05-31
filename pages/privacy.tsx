@@ -13,7 +13,7 @@ export default function Privacy() {
   return (
     <>
       <Head>
-        <title>Privacy page</title>
+        <title>Privacy – Outstafford</title>
       </Head>
       <PageTransitionLayout description={'PRIVACY POLICY'}>
         <Container>

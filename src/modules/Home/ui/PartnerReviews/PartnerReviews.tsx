@@ -70,7 +70,7 @@ const PartnerReviews = () => {
               />
               <div className={styles['top-description']}>
                 <p className={styles['top-description__text']}>
-                  {slide.description}
+                  &quot;{slide.description}&quot;
                 </p>
               </div>
               <p className={styles['bottom-description']}>

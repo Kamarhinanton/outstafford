@@ -55,8 +55,17 @@
             height: 250rem;
           }
 
+          .image{
+            width: 80rem;
+            height: 80rem;
+            margin: 0 0 18rem;
+            background-color: var(--white);
+            border-radius: 50%;
+            transition:background-color var(--duration-hover) var(--ease);
+          }
+
           .title {
-            transition: var(--duration-hover) var(--ease);
+            transition:color var(--duration-hover) var(--ease);
 
             @media (width <= $breakpoint-mob) {
               max-width: 174rem;
@@ -67,6 +76,7 @@
             margin: 16rem 0 0;
             font-size: 20rem;
             line-height: 150%;
+            transition:color var(--duration-hover) var(--ease);
 
             @media (width <= $breakpoint-mob) {
               margin: 8rem 0 0;
@@ -76,7 +86,15 @@
 
           @media (width > $breakpoint-mob) {
             &:hover {
+              .image{
+                background-color:var(--primary-color);
+              }
+
               .title {
+                color: var(--primary-color);
+              }
+
+              .description {
                 color: var(--primary-color);
               }
             }

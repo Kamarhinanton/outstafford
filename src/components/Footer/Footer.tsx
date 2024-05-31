@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import {
   navigationFooterLinksLeft,
-  navigationFooterLinksLeftMob,
   navigationFooterLinksRight,
   socialLinksFooterData,
 } from '@/components/Footer/data'
@@ -62,29 +61,7 @@ const Footer: FC<FooterPropsType> = ({ className }) => {
             </div>
           </div>
           <nav className={styles['right-section']}>
-            <div
-              className={classNames(
-                styles['right-section__column'],
-                styles['mob'],
-              )}
-            >
-              {navigationFooterLinksLeftMob.map((link) => (
-                <Link
-                  scroll={false}
-                  className={styles['right-section__column_link']}
-                  key={link.description}
-                  href={link.href}
-                >
-                  {link.description}
-                </Link>
-              ))}
-            </div>
-            <div
-              className={classNames(
-                styles['right-section__column'],
-                styles['desktop'],
-              )}
-            >
+            <div className={classNames(styles['right-section__column'])}>
               {navigationFooterLinksLeft.map((link) => (
                 <Link
                   scroll={false}

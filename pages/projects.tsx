@@ -14,7 +14,7 @@ export default function Projects({ projects }: ProjectPageType) {
   return (
     <>
       <Head>
-        <title>Projects page</title>
+        <title>Our Projects – Outstafford</title>
       </Head>
       <PageTransitionLayout description={'OUR BEST PROJECTS'}>
         <ProjectsContent projects={projects} />

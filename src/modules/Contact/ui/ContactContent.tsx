@@ -6,6 +6,8 @@ import dynamic from 'next/dynamic'
 import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
 
 import styles from './ContactContent.module.scss'
+import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
+import Link from 'next/link'
 
 const Calendly = dynamic(
   () => import('./CalendlyComponent/CalendlyComponent'),
@@ -29,13 +31,29 @@ const ContactContent = () => {
       <Container>
         <div className={styles['contact__content']}>
           <div className={styles['contact__content_column']}>
-            <div className={styles['card']}>
+            <Link
+              target="_blank"
+              href={'https://t.me/outstafford'}
+              className={styles['card']}
+            >
+              <BackgroundImage
+                className={styles['image']}
+                src={'/images/telegram_i.svg'}
+                alt={'logo'}
+                position={'contain'}
+              />
               <h3 className={classNames(styles['title'], 'h3')}>
                 Send us a message
               </h3>
               <p className={styles['description']}>in Telegram</p>
-            </div>
+            </Link>
             <div onClick={handleOpen} className={styles['card']}>
+              <BackgroundImage
+                className={styles['image']}
+                src={'/images/calendly_i.svg'}
+                alt={'logo'}
+                position={'contain'}
+              />
               <h3 className={classNames(styles['title'], 'h3')}>
                 Book a сall <br />
                 with us

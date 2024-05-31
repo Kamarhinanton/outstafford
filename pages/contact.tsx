@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Contact page</title>
+        <title>Contact Us – Outstafford</title>
       </Head>
       <PageTransitionLayout description={'SAY HI TO.US'}>
         <ContactContent />

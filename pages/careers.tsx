@@ -14,7 +14,7 @@ export default function Careers({ careers }: CareersType) {
   return (
     <>
       <Head>
-        <title>Careers page</title>
+        <title>Join Our Team – Outstafford</title>
       </Head>
       <PageTransitionLayout description={'EXPLORE OPEN POSITION'}>
         <CareersContent careers={careers} />

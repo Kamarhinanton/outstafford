@@ -12,7 +12,7 @@ export default function Cookies() {
   return (
     <>
       <Head>
-        <title>Cookies page</title>
+        <title>Cookies – Outstafford</title>
       </Head>
       <PageTransitionLayout description={'COOKIES'}>
         <Container>

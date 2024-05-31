@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Home page</title>
+        <title>Outstafford – MVP Development Company</title>
       </Head>
       <PageTransitionLayout description={'WE LOVE STARTUPS'}>
         <HomeContent />
