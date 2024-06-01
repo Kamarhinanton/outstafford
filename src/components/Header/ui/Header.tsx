@@ -1,6 +1,5 @@
 import React from 'react'
 import CallMenuButton from '@/components/Header/ui/CallMenuButton/CallMenuButton'
-import HeaderNavigation from '@/components/Header/ui/HeaderNavigation/HeaderNavigation'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import HeaderSubmenu from '@/components/Header/ui/HeaderSubmenu/HeaderSubmenu'
 import routes from '@/utils/routes'
@@ -9,7 +8,13 @@ import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
 import classNames from 'classnames'
 import useDetectScroll from '@smakss/react-scroll-direction'
-
+import dynamic from 'next/dynamic'
+const HeaderNavigation = dynamic(
+  () => import('@/components/Header/ui/HeaderNavigation/HeaderNavigation'),
+  {
+    ssr: false,
+  },
+)
 import styles from './Header.module.scss'
 const Header = () => {
   useRouteChange()

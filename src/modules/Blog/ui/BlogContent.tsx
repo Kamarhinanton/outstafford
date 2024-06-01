@@ -4,7 +4,6 @@ import BlogNavigation from '@/components/BlogNavigation/BlogNavigation'
 import BlogSection from '@/modules/Blog/ui/BlogSection/BlogSection'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
 import { BlogType } from '../../../../pages/blog'
-import SectionFullPage from '@/app/layouts/SectionFullPage'
 import dynamic from 'next/dynamic'
 
 const IndustriesDynamic = dynamic(
@@ -34,9 +33,7 @@ const BlogContent = ({ blog }: BlogType) => {
 
   return (
     <main className={'wrapper-class variant'}>
-      <SectionFullPage>
-        <HeroBlog />
-      </SectionFullPage>
+      <HeroBlog />
       <BlogNavigation
         activeCategory={activeCategories}
         handleClick={handleClick}

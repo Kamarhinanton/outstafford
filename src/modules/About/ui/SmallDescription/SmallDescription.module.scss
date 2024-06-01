@@ -9,7 +9,7 @@
     margin: 38rem 0;
   }
 
-  &__container{
+  &__container {
     position: sticky;
     top: 0;
     left: 0;
@@ -24,19 +24,30 @@
       max-width: 1260rem;
       margin: 0 auto;
 
-      .word{
+      .word {
         position: relative;
         margin: 14rem 10rem 0 0;
-        color: var(--primary-color);
+        color: var(--white);
+
+        &:nth-child(1), &:nth-child(2) {
+          color: var(--primary-color);
+
+          .word {
+            &__shadow {
+              color: var(--primary-color);
+            }
+          }
+        }
 
         @media (width<=$breakpoint-mob) {
           margin: 5rem 5rem 0 0;
         }
 
-        &__shadow{
+        &__shadow {
           position: absolute;
           top: 0;
           left: 0;
+          color: var(--white);
           opacity: 0.3;
         }
       }

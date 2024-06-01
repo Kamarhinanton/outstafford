@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import HeaderNavigation from '@/components/Header/ui/HeaderNavigation/HeaderNavigation'
 import { domAnimation, LazyMotion, m } from 'framer-motion'
 import Link from 'next/link'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
@@ -9,6 +8,14 @@ import useRouteChange from '@/hooks/useRoutChange'
 import { setIsPopUpActive } from '@/store/reducers/callPopUpSlice'
 import { AppDispatch, RootState } from '@/store/store'
 import { useDispatch, useSelector } from 'react-redux'
+import dynamic from 'next/dynamic'
+
+const HeaderNavigation = dynamic(
+  () => import('@/components/Header/ui/HeaderNavigation/HeaderNavigation'),
+  {
+    ssr: false,
+  },
+)
 
 import styles from './HeaderMobileNavigation.module.scss'
 
@@ -76,6 +83,7 @@ const HeaderMobileNavigation = () => {
                 className={styles['link']}
                 key={social.link}
                 href={social.href}
+                target="_blank"
               >
                 <BackgroundImage src={social.src} alt={social.link} />
               </Link>

@@ -79,10 +79,11 @@
 
           &_link {
             display: flex;
+            align-items: center;
 
             .text {
               font: var(--link-s);
-              transition: var(--duration-hover) var(--ease);
+              transition: color var(--duration-hover) var(--ease);
             }
 
             @media (width>$breakpoint-mob) {
@@ -90,14 +91,21 @@
                 .text {
                   color: var(--primary-color);
                 }
+
+                .icon {
+                  background-color: var(--primary-color);
+                }
               }
             }
 
             .icon {
               position: relative;
-              width: 40rem;
-              height: 35rem;
-              margin: 0 18rem 0 0;
+              width: 42rem;
+              height: 42rem;
+              margin: 0 17rem 0 0;
+              background-color: var(--white);
+              border-radius: 50%;
+              transition: background-color var(--duration-hover) var(--ease);
             }
           }
         }

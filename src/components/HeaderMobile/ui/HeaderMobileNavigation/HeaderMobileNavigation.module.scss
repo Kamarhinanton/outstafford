@@ -34,8 +34,10 @@
 
       .link {
         width: calc((100% - (4rem * 6)) / 3);
-        height: 66rem;
+        height: 63rem;
         margin: 5rem 4rem;
+        background-color: var(--white);
+        border-radius: 50%;
       }
     }
   }

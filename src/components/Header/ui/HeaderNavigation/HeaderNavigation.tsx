@@ -7,9 +7,12 @@ import useLenisAnchor, { shouldHandleAnchor } from '@/hooks/useLenisAnchor'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '@/store/store'
 import { setActiveLink } from '@/store/reducers/activeLinkSlice'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
+import { breakpointMob } from '@/utils/variables'
 
 import styles from './HeaderNavigation.module.scss'
 const HeaderNavigation = () => {
+  const { width } = useWindowDimensions()
   const router = useRouter()
   const activeLink = useSelector(
     (state: RootState) => state.activeLink.activeLink,
@@ -23,23 +26,25 @@ const HeaderNavigation = () => {
 
   return (
     <nav className={styles['header-navigation']}>
-      {navigationHeaderLinks.map((link) => (
-        <Link
-          scroll={false}
-          className={classNames(styles['header-navigation__link'], {
-            [styles['active']]: link.href === activeLink,
-          })}
-          key={link.description}
-          href={link.href}
-          onClick={
-            shouldHandleAnchor(router.asPath, link.href)
-              ? (e) => handleAnchor(e, link.href)
-              : undefined
-          }
-        >
-          {link.description}
-        </Link>
-      ))}
+      {navigationHeaderLinks
+        .filter((link) => (width > breakpointMob ? link.desktop : true))
+        .map((link) => (
+          <Link
+            scroll={false}
+            className={classNames(styles['header-navigation__link'], {
+              [styles['active']]: link.href === activeLink,
+            })}
+            key={link.description}
+            href={link.href}
+            onClick={
+              shouldHandleAnchor(router.asPath, link.href)
+                ? (e) => handleAnchor(e, link.href)
+                : undefined
+            }
+          >
+            {link.description}
+          </Link>
+        ))}
     </nav>
   )
 }

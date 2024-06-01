@@ -1,11 +1,18 @@
 @import '@/app/styles/variables/breakpoints';
 
 .hero {
+  padding: 259rem 0 16rem;
+
   @media (width<=$breakpoint-mob){
     padding: 160rem 0 24rem;
   }
 
   &__content {
+    @media (width> $breakpoint-mob) {
+      display: flex;
+      justify-content: center;
+    }
+
     .title {
       display: flex;
       flex-direction: column;

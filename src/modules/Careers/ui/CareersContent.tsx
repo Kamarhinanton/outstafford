@@ -4,14 +4,11 @@ import HeroCareers from '@/modules/Careers/ui/HeroCareers/HeroCareers'
 import Positions from '@/modules/Careers/ui/Positions/Positions'
 import Benefits from '@/modules/Careers/ui/Benefits/Benefits'
 import { CareersType } from '../../../../pages/careers'
-import SectionFullPage from '@/app/layouts/SectionFullPage'
 
 const CareersContent = ({ careers }: CareersType) => {
   return (
     <main>
-      <SectionFullPage>
-        <HeroCareers />
-      </SectionFullPage>
+      <HeroCareers />
       <Positions careers={careers} />
       <Benefits />
       <Footer />

@@ -5,7 +5,7 @@ preview: '/images/Projects/Camber/Camber.jpg'
 hero:
   topics:
     - Mobile
-    - AI
+    - Location-based
   title: Camber
   columns:
     - title: Client

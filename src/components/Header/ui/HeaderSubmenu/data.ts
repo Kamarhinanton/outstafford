@@ -17,16 +17,15 @@ export const headerSubmenuData: HeaderSubmenuData = [
   {
     description: 'Our work',
     links: [
-      { link: 'Main', href: '/' },
-      { link: 'About', href: '/' },
+      { link: 'Main', href: routes.public.index },
+      { link: 'About', href: routes.public.about },
       { link: 'Projects', href: routes.public.projects },
     ],
   },
   {
     description: 'Get to know us',
     links: [
-      { link: 'Our team', href: '/' },
-      { link: 'How we work', href: '/' },
+      { link: 'How we work', href: `${routes.public.about}?param=work` },
       { link: 'Reviews', href: '/' },
       { link: 'Our blog', href: routes.public.blog },
       { link: 'Careers', href: routes.public.careers },
@@ -35,17 +34,36 @@ export const headerSubmenuData: HeaderSubmenuData = [
   {
     description: 'Links',
     links: [
-      { href: '/', src: '/icons/logo.svg', link: 'Upwork' },
-      { href: '/', src: '/icons/logo.svg', link: 'Clutch' },
-      { href: '/', src: '/icons/logo.svg', link: 'G2' },
+      {
+        href: 'https://www.upwork.com/agencies/outstafford/',
+        src: '/images/upwork_i.svg',
+        link: 'Upwork',
+      },
+      {
+        href: 'https://www.linkedin.com/company/outstafford',
+        src: '/images/linkedin_i.svg',
+        link: 'LinkedIn',
+      },
     ],
   },
   {
-    description: 'Find us on social media',
+    description: 'Contacts',
     links: [
-      { href: '/', src: '/icons/logo.svg', link: 'Dribbble' },
-      { href: '/', src: '/icons/logo.svg', link: 'Behance' },
-      { href: '/', src: '/icons/logo.svg', link: 'Instagram' },
+      {
+        href: 'mailto:artem.larin.works@gmail.com',
+        src: '/images/email_i.svg',
+        link: 'Send email',
+      },
+      {
+        href: 'https://t.me/outstafford',
+        src: '/images/telegram_i.svg',
+        link: 'Telegram',
+      },
+      {
+        href: routes.public.contact,
+        src: '/images/calendly_i.svg',
+        link: 'Book a meeting',
+      },
     ],
   },
 ]

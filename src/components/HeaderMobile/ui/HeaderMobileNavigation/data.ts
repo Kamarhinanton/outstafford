@@ -1,8 +1,17 @@
 export const socialLinksData = [
-  { href: '/', src: '/icons/logo.svg', link: 'Upwork' },
-  { href: '/', src: '/icons/logo.svg', link: 'Clutch' },
-  { href: '/', src: '/icons/logo.svg', link: 'G2' },
-  { href: '/', src: '/icons/logo.svg', link: 'Dribbble' },
-  { href: '/', src: '/icons/logo.svg', link: 'Behance' },
-  { href: '/', src: '/icons/logo.svg', link: 'Instagram' },
+  {
+    href: 'https://www.linkedin.com/company/outstafford',
+    src: '/images/linkedin_i.svg',
+    link: 'Linkedin',
+  },
+  {
+    href: 'https://t.me/outstafford',
+    src: '/images/telegram_i.svg',
+    link: 'Telegram',
+  },
+  {
+    href: 'https://www.upwork.com/agencies/outstafford/',
+    src: '/images/upwork_i.svg',
+    link: 'Upwork',
+  },
 ]

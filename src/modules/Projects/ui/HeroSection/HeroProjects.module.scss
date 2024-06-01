@@ -8,8 +8,10 @@
   }
 
   &__content {
-    display: flex;
-    justify-content: center;
+    @media (width> $breakpoint-mob) {
+      display: flex;
+      justify-content: center;
+    }
 
     .title {
       display: flex;

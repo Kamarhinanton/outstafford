@@ -1,11 +1,18 @@
 @import '@/app/styles/variables/breakpoints';
 
 .hero-blog{
+  padding: 259rem 0 16rem;
+
   @media (width<= $breakpoint-mob) {
     padding: 112rem 0 0;
   }
 
   &__content{
+    @media (width> $breakpoint-mob) {
+      display: flex;
+      justify-content: center;
+    }
+
     &_title{
       text-align: center;
 
