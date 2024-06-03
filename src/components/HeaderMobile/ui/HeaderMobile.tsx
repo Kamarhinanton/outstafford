@@ -5,7 +5,7 @@ import HeaderMobileNavigation from '@/components/HeaderMobile/ui/HeaderMobileNav
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
 import useDetectScroll from '@smakss/react-scroll-direction'
-import { motion } from 'framer-motion'
+import { domAnimation, LazyMotion, m } from 'framer-motion'
 
 import styles from './HeaderMobile.module.scss'
 
@@ -31,15 +31,17 @@ const HeaderMobile = () => {
   return (
     <>
       <HeaderMobileNavigation />
-      <motion.header
-        variants={headerVariants}
-        animate={shouldHiddenHeader ? 'hidden' : 'initial'}
-        className={styles['header-mobile']}
-      >
-        <Container className={styles['header-mobile__container']}>
-          <CallMenuButton>Menu</CallMenuButton>
-        </Container>
-      </motion.header>
+      <LazyMotion features={domAnimation}>
+        <m.header
+          variants={headerVariants}
+          animate={shouldHiddenHeader ? 'hidden' : 'initial'}
+          className={styles['header-mobile']}
+        >
+          <Container className={styles['header-mobile__container']}>
+            <CallMenuButton>Menu</CallMenuButton>
+          </Container>
+        </m.header>
+      </LazyMotion>
     </>
   )
 }

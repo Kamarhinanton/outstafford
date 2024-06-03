@@ -18,6 +18,8 @@ import lottie3 from './data/3.json'
 import lottie4 from './data/4.json'
 import lottie5 from './data/5.json'
 import lottie1_item from './data/1_item.json'
+import lottie2_item from './data/2_item.json'
+import lottie3_item from './data/3_item.json'
 import lottie4_item from './data/4_item.json'
 import lottie5_item from './data/5_item.json'
 import lottie6_item from './data/6_item.json'
@@ -81,9 +83,11 @@ const WeCreate = () => {
                 break
               case 1:
                 lottieSrc = lottie2
+                lottieItem = lottie2_item
                 break
               case 2:
                 lottieSrc = lottie3
+                lottieItem = lottie3_item
                 break
               case 3:
                 lottieSrc = lottie4
