@@ -24,8 +24,8 @@ const AboutHero = () => {
           />
           <h2>
             We’re a full-cycle design and development team. We build complex
-            <span>mobile apps</span> and progressive <span>web apps</span> with{' '}
-            <span>AI integrations</span>.
+            <span>mobile apps</span> and progressive <span>web apps</span> with
+            <span>AI integrations.</span>
           </h2>
         </div>
       </Container>

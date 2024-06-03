@@ -10,5 +10,6 @@ export default {
     terms: '/terms',
     cookies: '/cookies',
     career: (slug: string) => `/careers/${slug}`,
+    project: (slug: string) => `/projects/${slug}`,
   },
 }
