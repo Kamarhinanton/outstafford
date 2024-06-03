@@ -14,25 +14,19 @@ const AboutHero = () => {
     <section ref={ref} className={styles['about']}>
       <Container>
         <div className={styles['about__content']}>
+          <h1>
+            <span>Outstafford</span>
+          </h1>
           <BackgroundImage
-            className={styles['about__content_logo']}
+            className={styles['logo']}
             src={'/images/logo.png'}
             alt={'logo'}
           />
-          <div className={styles['about__content_text']}>
-            <h1>
-              <span>Outstafford</span>
-            </h1>
-            <h2>
-              Full-stack design and development
-              <br /> team. We build complex
-              <span>mobile apps</span>
-              <br />
-              and progressive <span>web apps</span>
-              with
-              <span>AI integrations.</span>
-            </h2>
-          </div>
+          <h2>
+            We’re a full-cycle design and development team. We build complex
+            <span>mobile apps</span> and progressive <span>web apps</span> with{' '}
+            <span>AI integrations</span>.
+          </h2>
         </div>
       </Container>
     </section>
