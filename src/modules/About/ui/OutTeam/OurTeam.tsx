@@ -11,31 +11,17 @@ import styles from './OurTeam.module.scss'
 const data = [
   {
     id: 1,
-    name: 'James Peterson',
-    position: 'Managing Partner & Founder, Coach',
-    href: '/images/man.jpg',
-    url: '/',
+    name: 'Art Larin',
+    position: 'CEO',
+    href: '/images/About/ceo.jpg',
+    url: 'https://www.linkedin.com/in/artlarin/',
   },
   {
     id: 2,
-    name: 'James Peterson',
-    position: 'Managing Partner & Founder, Coach',
-    href: '/images/man.jpg',
-    url: '/',
-  },
-  {
-    id: 3,
-    name: 'James Peterson',
-    position: 'Managing Partner & Founder, Coach',
-    href: '/images/man.jpg',
-    url: '/',
-  },
-  {
-    id: 4,
-    name: 'James Peterson',
-    position: 'Managing Partner & Founder, Coach',
-    href: '/images/man.jpg',
-    url: '/',
+    name: 'Polina Zubareva',
+    position: 'UX/UI Designer',
+    href: '/images/About/design.jpg',
+    url: 'https://www.linkedin.com/in/polinazubareva/',
   },
 ]
 
@@ -63,6 +49,7 @@ const OurTeam = () => {
                 scroll={false}
                 className={styles['item__content']}
                 href={item.url}
+                target="_blank"
               >
                 <h4 className={classNames(styles['item__content_title'])}>
                   {item.name}
@@ -82,9 +69,10 @@ const OurTeam = () => {
             className={styles['team__wrapper_btn']}
             size={'large'}
             variant={'green'}
-            href={'/'}
+            href={'https://www.linkedin.com/company/outstafford/'}
+            target="_blank"
           >
-            All team members on Linkedin
+            Follow us on Linkedin
           </ButtonPrimary>
         </div>
       </Container>

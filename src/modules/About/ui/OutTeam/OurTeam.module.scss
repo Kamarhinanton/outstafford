@@ -56,7 +56,7 @@
         &:hover {
           .item {
             &__img {
-              scale: 1.1;
+              transform: scale(1.1);
             }
 
             &__content {
@@ -95,7 +95,9 @@
         left: 0;
         width: 100%;
         height: 100%;
-        transition: scale var(--duration-hover) var(--ease);
+        transform-origin: center center;
+        transition: transform var(--duration-hover) var(--ease);
+        will-change: transform;
       }
 
       &__content {

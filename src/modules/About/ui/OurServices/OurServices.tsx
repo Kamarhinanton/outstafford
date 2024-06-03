@@ -10,26 +10,26 @@ const data = [
   {
     title: 'Mobile App Development',
     id: 1,
-    list: ['React Native', 'Swift', 'Kotlin'],
-    url: '/images/Careers/1.png',
+    list: ['React Native', 'iOS', 'Android'],
+    url: '/images/About/1.jpg',
   },
   {
-    title: 'Mobile App Development',
+    title: 'Web App Development',
     id: 2,
-    list: ['React Native', 'Swift', 'Kotlin'],
-    url: '/images/Careers/1.png',
+    list: ['Next.js', 'React.js', 'Node.js'],
+    url: '/images/About/2.jpg',
   },
   {
-    title: 'Mobile App Development',
+    title: 'AI App Development',
     id: 3,
-    list: ['React Native', 'Swift', 'Kotlin'],
-    url: '/images/Careers/1.png',
+    list: ['AI MVPs', 'Web AI', 'Mobile AI'],
+    url: '/images/About/3.jpg',
   },
   {
-    title: 'Mobile App Development',
+    title: 'AI Integrations',
     id: 4,
-    list: ['React Native', 'Swift', 'Kotlin'],
-    url: '/images/Careers/1.png',
+    list: ['OpenAI', 'LLama', 'GPT4'],
+    url: '/images/About/4.jpg',
   },
 ]
 
