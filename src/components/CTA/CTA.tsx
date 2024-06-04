@@ -14,7 +14,7 @@ const CardTransform = dynamic(
   },
 )
 
-const Robot = dynamic(() => import('@/components/Robot/Robot'), {
+const Robot = dynamic(() => import('@/components/CTA/Robot/Robot'), {
   ssr: false,
 })
 

@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic'
 import styles from './HeroSection.module.scss'
 
 const HeroAnimation = dynamic(
-  () => import('@/modules/Home/ui/HeroAnimation/HeroAnimation'),
+  () => import('@/modules/Home/ui/HeroSection/Spot/Spot'),
   {
     ssr: false,
   },
