@@ -53,7 +53,7 @@ export const Texture = () => {
       onPointerOver={() => (hover.current = true)}
       onPointerOut={() => (hover.current = false)}
     >
-      <icosahedronGeometry args={[2, 100]} />
+      <icosahedronGeometry args={[2, 65]} />
       <shaderMaterial
         fragmentShader={fragmentShader}
         vertexShader={vertexShader}

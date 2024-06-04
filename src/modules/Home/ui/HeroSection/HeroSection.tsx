@@ -8,12 +8,9 @@ import dynamic from 'next/dynamic'
 
 import styles from './HeroSection.module.scss'
 
-const HeroAnimation = dynamic(
-  () => import('@/modules/Home/ui/HeroSection/Spot/Spot'),
-  {
-    ssr: false,
-  },
-)
+const Spot = dynamic(() => import('@/modules/Home/ui/HeroSection/Spot/Spot'), {
+  ssr: false,
+})
 
 const HeroSection = () => {
   return (
@@ -57,7 +54,7 @@ const HeroSection = () => {
             </ButtonPrimary>
           </div>
         </div>
-        <HeroAnimation />
+        <Spot />
       </Container>
     </section>
   )
