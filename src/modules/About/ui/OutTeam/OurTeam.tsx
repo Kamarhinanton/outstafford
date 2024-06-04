@@ -44,6 +44,7 @@ const OurTeam = () => {
                 src={item.href}
                 alt={'picture'}
                 position={'cover'}
+                quality={100}
               />
               <Link
                 scroll={false}
