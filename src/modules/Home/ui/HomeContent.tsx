@@ -107,6 +107,13 @@ const SwiperHomeComponent = () => {
     }
   }, [width])
 
+  useEffect(() => {
+    return () => {
+      dispatch(setIsTop(true))
+      dispatch(setIsBottom(false))
+    }
+  }, [])
+
   return (
     <>
       <div className="current-pagination" />
