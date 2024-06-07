@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TextField from '@/ui/TextField/TextField'
 import classNames from 'classnames'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
@@ -9,7 +9,13 @@ import { validationSchema } from '@/modules/Contact/ui/BodyForm/validationSchema
 import Checkbox from '@/ui/Checkbox/Checkbox'
 import ErrorMessage from '@/ui/ErrorMessage/ErrorMessage'
 import { FormData } from '@/utils/globalTypes'
-// import FormPopup from '@/ui/FormPopup/FormPopup'
+import { sendContactForm } from '@/utils/api/sendContactForm'
+import { AnimatePresence } from 'framer-motion'
+import dynamic from 'next/dynamic'
+
+const FormPopup = dynamic(() => import('@/ui/FormPopup/FormPopup'), {
+  ssr: false,
+})
 
 import styles from './BodyForm.module.scss'
 
@@ -42,16 +48,40 @@ const BodyForm = () => {
     handleSubmit,
     formState: { errors },
     control,
-    // reset,
-    // trigger,
+    reset,
     watch,
   } = useForm<FormData>({
     values: defaultValues,
     resolver: yupResolver(validationSchema) as Resolver<FormData>,
   })
-
-  const onSubmit = (data: FormData) => {
-    console.log('data', data)
+  const [sending, setSending] = useState(false)
+  const [isVisible, setIsVisible] = useState({
+    visible: false,
+    message: '',
+  })
+  const onSubmit = async (data: FormData) => {
+    setSending(true)
+    try {
+      await sendContactForm(data)
+      setIsVisible((prev) => {
+        return {
+          ...prev,
+          visible: true,
+          message: 'The letter was sent successfully!',
+        }
+      })
+      reset(defaultValues)
+    } catch (error) {
+      reset(defaultValues)
+      setIsVisible((prev) => {
+        return {
+          ...prev,
+          visible: true,
+          message: 'Something went wrong',
+        }
+      })
+    }
+    setSending(false)
   }
 
   const watchedInterestGroup = watch(
@@ -60,6 +90,8 @@ const BodyForm = () => {
   )
 
   const watchedBudgetGroup = watch('budgetGroup', defaultValues.budgetGroup)
+
+  const watchedDocument = watch('document', defaultValues.document)
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles['form']}>
@@ -175,6 +207,7 @@ const BodyForm = () => {
           return (
             <FileField
               {...field}
+              watchedDocument={watchedDocument}
               error={errors['document']?.message}
               label={'Attach file (doc, docx, pdf - 15 mb)'}
             />
@@ -186,11 +219,15 @@ const BodyForm = () => {
         className={styles['button']}
         size={'large'}
         variant={'green'}
-        // isLoading={true}
+        isLoading={sending}
       >
         Send
       </ButtonPrimary>
-      {/*<FormPopup visible={true} message={'The letter was sent successfully'} />*/}
+      <AnimatePresence>
+        {isVisible.visible && (
+          <FormPopup setIsVisible={setIsVisible} message={isVisible.message} />
+        )}
+      </AnimatePresence>
     </form>
   )
 }

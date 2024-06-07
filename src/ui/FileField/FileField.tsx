@@ -12,11 +12,12 @@ type FileFieldType = {
   name?: string
   error?: string
   className?: string
+  watchedDocument?: File | undefined
 }
 
 const FileField = forwardRef<HTMLInputElement, FileFieldType>(
   (
-    { label, onChange, error, className }: FileFieldType,
+    { label, onChange, error, className, watchedDocument }: FileFieldType,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     const [uploadedFiles, setUploadedFiles] = useState<File | undefined>(
@@ -55,9 +56,9 @@ const FileField = forwardRef<HTMLInputElement, FileFieldType>(
 
     return (
       <div className={classNames(styles['file-field'], className)}>
-        {uploadedFiles && (
+        {uploadedFiles && watchedDocument && (
           <div className={styles['file-field__list']}>
-            {uploadedFiles && (
+            {uploadedFiles && watchedDocument && (
               <div
                 className={styles['file-field__list_link']}
                 key={uploadedFiles.name}

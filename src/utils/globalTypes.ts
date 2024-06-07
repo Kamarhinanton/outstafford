@@ -24,7 +24,7 @@ export type FormData = {
   message: string
   name: string
   budgetGroup: string[]
-  document: FileList | undefined
+  document: File | undefined
 }
 
 export type FrontMatterType = {

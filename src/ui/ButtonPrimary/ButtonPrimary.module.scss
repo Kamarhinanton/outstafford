@@ -190,18 +190,23 @@
     }
 
     &::before{
-      position: static;
       display: block;
-      box-sizing: border-box;
       width: 28rem;
       height: 28rem;
-      margin: 0 24rem 0 0;
-      background-image: url("/icons/spinner-b.svg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 28rem 28rem;
+      margin:0 24rem 0 0;
+      border-top: 4px solid var(--black);
+      border-right: 4px solid rgba(0 0 0 / 20%);
+      border-bottom: 4px solid rgb(0 0 0 / 20%);
+      border-left: 4px solid rgb(0 0 0 / 20%);
+      border-radius: 100%;
       animation: spin 2s linear infinite;
       content: '';
+
+      @media (width<=$breakpoint-mob) {
+        width: 16rem;
+        height: 16rem;
+        margin: 0 10rem 0 0;
+      }
     }
 
     @media (width>$breakpoint-mob) {

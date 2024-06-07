@@ -9,7 +9,7 @@ type CheckboxType = {
   error?: string
   onChange: (e: string[]) => void
   field?: ControllerRenderProps
-  value?: string
+  value: string
   watchedCheckboxGroup?: string[]
 }
 
@@ -25,6 +25,9 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxType>(
     }: CheckboxType,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
+    const isChecked =
+      watchedCheckboxGroup && watchedCheckboxGroup.includes(value)
+
     const handleChange = (value: ChangeEvent<HTMLInputElement>) => {
       if (watchedCheckboxGroup) {
         const newArray = [...watchedCheckboxGroup]
@@ -44,6 +47,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxType>(
         className={classNames(
           styles['checkbox'],
           error ? styles['__error'] : '',
+          isChecked ? styles['checked'] : '',
         )}
       >
         <input
