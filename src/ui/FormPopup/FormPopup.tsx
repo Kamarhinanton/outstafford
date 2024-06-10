@@ -1,7 +1,10 @@
 import React, { FC, SetStateAction, useEffect } from 'react'
 import { domAnimation, LazyMotion, m } from 'framer-motion'
+import classNames from 'classnames'
+import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 
 import styles from './FormPopup.module.scss'
+import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 
 type FormPopupType = {
   message: string
@@ -22,23 +25,47 @@ const formVariant = {
 }
 
 const FormPopup: FC<FormPopupType> = ({ message, setIsVisible }) => {
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setIsVisible((prev) => {
-        return {
-          ...prev,
-          visible: false,
-          message: '',
-        }
-      })
-    }, 3000)
+  const disablePopUp = () => {
+    setIsVisible((prev) => {
+      return {
+        ...prev,
+        visible: false,
+        message: '',
+      }
+    })
+  }
+  const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (event.target === event.currentTarget) {
+      disablePopUp()
+    }
+  }
 
-    return () => clearTimeout(timeoutId)
-  }, [])
   return (
     <LazyMotion features={domAnimation}>
       <m.div {...formVariant} className={styles['form-popup']}>
-        <div className={styles['form-popup__inner']}>{message}</div>
+        <div onClick={handleClick} className={styles['form-popup__wrapper']}>
+          <div className={styles['form-popup__wrapper_inner']}>
+            <BackgroundImage
+              className={styles['logo']}
+              src={'/images/logo.png'}
+              alt={'logo'}
+              position={'contain'}
+            />
+            <h1 className={classNames(styles['title'], 'h2')}>
+              Thanks for reaching out!
+            </h1>
+            <p className={styles['description']}>
+              We&apos;ve received your request and we’ll be in touch soon!
+            </p>
+            <ButtonPrimary
+              onClick={() => disablePopUp()}
+              variant={'green'}
+              size={'large'}
+            >
+              Close
+            </ButtonPrimary>
+          </div>
+        </div>
       </m.div>
     </LazyMotion>
   )

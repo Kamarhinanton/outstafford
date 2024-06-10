@@ -94,141 +94,149 @@ const BodyForm = () => {
   const watchedDocument = watch('document', defaultValues.document)
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={styles['form']}>
-      <div className={styles['form__row']}>
-        <p className={styles['form__row_description']}>I’m interested in...</p>
-        <div className={styles['form__row_list']}>
-          {interestGroup.map((item) => (
-            <Controller
-              control={control}
-              key={item.label}
-              name="interestGroup"
-              render={({ field }) => (
-                <Checkbox
-                  {...field}
-                  value={item.label}
-                  title={item.label}
-                  watchedCheckboxGroup={watchedInterestGroup}
-                />
-              )}
-            />
-          ))}
-          {errors['interestGroup'] && (
-            <ErrorMessage
-              className={styles['row-error']}
-              error={errors['interestGroup']?.message}
-            />
-          )}
-        </div>
-      </div>
-      <div className={styles['form__row']}>
-        <p className={styles['form__row_description']}>Project budget (USD)</p>
-        <div className={styles['form__row_list']}>
-          {budgetGroup.map((item) => (
-            <Controller
-              control={control}
-              key={item.label}
-              name="budgetGroup"
-              render={({ field }) => (
-                <Checkbox
-                  {...field}
-                  value={item.label}
-                  title={item.label}
-                  watchedCheckboxGroup={watchedBudgetGroup}
-                />
-              )}
-            />
-          ))}
-          {errors['budgetGroup'] && (
-            <ErrorMessage
-              className={styles['row-error']}
-              error={errors['budgetGroup']?.message}
-            />
-          )}
-        </div>
-      </div>
-      <div className={classNames(styles['form__row'], styles['with-columns'])}>
-        <Controller
-          control={control}
-          name={'name'}
-          render={({ field }) => {
-            return (
-              <TextField
-                {...field}
-                className={styles['with-columns__col']}
-                placeholder="James Williams"
-                label={'Name'}
-                error={errors['name']?.message}
-              />
-            )
-          }}
-        />
-        <Controller
-          control={control}
-          name={'email'}
-          render={({ field }) => {
-            return (
-              <TextField
-                {...field}
-                className={styles['with-columns__col']}
-                placeholder="james@williams.com"
-                label={'Email'}
-                error={errors['email']?.message}
-              />
-            )
-          }}
-        />
-        <Controller
-          control={control}
-          name={'message'}
-          render={({ field }) => {
-            return (
-              <TextField
-                {...field}
-                className={classNames(
-                  styles['with-columns__col'],
-                  styles['full'],
+    <>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles['form']}>
+        <div className={styles['form__row']}>
+          <p className={styles['form__row_description']}>
+            I’m interested in...
+          </p>
+          <div className={styles['form__row_list']}>
+            {interestGroup.map((item) => (
+              <Controller
+                control={control}
+                key={item.label}
+                name="interestGroup"
+                render={({ field }) => (
+                  <Checkbox
+                    {...field}
+                    value={item.label}
+                    title={item.label}
+                    watchedCheckboxGroup={watchedInterestGroup}
+                  />
                 )}
-                element={'textarea'}
-                label={'Your message'}
-                placeholder={
-                  'Project details, deadlines – everything you think we need to know about our collaboration.'
-                }
-                error={errors['message']?.message}
+              />
+            ))}
+            {errors['interestGroup'] && (
+              <ErrorMessage
+                className={styles['row-error']}
+                error={errors['interestGroup']?.message}
+              />
+            )}
+          </div>
+        </div>
+        <div className={styles['form__row']}>
+          <p className={styles['form__row_description']}>
+            Project budget (USD)
+          </p>
+          <div className={styles['form__row_list']}>
+            {budgetGroup.map((item) => (
+              <Controller
+                control={control}
+                key={item.label}
+                name="budgetGroup"
+                render={({ field }) => (
+                  <Checkbox
+                    {...field}
+                    value={item.label}
+                    title={item.label}
+                    watchedCheckboxGroup={watchedBudgetGroup}
+                  />
+                )}
+              />
+            ))}
+            {errors['budgetGroup'] && (
+              <ErrorMessage
+                className={styles['row-error']}
+                error={errors['budgetGroup']?.message}
+              />
+            )}
+          </div>
+        </div>
+        <div
+          className={classNames(styles['form__row'], styles['with-columns'])}
+        >
+          <Controller
+            control={control}
+            name={'name'}
+            render={({ field }) => {
+              return (
+                <TextField
+                  {...field}
+                  className={styles['with-columns__col']}
+                  placeholder="James Williams"
+                  label={'Name'}
+                  error={errors['name']?.message}
+                />
+              )
+            }}
+          />
+          <Controller
+            control={control}
+            name={'email'}
+            render={({ field }) => {
+              return (
+                <TextField
+                  {...field}
+                  className={styles['with-columns__col']}
+                  placeholder="james@williams.com"
+                  label={'Email'}
+                  error={errors['email']?.message}
+                />
+              )
+            }}
+          />
+          <Controller
+            control={control}
+            name={'message'}
+            render={({ field }) => {
+              return (
+                <TextField
+                  {...field}
+                  className={classNames(
+                    styles['with-columns__col'],
+                    styles['full'],
+                  )}
+                  element={'textarea'}
+                  label={'Your message'}
+                  placeholder={
+                    'Project details, deadlines – everything you think we need to know about our collaboration.'
+                  }
+                  error={errors['message']?.message}
+                />
+              )
+            }}
+          />
+        </div>
+        <Controller
+          control={control}
+          name={'document'}
+          render={({ field }) => {
+            return (
+              <FileField
+                {...field}
+                watchedDocument={watchedDocument}
+                error={errors['document']?.message}
+                label={'Attach file (doc, docx, pdf - 15 mb)'}
               />
             )
           }}
         />
-      </div>
-      <Controller
-        control={control}
-        name={'document'}
-        render={({ field }) => {
-          return (
-            <FileField
-              {...field}
-              watchedDocument={watchedDocument}
-              error={errors['document']?.message}
-              label={'Attach file (doc, docx, pdf - 15 mb)'}
-            />
-          )
-        }}
-      />
-      <ButtonPrimary
-        type="submit"
-        className={styles['button']}
-        size={'large'}
-        variant={'green'}
-        isLoading={sending}
-      >
-        Send
-      </ButtonPrimary>
+        <ButtonPrimary
+          type="submit"
+          className={styles['button']}
+          size={'large'}
+          variant={'green'}
+          isLoading={sending}
+        >
+          Send
+        </ButtonPrimary>
+      </form>
       <AnimatePresence>
         {isVisible.visible && (
           <FormPopup setIsVisible={setIsVisible} message={isVisible.message} />
         )}
       </AnimatePresence>
-    </form>
+    </>
   )
 }
 
