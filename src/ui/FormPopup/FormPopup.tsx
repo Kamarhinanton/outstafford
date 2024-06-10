@@ -1,15 +1,15 @@
-import React, { FC, SetStateAction, useEffect } from 'react'
+import React, { FC, SetStateAction } from 'react'
 import { domAnimation, LazyMotion, m } from 'framer-motion'
 import classNames from 'classnames'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
-
-import styles from './FormPopup.module.scss'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 
+import styles from './FormPopup.module.scss'
+
 type FormPopupType = {
-  message: string
+  error: boolean
   setIsVisible: React.Dispatch<
-    SetStateAction<{ visible: boolean; message: string }>
+    SetStateAction<{ visible: boolean; error: boolean }>
   >
 }
 
@@ -19,18 +19,16 @@ const formVariant = {
   exit: { opacity: 0 },
   transition: {
     ease: 'easeInOut',
-    duration: 0.5,
-    delay: 0.5,
+    duration: 0.3,
   },
 }
 
-const FormPopup: FC<FormPopupType> = ({ message, setIsVisible }) => {
+const FormPopup: FC<FormPopupType> = ({ error, setIsVisible }) => {
   const disablePopUp = () => {
     setIsVisible((prev) => {
       return {
         ...prev,
         visible: false,
-        message: '',
       }
     })
   }
@@ -51,12 +49,24 @@ const FormPopup: FC<FormPopupType> = ({ message, setIsVisible }) => {
               alt={'logo'}
               position={'contain'}
             />
-            <h1 className={classNames(styles['title'], 'h2')}>
-              Thanks for reaching out!
-            </h1>
-            <p className={styles['description']}>
-              We&apos;ve received your request and we’ll be in touch soon!
-            </p>
+            {error ? (
+              <>
+                <h1 className={classNames(styles['title'], 'h2')}>
+                  Oops, something went wrong!
+                </h1>
+                <p className={styles['description']}>Try again later.</p>
+              </>
+            ) : (
+              <>
+                <h1 className={classNames(styles['title'], 'h2')}>
+                  Thanks for reaching out!
+                </h1>
+                <p className={styles['description']}>
+                  We&apos;ve received your request and we’ll be in touch soon!
+                </p>
+              </>
+            )}
+
             <ButtonPrimary
               onClick={() => disablePopUp()}
               variant={'green'}

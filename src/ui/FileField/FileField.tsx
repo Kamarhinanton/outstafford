@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, useState } from 'react'
+import React, { ForwardedRef, forwardRef, SetStateAction } from 'react'
 import { useDropzone } from 'react-dropzone'
 import Paperclip from '../../../public/icons/paperclip.svg'
 import classNames from 'classnames'
@@ -12,18 +12,22 @@ type FileFieldType = {
   name?: string
   error?: string
   className?: string
-  watchedDocument?: File | undefined
+  uploadedFiles: File | undefined
+  setUploadedFiles: React.Dispatch<SetStateAction<File | undefined>>
 }
 
 const FileField = forwardRef<HTMLInputElement, FileFieldType>(
   (
-    { label, onChange, error, className, watchedDocument }: FileFieldType,
+    {
+      label,
+      onChange,
+      error,
+      className,
+      uploadedFiles,
+      setUploadedFiles,
+    }: FileFieldType,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
-    const [uploadedFiles, setUploadedFiles] = useState<File | undefined>(
-      undefined,
-    )
-
     const {
       getRootProps,
       getInputProps,
@@ -56,28 +60,26 @@ const FileField = forwardRef<HTMLInputElement, FileFieldType>(
 
     return (
       <div className={classNames(styles['file-field'], className)}>
-        {uploadedFiles && watchedDocument && (
+        {uploadedFiles && (
           <div className={styles['file-field__list']}>
-            {uploadedFiles && watchedDocument && (
-              <div
-                className={styles['file-field__list_link']}
-                key={uploadedFiles.name}
-              >
-                <Paperclip className={styles['paperclip']} />
-                <div className={styles['description']}>
-                  <p className={styles['description__top']}>
-                    {uploadedFiles.name}
-                  </p>
-                  <p className={styles['description__bottom']}>
-                    {(uploadedFiles.size / (1024 * 1024)).toFixed(2)} MB
-                  </p>
-                </div>
-                <div onClick={removeAcceptedFiles} className={styles['cross']}>
-                  <span></span>
-                  <span></span>
-                </div>
+            <div
+              className={styles['file-field__list_link']}
+              key={uploadedFiles.name}
+            >
+              <Paperclip className={styles['paperclip']} />
+              <div className={styles['description']}>
+                <p className={styles['description__top']}>
+                  {uploadedFiles.name}
+                </p>
+                <p className={styles['description__bottom']}>
+                  {(uploadedFiles.size / (1024 * 1024)).toFixed(2)} MB
+                </p>
               </div>
-            )}
+              <div onClick={removeAcceptedFiles} className={styles['cross']}>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
           </div>
         )}
         <div

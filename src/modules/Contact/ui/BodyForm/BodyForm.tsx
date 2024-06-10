@@ -57,27 +57,32 @@ const BodyForm = () => {
   const [sending, setSending] = useState(false)
   const [isVisible, setIsVisible] = useState({
     visible: false,
-    message: '',
+    error: false,
   })
+  const [uploadedFiles, setUploadedFiles] = useState<File | undefined>(
+    undefined,
+  )
   const onSubmit = async (data: FormData) => {
     setSending(true)
     try {
       await sendContactForm(data)
+      reset(defaultValues)
+      setUploadedFiles(undefined)
       setIsVisible((prev) => {
         return {
           ...prev,
           visible: true,
-          message: 'The letter was sent successfully!',
+          error: false,
         }
       })
-      reset(defaultValues)
     } catch (error) {
       reset(defaultValues)
+      setUploadedFiles(undefined)
       setIsVisible((prev) => {
         return {
           ...prev,
           visible: true,
-          message: 'Something went wrong',
+          error: true,
         }
       })
     }
@@ -90,8 +95,6 @@ const BodyForm = () => {
   )
 
   const watchedBudgetGroup = watch('budgetGroup', defaultValues.budgetGroup)
-
-  const watchedDocument = watch('document', defaultValues.document)
 
   return (
     <>
@@ -214,7 +217,8 @@ const BodyForm = () => {
             return (
               <FileField
                 {...field}
-                watchedDocument={watchedDocument}
+                uploadedFiles={uploadedFiles}
+                setUploadedFiles={setUploadedFiles}
                 error={errors['document']?.message}
                 label={'Attach file (doc, docx, pdf - 15 mb)'}
               />
@@ -233,7 +237,7 @@ const BodyForm = () => {
       </form>
       <AnimatePresence>
         {isVisible.visible && (
-          <FormPopup setIsVisible={setIsVisible} message={isVisible.message} />
+          <FormPopup setIsVisible={setIsVisible} error={isVisible.error} />
         )}
       </AnimatePresence>
     </>
