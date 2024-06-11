@@ -36,6 +36,7 @@ const FileField = forwardRef<HTMLInputElement, FileFieldType>(
     } = useDropzone({
       onDrop: (acceptedFiles) => {
         setUploadedFiles(acceptedFiles[0])
+
         handleChange(acceptedFiles[0])
       },
       accept: {

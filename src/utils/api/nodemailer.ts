@@ -13,16 +13,20 @@ type IncomingDataType = {
     name: string
     budgetGroup: string[]
     document?: { path: string }
+    formType: string
   }
 }
 
 const generateEmailContent = (data: IncomingDataType) => {
   const { file, body } = data
-  const stringOutput = Object.entries(body)
+  const filteredBody = Object.fromEntries(
+    Object.entries(body).filter(([key]) => key !== 'formType'),
+  )
+  const stringOutput = Object.entries(filteredBody)
     .map(([key, value]) => `${key}: ${value}`)
     .join('\n')
 
-  const htmlOutput = Object.entries(body)
+  const htmlOutput = Object.entries(filteredBody)
     .map(([key, value]) => `<h2>${key}</h2><p>${value}</p>`)
     .join('')
 
@@ -53,10 +57,22 @@ export const transporter = nodemailer.createTransport({
 } as SMTPTransport.Options)
 
 export const generateEmail = async (data: IncomingDataType) => {
+  let subject
+  switch (data.body.formType) {
+    case 'type1':
+      subject = 'Outstafford - Contact message'
+      break
+    case 'type2':
+      subject = 'Outstafford - Position message'
+      break
+    default:
+      subject = 'Default message subject'
+      break
+  }
   return await transporter.sendMail({
     from: process.env.EMAIL,
     to: process.env.EMAIL,
-    subject: 'Outstafford mail',
+    subject: subject,
     ...generateEmailContent(data),
   })
 }

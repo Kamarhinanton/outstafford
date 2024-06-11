@@ -26,6 +26,7 @@ const defaultValues = {
   name: '',
   budgetGroup: [],
   document: undefined,
+  formType: 'type1',
 }
 
 const interestGroup = [
@@ -99,6 +100,11 @@ const BodyForm = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={styles['form']}>
+        <Controller
+          control={control}
+          name="formType"
+          render={({ field }) => <input type="hidden" {...field} />}
+        />
         <div className={styles['form__row']}>
           <p className={styles['form__row_description']}>
             I’m interested in...

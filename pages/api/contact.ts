@@ -19,8 +19,25 @@ const handler = async (req: Request, res: Response) => {
       if (err) {
         return res.status(500).json({ error: 'Upload failed' })
       }
+      let body
+      try {
+        body = JSON.parse(req.body.recipe)
+      } catch (parseError) {
+        return res.status(400).json({ error: 'Invalid JSON in request body' })
+      }
+      if (body.formType === 'type1') {
+        const { budgetGroup, interestGroup, message, email, name } = body
+        if (!budgetGroup || !interestGroup || !message || !email || !name) {
+          return res.status(400).json({ error: 'Data is not valid' })
+        }
+      }
+      if (body.formType === 'type2') {
+        const { email, name } = body
+        if (!email || !name) {
+          return res.status(400).json({ error: 'Data is not valid' })
+        }
+      }
       const file = req.file
-      const body = JSON.parse(req.body.recipe)
       try {
         if (file) {
           await generateEmail({ file, body })

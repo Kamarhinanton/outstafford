@@ -20,4 +20,7 @@ export const validationSchema = Yup.object().shape({
   budgetGroup: Yup.array()
     .of(Yup.string())
     .min(1, 'Please select at least one checkbox'),
+  formType: Yup.string()
+    .equals(['type1'], 'Form type must be type1')
+    .required('Form type is required'),
 })

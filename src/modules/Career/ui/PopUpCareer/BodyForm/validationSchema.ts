@@ -13,4 +13,7 @@ export const validationSchema = Yup.object().shape({
       return true
     },
   ),
+  formType: Yup.string()
+    .equals(['type2'], 'Form type must be type2')
+    .required('Form type is required'),
 })

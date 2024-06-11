@@ -19,12 +19,13 @@ export type BlogSectionType = {
 }
 
 export type FormData = {
-  interestGroup: string[]
+  interestGroup?: string[]
   email: string
-  message: string
+  message?: string
   name: string
-  budgetGroup: string[]
+  budgetGroup?: string[]
   document: File | undefined
+  formType: string
 }
 
 export type FrontMatterType = {
