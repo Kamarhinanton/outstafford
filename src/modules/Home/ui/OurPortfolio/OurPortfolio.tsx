@@ -21,6 +21,7 @@ const OurPortfolio = () => {
               alt={'picture'}
               className={styles['image']}
               position={'cover'}
+              quality={100}
             />
             <h2 className={classNames(styles['title'], 'h2')}>
               Explore our Projects
