@@ -16,7 +16,7 @@ const CalendlyComponent: FC<CalendlyComponentType> = ({
     <>
       {rootElement && (
         <PopupModal
-          url={'https://calendly.com/kamarhin_anton/30min'}
+          url={'https://calendly.com/outstafford/30-min-intro-meeting'}
           rootElement={rootElement}
           open={isOpen}
           onModalClose={handleClose}
