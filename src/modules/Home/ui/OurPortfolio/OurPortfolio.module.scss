@@ -8,23 +8,32 @@
     min-height: 100svh;
   }
 
+  .wrapper{
+    padding: 24rem 204rem;
+
+    @media (width<=$breakpoint-mob){
+      padding: 66rem 16rem 60rem;
+    }
+  }
+
   &__content{
     position: relative;
     width: 100%;
     height: 100%;
-    padding: 24rem 0;
+    perspective: 2500px;
 
     @media (width<=$breakpoint-mob){
-      padding: 66rem 0 60rem;
+      perspective: initial;
     }
 
-    &_link{
+    &_wrapper{
+      position: relative;
       display: block;
       width: 100%;
       height: 100%;
-      overflow: hidden;
       background-color: var(--grey-bg);
       border-radius: 36rem;
+      transform-style: preserve-3d;
 
       @media (width<=$breakpoint-mob){
         border-radius: 20rem;
@@ -35,10 +44,6 @@
           .title{
             color: var(--primary-color);
           }
-
-          .image{
-            transform: scale(1.1);
-          }
         }
       }
 
@@ -47,19 +52,26 @@
         bottom: 72rem;
         left: 48rem;
         text-transform: capitalize;
+        transform: translateZ(30px);
         transition: var(--duration-hover) var(--ease) var(--hover-delay);
 
         @media (width<=$breakpoint-mob){
-          bottom: 81rem;
-          left: 20rem;
+          bottom: 24rem;
+          left: 16rem;
           max-width: 200rem;
+          transform: initial;
         }
       }
 
       .image{
         width: 100%;
         height: 100%;
-        transition: var(--duration-hover) var(--ease);
+        overflow: hidden;
+        border-radius: 36rem;
+
+        @media (width<=$breakpoint-mob){
+          border-radius: 20rem;
+        }
       }
     }
   }
