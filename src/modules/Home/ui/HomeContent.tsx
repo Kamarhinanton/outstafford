@@ -84,7 +84,7 @@ const SwiperHomeComponent = () => {
     effect: 'creative',
     creativeEffect: {
       prev: {
-        translate: [0, 0, -200],
+        translate: [0, '-20%', -1],
       },
       next: {
         translate: [0, '100%', 0],

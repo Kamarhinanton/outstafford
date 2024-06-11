@@ -56,6 +56,10 @@ main {
   opacity: 0.3;
 }
 
+.swiper-3d{
+  perspective: initial!important;
+}
+
 .editor-content {
   position: relative;
   h1, h2, h3, h4, h5, h6 {
