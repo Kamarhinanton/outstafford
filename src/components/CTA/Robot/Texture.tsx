@@ -47,22 +47,42 @@ export const Texture = () => {
       rotation-z={rotateY}
     >
       <mesh geometry={(nodes.Cylinder as Mesh).geometry}>
-        <meshStandardMaterial color={0x75fb61} />
+        <meshStandardMaterial
+          color={0x75fb61}
+          roughness={0.1}
+          metalness={0.4}
+        />
       </mesh>
       <mesh geometry={(nodes.Cylinder_2 as Mesh).geometry}>
-        <meshStandardMaterial color={0x75fb61} />
+        <meshStandardMaterial
+          color={0x75fb61}
+          roughness={0.1}
+          metalness={0.4}
+        />
       </mesh>
       <mesh geometry={(nodes.Subdivision_Surface_1 as Mesh).geometry}>
-        <meshStandardMaterial color={0x75fb61} />
+        <meshStandardMaterial color={0x0f0f0f} metalness={0} roughness={0.3} />
       </mesh>
       <mesh geometry={(nodes.Subdivision_Surface_2 as Mesh).geometry}>
-        <meshStandardMaterial color={0x75fb61} metalness={1.7} roughness={2} />
+        <meshStandardMaterial
+          color={0x75fb61}
+          roughness={0.1}
+          metalness={0.4}
+        />
       </mesh>
       <mesh geometry={(nodes.Sweep as Mesh).geometry}>
-        <meshStandardMaterial color={0x75fb61} />
+        <meshStandardMaterial
+          color={0x75fb61}
+          roughness={0.1}
+          metalness={0.4}
+        />
       </mesh>
       <mesh geometry={(nodes.Cylinder_3 as Mesh).geometry}>
-        <meshStandardMaterial color={0x75fb61} />
+        <meshStandardMaterial
+          color={0x75fb61}
+          roughness={0.1}
+          metalness={0.4}
+        />
       </mesh>
     </motion.group>
   )
