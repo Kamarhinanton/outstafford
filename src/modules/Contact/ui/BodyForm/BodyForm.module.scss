@@ -3,6 +3,11 @@
 .form {
   margin: 40rem 0 0;
 
+  &._loading{
+    opacity: .5;
+    pointer-events: none;
+  }
+
   @media (width<=$breakpoint-mob) {
     margin: 20rem 0 0;
   }

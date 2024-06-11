@@ -9,6 +9,7 @@ import { AnimatePresence } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import { sendContactForm } from '@/utils/api/sendContactForm'
 import { FormData } from '@/utils/globalTypes'
+import classNames from 'classnames'
 
 import styles from './BodyForm.module.scss'
 
@@ -70,7 +71,10 @@ const BodyForm = () => {
   }
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className={styles['form']}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={classNames(styles['form'], [sending && styles['_loading']])}
+      >
         <Controller
           control={control}
           name="formType"

@@ -99,7 +99,10 @@ const BodyForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className={styles['form']}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={classNames(styles['form'], [sending && styles['_loading']])}
+      >
         <Controller
           control={control}
           name="formType"
