@@ -18,22 +18,19 @@ hero:
         - AI integration
 #    - title: 
 #      topics:
-  description: MyAI is an all-in-one clinical decision-making support solution for emergency medicine. MyAI features interactive checklists, digital protocols, drug-calculators, algorithms, text-to-speech alarms, metronomes, and so much more.
+  description: Introducing your ultimate AI Assistant companion, now powered by the cutting-edge ChatGPT API and advanced GPT models. Elevate your life with a human-like interactive experience that caters to all your creative needs.
   preview: '/images/Projects/MyAI/case_preview.jpg'
   href: 'https://apps.apple.com/us/app/my-ai-chat-bot-assistant/id6469462799'
 #Challenges
 challenges:
   title: Challenges
   list:
-    - title: EHR integration
+    - title: Natural Language Processing Optimization
       description:
-        MyAI wanted to reflect the company’s changes and growth through design. Great service imply great design.
-    - title: Multiplatform compatibility
+        Ensuring the AI assistant could understand and process natural language in a way that felt genuinely human-like required extensive tuning of the NLP algorithms. This involved handling diverse linguistic nuances and maintaining context over long conversations.
+    - title: Scalability and Performance
       description:
-        Competition in the market is increasing, and updated design should strengthen the company's place in the market and attract a new audience.
-    - title: Interactive elements
-      description:
-        Camber wanted to reflect the company’s changes and growth through design. Great service imply great design.
+        The app needed to handle a large number of concurrent users while maintaining quick response times. Scaling the infrastructure to support high demand without compromising on performance was a key challenge that required robust cloud solutions and efficient load balancing.
 #Mosaic_1
 mosaic_1:
 #  description:
@@ -58,10 +55,10 @@ mosaic_2:
 #    textTop:
     quote:
       text:
-        Space Needle visitors can now access their photos and videos within seconds, eliminating the previous 10-15 minute wait time. As a result, user satisfaction has increased, leading to a 20% boost in app usage within the first month.
-      author: Mady Maio
-      position: CEO of Camber
-      img: '/images/Projects/Camber/author.jpg'
+        Offering a personalized setup process to tailor your AI assistant experience to your unique needs. During the initial setup, you'll have the opportunity to select specific categories that align with your preferences and assistant requirements. This ensures that the AI understands your context, making its suggestions and enhancements more accurate and relevant.
+      author: Mason Adams
+      position: CEO of MyAI
+      img: '/images/Projects/MyAI/author.jpg'
 #    textBottom:
 #  mosaic:
 #    topImg:
@@ -70,16 +67,16 @@ mosaic_2:
 summary:
   title: Project Highlights
   list:
-    - title: Personalized notifications
+    - title: Personalized User Interactions
       description:
-        of User Engagement by designing and launching of the new app for the Camber. Designed and launched new features. of User Engagement by designing and launching of the new app for the Camber. Designed and launched new features.
-      href: '/images/Projects/Camber/logo.png'
-    - title: 28% Increase
-      description: of User Engagement
-    - title: 15% Increase
-      description: of Amount of New Customers
-    - title: Successfull Launch
-      description: of New Service
+        The integration of the advanced GPT models allowed for highly personalized user interactions, making each conversation unique and tailored to individual preferences and needs.
+      href: '/images/Projects/MyAI/logo.png'
+    - title: Latest AI model
+      description: GPT4 integration
+    - title: 50% Increase
+      description: in User Engagement
+    - title: Successful Launch
+      description: On both App Store and Google Play
 #Team
 #team:
 #  title: Team

@@ -28,15 +28,15 @@ hero:
 challenges:
   title: Challenges
   list:
-    - title: EHR integration
+    - title: Integration with Hospital Systems
       description:
-        Checkem wanted to reflect the company’s changes and growth through design. Great service imply great design.
-    - title: Multiplatform compatibility
+        Integrating Checkem with various hospital systems required seamless interoperability with existing electronic health record (EHR) systems. This challenge involved ensuring data security and maintaining compliance with healthcare regulations such as HIPAA.
+    - title: Real-time Data Processing
       description:
-        Competition in the market is increasing, and updated design should strengthen the company's place in the market and attract a new audience.
-    - title: Interactive elements
+        Implementing real-time data processing to support immediate decision-making was crucial. This required optimizing the app's performance to handle large volumes of data swiftly and accurately without compromising the speed or reliability of the app.
+    - title: User Training and Adoption
       description:
-        Checkem wanted to reflect the company’s changes and growth through design. Great service imply great design.
+        Training medical professionals to use Checkem effectively posed a significant challenge. It was essential to create comprehensive training materials and user-friendly interfaces to facilitate quick adoption and integration into daily emergency medicine routines.
 #Mosaic_1
 mosaic_1:
 #  description:
@@ -77,12 +77,12 @@ summary:
       description:
         of User Engagement by designing and launching of the new app for the Checkem. Designed and launched new features. of User Engagement by designing and launching of the new app for the Checkem. Designed and launched new features.
       href: '/images/Projects/Checkem/logo.png'
-    - title: 11 interactive features
-      description: of User Engagement
-    - title: 50% Increase
+    - title: Positive User Feedback
+      description: Average rating is 4.8/5
+    - title: 150% Increase
       description: of Amount of New Customers
-    - title: Successfull Launch
-      description: On both App Store and Google Play
+    - title: Successful Launch
+      description: on both App Store and Google Play
 #Team
 #team:
 #  title: Team

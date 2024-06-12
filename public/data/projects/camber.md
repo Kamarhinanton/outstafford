@@ -5,7 +5,7 @@ preview: '/images/Projects/Camber/Camber.jpg'
 hero:
   topics:
     - Mobile
-    - Location-based
+    - AI
   title: Camber
   columns:
     - title: Client
@@ -25,15 +25,12 @@ hero:
 challenges:
   title: Challenges
   list:
-    - title: Map integrations
+    - title: Map Integration and Accuracy
       description:
-        Camber wanted to reflect the company’s changes and growth through design. Great service imply great design.
-    - title: Database transition
+        Integrating an all-inclusive map that accurately reflects user recommendations posed a significant challenge. This required ensuring high precision in location data and real-time updates to reflect changes and new recommendations without any lag.
+    - title: Scalable Database Management
       description:
-        Competition in the market is increasing, and updated design should strengthen the company's place in the market and attract a new audience.
-    - title: Load speed Optimization
-      description:
-        Camber wanted to reflect the company’s changes and growth through design. Great service imply great design.
+        Managing a vast and ever-growing database of user recommendations across numerous cities required scalable and efficient database solutions. Ensuring quick access and retrieval of data for users globally was essential to maintaining a smooth user experience.
 #Mosaic_1
 mosaic_1:
 #  description:
@@ -58,7 +55,7 @@ mosaic_2:
 #    textTop:
     quote:
       text:
-        Space Needle visitors can now access their photos and videos within seconds, eliminating the previous 10-15 minute wait time. As a result, user satisfaction has increased, leading to a 20% boost in app usage within the first month.
+        We’re not just another itinerary planning app (there are plenty of those, we promise). Your friends want in on your hidden gems, which is the reason Camber is introducing a peer-to-peer element, a social exchange of the coolest places.
       author: Mady Maio
       position: CEO of Camber
       img: '/images/Projects/Camber/author.jpg'
@@ -76,10 +73,10 @@ summary:
       href: '/images/Projects/Camber/logo.png'
     - title: 28% Increase
       description: of User Engagement
-    - title: 15% Increase
-      description: of Amount of New Customers
-    - title: Successfull Launch
-      description: of New Service
+    - title: 60% Increase
+      description: of user engagement in the app
+    - title: Successful Launch
+      description: On both App Store and Google Play
 #Team
 #team:
 #  title: Team
