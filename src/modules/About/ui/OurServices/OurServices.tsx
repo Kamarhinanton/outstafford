@@ -3,6 +3,7 @@ import Container from '@/app/layouts/Container'
 import classNames from 'classnames'
 import TopicList from '@/ui/TopicList/TopicList'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
+import CardTransformPerspective from '@/ui/CardTransformPerspective/CardTransformPerspective'
 
 import styles from './OurServices.module.scss'
 
@@ -43,19 +44,28 @@ const OurServices = () => {
         <ul className={styles['services__content']}>
           {data.map((item) => (
             <li key={item.id} className={styles['services__content_item']}>
-              <BackgroundImage
-                position={'cover'}
-                src={item.url}
-                alt={'picture'}
-                className={styles['image']}
-              />
-              <h3 className={classNames(styles['text'], 'h3')}>{item.title}</h3>
-              <TopicList
-                className={styles['list']}
-                list={item.list}
-                variants={'large'}
-                color={'grey'}
-              />
+              <CardTransformPerspective
+                cursor={false}
+                rotateRangeX={['10deg', '-10deg']}
+                rotateRangeY={['-10deg', '10deg']}
+                className={styles['item']}
+              >
+                <BackgroundImage
+                  position={'cover'}
+                  src={item.url}
+                  alt={'picture'}
+                  className={styles['item__image']}
+                />
+                <h3 className={classNames(styles['item__text'], 'h3')}>
+                  {item.title}
+                </h3>
+                <TopicList
+                  className={styles['item__list']}
+                  list={item.list}
+                  variants={'large'}
+                  color={'grey'}
+                />
+              </CardTransformPerspective>
             </li>
           ))}
         </ul>
