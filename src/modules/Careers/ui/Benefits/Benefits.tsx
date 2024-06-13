@@ -8,30 +8,34 @@ import styles from './Benefits.module.scss'
 
 const benefitsData = [
   {
-    title: 'Supportive TeamCase',
-    description: 'Supportive TeamCase',
-  },
-  {
     title: 'Free Courses',
-    description: 'Supportive TeamCase',
-    image: '/images/Careers/1.png',
+    description: 'New courses every month',
+    image: '/images/Careers/1.jpg',
   },
   {
-    title: 'Regular Bonuses',
-    description: 'Supportive TeamCase',
+    title: 'Remote Work',
+    description: 'All of our positions are remote',
+    image: '/images/Careers/2.jpg',
   },
   {
-    title: 'MacBooks and iMacs',
+    title: 'Performance Bonuses',
+    description: 'Close projects faster and get paid more',
+    image: '/images/Careers/3.jpg',
+  },
+  {
+    title: 'Welcome Package',
+    description: 'MacBook Pro or iMac for new devs',
+    image: '/images/Careers/4.jpg',
   },
   {
     title: 'Paid Vacations',
-    description: 'Paid Vacations',
-    image: '/images/Careers/3.png',
+    description: '2 times a year',
+    image: '/images/Careers/6.jpg',
   },
   {
-    title: 'Free Health Insurance',
-    description: 'Paid Vacations',
-    image: '/images/Careers/2.png',
+    title: 'Health Insurance',
+    description: 'Full coverage, including dental',
+    image: '/images/Careers/5.jpg',
   },
 ]
 

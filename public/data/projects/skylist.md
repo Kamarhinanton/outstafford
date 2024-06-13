@@ -18,25 +18,22 @@ hero:
         - Mobile App
         - Web App
         - Chrome Extension
-        - Admin Platform
 #    - title: 
 #      topics:
-  description: Skylist is an all-in-one clinical decision-making support solution for emergency medicine. Checkem features interactive checklists, digital protocols, drug-calculators, algorithms, text-to-speech alarms, metronomes, and so much more.
+  description: Skylist is a social platform designed for online shopping, allowing all users to simply curate, organize, personalize, and share shoppable lists using external links.
   preview: '/images/Projects/Skylist/case_preview.jpg'
   href: '/'
 #Challenges
 challenges:
   title: Challenges
   list:
-    - title: EHR integration
+    - title: Integration of External Links
       description:
-        Skylist wanted to reflect the company’s changes and growth through design. Great service imply great design.
-    - title: Multiplatform compatibility
+        Ensuring seamless integration and compatibility with a wide range of external shopping websites posed a significant challenge. This required developing robust algorithms to accurately fetch product details, prices, and images from various sources.
+    - title: User Personalization and Customization
       description:
-        Competition in the market is increasing, and updated design should strengthen the company's place in the market and attract a new audience.
-    - title: Interactive elements
-      description:
-        Skylist wanted to reflect the company’s changes and growth through design. Great service imply great design.
+        Providing extensive customization options for users to personalize their lists required a flexible and intuitive design framework. This challenge involved creating a user-friendly interface that supported diverse customization features without compromising on performance.
+
 #Mosaic_1
 mosaic_1:
 #  description:
@@ -55,16 +52,16 @@ mosaic_1:
       img1: '/images/Projects/Skylist/m-2.jpg'
       img2: '/images/Projects/Skylist/m-3.jpg'
 #Mosaic_2
-mosaic_2:
-  description:
-    title: The story
+#mosaic_2:
+#  description:
+#    title: The story
 #    textTop:
-    quote:
-      text:
-        Skylist allows EMS organizations to create medical checklists with interactive elements such as drug-dose calculators, text-to-speech procedure reminder alarms, and clinical decision making algorithms. The Outstafford team took this idea from a literal "napkin-sketch" into a fully-fledged enterprise level software package which is being deployed in the real world to save lives.
-      author: Skyler Trager
-      position: CEO of Skylist
-      img: '/images/Projects/Skylist/author.jpg'
+#    quote:
+#      text:
+#        Skylist allows EMS organizations to create medical checklists with interactive elements such as drug-dose calculators, text-to-speech procedure reminder alarms, and clinical decision making algorithms. The Outstafford team took this idea from a literal "napkin-sketch" into a fully-fledged enterprise level software package which is being deployed in the real world to save lives.
+#      author: Skyler Trager
+#      position: CEO of Skylist
+#      img: '/images/Projects/Skylist/author.jpg'
 #    textBottom:
 #  mosaic:
 #    topImg:
@@ -73,16 +70,14 @@ mosaic_2:
 summary:
   title: Project Highlights
   list:
-    - title: HIPAA Compliance
+    - title: Social Media Integrations
       description:
-        of User Engagement by designing and launching of the new app for the Skylist. Designed and launched new features. of User Engagement by designing and launching of the new app for the Skylist. Designed and launched new features.
-      href: '/images/Projects/Checkem/logo.png'
-    - title: 11 interactive features
-      description: of User Engagement
-    - title: 50% Increase
-      description: of Amount of New Customers
-    - title: Successfull Launch
-      description: On both App Store and Google Play
+        We have integrated social media platforms such as Instagram and TikTok to ensure seamless integration for all users. This has enabled users to share their wishlists on other social media platforms, leading to increased engagement on the platform.
+      href: '/images/Projects/Skylist/logo.png'
+    - title: Analytics
+      description: Google Analytics, Mixpanel integrations
+    - title: Cross-platform
+      description: Skylist is available on iOS, Android, Web and Chrome Extension Store
 #Team
 #team:
 #  title: Team

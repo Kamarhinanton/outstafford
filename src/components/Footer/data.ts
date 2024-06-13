@@ -42,7 +42,7 @@ export const navigationFooterLinksRight = [
   },
   {
     href: routes.public.cookies,
-    description: 'Cookies',
+    description: 'Cookie Policy',
   },
 ]
 

@@ -75,7 +75,7 @@ summary:
   list:
     - title: HIPAA Compliance
       description:
-        of User Engagement by designing and launching of the new app for the Checkem. Designed and launched new features. of User Engagement by designing and launching of the new app for the Checkem. Designed and launched new features.
+        We have incorporated HIPAA compliance into the app to ensure the protection and security of all user data.
       href: '/images/Projects/Checkem/logo.png'
     - title: Positive User Feedback
       description: Average rating is 4.8/5

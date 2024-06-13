@@ -13,7 +13,9 @@ export default function Case({ frontMatter }: SingleProjectsType) {
       <Head>
         <title>{frontMatter.hero.title}</title>
       </Head>
-      <PageTransitionLayout title={frontMatter.hero.title}>
+      <PageTransitionLayout
+        description={`${frontMatter.hero.title?.toUpperCase()} CASE STUDY`}
+      >
         <CaseContent frontMatter={frontMatter} />
       </PageTransitionLayout>
     </>
