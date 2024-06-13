@@ -33,8 +33,8 @@ const OurTeam = () => {
           Our <span>team</span>
         </h2>
         <p className={styles['description']}>
-          Is a full-stack design and development team. We build complex mobile
-          applications and progressive web applications with AI integrations.
+          We based in US, but our team consists of 30 professionals from all
+          over the world.
         </p>
         <ul className={styles['team__list']}>
           {data.map((item) => (

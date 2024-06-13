@@ -33,7 +33,7 @@ const Cta = () => {
               Get your detailed estimate today
             </h2>
             <p className={styles['description']}>
-              Shoot us a message and we’ll reply within 8 hours
+              Shoot us a message and we’ll reply within 4 hours
             </p>
             <ButtonPrimary
               className={classNames(styles['button'], 'no-hover-cursor')}

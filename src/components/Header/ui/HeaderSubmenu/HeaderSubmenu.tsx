@@ -57,6 +57,13 @@ const HeaderSubmenu = () => {
                     scroll={false}
                     className={styles['list__item_link']}
                     href={row.href}
+                    target={
+                      row.link === 'Book a meeting' ||
+                      row.link === 'Upwork' ||
+                      row.link === 'LinkedIn'
+                        ? '_blank'
+                        : undefined
+                    }
                   >
                     {row.src && (
                       <BackgroundImage

@@ -2,6 +2,10 @@ import routes from '@/utils/routes'
 
 export const navigationFooterLinksLeft = [
   {
+    href: routes.public.index,
+    description: 'Home',
+  },
+  {
     href: routes.public.about,
     description: 'About',
   },

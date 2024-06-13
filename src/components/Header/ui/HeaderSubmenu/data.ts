@@ -17,7 +17,7 @@ export const headerSubmenuData: HeaderSubmenuData = [
   {
     description: 'Our work',
     links: [
-      { link: 'Main', href: routes.public.index },
+      { link: 'Home', href: routes.public.index },
       { link: 'About', href: routes.public.about },
       { link: 'Projects', href: routes.public.projects },
     ],
@@ -26,7 +26,7 @@ export const headerSubmenuData: HeaderSubmenuData = [
     description: 'Get to know us',
     links: [
       { link: 'How we work', href: `${routes.public.about}?param=work` },
-      { link: 'Reviews', href: '/' },
+      { link: 'Reviews', href: routes.public.index },
       { link: 'Our blog', href: routes.public.blog },
       { link: 'Careers', href: routes.public.careers },
     ],
@@ -50,7 +50,7 @@ export const headerSubmenuData: HeaderSubmenuData = [
     description: 'Contacts',
     links: [
       {
-        href: 'mailto:artem.larin.works@gmail.com',
+        href: 'mailto:hey@outstafford.com',
         src: '/images/email_i.svg',
         link: 'Send email',
       },
@@ -60,7 +60,7 @@ export const headerSubmenuData: HeaderSubmenuData = [
         link: 'Telegram',
       },
       {
-        href: routes.public.contact,
+        href: 'https://calendly.com/outstafford/30-min-intro-meeting',
         src: '/images/calendly_i.svg',
         link: 'Book a meeting',
       },

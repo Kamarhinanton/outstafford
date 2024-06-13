@@ -5,6 +5,7 @@ import BlogSection from '@/modules/Blog/ui/BlogSection/BlogSection'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
 import { BlogType } from '../../../../pages/blog'
 import dynamic from 'next/dynamic'
+import Footer from '@/components/Footer/Footer'
 
 const IndustriesDynamic = dynamic(
   () => import('@/components/Industries/Industries'),
@@ -32,7 +33,7 @@ const BlogContent = ({ blog }: BlogType) => {
   } = useCategoryFilter(blog)
 
   return (
-    <main className={'wrapper-class variant'}>
+    <main>
       <HeroBlog />
       <BlogNavigation
         activeCategory={activeCategories}
@@ -45,6 +46,7 @@ const BlogContent = ({ blog }: BlogType) => {
       />
       <BlogSection filteredBlogData={filteredBlogData} />
       <IndustriesDynamic title={'Industries'} />
+      <Footer />
     </main>
   )
 }
