@@ -40,7 +40,7 @@ export const Texture = () => {
 
   useEffect(() => {
     if (width <= breakpointMob) {
-      camera.position.set(1, 0, 8)
+      camera.position.set(1, -0.5, 8)
     } else {
       camera.position.set(0, 0, 5)
     }

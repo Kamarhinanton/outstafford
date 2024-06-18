@@ -20,6 +20,10 @@ import SectionFullPage from '@/app/layouts/SectionFullPage'
 import styles from './HomeContent.module.scss'
 import 'swiper/css'
 
+const Spot = dynamic(() => import('@/modules/Home/ui/HeroSection/Spot/Spot'), {
+  ssr: false,
+})
+
 const MouseIndicator = dynamic(
   () => import('@/components/MouseIndicatorScroll/ui/MouseIndicatorScroll'),
   {
@@ -129,7 +133,10 @@ const SwiperHomeComponent = () => {
 }
 
 const sectionsArray = [
-  <HeroSection key="hero" />,
+  <>
+    <HeroSection key="hero" />
+    <Spot />
+  </>,
   <OurPortfolio key="portfolio" />,
   <BottomSection key="bottom" />,
   <CTADynamic key="cta" />,
