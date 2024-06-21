@@ -7,13 +7,13 @@ import { setIsCareerPopUpActive } from '@/store/reducers/callCareerPopUpSlice'
 import { AppDispatch } from '@/store/store'
 import { useDispatch } from 'react-redux'
 import md from 'markdown-it'
-import { SingleMarkdownType } from '@/utils/globalTypes'
 import { setIsPopUpActive } from '@/store/reducers/callPopUpSlice'
 import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
+import { OneCareerResultType } from '../../../../../pages/careers/[slug]'
 
 import styles from './Editor.module.scss'
 
-const Editor = ({ frontMatter, content }: SingleMarkdownType) => {
+const Editor = ({ career }: OneCareerResultType) => {
   const dispatch: AppDispatch = useDispatch()
   const handlePopUpCareer = () => {
     document.body.style.overflow = 'hidden'
@@ -29,21 +29,18 @@ const Editor = ({ frontMatter, content }: SingleMarkdownType) => {
           <div className={styles['article']}>
             <div className={styles['article__top']}>
               <h1 className={classNames('h1', styles['title'])}>
-                {frontMatter.title}
+                {career.title}
               </h1>
-              <p className={styles['description']}>{frontMatter.description}</p>
+              <p className={styles['description']}>{career.description}</p>
             </div>
-            <StickyBlock
-              frontMatter={frontMatter}
-              className={styles['sticky-block']}
-            />
+            <StickyBlock career={career} className={styles['sticky-block']} />
             <div
-              dangerouslySetInnerHTML={{ __html: md().render(content) }}
+              dangerouslySetInnerHTML={{ __html: md().render(career.editor) }}
               className={'editor-content'}
             />
           </div>
           <div className={styles['editor__content_menu']}>
-            <StickyBlock frontMatter={frontMatter} />
+            <StickyBlock career={career} />
           </div>
         </div>
         <div className={styles['editor__fixed-button']}>

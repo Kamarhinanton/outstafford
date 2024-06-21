@@ -2,19 +2,66 @@ import React from 'react'
 import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
 import Head from 'next/head'
 import { CareerContent } from '@/modules/Career'
-import { careersDirectory } from '@/utils/variables'
-import { SingleMarkdownType } from '@/utils/globalTypes'
-import { staticPath } from '@/utils/staticPath/staticPath'
-import { getMarkdownInner } from '@/utils/markdown/getMarkdownInner'
+import createApolloClient from '@/utils/api/apolloClient'
+import { gql } from '@apollo/client'
+import { TopicCareerType } from '../careers'
 
-export default function Career({ frontMatter, content }: SingleMarkdownType) {
+export type OneCareerResultType = {
+  career: {
+    id: string | number
+    title: string
+    salary: string
+    about: string
+    description: string
+    editor: string
+    topics: string[]
+  }
+}
+
+type OneCareerPathType = {
+  id: string
+}
+
+type QueryResultPathType = {
+  positions: {
+    data: OneCareerPathType[]
+  }
+}
+
+type OneCareerType = {
+  id: string
+  attributes: {
+    title: string | number
+    salary: string
+    about: string
+    description: string
+    editor: string
+    topics: {
+      data: TopicCareerType[]
+    }
+  }
+}
+
+type QueryResultType = {
+  position: {
+    data: OneCareerType
+  }
+}
+
+type SlugProps = {
+  params: {
+    slug: string
+  }
+}
+
+export default function Career({ career }: OneCareerResultType) {
   return (
     <>
       <Head>
-        <title>{frontMatter.title}</title>
+        <title>{career.title}</title>
       </Head>
-      <PageTransitionLayout title={frontMatter.title}>
-        <CareerContent frontMatter={frontMatter} content={content} />
+      <PageTransitionLayout title={career.title}>
+        <CareerContent career={career} />
       </PageTransitionLayout>
     </>
   )
@@ -22,7 +69,21 @@ export default function Career({ frontMatter, content }: SingleMarkdownType) {
 
 export const getStaticPaths = async () => {
   try {
-    const paths = staticPath(careersDirectory)
+    const client = createApolloClient()
+    const { data } = await client.query<QueryResultPathType>({
+      query: gql`
+        query {
+          positions {
+            data {
+              id
+            }
+          }
+        }
+      `,
+    })
+    const paths = data.positions.data.map((slug) => ({
+      params: { slug: slug.id },
+    }))
 
     return {
       paths,
@@ -38,21 +99,53 @@ export const getStaticPaths = async () => {
   }
 }
 
-type SlugProps = {
-  params: {
-    slug: string
-  }
-}
-
 export const getStaticProps = async ({ params }: SlugProps) => {
   try {
     const { slug } = params
-    const [frontMatter, content] = getMarkdownInner(slug, careersDirectory)
+    const client = createApolloClient()
+    const { data } = await client.query<QueryResultType>({
+      query: gql`
+        query {
+          position(id: ${slug}) {
+            data {
+              id
+              attributes {
+                title
+                salary
+                about
+                description
+                editor
+                topics: position_topics {
+                  data {
+                    id
+                    attributes {
+                      topic
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      `,
+    })
+
+    const position = data.position.data
+    const career = {
+      id: position.id,
+      title: position.attributes.title,
+      salary: position.attributes.salary,
+      about: position.attributes.about,
+      description: position.attributes.description,
+      editor: position.attributes.editor,
+      topics: position.attributes.topics.data.map(
+        (topic) => topic.attributes.topic,
+      ),
+    }
 
     return {
       props: {
-        frontMatter,
-        content,
+        career,
       },
     }
   } catch (error) {

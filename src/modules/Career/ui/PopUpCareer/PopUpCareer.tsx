@@ -9,16 +9,12 @@ import { AppDispatch, RootState } from '@/store/store'
 import { setIsCareerPopUpActive } from '@/store/reducers/callCareerPopUpSlice'
 import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion'
 import { popUpVariant } from '@/modules/Home/ui/PartnerReviews/VideoPopUp/VideoPopUp'
-import { FrontMatterType } from '@/utils/globalTypes'
 import { setIsPopUpActive } from '@/store/reducers/callPopUpSlice'
+import { OneCareerResultType } from '../../../../../pages/careers/[slug]'
 
 import styles from './PopUpCareer.module.scss'
 
-type PopUpCareerType = {
-  frontMatter: FrontMatterType
-}
-
-const PopUpCareer: FC<PopUpCareerType> = ({ frontMatter }) => {
+const PopUpCareer: FC<OneCareerResultType> = ({ career }) => {
   const isCareerPopUpActive = useSelector(
     (state: RootState) => state.callCareerPopUp.isCareerPopUpActive,
   )
@@ -47,15 +43,13 @@ const PopUpCareer: FC<PopUpCareerType> = ({ frontMatter }) => {
                   <h2
                     className={classNames('h2', styles['description__title'])}
                   >
-                    Apply to {frontMatter.title}
+                    Apply to {career.title}
                   </h2>
-                  <p className={styles['description__text']}>
-                    {frontMatter.about}
-                  </p>
-                  {frontMatter.topics && (
+                  <p className={styles['description__text']}>{career.about}</p>
+                  {career.topics && (
                     <TopicList
                       className={styles['description__list']}
-                      list={frontMatter.topics}
+                      list={career.topics}
                       variants={'x-large'}
                     />
                   )}

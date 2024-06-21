@@ -3,24 +3,24 @@ import Container from '@/app/layouts/Container'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import classNames from 'classnames'
 import { CareersType } from '../../../../../pages/careers'
+import TopicList from '@/ui/TopicList/TopicList'
 
 import styles from './Positions.module.scss'
-import TopicList from '@/ui/TopicList/TopicList'
 
 const Positions = ({ careers }: CareersType) => {
   return (
     <section className={styles['positions']}>
       <Container>
         <ul className={styles['positions__list']}>
-          {careers.map(({ slug, frontMatter }) => (
-            <li className={styles['link']} key={slug}>
+          {careers.map((career) => (
+            <li className={styles['link']} key={career.id}>
               <div className={styles['link__description']}>
                 <h2 className={classNames('h2', styles['title'])}>
-                  {frontMatter.title}
+                  {career.title}
                 </h2>
-                {frontMatter.topics && (
+                {career.topics && (
                   <TopicList
-                    list={frontMatter.topics}
+                    list={career.topics}
                     color={'grey'}
                     variants={'x-large'}
                     className={styles['topics']}
@@ -28,7 +28,7 @@ const Positions = ({ careers }: CareersType) => {
                 )}
               </div>
               <ButtonPrimary
-                href={`/careers/${slug}`}
+                href={`/careers/${career.id}`}
                 arrows={true}
                 variant={'green'}
               >

@@ -29,17 +29,13 @@ export type FormData = {
 }
 
 export type FrontMatterType = {
+  id?: string | number
   title?: string
   topics?: string[]
   salary?: string
   about?: string
   description?: string
   preview?: string
-}
-
-export type MarkdownType = {
-  slug: string
-  frontMatter: FrontMatterType
 }
 
 export type SingleMarkdownType = {

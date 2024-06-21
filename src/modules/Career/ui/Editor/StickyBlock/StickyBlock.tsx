@@ -5,16 +5,16 @@ import TopicList from '@/ui/TopicList/TopicList'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/store/store'
 import { setIsCareerPopUpActive } from '@/store/reducers/callCareerPopUpSlice'
-import { FrontMatterType } from '@/utils/globalTypes'
 import { setIsPopUpActive } from '@/store/reducers/callPopUpSlice'
+import { OneCareerResultType } from '../../../../../../pages/careers/[slug]'
 
 import styles from './StickyBlock.module.scss'
 
 type StickyBlockType = {
   className?: string
-  frontMatter: FrontMatterType
+  career: OneCareerResultType['career']
 }
-const StickyBlock: FC<StickyBlockType> = ({ className, frontMatter }) => {
+const StickyBlock: FC<StickyBlockType> = ({ className, career }) => {
   const dispatch: AppDispatch = useDispatch()
   const handlePopUpCareer = () => {
     document.body.style.overflow = 'hidden'
@@ -24,26 +24,26 @@ const StickyBlock: FC<StickyBlockType> = ({ className, frontMatter }) => {
 
   return (
     <div className={classNames(styles['sticky-block'], className)}>
-      {frontMatter.topics && (
+      {career.topics && (
         <TopicList
           className={styles['sticky-block__list']}
-          list={frontMatter.topics}
+          list={career.topics}
           variants={'x-large'}
         />
       )}
-      {frontMatter.about && (
+      {career.about && (
         <div className={styles['sticky-block__text']}>
           <p className={styles['sticky-block__text_title']}>About</p>
           <p className={styles['sticky-block__text_description']}>
-            {frontMatter.about}
+            {career.about}
           </p>
         </div>
       )}
-      {frontMatter.salary && (
+      {career.salary && (
         <div className={styles['sticky-block__text']}>
           <p className={styles['sticky-block__text_title']}>Salary</p>
           <p className={styles['sticky-block__text_description']}>
-            {frontMatter.salary}
+            {career.salary}
           </p>
         </div>
       )}
