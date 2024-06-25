@@ -9,7 +9,11 @@ const imageDomain = url.hostname
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   images: {
-    domains: [imageDomain],
+    remotePatterns: [
+      {
+        hostname: imageDomain,
+      },
+    ],
   },
   webpack(config) {
     config.module.rules.push({

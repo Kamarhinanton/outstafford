@@ -4,41 +4,30 @@ import TopicList from '@/ui/TopicList/TopicList'
 import classNames from 'classnames'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
-import { FrontMatterType } from '@/utils/globalTypes'
 import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
+import { OneBlogResultType } from '../../../../../pages/blog/[slug]'
 
 import styles from './HeroInnerBlog.module.scss'
 
-type HeroInnerType = {
-  frontMatter: FrontMatterType
-}
-
-const HeroInnerBlog: FC<HeroInnerType> = ({ frontMatter }) => {
+const HeroInnerBlog: FC<OneBlogResultType> = ({ blog }) => {
   return (
     <section className={styles['hero-inner']}>
       <Container>
         <BackButtonVariant className={styles['hero-inner__back']} />
         <div className={styles['hero-inner__content']}>
-          {frontMatter.topics && (
-            <TopicList
-              list={frontMatter.topics}
-              variants={'x-large'}
-              color={'grey'}
-            />
+          {blog.topics && (
+            <TopicList list={blog.topics} variants={'x-large'} color={'grey'} />
           )}
-          <h1 className={classNames('h1', styles['title'])}>
-            {frontMatter.title}
-          </h1>
-          <p className={styles['description']}>{frontMatter.description}</p>
-          {frontMatter.preview && (
+          <h1 className={classNames('h1', styles['title'])}>{blog.title}</h1>
+          <p className={styles['description']}>{blog.description}</p>
+          {blog.preview && (
             <BackgroundImage
               position={'cover'}
               className={styles['hero-inner__content_img']}
-              src={frontMatter.preview}
+              src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${blog.preview}`}
               alt={'picture'}
             />
           )}
-
           <ButtonPrimary
             className={styles['hero-inner__content_btn']}
             size={'large'}
