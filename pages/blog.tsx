@@ -2,22 +2,56 @@ import React from 'react'
 import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
 import { BlogContent } from '@/modules/Blog'
 import Head from 'next/head'
-import { getMarkdownContent } from '@/utils/markdown/getMarkdownContent'
-import { blogDirectory } from '@/utils/variables'
-import { CardBlogType } from '@/utils/globalTypes'
+import createApolloClient from '@/utils/api/apolloClient'
+import { gql } from '@apollo/client'
+import { TopicType } from './careers'
 
-export type BlogType = {
-  blog: CardBlogType[]
+export type BlogsType = {
+  blogs: BlogsTransformType[]
+  filterTopics: string[]
 }
 
-export default function Blog({ blog }: BlogType) {
+type QueryResultType = {
+  blogs: {
+    data: OneBlogType[]
+  }
+  blogTopics: {
+    data: TopicType[]
+  }
+}
+
+type OneBlogType = {
+  id: string
+  attributes: {
+    title: string
+    blog_topics: {
+      data: TopicType[]
+    }
+    preview: {
+      data: {
+        attributes: {
+          url: string
+        }
+      }
+    }
+  }
+}
+
+type BlogsTransformType = {
+  href: string
+  title: string
+  preview: string
+  topics: string[]
+}
+
+export default function Blog({ blogs, filterTopics }: BlogsType) {
   return (
     <>
       <Head>
         <title>Our Blog – Outstafford</title>
       </Head>
       <PageTransitionLayout description={'READ OUR BLOG'}>
-        <BlogContent blog={blog} />
+        <BlogContent blogs={blogs} filterTopics={filterTopics} />
       </PageTransitionLayout>
     </>
   )
@@ -25,13 +59,60 @@ export default function Blog({ blog }: BlogType) {
 
 export const getStaticProps = async () => {
   try {
-    const data = getMarkdownContent(blogDirectory)
-    const blog = data.map((topic) => ({
-      ...topic.frontMatter,
-      href: topic.slug,
+    const client = createApolloClient()
+    const { data } = await client.query<QueryResultType>({
+      query: gql`
+        query {
+          blogTopics {
+            data {
+              id
+              attributes {
+                topic
+              }
+            }
+          }
+          blogs {
+            data {
+              id
+              attributes {
+                title
+                blog_topics {
+                  data {
+                    id
+                    attributes {
+                      topic
+                    }
+                  }
+                }
+                preview {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      `,
+    })
+
+    const blogs = data.blogs.data.map((blog) => ({
+      href: blog.id,
+      title: blog.attributes.title,
+      preview: blog.attributes.preview.data.attributes.url,
+      topics: blog.attributes.blog_topics.data.map(
+        (topic) => topic.attributes.topic,
+      ),
     }))
+
+    const filterTopics = data.blogTopics.data.map(
+      (topic) => topic.attributes.topic,
+    )
+
     return {
-      props: { blog },
+      props: { blogs, filterTopics },
     }
   } catch (error) {
     console.error(error)

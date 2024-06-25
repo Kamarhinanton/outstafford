@@ -11,7 +11,7 @@ type CareersTransformType = {
   topics: string[]
 }
 
-export type TopicCareerType = {
+export type TopicType = {
   id: string
   attributes: {
     topic: string
@@ -23,7 +23,7 @@ type OneCareerType = {
   attributes: {
     title: string
     topics: {
-      data: TopicCareerType[]
+      data: TopicType[]
     }
   }
 }

@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { CareerContent } from '@/modules/Career'
 import createApolloClient from '@/utils/api/apolloClient'
 import { gql } from '@apollo/client'
-import { TopicCareerType } from '../careers'
+import { TopicType } from '../careers'
 
 export type OneCareerResultType = {
   career: {
@@ -37,7 +37,7 @@ type OneCareerType = {
     description: string
     editor: string
     topics: {
-      data: TopicCareerType[]
+      data: TopicType[]
     }
   }
 }

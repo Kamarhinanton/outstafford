@@ -3,7 +3,7 @@ import HeroBlog from '@/modules/Blog/ui/HeroBlog/HeroBlog'
 import BlogNavigation from '@/components/BlogNavigation/BlogNavigation'
 import BlogSection from '@/modules/Blog/ui/BlogSection/BlogSection'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
-import { BlogType } from '../../../../pages/blog'
+import { BlogsType } from '../../../../pages/blog'
 import dynamic from 'next/dynamic'
 import Footer from '@/components/Footer/Footer'
 
@@ -11,18 +11,7 @@ const IndustriesDynamic = dynamic(
   () => import('@/components/Industries/Industries'),
 )
 
-const categories = [
-  'AI',
-  'Tech',
-  'Self-Development',
-  'UX',
-  'UI Design',
-  'Case Study',
-  'Results',
-  'News',
-]
-
-const BlogContent = ({ blog }: BlogType) => {
+const BlogContent = ({ blogs, filterTopics }: BlogsType) => {
   const {
     activeCategories,
     handleClick,
@@ -30,7 +19,7 @@ const BlogContent = ({ blog }: BlogType) => {
     handleAll,
     filteredBlogData,
     handleScroll,
-  } = useCategoryFilter(blog)
+  } = useCategoryFilter(blogs)
 
   return (
     <main>
@@ -40,7 +29,7 @@ const BlogContent = ({ blog }: BlogType) => {
         handleClick={handleClick}
         isAll={isAll}
         handleAll={handleAll}
-        categories={categories}
+        categories={filterTopics}
         smallTopic={true}
         handleScroll={handleScroll}
       />
