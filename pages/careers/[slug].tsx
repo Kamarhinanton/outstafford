@@ -5,15 +5,16 @@ import { CareerContent } from '@/modules/Career'
 import createApolloClient from '@/utils/api/apolloClient'
 import { gql } from '@apollo/client'
 import { TopicType } from '../careers'
+import { type BlocksContent } from '@strapi/blocks-react-renderer'
 
 export type OneCareerResultType = {
   career: {
-    id: string | number
+    id: string
     title: string
     salary: string
     about: string
     description: string
-    editor: string
+    editor: BlocksContent
     topics: string[]
   }
 }
@@ -31,11 +32,11 @@ type QueryResultPathType = {
 type OneCareerType = {
   id: string
   attributes: {
-    title: string | number
+    title: string
     salary: string
     about: string
     description: string
-    editor: string
+    editor: BlocksContent
     topics: {
       data: TopicType[]
     }

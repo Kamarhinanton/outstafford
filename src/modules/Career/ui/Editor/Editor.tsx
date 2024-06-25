@@ -12,6 +12,8 @@ import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
 import { OneCareerResultType } from '../../../../../pages/careers/[slug]'
 
 import styles from './Editor.module.scss'
+import { BlocksRenderer } from '@strapi/blocks-react-renderer'
+import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 
 const Editor = ({ career }: OneCareerResultType) => {
   const dispatch: AppDispatch = useDispatch()
@@ -34,10 +36,23 @@ const Editor = ({ career }: OneCareerResultType) => {
               <p className={styles['description']}>{career.description}</p>
             </div>
             <StickyBlock career={career} className={styles['sticky-block']} />
-            <div
-              dangerouslySetInnerHTML={{ __html: md().render(career.editor) }}
-              className={'editor-content'}
-            />
+            <div className={'editor-content'}>
+              <BlocksRenderer
+                content={career.editor}
+                blocks={{
+                  image: ({ image }) => {
+                    return (
+                      <BackgroundImage
+                        className={'image'}
+                        src={image.url}
+                        alt={'picture'}
+                        position={'cover'}
+                      />
+                    )
+                  },
+                }}
+              />
+            </div>
           </div>
           <div className={styles['editor__content_menu']}>
             <StickyBlock career={career} />
