@@ -6,12 +6,18 @@ import HeroProjects from '@/modules/Projects/ui/HeroSection/HeroProjects'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
 import { ProjectPageType } from '../../../../pages/projects'
 import dynamic from 'next/dynamic'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
+import { breakpointMob } from '@/utils/variables'
 
 const CTADynamic = dynamic(() => import('@/components/CTA/CTA'))
 
-const categories = ['Mobile', 'Web', 'AI']
-
-const ProjectsContent = ({ projects }: ProjectPageType) => {
+const ProjectsContent = ({ projects, projectTopics }: ProjectPageType) => {
+  const desktopCategories = projectTopics
+    .slice(0, 3)
+    .map((topic) => topic.topic)
+  const otherCategories = projectTopics.slice(3).map((topic) => topic.topic)
+  const mobileCategories = projectTopics.map((topic) => topic.topic)
+  const { width } = useWindowDimensions()
   const {
     activeCategories,
     handleClick,
@@ -29,7 +35,10 @@ const ProjectsContent = ({ projects }: ProjectPageType) => {
         handleClick={handleClick}
         isAll={isAll}
         handleAll={handleAll}
-        categories={categories}
+        smallTopic={width <= breakpointMob}
+        categories={
+          width <= breakpointMob ? mobileCategories : desktopCategories
+        }
         handleScroll={handleScroll}
       />
       <BlogProjectSection
@@ -37,6 +46,7 @@ const ProjectsContent = ({ projects }: ProjectPageType) => {
         handleClick={handleClick}
         filteredBlogData={filteredBlogData}
         handleScroll={handleScroll}
+        categories={otherCategories}
       />
       <CTADynamic />
       <Footer />

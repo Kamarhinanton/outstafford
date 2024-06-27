@@ -9,22 +9,12 @@ import TopicList from '@/ui/TopicList/TopicList'
 
 import styles from './BlogProjectSection.module.scss'
 
-const categories = [
-  'Healthcare',
-  'Dating',
-  'Location-based',
-  'Travel',
-  'Fintech',
-  'E-Commerce',
-  'Gig economy',
-  'Social media',
-]
-
 const BlogProjectSection: FC<BlogSectionType> = ({
   filteredBlogData,
   handleClick,
   activeCategory,
   handleScroll,
+  categories,
 }) => {
   const navigationOnClick = (category: string) => {
     handleClick && handleClick(category)
@@ -34,7 +24,7 @@ const BlogProjectSection: FC<BlogSectionType> = ({
     <section className={styles['blog']}>
       <div className={styles['menu']}>
         <ul className={styles['menu__categories']}>
-          {categories.map((category) => (
+          {categories?.map((category) => (
             <li
               onClick={() => navigationOnClick(category)}
               className={classNames(styles['menu__categories_category'], {
@@ -66,7 +56,7 @@ const BlogProjectSection: FC<BlogSectionType> = ({
                   <BackgroundImage
                     className={styles['image']}
                     position={'cover'}
-                    src={card.preview}
+                    src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${card.preview}`}
                     alt="picture"
                   />
                 </Link>
