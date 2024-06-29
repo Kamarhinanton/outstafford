@@ -5,11 +5,11 @@ import classNames from 'classnames'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
-import { OneBlogResultType } from '../../../../../pages/blog/[slug]'
+import { SingleBlogResultType } from '@/utils/globalTypes'
 
 import styles from './HeroInnerBlog.module.scss'
 
-const HeroInnerBlog: FC<OneBlogResultType> = ({ blog }) => {
+const HeroInnerBlog: FC<SingleBlogResultType> = ({ blog }) => {
   return (
     <section className={styles['hero-inner']}>
       <Container>

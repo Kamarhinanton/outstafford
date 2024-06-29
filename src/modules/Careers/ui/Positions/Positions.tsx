@@ -2,8 +2,8 @@ import React from 'react'
 import Container from '@/app/layouts/Container'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import classNames from 'classnames'
-import { CareersType } from '../../../../../pages/careers'
 import TopicList from '@/ui/TopicList/TopicList'
+import { CareersType } from '@/utils/globalTypes'
 
 import styles from './Positions.module.scss'
 

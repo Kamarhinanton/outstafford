@@ -3,40 +3,8 @@ import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
 import { CareersContent } from '@/modules/Careers'
 import Head from 'next/head'
 import createApolloClient from '@/utils/api/apolloClient'
-import { gql } from '@apollo/client'
-
-type CareersTransformType = {
-  id: string | number
-  title: string
-  topics: string[]
-}
-
-export type TopicType = {
-  id: string
-  attributes: {
-    topic: string
-  }
-}
-
-type OneCareerType = {
-  id: string
-  attributes: {
-    title: string
-    topics: {
-      data: TopicType[]
-    }
-  }
-}
-
-type QueryResultType = {
-  positions: {
-    data: OneCareerType[]
-  }
-}
-
-export type CareersType = {
-  careers: CareersTransformType[]
-}
+import { CAREERS_ALL } from '@/utils/api/apolloQueries'
+import { CareersType, QueryResultCareersType } from '@/utils/globalTypes'
 
 export default function Careers({ careers }: CareersType) {
   return (
@@ -54,34 +22,13 @@ export default function Careers({ careers }: CareersType) {
 export const getStaticProps = async () => {
   try {
     const client = createApolloClient()
-    const { data } = await client.query<QueryResultType>({
-      query: gql`
-        query {
-          positions {
-            data {
-              id
-              attributes {
-                title
-                topics: position_topics {
-                  data {
-                    id
-                    attributes {
-                      topic
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      `,
+    const { data } = await client.query<QueryResultCareersType>({
+      query: CAREERS_ALL,
     })
-    const careers = data.positions.data.map((position) => ({
-      id: position.id,
-      title: position.attributes.title,
-      topics: position.attributes.topics.data.map(
-        (topic) => topic.attributes.topic,
-      ),
+    const careers = data.positions.data.map(({ attributes, id }) => ({
+      id: id,
+      title: attributes.title,
+      topics: attributes.topics.data.map((topic) => topic.attributes.topic),
     }))
     return {
       props: { careers },

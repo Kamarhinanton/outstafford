@@ -3,9 +3,9 @@ import HeroBlog from '@/modules/Blog/ui/HeroBlog/HeroBlog'
 import BlogNavigation from '@/components/BlogNavigation/BlogNavigation'
 import BlogSection from '@/modules/Blog/ui/BlogSection/BlogSection'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
-import { BlogsType } from '../../../../pages/blog'
 import dynamic from 'next/dynamic'
 import Footer from '@/components/Footer/Footer'
+import { BlogsType } from '@/utils/globalTypes'
 
 const IndustriesDynamic = dynamic(
   () => import('@/components/Industries/Industries'),

@@ -6,16 +6,15 @@ import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import { setIsCareerPopUpActive } from '@/store/reducers/callCareerPopUpSlice'
 import { AppDispatch } from '@/store/store'
 import { useDispatch } from 'react-redux'
-import md from 'markdown-it'
 import { setIsPopUpActive } from '@/store/reducers/callPopUpSlice'
 import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
-import { OneCareerResultType } from '../../../../../pages/careers/[slug]'
-
-import styles from './Editor.module.scss'
+import { SingleCareerResultType } from '@/utils/globalTypes'
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 
-const Editor = ({ career }: OneCareerResultType) => {
+import styles from './Editor.module.scss'
+
+const Editor = ({ career }: SingleCareerResultType) => {
   const dispatch: AppDispatch = useDispatch()
   const handlePopUpCareer = () => {
     document.body.style.overflow = 'hidden'

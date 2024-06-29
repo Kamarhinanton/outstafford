@@ -6,13 +6,13 @@ import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@/store/store'
 import { setIsCareerPopUpActive } from '@/store/reducers/callCareerPopUpSlice'
 import { setIsPopUpActive } from '@/store/reducers/callPopUpSlice'
-import { OneCareerResultType } from '../../../../../../pages/careers/[slug]'
+import { SingleCareerResultType } from '@/utils/globalTypes'
 
 import styles from './StickyBlock.module.scss'
 
 type StickyBlockType = {
   className?: string
-  career: OneCareerResultType['career']
+  career: SingleCareerResultType['career']
 }
 const StickyBlock: FC<StickyBlockType> = ({ className, career }) => {
   const dispatch: AppDispatch = useDispatch()

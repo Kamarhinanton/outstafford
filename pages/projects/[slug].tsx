@@ -4,13 +4,13 @@ import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
 import { CaseContent } from '@/modules/Case'
 import createApolloClient from '@/utils/api/apolloClient'
 import {
-  OneProjectType,
-  QueryResultPathType,
+  ProjectType,
+  QueryResultProjectPathType,
   QueryResultProjectType,
 } from '@/utils/globalTypes'
-import { PROJECT_PATH, PROJECTS_PATH } from '@/utils/api/apolloQueries'
+import { PROJECT_SINGLE, PROJECTS_PATH } from '@/utils/api/apolloQueries'
 
-export default function Case({ project }: { project: OneProjectType }) {
+export default function Case({ project }: { project: ProjectType }) {
   const { hero } = project.attributes
   return (
     <>
@@ -28,7 +28,7 @@ export default function Case({ project }: { project: OneProjectType }) {
 export const getStaticPaths = async () => {
   try {
     const client = createApolloClient()
-    const { data } = await client.query<QueryResultPathType>({
+    const { data } = await client.query<QueryResultProjectPathType>({
       query: PROJECTS_PATH,
     })
     const paths = data.projects.data.map((slug) => ({
@@ -60,7 +60,7 @@ export const getStaticProps = async ({ params }: SlugProps) => {
     const { slug } = params
     const client = createApolloClient()
     const { data } = await client.query<QueryResultProjectType>({
-      query: PROJECT_PATH,
+      query: PROJECT_SINGLE,
       variables: { id: slug },
     })
 

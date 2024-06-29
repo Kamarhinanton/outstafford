@@ -7,8 +7,8 @@ import SummaryCase from '@/modules/Case/ui/SummaryCase/SummaryCase'
 import TeamCase from '@/modules/Case/ui/TeamCase/TeamCase'
 import BigTitleCase from '@/modules/Case/ui/BigTitleCase/BigTitleCase'
 import ExploreMoreProjects from '@/modules/Case/ui/ExploreMoreProjects/ExploreMoreProjects'
-import { OneProjectType } from '@/utils/globalTypes'
-const CaseContent = ({ project }: { project: OneProjectType }) => {
+import { ProjectType } from '@/utils/globalTypes'
+const CaseContent = ({ project }: { project: ProjectType }) => {
   const {
     hero,
     project_topics,

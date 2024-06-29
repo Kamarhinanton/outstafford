@@ -3,10 +3,10 @@ import Footer from '@/components/Footer/Footer'
 import BlogProjectSection from '@/modules/Projects/ui/BlogProjectSection/BlogProjectSection'
 import HeroProjects from '@/modules/Projects/ui/HeroSection/HeroProjects'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
-import { ProjectPageType } from '../../../../pages/projects'
 import dynamic from 'next/dynamic'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { breakpointMob } from '@/utils/variables'
+import { ProjectsType } from '@/utils/globalTypes'
 
 const CTADynamic = dynamic(() => import('@/components/CTA/CTA'))
 
@@ -17,7 +17,7 @@ const BlogNavigation = dynamic(
   },
 )
 
-const ProjectsContent = ({ projects, projectTopics }: ProjectPageType) => {
+const ProjectsContent = ({ projects, projectTopics }: ProjectsType) => {
   const desktopCategories = projectTopics
     .slice(0, 3)
     .map((topic) => topic.topic)

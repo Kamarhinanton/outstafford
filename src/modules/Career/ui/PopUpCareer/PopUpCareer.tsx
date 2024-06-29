@@ -10,11 +10,11 @@ import { setIsCareerPopUpActive } from '@/store/reducers/callCareerPopUpSlice'
 import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion'
 import { popUpVariant } from '@/modules/Home/ui/PartnerReviews/VideoPopUp/VideoPopUp'
 import { setIsPopUpActive } from '@/store/reducers/callPopUpSlice'
-import { OneCareerResultType } from '../../../../../pages/careers/[slug]'
+import { SingleCareerResultType } from '@/utils/globalTypes'
 
 import styles from './PopUpCareer.module.scss'
 
-const PopUpCareer: FC<OneCareerResultType> = ({ career }) => {
+const PopUpCareer: FC<SingleCareerResultType> = ({ career }) => {
   const isCareerPopUpActive = useSelector(
     (state: RootState) => state.callCareerPopUp.isCareerPopUpActive,
   )

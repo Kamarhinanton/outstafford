@@ -5,8 +5,11 @@ import classNames from 'classnames'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
-import { TopicType } from '../../../../../pages/careers'
-import { HeroColumnsProjectType, HeroProjectType } from '@/utils/globalTypes'
+import {
+  HeroColumnsProjectType,
+  HeroProjectType,
+  TopicType,
+} from '@/utils/globalTypes'
 
 import styles from './HeroCaseSection.module.scss'
 

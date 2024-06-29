@@ -3,59 +3,14 @@ import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
 import Head from 'next/head'
 import { CareerContent } from '@/modules/Career'
 import createApolloClient from '@/utils/api/apolloClient'
-import { gql } from '@apollo/client'
-import { TopicType } from '../careers'
-import { type BlocksContent } from '@strapi/blocks-react-renderer'
+import { CAREER_SINGLE, CAREERS_PATH } from '@/utils/api/apolloQueries'
+import {
+  QueryResultCareerPathType,
+  QueryResultCareerType,
+  SingleCareerResultType,
+} from '@/utils/globalTypes'
 
-export type OneCareerResultType = {
-  career: {
-    id: string
-    title: string
-    salary: string
-    about: string
-    description: string | null
-    editor: BlocksContent
-    topics: string[]
-  }
-}
-
-type OneCareerPathType = {
-  id: string
-}
-
-type QueryResultPathType = {
-  positions: {
-    data: OneCareerPathType[]
-  }
-}
-
-type OneCareerType = {
-  id: string
-  attributes: {
-    title: string
-    salary: string
-    about: string
-    description: string | null
-    editor: BlocksContent
-    topics: {
-      data: TopicType[]
-    }
-  }
-}
-
-type QueryResultType = {
-  position: {
-    data: OneCareerType
-  }
-}
-
-type SlugProps = {
-  params: {
-    slug: string
-  }
-}
-
-export default function Career({ career }: OneCareerResultType) {
+export default function Career({ career }: SingleCareerResultType) {
   return (
     <>
       <Head>
@@ -71,16 +26,8 @@ export default function Career({ career }: OneCareerResultType) {
 export const getStaticPaths = async () => {
   try {
     const client = createApolloClient()
-    const { data } = await client.query<QueryResultPathType>({
-      query: gql`
-        query {
-          positions {
-            data {
-              id
-            }
-          }
-        }
-      `,
+    const { data } = await client.query<QueryResultCareerPathType>({
+      query: CAREERS_PATH,
     })
     const paths = data.positions.data.map((slug) => ({
       params: { slug: slug.id },
@@ -100,48 +47,30 @@ export const getStaticPaths = async () => {
   }
 }
 
+type SlugProps = {
+  params: {
+    slug: string
+  }
+}
+
 export const getStaticProps = async ({ params }: SlugProps) => {
   try {
     const { slug } = params
     const client = createApolloClient()
-    const { data } = await client.query<QueryResultType>({
-      query: gql`
-        query {
-          position(id: ${slug}) {
-            data {
-              id
-              attributes {
-                title
-                salary
-                about
-                description
-                editor
-                topics: position_topics {
-                  data {
-                    id
-                    attributes {
-                      topic
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      `,
+    const { data } = await client.query<QueryResultCareerType>({
+      query: CAREER_SINGLE,
+      variables: { id: slug },
     })
 
-    const position = data.position.data
+    const { attributes, id } = data.position.data
     const career = {
-      id: position.id,
-      title: position.attributes.title,
-      salary: position.attributes.salary,
-      about: position.attributes.about,
-      description: position.attributes.description,
-      editor: position.attributes.editor,
-      topics: position.attributes.topics.data.map(
-        (topic) => topic.attributes.topic,
-      ),
+      id: id,
+      title: attributes.title,
+      salary: attributes.salary,
+      about: attributes.about,
+      description: attributes.description,
+      editor: attributes.editor,
+      topics: attributes.topics.data.map((topic) => topic.attributes.topic),
     }
 
     return {

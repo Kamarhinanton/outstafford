@@ -1,4 +1,4 @@
-import { TopicType } from '../../pages/careers'
+import { BlocksContent } from '@strapi/blocks-react-renderer'
 
 export type CardBlogType = {
   preview: string
@@ -6,18 +6,6 @@ export type CardBlogType = {
   title: string
   href: string
   description?: string
-}
-
-export type BlogSectionType = {
-  filteredBlogData?: CardBlogType[]
-  handleClick?: (e: string) => void
-  handleScroll?: () => void
-  activeCategory?: string[]
-  isAll?: boolean
-  handleAll?: () => void
-  categories?: string[]
-  smallTopic?: boolean
-  className?: string
 }
 
 export type FormData = {
@@ -31,19 +19,19 @@ export type FormData = {
 }
 
 //Project types
-type OneProjectPathType = {
+type SingleProjectPathType = {
   id: string
 }
 
-export type QueryResultPathType = {
+export type QueryResultProjectPathType = {
   projects: {
-    data: OneProjectPathType[]
+    data: SingleProjectPathType[]
   }
 }
 
 export type QueryResultProjectType = {
   project: {
-    data: OneProjectType
+    data: ProjectType
   }
 }
 
@@ -121,7 +109,7 @@ type TeamListType = {
   title: string
 }
 
-export type OneProjectType = {
+export type ProjectType = {
   id: string
   attributes: {
     project_topics: {
@@ -136,5 +124,208 @@ export type OneProjectType = {
       title: string
     } | null
     team: TeamProjectType[]
+  }
+}
+
+export type ProjectsType = {
+  projects: CardBlogType[]
+  projectTopics: {
+    id: string
+    topic: string
+  }[]
+}
+
+export type QueryResultProjectsType = {
+  projects: {
+    data: ResponseProjectType[]
+  }
+  projectTopics: {
+    data: TopicType[]
+  }
+}
+
+type ResponseProjectType = {
+  id: string
+  attributes: {
+    hero: {
+      title: string
+    }
+    project_topics: {
+      data: TopicType[]
+    }
+    preview: {
+      data: {
+        attributes: {
+          url: string
+        }
+      }
+    }
+  }
+}
+
+//Blog types
+export type BlogsType = {
+  blogs: BlogsTransformType[]
+  filterTopics: string[]
+}
+
+export type QueryResultBlogsType = {
+  blogs: {
+    data: SingleBlogsType[]
+  }
+  blogTopics: {
+    data: TopicType[]
+  }
+}
+
+type SingleBlogsType = {
+  id: string
+  attributes: {
+    title: string
+    blog_topics: {
+      data: TopicType[]
+    }
+    preview: ImageUrlType
+  }
+}
+
+type BlogsTransformType = {
+  href: string
+  title: string
+  preview: string
+  topics: string[]
+}
+
+export type BlogSectionType = {
+  filteredBlogData?: CardBlogType[]
+  handleClick?: (e: string) => void
+  handleScroll?: () => void
+  activeCategory?: string[]
+  isAll?: boolean
+  handleAll?: () => void
+  categories?: string[]
+  smallTopic?: boolean
+  className?: string
+}
+
+export type SingleBlogResultType = {
+  blog: {
+    href: string
+    title: string
+    preview: string
+    description: string | null
+    editor: BlocksContent
+    topics: string[]
+  }
+}
+
+type SingleBlogPathType = {
+  id: string
+}
+
+export type QueryResultBlogPathType = {
+  blogs: {
+    data: SingleBlogPathType[]
+  }
+}
+
+type SingleBlogType = {
+  id: string
+  attributes: {
+    title: string
+    description: string | null
+    editor: BlocksContent
+    preview: {
+      data: {
+        attributes: {
+          url: string
+        }
+      }
+    }
+    topics: {
+      data: TopicType[]
+    }
+  }
+}
+
+export type QueryResultBlogType = {
+  blog: {
+    data: SingleBlogType
+  }
+}
+
+// Careers
+type CareersTransformType = {
+  id: string | number
+  title: string
+  topics: string[]
+}
+
+export type TopicType = {
+  id: string
+  attributes: {
+    topic: string
+  }
+}
+
+type SingleCareersType = {
+  id: string
+  attributes: {
+    title: string
+    topics: {
+      data: TopicType[]
+    }
+  }
+}
+
+export type QueryResultCareersType = {
+  positions: {
+    data: SingleCareersType[]
+  }
+}
+
+export type CareersType = {
+  careers: CareersTransformType[]
+}
+
+export type SingleCareerResultType = {
+  career: {
+    id: string
+    title: string
+    salary: string
+    about: string
+    description: string | null
+    editor: BlocksContent
+    topics: string[]
+  }
+}
+
+type SingleCareerPathType = {
+  id: string
+}
+
+export type QueryResultCareerPathType = {
+  positions: {
+    data: SingleCareerPathType[]
+  }
+}
+
+type SingleCareerType = {
+  id: string
+  attributes: {
+    title: string
+    salary: string
+    about: string
+    description: string | null
+    editor: BlocksContent
+    topics: {
+      data: TopicType[]
+    }
+  }
+}
+
+export type QueryResultCareerType = {
+  position: {
+    data: SingleCareerType
   }
 }
