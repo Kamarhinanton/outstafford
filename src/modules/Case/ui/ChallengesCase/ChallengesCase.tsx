@@ -1,7 +1,7 @@
 import React from 'react'
 import Container from '@/app/layouts/Container'
 import classNames from 'classnames'
-import { ChallengesProjectType } from '../../../../../pages/projects/[slug]'
+import { ChallengesProjectType } from '@/utils/globalTypes'
 
 import styles from './ChallengesCase.module.scss'
 

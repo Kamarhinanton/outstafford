@@ -5,11 +5,9 @@ import ChallengesCase from '@/modules/Case/ui/ChallengesCase/ChallengesCase'
 import MosaicSection from '@/modules/Case/ui/MosaicSection/MosaicSection'
 import SummaryCase from '@/modules/Case/ui/SummaryCase/SummaryCase'
 import TeamCase from '@/modules/Case/ui/TeamCase/TeamCase'
-// import MoreCases from '@/modules/Case/ui/MoreCases/MoreCases'
 import BigTitleCase from '@/modules/Case/ui/BigTitleCase/BigTitleCase'
 import ExploreMoreProjects from '@/modules/Case/ui/ExploreMoreProjects/ExploreMoreProjects'
-import { SingleProjectsType } from '@/utils/globalTypes'
-import { OneProjectType } from '../../../../pages/projects/[slug]'
+import { OneProjectType } from '@/utils/globalTypes'
 const CaseContent = ({ project }: { project: OneProjectType }) => {
   const {
     hero,
@@ -34,9 +32,8 @@ const CaseContent = ({ project }: { project: OneProjectType }) => {
       ))}
       <SummaryCase summary={summary} />
       <TeamCase team={team} team_title={team_title} />
-      {/*<BigTitleCase />*/}
-      {/*<ExploreMoreProjects />*/}
-      {/*<MoreCases />*/}
+      <BigTitleCase />
+      <ExploreMoreProjects />
       <Footer />
     </main>
   )

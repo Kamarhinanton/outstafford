@@ -5,11 +5,8 @@ import classNames from 'classnames'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
-import {
-  HeroColumnsProjectType,
-  HeroProjectType,
-} from '../../../../../pages/projects/[slug]'
 import { TopicType } from '../../../../../pages/careers'
+import { HeroColumnsProjectType, HeroProjectType } from '@/utils/globalTypes'
 
 import styles from './HeroCaseSection.module.scss'
 
@@ -22,7 +19,6 @@ type HeroCase = {
 }
 const HeroCaseSection = ({ hero, hero_columns, project_topics }: HeroCase) => {
   const topics = project_topics.data.map((topic) => topic.attributes.topic)
-  console.log(hero_columns)
   return hero ? (
     <section className={styles['hero']}>
       <Container>

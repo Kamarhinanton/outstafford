@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import Container from '@/app/layouts/Container'
 import classNames from 'classnames'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
-import { ProjectMosaicType } from '../../../../../pages/projects/[slug]'
+import { ProjectMosaicType } from '@/utils/globalTypes'
 
 import styles from './MosaicSection.module.scss'
 

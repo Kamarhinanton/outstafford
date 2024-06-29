@@ -2,7 +2,7 @@ import React from 'react'
 import Container from '@/app/layouts/Container'
 import classNames from 'classnames'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
-import { SummaryProjectType } from '../../../../../pages/projects/[slug]'
+import { SummaryProjectType } from '@/utils/globalTypes'
 
 import styles from './SummaryCase.module.scss'
 

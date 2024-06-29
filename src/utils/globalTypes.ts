@@ -1,3 +1,5 @@
+import { TopicType } from '../../pages/careers'
+
 export type CardBlogType = {
   preview: string
   topics: string[]
@@ -29,78 +31,110 @@ export type FormData = {
 }
 
 //Project types
-
-type HeroColumns = {
-  title?: string
-  topics?: string[]
+type OneProjectPathType = {
+  id: string
 }
 
-type ProjectList = {
+export type QueryResultPathType = {
+  projects: {
+    data: OneProjectPathType[]
+  }
+}
+
+export type QueryResultProjectType = {
+  project: {
+    data: OneProjectType
+  }
+}
+
+export type ImageUrlType = {
+  data: {
+    attributes: {
+      url: string | null
+    }
+  }
+}
+
+type TechnologiesProjectType = {
+  title: string
+}
+
+export type HeroProjectType = {
   title: string
   description: string
-  href?: string
+  preview: ImageUrlType
+  link: string
 }
 
-type TeamList = {
+export type HeroColumnsProjectType = {
+  title: string
+  topic: TechnologiesProjectType[]
+}
+
+export type ChallengesProjectType = {
+  title: string
+  list: ChallengesListType[]
+}
+
+type ChallengesListType = {
+  title: string
+  description: string
+}
+
+export type ProjectMosaicType = {
+  id: string
+  title: string | null
+  textTop: string | null
+  quote: {
+    text: string
+    author: string
+    position: string
+    img: ImageUrlType | null
+  } | null
+  textBottom: string | null
+  topImg: ImageUrlType | null
+  doubleImg: {
+    img1: ImageUrlType
+    img2: ImageUrlType
+  } | null
+  bottomImg: ImageUrlType | null
+}
+
+export type SummaryProjectType = {
+  title: string
+  list: {
+    id: string
+    title: string | null
+    description: string | null
+    picture: ImageUrlType | null
+  }[]
+}
+
+export type TeamProjectType = {
+  id: string
   position: string
-  name: string[]
+  name: TeamListType[]
 }
 
-export type MosaicDataType = {
-  description?: {
-    title?: string
-    textTop?: string
-    quote?: {
-      text?: string
-      author?: string
-      position?: string
-      img?: string
+type TeamListType = {
+  id: string
+  title: string
+}
+
+export type OneProjectType = {
+  id: string
+  attributes: {
+    project_topics: {
+      data: TopicType[]
     }
-    textBottom?: string
+    hero: HeroProjectType
+    hero_columns: HeroColumnsProjectType[]
+    challenges: ChallengesProjectType
+    mosaic: ProjectMosaicType[]
+    summary: SummaryProjectType
+    team_title: {
+      title: string
+    } | null
+    team: TeamProjectType[]
   }
-  mosaic?: {
-    topImg?: string
-    bottomImg?: string
-    doubleImg?: {
-      img1?: string
-      img2?: string
-    }
-  }
-}
-
-export type ProjectHero = {
-  topics?: string[]
-  title?: string
-  columns?: HeroColumns[]
-  description?: string
-  preview?: string
-  href?: string
-}
-
-export type ProjectChallenges = {
-  title?: string
-  list?: ProjectList[]
-}
-
-export type ProjectSummary = {
-  title?: string
-  list?: ProjectList[]
-}
-
-export type ProjectTeam = {
-  title?: string
-  data?: TeamList[]
-}
-
-export type ProjectType = {
-  hero: ProjectHero
-  // challenges: ProjectChallenges
-  // mosaic_1: MosaicDataType
-  // mosaic_2: MosaicDataType
-  // summary: ProjectSummary
-  // team: ProjectTeam
-}
-
-export type SingleProjectsType = {
-  project: ProjectType
 }

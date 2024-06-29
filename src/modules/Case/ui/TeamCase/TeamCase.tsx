@@ -1,8 +1,7 @@
 import React from 'react'
 import Container from '@/app/layouts/Container'
 import classNames from 'classnames'
-import { ProjectTeam } from '@/utils/globalTypes'
-import { TeamProjectType } from '../../../../../pages/projects/[slug]'
+import { TeamProjectType } from '@/utils/globalTypes'
 
 import styles from './TeamCase.module.scss'
 
@@ -10,7 +9,7 @@ type TeamCaseType = {
   team: TeamProjectType[]
   team_title: {
     title: string
-  }
+  } | null
 }
 const TeamCase = ({ team, team_title }: TeamCaseType) => {
   return team.length > 0 || team_title ? (
