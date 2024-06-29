@@ -225,6 +225,7 @@ export const BLOG_SINGLE = gql`
           title
           description
           editor
+          link
           topics: blog_topics {
             data {
               id

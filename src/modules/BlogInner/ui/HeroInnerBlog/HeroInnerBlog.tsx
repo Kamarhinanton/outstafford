@@ -32,6 +32,7 @@ const HeroInnerBlog: FC<SingleBlogResultType> = ({ blog }) => {
             className={styles['hero-inner__content_btn']}
             size={'large'}
             variant={'dark-green'}
+            href={blog.link}
           >
             Summarize the article
           </ButtonPrimary>

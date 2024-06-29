@@ -214,6 +214,7 @@ export type SingleBlogResultType = {
     title: string
     preview: string
     description: string | null
+    link: string
     editor: BlocksContent
     topics: string[]
   }
@@ -235,6 +236,7 @@ type SingleBlogType = {
     title: string
     description: string | null
     editor: BlocksContent
+    link: string
     preview: {
       data: {
         attributes: {

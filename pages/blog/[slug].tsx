@@ -68,6 +68,7 @@ export const getStaticProps = async ({ params }: SlugProps) => {
       title: attributes.title,
       description: attributes.description,
       editor: attributes.editor,
+      link: attributes.link,
       preview: attributes.preview.data.attributes.url,
       topics: attributes.topics.data.map((topic) => topic.attributes.topic),
     }
