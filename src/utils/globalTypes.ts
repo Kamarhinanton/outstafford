@@ -28,21 +28,6 @@ export type FormData = {
   formType: string
 }
 
-export type FrontMatterType = {
-  id?: string | number
-  title?: string
-  topics?: string[]
-  salary?: string
-  about?: string
-  description?: string
-  preview?: string
-}
-
-export type SingleMarkdownType = {
-  content: string
-  frontMatter: FrontMatterType
-}
-
 //Project types
 
 type HeroColumns = {
@@ -108,15 +93,14 @@ export type ProjectTeam = {
 }
 
 export type ProjectType = {
-  preview: string
   hero: ProjectHero
-  challenges: ProjectChallenges
-  mosaic_1: MosaicDataType
-  mosaic_2: MosaicDataType
-  summary: ProjectSummary
-  team: ProjectTeam
+  // challenges: ProjectChallenges
+  // mosaic_1: MosaicDataType
+  // mosaic_2: MosaicDataType
+  // summary: ProjectSummary
+  // team: ProjectTeam
 }
 
 export type SingleProjectsType = {
-  frontMatter: ProjectType
+  project: ProjectType
 }

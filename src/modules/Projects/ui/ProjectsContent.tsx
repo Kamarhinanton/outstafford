@@ -1,7 +1,6 @@
 import React from 'react'
 import Footer from '@/components/Footer/Footer'
 import BlogProjectSection from '@/modules/Projects/ui/BlogProjectSection/BlogProjectSection'
-import BlogNavigation from '@/components/BlogNavigation/BlogNavigation'
 import HeroProjects from '@/modules/Projects/ui/HeroSection/HeroProjects'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
 import { ProjectPageType } from '../../../../pages/projects'
@@ -10,6 +9,13 @@ import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { breakpointMob } from '@/utils/variables'
 
 const CTADynamic = dynamic(() => import('@/components/CTA/CTA'))
+
+const BlogNavigation = dynamic(
+  () => import('@/components/BlogNavigation/BlogNavigation'),
+  {
+    ssr: false,
+  },
+)
 
 const ProjectsContent = ({ projects, projectTopics }: ProjectPageType) => {
   const desktopCategories = projectTopics

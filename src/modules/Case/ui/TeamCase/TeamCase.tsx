@@ -2,23 +2,29 @@ import React from 'react'
 import Container from '@/app/layouts/Container'
 import classNames from 'classnames'
 import { ProjectTeam } from '@/utils/globalTypes'
+import { TeamProjectType } from '../../../../../pages/projects/[slug]'
 
 import styles from './TeamCase.module.scss'
 
 type TeamCaseType = {
-  team: ProjectTeam
+  team: TeamProjectType[]
+  team_title: {
+    title: string
+  }
 }
-const TeamCase = ({ team }: TeamCaseType) => {
-  return team ? (
+const TeamCase = ({ team, team_title }: TeamCaseType) => {
+  return team.length > 0 || team_title ? (
     <section className={styles['team-case']}>
       <Container>
         <div className={styles['team-case__content']}>
-          {team.title && (
-            <h2 className={classNames('h2', styles['title'])}>{team.title}</h2>
+          {team_title && (
+            <h2 className={classNames('h2', styles['title'])}>
+              {team_title.title}
+            </h2>
           )}
           <ul className={styles['list']}>
-            {team.data?.map((item) => (
-              <li key={item.position} className={styles['list__item']}>
+            {team.map((item) => (
+              <li key={item.id} className={styles['list__item']}>
                 {item.position && (
                   <p>
                     <span>{item.position}</span>
@@ -26,7 +32,7 @@ const TeamCase = ({ team }: TeamCaseType) => {
                 )}
                 <ul>
                   {item.name.map((name) => (
-                    <li key={name}>{name}</li>
+                    <li key={name.id}>{name.title}</li>
                   ))}
                 </ul>
               </li>

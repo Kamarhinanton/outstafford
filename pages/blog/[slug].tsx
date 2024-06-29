@@ -12,7 +12,7 @@ export type OneBlogResultType = {
     href: string
     title: string
     preview: string
-    description: string
+    description: string | null
     editor: BlocksContent
     topics: string[]
   }
@@ -32,7 +32,7 @@ type OneBlogType = {
   id: string
   attributes: {
     title: string
-    description: string
+    description: string | null
     editor: BlocksContent
     preview: {
       data: {

@@ -13,7 +13,7 @@ export type OneCareerResultType = {
     title: string
     salary: string
     about: string
-    description: string
+    description: string | null
     editor: BlocksContent
     topics: string[]
   }
@@ -35,7 +35,7 @@ type OneCareerType = {
     title: string
     salary: string
     about: string
-    description: string
+    description: string | null
     editor: BlocksContent
     topics: {
       data: TopicType[]

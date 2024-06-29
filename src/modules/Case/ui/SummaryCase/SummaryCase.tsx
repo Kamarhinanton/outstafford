@@ -1,13 +1,13 @@
 import React from 'react'
 import Container from '@/app/layouts/Container'
 import classNames from 'classnames'
-import { ProjectSummary } from '@/utils/globalTypes'
+import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
+import { SummaryProjectType } from '../../../../../pages/projects/[slug]'
 
 import styles from './SummaryCase.module.scss'
-import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 
 type SummaryCaseType = {
-  summary: ProjectSummary
+  summary: SummaryProjectType
 }
 
 const SummaryCase = ({ summary }: SummaryCaseType) => {
@@ -21,10 +21,10 @@ const SummaryCase = ({ summary }: SummaryCaseType) => {
         )}
         <ul className={styles['summary__content']}>
           {summary.list?.map((item, i) => (
-            <li className={styles['summary__content_item']} key={item.title}>
-              {i === 0 && item.href && (
+            <li className={styles['summary__content_item']} key={item.id}>
+              {i === 0 && item.picture && (
                 <BackgroundImage
-                  src={item.href}
+                  src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${item.picture.data.attributes.url}`}
                   alt={'picture'}
                   className={styles['image']}
                   position={'contain'}

@@ -2,107 +2,94 @@ import React, { FC } from 'react'
 import Container from '@/app/layouts/Container'
 import classNames from 'classnames'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
-import { MosaicDataType } from '@/utils/globalTypes'
+import { ProjectMosaicType } from '../../../../../pages/projects/[slug]'
 
 import styles from './MosaicSection.module.scss'
 
 type MosaicSectionType = {
-  mosaicData: MosaicDataType
+  mosaic: ProjectMosaicType
 }
 
-const MosaicSection: FC<MosaicSectionType> = ({ mosaicData }) => {
-  return mosaicData ? (
+const MosaicSection: FC<MosaicSectionType> = ({ mosaic }) => {
+  return mosaic ? (
     <section className={styles['mosaic']}>
       <Container>
         <div className={styles['mosaic__content']}>
-          {mosaicData.description && (
+          {(mosaic.title ||
+            mosaic.textTop ||
+            mosaic.quote ||
+            mosaic.textBottom) && (
             <div className={styles['top-description']}>
-              {mosaicData.description?.title && (
+              {mosaic.title && (
                 <h2
                   className={classNames('h2', styles['top-description__title'])}
                 >
-                  {mosaicData.description.title}
+                  {mosaic.title}
                 </h2>
               )}
               <div className={styles['top-description__text']}>
-                {mosaicData.description?.textTop && (
-                  <p>{mosaicData.description.textTop}</p>
-                )}
-                {mosaicData.description?.quote && (
+                {mosaic.textTop && <p>{mosaic.textTop}</p>}
+                {mosaic.quote && (
                   <div className={styles['quote']}>
-                    <p className={styles['quote__top']}>
-                      {mosaicData.description.quote.text}
-                    </p>
+                    <p className={styles['quote__top']}>{mosaic.quote.text}</p>
                     <div className={styles['quote__bottom']}>
-                      {mosaicData.description.quote.img && (
+                      {mosaic.quote.img?.data && (
                         <BackgroundImage
-                          src={mosaicData.description.quote.img}
+                          src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${mosaic.quote.img.data.attributes.url}`}
                           alt={'author'}
                           position={'cover'}
                           className={styles['quote__bottom_img']}
                         />
                       )}
-                      {mosaicData.description.quote.author && (
-                        <div className={styles['quote__bottom_naming']}>
-                          {mosaicData.description.quote.author && (
-                            <p>{mosaicData.description.quote.author}</p>
-                          )}
-                          {mosaicData.description.quote.position && (
-                            <p>
-                              <span>
-                                {mosaicData.description.quote.position}
-                              </span>
-                            </p>
-                          )}
-                        </div>
-                      )}
+                      <div className={styles['quote__bottom_naming']}>
+                        <p>{mosaic.quote.author}</p>
+                        <p>
+                          <span>{mosaic.quote.position}</span>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 )}
-                {mosaicData.description?.textBottom && (
-                  <p>{mosaicData.description.textBottom}</p>
-                )}
+                {mosaic.textBottom && <p>{mosaic.textBottom}</p>}
               </div>
             </div>
           )}
-          {mosaicData.mosaic && (
+          {(mosaic.doubleImg ||
+            mosaic.topImg?.data ||
+            mosaic.bottomImg?.data) && (
             <div
               className={classNames(
                 styles['bottom-description'],
-                !mosaicData.mosaic?.doubleImg ? styles['no-double'] : '',
+                !mosaic.doubleImg ? styles['no-double'] : '',
               )}
             >
-              {mosaicData.mosaic?.topImg && (
+              {mosaic.topImg?.data && (
                 <BackgroundImage
-                  src={mosaicData.mosaic.topImg}
+                  src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${mosaic.topImg.data.attributes.url}`}
                   alt={'picture'}
                   className={styles['image']}
                   position={'cover'}
                 />
               )}
-              {mosaicData.mosaic?.doubleImg && (
+              {mosaic.doubleImg && (
                 <div className={styles['double-images']}>
-                  {mosaicData.mosaic?.doubleImg?.img1 && (
-                    <BackgroundImage
-                      src={mosaicData.mosaic.doubleImg.img1}
-                      alt={'picture'}
-                      className={styles['image']}
-                      position={'cover'}
-                    />
-                  )}
-                  {mosaicData.mosaic?.doubleImg?.img2 && (
-                    <BackgroundImage
-                      src={mosaicData.mosaic.doubleImg.img2}
-                      alt={'picture'}
-                      className={styles['image']}
-                      position={'cover'}
-                    />
-                  )}
+                  <BackgroundImage
+                    src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${mosaic.doubleImg.img1.data.attributes.url}`}
+                    alt={'picture'}
+                    className={styles['image']}
+                    position={'cover'}
+                  />
+                  <BackgroundImage
+                    src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${mosaic.doubleImg.img2.data.attributes.url}`}
+                    alt={'picture'}
+                    className={styles['image']}
+                    position={'cover'}
+                  />
                 </div>
               )}
-              {mosaicData.mosaic?.bottomImg && (
+              {mosaic.bottomImg?.data && (
                 <BackgroundImage
-                  src={mosaicData.mosaic.bottomImg}
+                  src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${mosaic.bottomImg.data.attributes.url}`}
                   alt={'picture'}
                   className={classNames(styles['image'], styles['mob'])}
                   position={'cover'}

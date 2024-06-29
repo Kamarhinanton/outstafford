@@ -4,41 +4,51 @@ import TopicList from '@/ui/TopicList/TopicList'
 import classNames from 'classnames'
 import ButtonPrimary from '@/ui/ButtonPrimary/ButtonPrimary'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
-import { ProjectHero } from '@/utils/globalTypes'
 import BackButtonVariant from '@/ui/BackButtonVariant/BackButtonVariant'
+import {
+  HeroColumnsProjectType,
+  HeroProjectType,
+} from '../../../../../pages/projects/[slug]'
+import { TopicType } from '../../../../../pages/careers'
 
 import styles from './HeroCaseSection.module.scss'
 
 type HeroCase = {
-  data: ProjectHero
+  hero: HeroProjectType
+  project_topics: {
+    data: TopicType[]
+  }
+  hero_columns: HeroColumnsProjectType[]
 }
-const HeroCaseSection = ({ data }: HeroCase) => {
-  return data ? (
+const HeroCaseSection = ({ hero, hero_columns, project_topics }: HeroCase) => {
+  const topics = project_topics.data.map((topic) => topic.attributes.topic)
+  console.log(hero_columns)
+  return hero ? (
     <section className={styles['hero']}>
       <Container>
         <BackButtonVariant className={styles['hero__back']} />
-        {data.topics && (
+        {project_topics && (
           <TopicList
             className={styles['hero__topic-list']}
-            list={data.topics}
+            list={topics}
             dots={true}
             color={'grey'}
           />
         )}
-        {data.title && (
-          <h1 className={classNames(styles['title'], 'h1')}>{data.title}</h1>
+        {hero.title && (
+          <h1 className={classNames(styles['title'], 'h1')}>{hero.title}</h1>
         )}
         <div className={styles['hero__content']}>
           <ul className={styles['hero__content_list']}>
-            {data.columns?.map((item) => (
+            {hero_columns?.map((item) => (
               <li key={item.title} className={styles['item']}>
                 {item.title && (
                   <p className={styles['item__title']}>{item.title}</p>
                 )}
                 <ul className={styles['item__list']}>
-                  {item.topics?.map((topic) => (
-                    <li key={topic} className={styles['item__list_topic']}>
-                      {topic}
+                  {item.topic?.map((name) => (
+                    <li key={name.title} className={styles['item__list_topic']}>
+                      {name.title}
                     </li>
                   ))}
                 </ul>
@@ -46,23 +56,23 @@ const HeroCaseSection = ({ data }: HeroCase) => {
             ))}
           </ul>
           <div className={styles['hero__content_description']}>
-            {data.description && <p>{data.description}</p>}
+            {hero.description && <p>{hero.description}</p>}
             <ButtonPrimary
               target="_blank"
               className={styles['button']}
               arrows={true}
               variant={'dark-green'}
               size={'large'}
-              href={data.href}
+              href={hero.link}
             >
               View Live
             </ButtonPrimary>
           </div>
         </div>
-        {data.preview && (
+        {hero.preview && (
           <BackgroundImage
             className={styles['hero__image']}
-            src={data.preview}
+            src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${hero.preview.data.attributes.url}`}
             alt={'picture'}
             position={'cover'}
           />
