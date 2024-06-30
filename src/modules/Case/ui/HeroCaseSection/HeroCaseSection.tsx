@@ -56,16 +56,18 @@ const HeroCaseSection = ({ hero, hero_columns, project_topics }: HeroCase) => {
           </ul>
           <div className={styles['hero__content_description']}>
             {hero.description && <p>{hero.description}</p>}
-            <ButtonPrimary
-              target="_blank"
-              className={styles['button']}
-              arrows={true}
-              variant={'dark-green'}
-              size={'large'}
-              href={hero.link}
-            >
-              View Live
-            </ButtonPrimary>
+            {hero.link && (
+              <ButtonPrimary
+                target="_blank"
+                className={styles['button']}
+                arrows={true}
+                variant={'dark-green'}
+                size={'large'}
+                href={hero.link}
+              >
+                View Live
+              </ButtonPrimary>
+            )}
           </div>
         </div>
         {hero.preview && (

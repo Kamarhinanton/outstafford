@@ -51,7 +51,7 @@ export type HeroProjectType = {
   title: string
   description: string
   preview: ImageUrlType
-  link: string
+  link: string | null
 }
 
 export type HeroColumnsProjectType = {
