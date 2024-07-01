@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React from 'react'
 import Container from '@/app/layouts/Container'
 import TopicList from '@/ui/TopicList/TopicList'
 import classNames from 'classnames'
