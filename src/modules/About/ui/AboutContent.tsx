@@ -8,7 +8,6 @@ import OurTeam from '@/modules/About/ui/OutTeam/OurTeam'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 import AboutBigTitle from '@/modules/About/ui/AboutBigTitle/AboutBigTitle'
 import SectionFullPage from '@/app/layouts/SectionFullPage'
-import ExploreTitle from '@/modules/About/ui/ExploreTitle/ExploreTitle'
 import ExploreMoreProjects from '@/modules/Case/ui/ExploreMoreProjects/ExploreMoreProjects'
 import WeCreate from '@/modules/About/ui/WeCreate/WeCreate'
 import dynamic from 'next/dynamic'
@@ -41,9 +40,6 @@ const AboutContent = ({ projects }: { projects: CardBlogType[] }) => {
         <OurTeam />
       </AnimatedElement>
       <Line />
-      <AnimatedElement>
-        <ExploreTitle />
-      </AnimatedElement>
       <AnimatedElement amount={'some'}>
         <ExploreMoreProjects projects={projects} />
       </AnimatedElement>

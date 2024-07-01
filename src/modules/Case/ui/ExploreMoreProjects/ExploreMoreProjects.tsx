@@ -8,6 +8,7 @@ import { CardBlogType } from '@/utils/globalTypes'
 
 import styles from './ExploreMoreProjects.module.scss'
 import 'swiper/css'
+import BigTitleCase from '@/modules/Case/ui/BigTitleCase/BigTitleCase'
 
 const swiperProps: SwiperProps = {
   slidesPerView: 'auto',
@@ -16,42 +17,47 @@ const swiperProps: SwiperProps = {
 }
 
 const ExploreMoreProjects = ({ projects }: { projects: CardBlogType[] }) => {
-  return (
-    <section className={classNames(styles['explore'])}>
-      <div className={styles['explore__content']}>
-        <Swiper {...swiperProps}>
-          {projects.map((item) => (
-            <SwiperSlide className={styles['card']} key={item.title}>
-              <Link
-                scroll={false}
-                href={item.href}
-                className={styles['card__content']}
-              >
-                <BackgroundImage
-                  position={'cover'}
-                  src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${item.preview}`}
-                  alt={'picture'}
-                  className={styles['card__content_img']}
-                />
-                <div className={styles['card__content_text']}>
-                  <TopicList
-                    list={item.topics}
-                    dots={true}
-                    color={'grey'}
-                    variants={'small'}
-                    className={styles['topics']}
-                  />
-                  <h3 className={classNames(styles['title'], 'h3')}>
-                    {item.title}
-                  </h3>
-                </div>
-              </Link>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </section>
-  )
+  if (projects.length > 0) {
+    return (
+      <>
+        <BigTitleCase />
+        <section className={classNames(styles['explore'])}>
+          <div className={styles['explore__content']}>
+            <Swiper {...swiperProps}>
+              {projects.map((item) => (
+                <SwiperSlide className={styles['card']} key={item.title}>
+                  <Link
+                    scroll={false}
+                    href={item.href}
+                    className={styles['card__content']}
+                  >
+                    <BackgroundImage
+                      position={'cover'}
+                      src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${item.preview}`}
+                      alt={'picture'}
+                      className={styles['card__content_img']}
+                    />
+                    <div className={styles['card__content_text']}>
+                      <TopicList
+                        list={item.topics}
+                        dots={true}
+                        color={'grey'}
+                        variants={'small'}
+                        className={styles['topics']}
+                      />
+                      <h3 className={classNames(styles['title'], 'h3')}>
+                        {item.title}
+                      </h3>
+                    </div>
+                  </Link>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </section>
+      </>
+    )
+  }
 }
 
 export default ExploreMoreProjects

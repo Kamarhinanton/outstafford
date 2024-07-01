@@ -271,6 +271,29 @@ export const BLOGS_PATH = gql`
 
 export const BLOG_SINGLE = gql`
   query GetBlog($id: ID!) {
+    blogs {
+      data {
+        id
+        attributes {
+          title
+          blog_topics {
+            data {
+              id
+              attributes {
+                topic
+              }
+            }
+          }
+          preview {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
     blog(id: $id) {
       data {
         id

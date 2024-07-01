@@ -9,7 +9,7 @@ import { SingleBlogResultType } from '@/utils/globalTypes'
 
 import styles from './HeroInnerBlog.module.scss'
 
-const HeroInnerBlog: FC<SingleBlogResultType> = ({ blog }) => {
+const HeroInnerBlog = ({ blog }: { blog: SingleBlogResultType }) => {
   return (
     <section className={styles['hero-inner']}>
       <Container>
@@ -28,14 +28,16 @@ const HeroInnerBlog: FC<SingleBlogResultType> = ({ blog }) => {
               alt={'picture'}
             />
           )}
-          <ButtonPrimary
-            className={styles['hero-inner__content_btn']}
-            size={'large'}
-            variant={'dark-green'}
-            href={blog.link}
-          >
-            Summarize the article
-          </ButtonPrimary>
+          {blog.link && (
+            <ButtonPrimary
+              className={styles['hero-inner__content_btn']}
+              size={'large'}
+              variant={'dark-green'}
+              href={blog.link}
+            >
+              Summarize the article
+            </ButtonPrimary>
+          )}
         </div>
       </Container>
     </section>

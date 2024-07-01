@@ -192,7 +192,7 @@ type SingleBlogsType = {
   }
 }
 
-type BlogsTransformType = {
+export type BlogsTransformType = {
   href: string
   title: string
   preview: string
@@ -212,15 +212,13 @@ export type BlogSectionType = {
 }
 
 export type SingleBlogResultType = {
-  blog: {
-    href: string
-    title: string
-    preview: string
-    description: string | null
-    link: string
-    editor: BlocksContent
-    topics: string[]
-  }
+  href: string
+  title: string
+  preview: string
+  description: string | null
+  link: string | null
+  editor: BlocksContent
+  topics: string[]
 }
 
 type SingleBlogPathType = {
@@ -239,7 +237,7 @@ type SingleBlogType = {
     title: string
     description: string | null
     editor: BlocksContent
-    link: string
+    link: string | null
     preview: {
       data: {
         attributes: {
@@ -256,6 +254,9 @@ type SingleBlogType = {
 export type QueryResultBlogType = {
   blog: {
     data: SingleBlogType
+  }
+  blogs: {
+    data: SingleBlogsType[]
   }
 }
 

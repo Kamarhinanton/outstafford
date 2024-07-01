@@ -5,19 +5,26 @@ import { BlogInnerContent } from '@/modules/BlogInner'
 import createApolloClient from '@/utils/api/apolloClient'
 import { BLOG_SINGLE, BLOGS_PATH } from '@/utils/api/apolloQueries'
 import {
+  BlogsTransformType,
   QueryResultBlogPathType,
   QueryResultBlogType,
   SingleBlogResultType,
 } from '@/utils/globalTypes'
 
-export default function BlogInner({ blog }: SingleBlogResultType) {
+export default function BlogInner({
+  blog,
+  blogs,
+}: {
+  blog: SingleBlogResultType
+  blogs: BlogsTransformType[]
+}) {
   return (
     <>
       <Head>
         <title>{blog.title}</title>
       </Head>
       <PageTransitionLayout title={blog.title}>
-        <BlogInnerContent blog={blog} />
+        <BlogInnerContent blog={blog} blogs={blogs} />
       </PageTransitionLayout>
     </>
   )
@@ -73,9 +80,21 @@ export const getStaticProps = async ({ params }: SlugProps) => {
       topics: attributes.topics.data.map((topic) => topic.attributes.topic),
     }
 
+    const blogs = data.blogs.data
+      .filter(({ id }) => id !== slug)
+      .map(({ attributes, id }) => ({
+        href: id,
+        title: attributes.title,
+        preview: attributes.preview.data.attributes.url,
+        topics: attributes.blog_topics.data.map(
+          (topic) => topic.attributes.topic,
+        ),
+      }))
+
     return {
       props: {
         blog,
+        blogs,
       },
     }
   } catch (error) {
