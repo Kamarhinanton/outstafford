@@ -7,8 +7,14 @@ import SummaryCase from '@/modules/Case/ui/SummaryCase/SummaryCase'
 import TeamCase from '@/modules/Case/ui/TeamCase/TeamCase'
 import BigTitleCase from '@/modules/Case/ui/BigTitleCase/BigTitleCase'
 import ExploreMoreProjects from '@/modules/Case/ui/ExploreMoreProjects/ExploreMoreProjects'
-import { ProjectType } from '@/utils/globalTypes'
-const CaseContent = ({ project }: { project: ProjectType }) => {
+import { CardBlogType, ProjectType } from '@/utils/globalTypes'
+const CaseContent = ({
+  project,
+  projects,
+}: {
+  project: ProjectType
+  projects: CardBlogType[]
+}) => {
   const {
     hero,
     project_topics,
@@ -33,7 +39,7 @@ const CaseContent = ({ project }: { project: ProjectType }) => {
       <SummaryCase summary={summary} />
       <TeamCase team={team} team_title={team_title} />
       <BigTitleCase />
-      <ExploreMoreProjects />
+      <ExploreMoreProjects projects={projects} />
       <Footer />
     </main>
   )

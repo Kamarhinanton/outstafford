@@ -1,10 +1,10 @@
-import React, { FC } from 'react'
-import { blogData } from '@/modules/Blog/ui/BlogSection/data'
+import React from 'react'
 import Link from 'next/link'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import classNames from 'classnames'
 import { Swiper, SwiperSlide, SwiperProps } from 'swiper/react'
 import TopicList from '@/ui/TopicList/TopicList'
+import { CardBlogType } from '@/utils/globalTypes'
 
 import styles from './ExploreMoreProjects.module.scss'
 import 'swiper/css'
@@ -15,12 +15,12 @@ const swiperProps: SwiperProps = {
   spaceBetween: 16,
 }
 
-const ExploreMoreProjects: FC = () => {
+const ExploreMoreProjects = ({ projects }: { projects: CardBlogType[] }) => {
   return (
     <section className={classNames(styles['explore'])}>
       <div className={styles['explore__content']}>
         <Swiper {...swiperProps}>
-          {blogData.map((item) => (
+          {projects.map((item) => (
             <SwiperSlide className={styles['card']} key={item.title}>
               <Link
                 scroll={false}
@@ -29,7 +29,7 @@ const ExploreMoreProjects: FC = () => {
               >
                 <BackgroundImage
                   position={'cover'}
-                  src={item.preview}
+                  src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${item.preview}`}
                   alt={'picture'}
                   className={styles['card__content_img']}
                 />

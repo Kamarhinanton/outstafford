@@ -12,6 +12,7 @@ import ExploreTitle from '@/modules/About/ui/ExploreTitle/ExploreTitle'
 import ExploreMoreProjects from '@/modules/Case/ui/ExploreMoreProjects/ExploreMoreProjects'
 import WeCreate from '@/modules/About/ui/WeCreate/WeCreate'
 import dynamic from 'next/dynamic'
+import { CardBlogType } from '@/utils/globalTypes'
 
 const Line = dynamic(() => import('@/modules/About/ui/LottieLine/LottieLine'), {
   ssr: false,
@@ -19,7 +20,7 @@ const Line = dynamic(() => import('@/modules/About/ui/LottieLine/LottieLine'), {
 
 const CTADynamic = dynamic(() => import('@/components/CTA/CTA'))
 
-const AboutContent = () => {
+const AboutContent = ({ projects }: { projects: CardBlogType[] }) => {
   return (
     <main>
       <SectionFullPage>
@@ -44,7 +45,7 @@ const AboutContent = () => {
         <ExploreTitle />
       </AnimatedElement>
       <AnimatedElement amount={'some'}>
-        <ExploreMoreProjects />
+        <ExploreMoreProjects projects={projects} />
       </AnimatedElement>
       <Line />
       <AnimatedElement amount={'some'}>

@@ -12,6 +12,30 @@ export const PROJECTS_PATH = gql`
 
 export const PROJECT_SINGLE = gql`
   query GetProject($id: ID!) {
+    projects {
+      data {
+        id
+        attributes {
+          hero {
+            title
+          }
+          preview {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          project_topics {
+            data {
+              attributes {
+                topic
+              }
+            }
+          }
+        }
+      }
+    }
     project(id: $id) {
       data {
         id
@@ -143,6 +167,35 @@ export const PROJECTS_ALL = gql`
         }
       }
     }
+    projects {
+      data {
+        id
+        attributes {
+          hero {
+            title
+          }
+          preview {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          project_topics {
+            data {
+              attributes {
+                topic
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+export const PROJECTS_ALL_ONLY = gql`
+  query {
     projects {
       data {
         id

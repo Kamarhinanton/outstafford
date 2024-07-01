@@ -33,6 +33,9 @@ export type QueryResultProjectType = {
   project: {
     data: ProjectType
   }
+  projects: {
+    data: ResponseProjectType[]
+  }
 }
 
 export type ImageUrlType = {
@@ -144,7 +147,13 @@ export type QueryResultProjectsType = {
   }
 }
 
-type ResponseProjectType = {
+export type QueryResultAboutType = {
+  projects: {
+    data: ResponseProjectType[]
+  }
+}
+
+export type ResponseProjectType = {
   id: string
   attributes: {
     hero: {
@@ -153,13 +162,7 @@ type ResponseProjectType = {
     project_topics: {
       data: TopicType[]
     }
-    preview: {
-      data: {
-        attributes: {
-          url: string
-        }
-      }
-    }
+    preview: ImageUrlType
   }
 }
 

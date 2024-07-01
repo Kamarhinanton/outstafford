@@ -3,13 +3,13 @@ import HeroBlog from '@/modules/Blog/ui/HeroBlog/HeroBlog'
 import BlogNavigation from '@/components/BlogNavigation/BlogNavigation'
 import BlogSection from '@/modules/Blog/ui/BlogSection/BlogSection'
 import useCategoryFilter from '@/hooks/useCategoryFilter'
-import dynamic from 'next/dynamic'
 import Footer from '@/components/Footer/Footer'
 import { BlogsType } from '@/utils/globalTypes'
+// import dynamic from 'next/dynamic'
 
-const IndustriesDynamic = dynamic(
-  () => import('@/components/Industries/Industries'),
-)
+// const IndustriesDynamic = dynamic(
+//   () => import('@/components/Industries/Industries'),
+// )
 
 const BlogContent = ({ blogs, filterTopics }: BlogsType) => {
   const {
@@ -34,7 +34,7 @@ const BlogContent = ({ blogs, filterTopics }: BlogsType) => {
         handleScroll={handleScroll}
       />
       <BlogSection filteredBlogData={filteredBlogData} />
-      <IndustriesDynamic title={'Industries'} />
+      {/*<IndustriesDynamic title={'Industries'} />*/}
       <Footer />
     </main>
   )

@@ -4,13 +4,20 @@ import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
 import { CaseContent } from '@/modules/Case'
 import createApolloClient from '@/utils/api/apolloClient'
 import {
+  CardBlogType,
   ProjectType,
   QueryResultProjectPathType,
   QueryResultProjectType,
 } from '@/utils/globalTypes'
 import { PROJECT_SINGLE, PROJECTS_PATH } from '@/utils/api/apolloQueries'
 
-export default function Case({ project }: { project: ProjectType }) {
+export default function Case({
+  project,
+  projects,
+}: {
+  project: ProjectType
+  projects: CardBlogType[]
+}) {
   const { hero } = project.attributes
   return (
     <>
@@ -20,7 +27,7 @@ export default function Case({ project }: { project: ProjectType }) {
       <PageTransitionLayout
         description={`${hero.title?.toUpperCase()} CASE STUDY`}
       >
-        <CaseContent project={project} />
+        <CaseContent project={project} projects={projects} />
       </PageTransitionLayout>
     </>
   )
@@ -65,8 +72,22 @@ export const getStaticProps = async ({ params }: SlugProps) => {
     })
 
     const project = data.project.data
+    const projects = data.projects.data
+      .filter(({ id }) => id !== slug)
+      .map(({ id, attributes }) => {
+        {
+          return {
+            preview: attributes.preview.data.attributes.url,
+            topics: attributes.project_topics.data.map(
+              (topic) => topic.attributes.topic,
+            ),
+            title: attributes.hero.title,
+            href: id,
+          }
+        }
+      })
     return {
-      props: { project },
+      props: { project, projects },
     }
   } catch (error) {
     console.error(error)
