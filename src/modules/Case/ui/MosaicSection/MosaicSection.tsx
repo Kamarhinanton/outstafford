@@ -35,7 +35,7 @@ const MosaicSection: FC<MosaicSectionType> = ({ mosaic }) => {
                     <div className={styles['quote__bottom']}>
                       {mosaic.quote.img?.data && (
                         <BackgroundImage
-                          src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${mosaic.quote.img.data.attributes.url}`}
+                          src={`${mosaic.quote.img.data.attributes.url}`}
                           alt={'author'}
                           position={'cover'}
                           className={styles['quote__bottom_img']}
@@ -63,9 +63,9 @@ const MosaicSection: FC<MosaicSectionType> = ({ mosaic }) => {
                 !mosaic.doubleImg ? styles['no-double'] : '',
               )}
             >
-              {mosaic.topImg?.data && (
+              {mosaic.topImg?.data.attributes.url && (
                 <BackgroundImage
-                  src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${mosaic.topImg.data.attributes.url}`}
+                  src={mosaic.topImg.data.attributes.url}
                   alt={'picture'}
                   className={styles['image']}
                   position={'cover'}
@@ -73,23 +73,27 @@ const MosaicSection: FC<MosaicSectionType> = ({ mosaic }) => {
               )}
               {mosaic.doubleImg && (
                 <div className={styles['double-images']}>
-                  <BackgroundImage
-                    src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${mosaic.doubleImg.img1.data.attributes.url}`}
-                    alt={'picture'}
-                    className={styles['image']}
-                    position={'cover'}
-                  />
-                  <BackgroundImage
-                    src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${mosaic.doubleImg.img2.data.attributes.url}`}
-                    alt={'picture'}
-                    className={styles['image']}
-                    position={'cover'}
-                  />
+                  {mosaic.doubleImg.img1.data.attributes.url && (
+                    <BackgroundImage
+                      src={mosaic.doubleImg.img1.data.attributes.url}
+                      alt={'picture'}
+                      className={styles['image']}
+                      position={'cover'}
+                    />
+                  )}
+                  {mosaic.doubleImg.img2.data.attributes.url && (
+                    <BackgroundImage
+                      src={mosaic.doubleImg.img2.data.attributes.url}
+                      alt={'picture'}
+                      className={styles['image']}
+                      position={'cover'}
+                    />
+                  )}
                 </div>
               )}
-              {mosaic.bottomImg?.data && (
+              {mosaic.bottomImg?.data.attributes.url && (
                 <BackgroundImage
-                  src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${mosaic.bottomImg.data.attributes.url}`}
+                  src={mosaic.bottomImg.data.attributes.url}
                   alt={'picture'}
                   className={classNames(styles['image'], styles['mob'])}
                   position={'cover'}

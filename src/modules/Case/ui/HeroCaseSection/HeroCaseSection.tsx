@@ -70,10 +70,10 @@ const HeroCaseSection = ({ hero, hero_columns, project_topics }: HeroCase) => {
             )}
           </div>
         </div>
-        {hero.preview && (
+        {hero.preview.data.attributes.url && (
           <BackgroundImage
             className={styles['hero__image']}
-            src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${hero.preview.data.attributes.url}`}
+            src={hero.preview.data.attributes.url}
             alt={'picture'}
             position={'cover'}
           />

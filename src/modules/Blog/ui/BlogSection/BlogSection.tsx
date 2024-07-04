@@ -29,7 +29,7 @@ const BlogSection: FC<BlogSectionType> = ({ filteredBlogData }) => {
                   >
                     <BackgroundImage
                       position={'cover'}
-                      src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${item.preview}`}
+                      src={item.preview}
                       alt={'picture'}
                       className={styles['card__content_img']}
                     />

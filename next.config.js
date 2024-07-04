@@ -2,17 +2,20 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
-const strapiUrl = process.env.NEXT_PUBLIC_URL_STRAPI
-const url = new URL(strapiUrl)
-const imageDomain = url.hostname
-
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   images: {
     remotePatterns: [
       {
-        hostname: imageDomain,
+        protocol: 'https',
+        hostname: 'strapi-app-x7qnw.ondigitalocean.app',
+        pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'outstafford.nyc3.digitaloceanspaces.com',
+        pathname: '/**',
+      }
     ],
   },
   webpack(config) {

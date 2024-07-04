@@ -22,9 +22,9 @@ const SummaryCase = ({ summary }: SummaryCaseType) => {
         <ul className={styles['summary__content']}>
           {summary.list?.map((item, i) => (
             <li className={styles['summary__content_item']} key={item.id}>
-              {i === 0 && item.picture && (
+              {i === 0 && item.picture?.data.attributes.url && (
                 <BackgroundImage
-                  src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${item.picture.data.attributes.url}`}
+                  src={item.picture.data.attributes.url}
                   alt={'picture'}
                   className={styles['image']}
                   position={'contain'}

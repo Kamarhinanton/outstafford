@@ -56,7 +56,7 @@ const BlogProjectSection: FC<BlogSectionType> = ({
                   <BackgroundImage
                     className={styles['image']}
                     position={'cover'}
-                    src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${card.preview}`}
+                    src={card.preview}
                     alt="picture"
                   />
                 </Link>

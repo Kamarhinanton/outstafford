@@ -24,7 +24,7 @@ const HeroInnerBlog = ({ blog }: { blog: SingleBlogResultType }) => {
             <BackgroundImage
               position={'cover'}
               className={styles['hero-inner__content_img']}
-              src={`${process.env.NEXT_PUBLIC_URL_STRAPI}${blog.preview}`}
+              src={blog.preview}
               alt={'picture'}
             />
           )}
