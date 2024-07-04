@@ -15,6 +15,11 @@ module.exports = withBundleAnalyzer({
         protocol: 'https',
         hostname: 'outstafford.nyc3.digitaloceanspaces.com',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'outstafford.com',
+        pathname: '/**',
       }
     ],
   },
