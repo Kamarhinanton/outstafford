@@ -77,6 +77,7 @@ export const getStaticProps = async ({ params }: SlugProps) => {
       props: {
         career,
       },
+      revalidate: 10,
     }
   } catch (error) {
     console.error(error)

@@ -41,6 +41,7 @@ export const getStaticProps = async () => {
 
     return {
       props: { blogs, filterTopics },
+      revalidate: 10,
     }
   } catch (error) {
     console.error(error)

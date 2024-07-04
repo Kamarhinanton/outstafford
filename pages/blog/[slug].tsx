@@ -96,6 +96,7 @@ export const getStaticProps = async ({ params }: SlugProps) => {
         blog,
         blogs,
       },
+      revalidate: 10,
     }
   } catch (error) {
     console.error(error)

@@ -88,6 +88,7 @@ export const getStaticProps = async ({ params }: SlugProps) => {
       })
     return {
       props: { project, projects },
+      revalidate: 10,
     }
   } catch (error) {
     console.error(error)

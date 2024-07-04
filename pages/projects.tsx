@@ -48,6 +48,7 @@ export const getStaticProps = async () => {
 
     return {
       props: { projects, projectTopics },
+      revalidate: 10,
     }
   } catch (error) {
     console.error(error)

@@ -32,6 +32,7 @@ export const getStaticProps = async () => {
     }))
     return {
       props: { careers },
+      revalidate: 10,
     }
   } catch (error) {
     console.error(error)
