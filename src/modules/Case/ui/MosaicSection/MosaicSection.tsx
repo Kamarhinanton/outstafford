@@ -39,6 +39,7 @@ const MosaicSection: FC<MosaicSectionType> = ({ mosaic }) => {
                           alt={'author'}
                           position={'cover'}
                           className={styles['quote__bottom_img']}
+                          loading="eager"
                         />
                       )}
                       <div className={styles['quote__bottom_naming']}>
@@ -69,6 +70,7 @@ const MosaicSection: FC<MosaicSectionType> = ({ mosaic }) => {
                   alt={'picture'}
                   className={styles['image']}
                   position={'cover'}
+                  loading="eager"
                 />
               )}
               {mosaic.doubleImg && (
@@ -79,6 +81,7 @@ const MosaicSection: FC<MosaicSectionType> = ({ mosaic }) => {
                       alt={'picture'}
                       className={styles['image']}
                       position={'cover'}
+                      loading="eager"
                     />
                   )}
                   {mosaic.doubleImg.img2.data.attributes.url && (
@@ -87,6 +90,7 @@ const MosaicSection: FC<MosaicSectionType> = ({ mosaic }) => {
                       alt={'picture'}
                       className={styles['image']}
                       position={'cover'}
+                      loading="eager"
                     />
                   )}
                 </div>
@@ -97,6 +101,7 @@ const MosaicSection: FC<MosaicSectionType> = ({ mosaic }) => {
                   alt={'picture'}
                   className={classNames(styles['image'], styles['mob'])}
                   position={'cover'}
+                  loading="eager"
                 />
               )}
             </div>

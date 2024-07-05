@@ -20,11 +20,12 @@ const OurPortfolio = () => {
               rotateRangeY={['-10deg', '10deg']}
             >
               <BackgroundImage
-                src={'/images/Projects/MyAI/m-4.jpg'}
+                src={'/images/Home/more.jpg'}
                 alt={'picture'}
                 className={styles['image']}
                 position={'cover'}
                 quality={100}
+                loading="eager"
               />
               <h2 className={classNames(styles['title'], 'h2')}>
                 Explore our Projects

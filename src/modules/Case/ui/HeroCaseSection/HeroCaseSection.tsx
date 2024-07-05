@@ -76,6 +76,7 @@ const HeroCaseSection = ({ hero, hero_columns, project_topics }: HeroCase) => {
             src={hero.preview.data.attributes.url}
             alt={'picture'}
             position={'cover'}
+            loading="eager"
           />
         )}
       </Container>

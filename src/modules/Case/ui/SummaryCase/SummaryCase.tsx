@@ -28,6 +28,7 @@ const SummaryCase = ({ summary }: SummaryCaseType) => {
                   alt={'picture'}
                   className={styles['image']}
                   position={'contain'}
+                  loading="eager"
                 />
               )}
               <div className={styles['text']}>

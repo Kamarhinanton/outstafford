@@ -51,6 +51,7 @@ const Industries: FC<IndustriesType> = ({ innerVariant, blogs }) => {
                       src={item.preview}
                       alt={'picture'}
                       className={styles['card__content_img']}
+                      loading="eager"
                     />
                     <div className={styles['card__content_text']}>
                       <TopicList

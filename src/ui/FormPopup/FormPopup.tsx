@@ -48,6 +48,7 @@ const FormPopup: FC<FormPopupType> = ({ error, setIsVisible }) => {
               src={'/images/logo.png'}
               alt={'logo'}
               position={'contain'}
+              loading="eager"
             />
             {error ? (
               <>

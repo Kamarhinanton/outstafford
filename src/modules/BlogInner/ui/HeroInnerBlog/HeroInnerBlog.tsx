@@ -26,6 +26,7 @@ const HeroInnerBlog = ({ blog }: { blog: SingleBlogResultType }) => {
               className={styles['hero-inner__content_img']}
               src={blog.preview}
               alt={'picture'}
+              loading="eager"
             />
           )}
           {blog.link && (

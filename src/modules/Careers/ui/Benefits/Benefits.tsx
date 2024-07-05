@@ -62,6 +62,7 @@ const Benefits = () => {
                       position={'cover'}
                       src={item.image}
                       alt={'picture'}
+                      loading="eager"
                     />
                   )}
                   <h3

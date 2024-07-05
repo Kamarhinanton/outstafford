@@ -66,6 +66,7 @@ const PartnerReviews = () => {
                 src={slide.preview}
                 alt={'picture'}
                 position={'cover'}
+                loading="eager"
                 onClick={() => playVideo(slide.id)}
               />
               <div className={styles['top-description']}>

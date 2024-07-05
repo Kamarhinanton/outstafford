@@ -55,6 +55,7 @@ const OurServices = () => {
                   src={item.url}
                   alt={'picture'}
                   className={styles['item__image']}
+                  loading="eager"
                 />
                 <h3 className={classNames(styles['item__text'], 'h3')}>
                   {item.title}

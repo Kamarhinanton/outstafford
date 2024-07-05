@@ -31,6 +31,7 @@ const BlogSection: FC<BlogSectionType> = ({ filteredBlogData }) => {
                       position={'cover'}
                       src={item.preview}
                       alt={'picture'}
+                      loading="eager"
                       className={styles['card__content_img']}
                     />
                     <div className={styles['card__content_text']}>

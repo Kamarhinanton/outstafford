@@ -45,6 +45,7 @@ const OurTeam = () => {
                 alt={'picture'}
                 position={'cover'}
                 quality={100}
+                loading="eager"
               />
               <Link
                 scroll={false}

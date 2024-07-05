@@ -27,6 +27,7 @@ const BlogEditor: FC<EditorBlogType> = ({ editor }) => {
                     src={image.url}
                     alt={'picture'}
                     position={'cover'}
+                    loading="eager"
                   />
                 )
               },

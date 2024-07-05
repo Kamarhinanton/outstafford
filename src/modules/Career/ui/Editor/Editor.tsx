@@ -46,6 +46,7 @@ const Editor = ({ career }: SingleCareerResultType) => {
                         src={image.url}
                         alt={'picture'}
                         position={'cover'}
+                        loading="eager"
                       />
                     )
                   },
