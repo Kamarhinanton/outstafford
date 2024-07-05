@@ -16,7 +16,7 @@ export default function Career({ career }: SingleCareerResultType) {
       <Head>
         <title>{career.title}</title>
       </Head>
-      <PageTransitionLayout title={career.title}>
+      <PageTransitionLayout description={'JOIN GROW SUCCEED'}>
         <CareerContent career={career} />
       </PageTransitionLayout>
     </>

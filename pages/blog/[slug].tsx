@@ -23,7 +23,7 @@ export default function BlogInner({
       <Head>
         <title>{blog.title}</title>
       </Head>
-      <PageTransitionLayout title={blog.title}>
+      <PageTransitionLayout description={'DISCOVER CREATE CONNECT'}>
         <BlogInnerContent blog={blog} blogs={blogs} />
       </PageTransitionLayout>
     </>
