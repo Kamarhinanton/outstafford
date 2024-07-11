@@ -33,7 +33,7 @@
 
     .header-submenu {
       &__wrapper {
-        bottom: 148rem;
+        bottom: 160rem;
       }
     }
   }
@@ -42,7 +42,7 @@
     position: absolute;
     z-index: -1;
     content: '';
-    inset: -300rem -200rem -148rem;
+    inset: -300rem -200rem -160rem;
   }
 
   &__wrapper {
