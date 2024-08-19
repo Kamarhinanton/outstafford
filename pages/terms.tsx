@@ -24,7 +24,7 @@ export default function Terms() {
             <p>
               Welcome to Outstafford! By accessing or using our website and
               services, you agree to be bound by these Terms of Service. Please
-              read them carefully. Lorem
+              read them carefully.
             </p>
             <h2>Services</h2>
             <p>

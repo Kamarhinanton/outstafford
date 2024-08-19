@@ -60,7 +60,7 @@ export const headerSubmenuData: HeaderSubmenuData = [
         link: 'Telegram',
       },
       {
-        href: 'https://calendly.com/outstafford/30-min-intro-meeting',
+        href: 'https://calendly.com/outstafford/meeting-x-art-larin',
         src: '/images/calendly_i.svg',
         link: 'Book a meeting',
       },
