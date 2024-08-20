@@ -55,5 +55,5 @@ yarn start
 Deploy to Vercel automatically after push to branch main
 
 Deploy branch:
-[main](https://outstafford.vercel.app/)
+[main](https://outstafford.com)
 
